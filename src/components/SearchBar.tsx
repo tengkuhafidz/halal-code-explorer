@@ -25,14 +25,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         </div>
         <input
           type="text"
-          className="w-full py-4 pl-12 pr-4 bg-background border-2 border-border focus:border-primary rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+          className="w-full py-4 pl-12 pr-24 bg-background border-2 border-border focus:border-primary rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200"
           placeholder="Search by E-code or additive name (e.g., E100, Curcumin)"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <button
           type="submit"
-          className="absolute inset-y-0 right-3 flex items-center px-4 text-sm font-medium text-white bg-primary rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+          className="absolute inset-y-0 right-0 flex items-center px-4 my-2 mr-2 text-sm font-medium text-white bg-primary rounded-xl opacity-90 hover:opacity-100 transition-opacity"
         >
           Search
         </button>
