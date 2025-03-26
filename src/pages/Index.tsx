@@ -12,8 +12,7 @@ import { searchECodes, getFeaturedECodes } from '../services/eCodeService';
 import { ECodeData } from '../components/ECode';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/ui/button';
-import { Share2 } from 'lucide-react';
-import { toast } from 'sonner';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Index = () => {
   const [searchResults, setSearchResults] = useState<ECodeData[]>([]);
@@ -27,6 +26,7 @@ const Index = () => {
   
   const navigate = useNavigate();
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   // Parse URL parameters on initial load
   useEffect(() => {
@@ -119,16 +119,6 @@ const Index = () => {
     setActiveFilter(status);
   };
 
-  const handleShareClick = () => {
-    navigator.clipboard.writeText(window.location.href)
-      .then(() => {
-        toast.success("Link copied to clipboard!");
-      })
-      .catch(() => {
-        toast.error("Failed to copy link. Please try again.");
-      });
-  };
-
   return (
     <ThemeProvider>
       <div className="min-h-screen flex flex-col">
@@ -137,23 +127,15 @@ const Index = () => {
         <main className="flex-grow">
           <Hero />
           
-          <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto px-4 py-6">
             <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
             
             {hasSearched ? (
               <>
-                <div className="flex justify-between items-center mt-16 mb-6">
-                  <h2 className="text-2xl font-bold text-center">
+                <div className={`flex justify-between items-center ${isMobile ? 'mt-6 mb-2' : 'mt-16 mb-6'}`}>
+                  <h2 className="text-2xl font-bold">
                     Search Results
                   </h2>
-                  <Button 
-                    onClick={handleShareClick}
-                    variant="outline"
-                    className="flex items-center gap-2"
-                  >
-                    <Share2 className="h-4 w-4" />
-                    Share Results
-                  </Button>
                 </div>
                 <StatusDistribution 
                   items={searchResults} 
@@ -164,18 +146,10 @@ const Index = () => {
               </>
             ) : (
               <>
-                <div className="flex justify-between items-center mt-16 mb-6">
-                  <h2 className="text-2xl font-bold text-center">
+                <div className={`flex justify-between items-center ${isMobile ? 'mt-6 mb-2' : 'mt-16 mb-6'}`}>
+                  <h2 className="text-2xl font-bold">
                     Common E-Codes
                   </h2>
-                  <Button 
-                    onClick={handleShareClick}
-                    variant="outline"
-                    className="flex items-center gap-2"
-                  >
-                    <Share2 className="h-4 w-4" />
-                    Share Results
-                  </Button>
                 </div>
                 <StatusDistribution 
                   items={featured} 

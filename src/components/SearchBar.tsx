@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Search as SearchIcon } from 'lucide-react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -9,6 +10,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery);
+  const isMobile = useIsMobile();
   
   // Update local state when initialQuery changes
   useEffect(() => {
@@ -32,7 +34,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
         <input
           type="text"
           className="w-full py-4 pl-12 pr-24 bg-background border-2 border-border focus:border-primary rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200"
-          placeholder="Search by E-code or additive name (e.g., E100, Curcumin)"
+          placeholder={isMobile ? "Search E-codes..." : "Search by E-code or additive name (e.g., E100, Curcumin)"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

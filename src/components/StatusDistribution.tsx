@@ -4,6 +4,7 @@ import { ECodeData } from './ECode';
 import { Check, X, AlertTriangle } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface StatusDistributionProps {
   items: ECodeData[];
@@ -12,6 +13,8 @@ interface StatusDistributionProps {
 }
 
 const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFilter, onFilterChange }) => {
+  const isMobile = useIsMobile();
+  
   if (!items || items.length === 0) return null;
   
   const counts = {
@@ -45,9 +48,10 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
   ];
   
   return (
-    <div className="flex flex-wrap justify-center gap-4 mt-8">
+    <div className={`flex flex-wrap ${isMobile ? 'justify-start gap-2' : 'justify-center gap-4'} mt-4 mb-2`}>
       <Button 
         variant="outline" 
+        size={isMobile ? "sm" : "default"}
         className={cn(
           "border-2", 
           activeFilter === null ? "border-primary" : "border-transparent"
@@ -61,6 +65,7 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
         <Button 
           key={status}
           variant="outline"
+          size={isMobile ? "sm" : "default"}
           className={cn(
             "flex items-center space-x-2 border-2", 
             activeFilter === status ? "border-primary" : "border-transparent"
@@ -68,11 +73,11 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
           onClick={() => onFilterChange(status)}
         >
           <div className={`${color} p-1.5 rounded-lg text-white`}>
-            <Icon className="h-4 w-4" />
+            <Icon className="h-3 w-3" />
           </div>
-          <div className="flex gap-2 items-center">
-            <span>{label}</span>
-            <span className="text-sm font-medium rounded-full px-2 py-0.5 bg-secondary">
+          <div className="flex gap-1 items-center">
+            <span>{isMobile ? label.charAt(0) : label}</span>
+            <span className="text-xs font-medium rounded-full px-2 py-0.5 bg-secondary">
               {count}
             </span>
           </div>
