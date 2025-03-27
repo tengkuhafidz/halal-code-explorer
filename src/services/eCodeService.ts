@@ -1,3 +1,4 @@
+
 import { ECodeData } from '../components/ECode';
 
 // Database populated from the provided PDF source
@@ -704,7 +705,7 @@ const ecodeDatabase: ECodeData[] = [
   }
 ];
 
-// Search function that filters the database based on a query string
+// Search function that filters the database based on multiple query strings
 export const searchECodes = (query: string): Promise<ECodeData[]> => {
   return new Promise((resolve) => {
     // Simulate API delay
@@ -714,12 +715,43 @@ export const searchECodes = (query: string): Promise<ECodeData[]> => {
         return;
       }
       
-      const normalizedQuery = query.toLowerCase().trim();
+      // Split the query by commas and clean up each term
+      const searchTerms = query.split(',')
+        .map(term => term.trim().toLowerCase())
+        .filter(term => term.length > 0);
       
-      const results = ecodeDatabase.filter(item => 
-        item.code.toLowerCase().includes(normalizedQuery) || 
-        item.name.toLowerCase().includes(normalizedQuery)
-      );
+      if (searchTerms.length === 0) {
+        resolve([]);
+        return;
+      }
+      
+      // For each search term, find matching E-codes
+      let results: ECodeData[] = [];
+      
+      // If only one search term, use the original logic
+      if (searchTerms.length === 1) {
+        const normalizedQuery = searchTerms[0];
+        results = ecodeDatabase.filter(item => 
+          item.code.toLowerCase().includes(normalizedQuery) || 
+          item.name.toLowerCase().includes(normalizedQuery)
+        );
+      } else {
+        // For multiple terms, combine the results (union)
+        const uniqueResults = new Map<string, ECodeData>();
+        
+        searchTerms.forEach(term => {
+          ecodeDatabase.forEach(item => {
+            if (
+              item.code.toLowerCase().includes(term) || 
+              item.name.toLowerCase().includes(term)
+            ) {
+              uniqueResults.set(item.code, item);
+            }
+          });
+        });
+        
+        results = Array.from(uniqueResults.values());
+      }
       
       resolve(results);
     }, 500); // Simulate a 500ms API delay

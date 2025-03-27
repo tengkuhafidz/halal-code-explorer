@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Search as SearchIcon } from 'lucide-react';
+import { Search as SearchIcon, X } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
 
 interface SearchBarProps {
@@ -22,6 +22,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
     onSearch(query);
   };
 
+  // Parse comma-separated values and format them as tags
+  const parsedTags = query.split(',')
+    .map(tag => tag.trim())
+    .filter(tag => tag.length > 0);
+
+  const handleTagRemove = (tagToRemove: string) => {
+    const newQuery = parsedTags
+      .filter(tag => tag !== tagToRemove)
+      .join(', ');
+    setQuery(newQuery);
+    onSearch(newQuery);
+  };
+
   return (
     <div className="w-full max-w-2xl mx-auto">
       <form 
@@ -34,7 +47,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
         <input
           type="text"
           className="w-full py-4 pl-12 pr-24 bg-background border-2 border-border focus:border-primary rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200"
-          placeholder={isMobile ? "Search E-codes..." : "Search by E-code or additive name (e.g., E100, Curcumin)"}
+          placeholder={isMobile ? "E100, E200, etc..." : "Search multiple E-codes (e.g., E100, E200, Curcumin)"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -45,6 +58,27 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           Search
         </button>
       </form>
+
+      {/* Display tags for multiple search terms */}
+      {parsedTags.length > 1 && (
+        <div className="flex flex-wrap gap-2 mt-2">
+          {parsedTags.map((tag, index) => (
+            <div 
+              key={index} 
+              className="flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+            >
+              <span>{tag}</span>
+              <button 
+                type="button"
+                onClick={() => handleTagRemove(tag)}
+                className="rounded-full p-0.5 hover:bg-primary/20 transition-colors"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

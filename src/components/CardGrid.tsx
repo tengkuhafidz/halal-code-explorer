@@ -36,7 +36,9 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
           </svg>
         </div>
         <h3 className="mt-4 text-xl font-medium text-muted-foreground">No results found</h3>
-        <p className="mt-2 text-muted-foreground">Try searching for another E-code or additive name.</p>
+        <p className="mt-2 text-muted-foreground">
+          Try searching for different E-codes or additives, or check your comma-separated format.
+        </p>
       </div>
     );
   }

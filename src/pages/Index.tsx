@@ -11,7 +11,6 @@ import { ThemeProvider } from '../hooks/use-theme';
 import { searchECodes, getFeaturedECodes } from '../services/eCodeService';
 import { ECodeData } from '../components/ECode';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Button } from '../components/ui/button';
 import { useIsMobile } from '../hooks/use-mobile';
 
 const Index = () => {
@@ -93,7 +92,7 @@ const Index = () => {
 
   const handleSearch = async (query: string) => {
     setIsLoading(true);
-    setHasSearched(true);
+    setHasSearched(!!query.trim());
     setSearchQuery(query);
     
     try {
@@ -119,6 +118,9 @@ const Index = () => {
     setActiveFilter(status);
   };
 
+  // Determine if search is using multiple terms
+  const isMultiSearch = searchQuery.split(',').filter(t => t.trim()).length > 1;
+
   return (
     <ThemeProvider>
       <div className="min-h-screen flex flex-col">
@@ -134,7 +136,7 @@ const Index = () => {
               <>
                 <div className={`flex justify-between items-center ${isMobile ? 'mt-6 mb-2' : 'mt-16 mb-6'}`}>
                   <h2 className="text-2xl font-bold">
-                    Search Results
+                    Search Results {isMultiSearch && " (Multiple E-codes)"}
                   </h2>
                 </div>
                 <StatusDistribution 
