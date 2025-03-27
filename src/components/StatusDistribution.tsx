@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ECodeData } from './ECode';
-import { Check, X, AlertTriangle } from 'lucide-react';
+import { Check, AlertTriangle } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '../hooks/use-mobile';
@@ -19,8 +19,7 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
   
   const counts = {
     halal: items.filter(item => item.status === 'halal').length,
-    haram: items.filter(item => item.status === 'haram').length,
-    mushbooh: items.filter(item => item.status === 'mushbooh').length
+    doubtful: items.filter(item => item.status === 'doubtful').length
   };
   
   const statusInfo = [
@@ -32,18 +31,11 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
       color: 'bg-halal'
     },
     {
-      status: 'haram',
-      label: 'Haram',
-      count: counts.haram,
-      icon: X,
-      color: 'bg-haram'
-    },
-    {
-      status: 'mushbooh',
-      label: 'Mushbooh',
-      count: counts.mushbooh,
+      status: 'doubtful',
+      label: 'Doubtful',
+      count: counts.doubtful,
       icon: AlertTriangle,
-      color: 'bg-mushbooh'
+      color: 'bg-haram'
     }
   ];
   

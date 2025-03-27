@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Check, X, AlertTriangle, Share2 } from 'lucide-react';
+import { Check, AlertTriangle, Share2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 export interface ECodeData {
   code: string;
   name: string;
   description: string;
-  status: 'halal' | 'haram' | 'mushbooh';
+  status: 'halal' | 'doubtful';
   source?: string;
 }
 
@@ -23,17 +23,11 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
       icon: Check,
       text: 'Halal',
     },
-    haram: {
+    doubtful: {
       color: 'bg-haram/10 text-haram border-haram/20',
       bgColor: 'bg-haram/5',
-      icon: X,
-      text: 'Haram',
-    },
-    mushbooh: {
-      color: 'bg-mushbooh/10 text-mushbooh border-mushbooh/20',
-      bgColor: 'bg-mushbooh/5',
       icon: AlertTriangle,
-      text: 'Mushbooh (Doubtful)',
+      text: 'Doubtful',
     },
   };
 
