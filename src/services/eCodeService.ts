@@ -21,21 +21,21 @@ const ecodeDatabase: ECodeData[] = [
     code: 'E120',
     name: 'Cochineal / Carminic Acid',
     description: 'Red color extracted from the dried bodies of female insect Dactylopius coccus. Used in fruit drinks, sweets, and cosmetics.',
-    status: 'haram',
+    status: 'doubtful',
     source: 'Insect-derived'
   },
   {
     code: 'E422',
     name: 'Glycerol / Glycerin',
     description: 'A sweet-tasting, colorless, thick liquid. Used as a sweetener, solvent, and preservative in food and pharmaceutical products.',
-    status: 'mushbooh',
+    status: 'doubtful',
     source: 'Can be derived from animal fats or vegetable oils'
   },
   {
     code: 'E471',
     name: 'Mono- and diglycerides of fatty acids',
     description: 'Emulsifiers used in baked goods, ice cream, chewing gum, shortening, whipped toppings, margarine.',
-    status: 'mushbooh',
+    status: 'doubtful',
     source: 'Can be derived from animal fats or vegetable oils'
   },
   {
@@ -56,21 +56,21 @@ const ecodeDatabase: ECodeData[] = [
     code: 'E904',
     name: 'Shellac',
     description: 'A resin secreted by the female lac bug. Used as glazing agent for pills, candy, and fruit coating.',
-    status: 'haram',
+    status: 'doubtful',
     source: 'Insect-derived'
   },
   {
     code: 'E441',
     name: 'Gelatin',
     description: 'A translucent, colorless, flavorless food ingredient derived from collagen. Used in jellies, candies, and marshmallows.',
-    status: 'haram',
+    status: 'doubtful',
     source: 'Animal-derived (usually from pig or cow)'
   },
   {
     code: 'E631',
     name: 'Sodium Inosinate',
     description: 'A flavor enhancer used in conjunction with monosodium glutamate (MSG) in many savory foods.',
-    status: 'mushbooh',
+    status: 'doubtful',
     source: 'Can be derived from animal or plant sources'
   }
 ];
