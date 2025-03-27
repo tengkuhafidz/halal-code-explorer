@@ -49,13 +49,14 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
 
   return (
     <div className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in`}>
-      <div className="flex flex-col space-y-2">
-        <div className="flex justify-between items-start w-full">
-          <div className="flex-grow pr-2">
+      <div className="relative">
+        {/* Header with code, name and share button */}
+        <div className="flex justify-between items-start mb-3">
+          <div className="pr-8 flex-grow">
             <h3 className="text-xl font-semibold">{data.code}</h3>
             <p className="text-lg font-medium truncate">{data.name}</p>
           </div>
-          <div className="flex-shrink-0">
+          <div className="absolute right-0 top-0">
             <button 
               onClick={handleShare}
               className="p-1.5 rounded-full hover:bg-background/80 transition-colors"
@@ -65,7 +66,9 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
             </button>
           </div>
         </div>
-        <div>
+        
+        {/* Status badge */}
+        <div className="mb-3">
           <div className={`inline-flex items-center px-3 py-1 rounded-full ${color}`}>
             <Icon className="h-4 w-4 mr-1" />
             <span className="text-sm font-medium">{text}</span>
@@ -73,8 +76,10 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
         </div>
       </div>
       
+      {/* Description */}
       <p className="mt-3 text-muted-foreground">{data.description}</p>
       
+      {/* Source */}
       {data.source && (
         <p className="mt-2 text-xs text-muted-foreground">
           <span className="font-semibold">Source:</span> {data.source}
