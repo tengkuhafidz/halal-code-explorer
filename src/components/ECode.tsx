@@ -52,9 +52,9 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
       <div className="relative">
         {/* Header with code, name and share button */}
         <div className="flex justify-between items-start mb-3">
-          <div className="pr-8 flex-grow">
+          <div className="flex-grow pr-8">
             <h3 className="text-xl font-semibold">{data.code}</h3>
-            <p className="text-lg font-medium truncate">{data.name}</p>
+            <p className="text-lg font-medium truncate w-full">{data.name}</p>
           </div>
           <div className="absolute right-0 top-0">
             <button 
