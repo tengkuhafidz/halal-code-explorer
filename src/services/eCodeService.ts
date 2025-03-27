@@ -1,4 +1,3 @@
-
 import { ECodeData } from '../components/ECode';
 
 // Database populated from the provided PDF source
@@ -656,7 +655,7 @@ const ecodeDatabase: ECodeData[] = [
   },
   {
     code: 'E635',
-    name: 'Disodium 5'-ribonucleotides',
+    name: "Disodium 5'-ribonucleotides",
     description: 'Flavor enhancer used in savory foods.',
     status: 'doubtful',
     source: 'Can be derived from animal or plant sources'
