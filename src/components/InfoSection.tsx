@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Check, AlertTriangle, X } from 'lucide-react';
+import { Check, AlertTriangle } from 'lucide-react';
 
 const InfoSection = () => {
   const statusItems = [
@@ -11,16 +11,10 @@ const InfoSection = () => {
       color: 'bg-halal text-white'
     },
     {
-      title: 'Mushbooh (Doubtful)',
+      title: 'Doubtful',
       description: 'Additives with unclear origins or multiple possible sources, some of which might be non-halal.',
       icon: AlertTriangle,
       color: 'bg-mushbooh text-white'
-    },
-    {
-      title: 'Haram',
-      description: 'Additives that are forbidden according to Islamic law, typically derived from non-halal animal sources.',
-      icon: X,
-      color: 'bg-haram text-white'
     }
   ];
 
@@ -34,7 +28,7 @@ const InfoSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {statusItems.map((item, index) => (
             <div 
               key={index} 

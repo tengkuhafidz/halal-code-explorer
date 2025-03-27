@@ -24,8 +24,8 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
       text: 'Halal',
     },
     doubtful: {
-      color: 'bg-haram/10 text-haram border-haram/20',
-      bgColor: 'bg-haram/5',
+      color: 'bg-mushbooh/10 text-mushbooh border-mushbooh/20',
+      bgColor: 'bg-mushbooh/5',
       icon: AlertTriangle,
       text: 'Doubtful',
     },
@@ -49,20 +49,24 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
 
   return (
     <div className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in`}>
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="text-xl font-semibold">{data.code}</h3>
-          <p className="text-lg font-medium">{data.name}</p>
+      <div className="flex flex-col space-y-2">
+        <div className="flex justify-between items-start w-full">
+          <div className="flex-grow pr-2">
+            <h3 className="text-xl font-semibold">{data.code}</h3>
+            <p className="text-lg font-medium truncate">{data.name}</p>
+          </div>
+          <div className="flex-shrink-0">
+            <button 
+              onClick={handleShare}
+              className="p-1.5 rounded-full hover:bg-background/80 transition-colors"
+              aria-label={`Share ${data.code}`}
+            >
+              <Share2 className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </div>
         </div>
-        <div className="flex gap-2">
-          <button 
-            onClick={handleShare}
-            className="p-1.5 rounded-full hover:bg-background/80 transition-colors"
-            aria-label={`Share ${data.code}`}
-          >
-            <Share2 className="h-4 w-4 text-muted-foreground" />
-          </button>
-          <div className={`flex items-center px-3 py-1 rounded-full ${color}`}>
+        <div>
+          <div className={`inline-flex items-center px-3 py-1 rounded-full ${color}`}>
             <Icon className="h-4 w-4 mr-1" />
             <span className="text-sm font-medium">{text}</span>
           </div>
