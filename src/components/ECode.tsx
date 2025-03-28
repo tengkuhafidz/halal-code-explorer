@@ -4,11 +4,11 @@ import { Check, AlertTriangle, Share2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 export interface ECodeData {
-  code: string;
-  name: string;
-  description: string;
-  status: 'halal' | 'doubtful';
-  source?: string;
+  code: string;        // Will map to "E-Code" in the original schema
+  name: string;        // Will map to "Chemical_Name"
+  description: string; // Will map to "Description" + "Remarks"
+  status: 'halal' | 'doubtful'; // Will map to "HALAL" boolean
+  source?: string;     // Will be derived from "Remarks"
 }
 
 interface ECodeProps {
