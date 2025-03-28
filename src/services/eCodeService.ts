@@ -2137,18 +2137,5 @@ export const searchECodes = (query: string): Promise<ECodeData[]> => {
   });
 };
 
-// Get all E-codes function
-export const getAllECodes = (): Promise<ECodeData[]> => {
-  return new Promise((resolve) => {
-    // Simulate API delay
-    setTimeout(() => {
-      resolve(ecodeDatabase);
-    }, 500);
-  });
-};
-
-// Get popular/featured E-codes function
-export const getFeaturedECodes = (): ECodeData[] => {
-  return ecodeDatabase;
-  });
-};
+export const getAllECodes = (): ECodeData[] => (ecodeDatabase);
+export const getFeaturedECodes = (): ECodeData[] => (ecodeDatabase);
