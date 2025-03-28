@@ -3,7 +3,7 @@ import { ECodeData } from '../components/ECode';
 // Database populated from the provided schema structure
 const rawEcodeDatabase = [
     {
-      "E-Code": "100",
+      "E-Code": "E100",
       "Chemical_Name": "Curcumin (C.I. 75300)",
       "Description": "Colouring",
       "Remarks": "Orange-yellow colouring extracted from the rhizome of a plant of the ginger family called *Curcuma longa* (turmeric)",
@@ -2148,12 +2148,7 @@ export const getAllECodes = (): Promise<ECodeData[]> => {
 };
 
 // Get popular/featured E-codes function
-export const getFeaturedECodes = (): Promise<ECodeData[]> => {
-  return new Promise((resolve) => {
-    // Simulate API delay
-    setTimeout(() => {
-      // Return a subset of the database
-      resolve(ecodeDatabase.slice(0, 12));
-    }, 500);
+export const getFeaturedECodes = (): ECodeData[] => {
+  return ecodeDatabase;
   });
 };
