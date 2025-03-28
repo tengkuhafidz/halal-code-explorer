@@ -10,9 +10,11 @@ const Header = () => {
     <header className="py-6 w-full glass-morphism sticky top-0 z-50 border-b">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center animate-float">
-            <span className="text-primary-foreground font-bold text-xl">E</span>
-          </div>
+          <img 
+            src="https://media.publit.io/file/projectassets/ehc-logo.webp" 
+            alt="ECodes Halal Check Logo" 
+            className="h-10 w-auto"
+          />
           <h1 className="text-xl font-bold">E-Code <span className="text-primary">Halal</span> Check</h1>
         </div>
         
