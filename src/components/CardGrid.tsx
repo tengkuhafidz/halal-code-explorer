@@ -43,11 +43,17 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
     );
   }
 
+  // Add a counter display to show how many items are being displayed
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-      {items.map((item) => (
-        <ECode key={item.code} data={item} />
-      ))}
+    <div className="mt-4">
+      <div className="mb-4 text-sm text-muted-foreground">
+        Showing {items.length} {items.length === 1 ? 'result' : 'results'}
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map((item) => (
+          <ECode key={item.code} data={item} />
+        ))}
+      </div>
     </div>
   );
 };
