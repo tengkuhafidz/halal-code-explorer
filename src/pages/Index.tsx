@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -27,7 +26,6 @@ const Index = () => {
   const location = useLocation();
   const isMobile = useIsMobile();
 
-  // Parse URL parameters on initial load
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const query = params.get('q');
@@ -43,7 +41,6 @@ const Index = () => {
     }
   }, [location.search]);
 
-  // Update URL when search or filter changes
   useEffect(() => {
     const params = new URLSearchParams();
     
@@ -77,7 +74,6 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    // Apply filters when activeFilter changes
     if (activeFilter) {
       if (hasSearched) {
         setFilteredResults(searchResults.filter(item => item.status === activeFilter));
@@ -99,7 +95,6 @@ const Index = () => {
       const results = await searchECodes(query);
       setSearchResults(results);
       
-      // Apply current filter to new search results
       if (activeFilter) {
         setFilteredResults(results.filter(item => item.status === activeFilter));
       } else {
@@ -118,7 +113,6 @@ const Index = () => {
     setActiveFilter(status);
   };
 
-  // Determine if search is using multiple terms
   const isMultiSearch = searchQuery.split(',').filter(t => t.trim()).length > 1;
 
   return (
@@ -132,35 +126,27 @@ const Index = () => {
           <div className="container mx-auto px-4 py-6">
             <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
             
-            {hasSearched ? (
-              <>
-                <div className={`flex justify-between items-center ${isMobile ? 'mt-6 mb-2' : 'mt-16 mb-6'}`}>
-                  <h2 className="text-2xl font-bold">
-                    Search Results {isMultiSearch && " (Multiple E-codes)"}
-                  </h2>
-                </div>
-                <StatusDistribution 
-                  items={searchResults} 
-                  activeFilter={activeFilter}
-                  onFilterChange={handleFilterChange}
-                />
-                <CardGrid items={filteredResults} isLoading={isLoading} />
-              </>
-            ) : (
-              <>
-                <div className={`flex justify-between items-center ${isMobile ? 'mt-6 mb-2' : 'mt-16 mb-6'}`}>
-                  <h2 className="text-2xl font-bold">
-                    Common E-Codes
-                  </h2>
-                </div>
-                <StatusDistribution 
-                  items={featured} 
-                  activeFilter={activeFilter}
-                  onFilterChange={handleFilterChange}
-                />
-                <CardGrid items={filteredFeatured} isLoading={isLoading} />
-              </>
-            )}
+            <div className="text-center text-sm text-muted-foreground mt-3">
+              Data sourced from <a 
+                href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
+              >
+                MUIS
+              </a>
+            </div>
+            
+            <StatusDistribution 
+              items={hasSearched ? searchResults : featured} 
+              activeFilter={activeFilter}
+              onFilterChange={handleFilterChange}
+            />
+            
+            <CardGrid 
+              items={hasSearched ? filteredResults : filteredFeatured} 
+              isLoading={isLoading} 
+            />
           </div>
           
           <InfoSection />
