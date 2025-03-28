@@ -60,7 +60,7 @@ const Index = () => {
     const loadFeatured = async () => {
       setIsLoading(true);
       try {
-        const data = await getFeaturedECodes();
+        const data = getFeaturedECodes();
         setFeatured(data);
         setFilteredFeatured(data);
       } catch (error) {
