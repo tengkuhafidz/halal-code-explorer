@@ -36,7 +36,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
     
     // Scroll to top when page changes
     window.scrollTo({
-      top: document.getElementById('results-top')?.offsetTop || 0,
+      top: document.getElementById('data-source')?.offsetTop || 0,
       behavior: 'smooth',
     });
   }, [currentPage, items]);

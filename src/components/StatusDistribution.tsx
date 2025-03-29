@@ -68,8 +68,8 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
             <Icon className="h-3 w-3" />
           </div>
           <div className="flex gap-1 items-center">
-            {/* <span>{isMobile ? label.charAt(0) : label}</span> */}
-            <span className="text-xs font-medium rounded-full px-2 py-0.5 bg-secondary">
+            <span>{isMobile ? "" : label}</span>
+            <span className={`text-xs font-medium rounded-full ${isMobile ? "px-1" : "px-2"} py-0.5 bg-secondary`} >
               {count}
             </span>
           </div>

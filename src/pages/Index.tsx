@@ -126,8 +126,8 @@ const Index = () => {
           <div className="container mx-auto px-4 py-6">
             <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
             
-            <div className="text-center text-sm text-muted-foreground mt-3">
-              Data sourced from <a 
+            <div className="text-center text-sm text-muted-foreground mt-3" id="data-source">
+              Data source: <a 
                 href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
