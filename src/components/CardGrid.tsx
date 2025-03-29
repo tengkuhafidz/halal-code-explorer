@@ -1,13 +1,123 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ECode, { ECodeData } from './ECode';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from './ui/pagination';
 
 interface CardGridProps {
   items: ECodeData[];
   isLoading: boolean;
 }
 
+const ITEMS_PER_PAGE = 9;
+
 const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [paginatedItems, setPaginatedItems] = useState<ECodeData[]>([]);
+  const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+  
+  // Reset to page 1 when items change (e.g., when filters are applied)
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [items]);
+
+  // Update paginated items when page or items change
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    setPaginatedItems(items.slice(startIndex, endIndex));
+    
+    // Scroll to top when page changes
+    window.scrollTo({
+      top: document.getElementById('results-top')?.offsetTop || 0,
+      behavior: 'smooth',
+    });
+  }, [currentPage, items]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const renderPaginationItems = () => {
+    const items = [];
+    const maxVisiblePages = 5; // Maximum number of page numbers to show
+
+    // Always show first page
+    items.push(
+      <PaginationItem key="page-1">
+        <PaginationLink 
+          isActive={currentPage === 1} 
+          onClick={() => handlePageChange(1)}
+        >
+          1
+        </PaginationLink>
+      </PaginationItem>
+    );
+
+    // Calculate range of pages to show
+    let startPage = Math.max(2, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 3);
+    
+    if (endPage - startPage < maxVisiblePages - 3) {
+      startPage = Math.max(2, endPage - (maxVisiblePages - 3) + 1);
+    }
+
+    // Show ellipsis if needed
+    if (startPage > 2) {
+      items.push(
+        <PaginationItem key="ellipsis-1">
+          <PaginationEllipsis />
+        </PaginationItem>
+      );
+    }
+
+    // Show page numbers
+    for (let i = startPage; i <= endPage; i++) {
+      items.push(
+        <PaginationItem key={`page-${i}`}>
+          <PaginationLink 
+            isActive={currentPage === i} 
+            onClick={() => handlePageChange(i)}
+          >
+            {i}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    }
+
+    // Show ellipsis if needed
+    if (endPage < totalPages - 1) {
+      items.push(
+        <PaginationItem key="ellipsis-2">
+          <PaginationEllipsis />
+        </PaginationItem>
+      );
+    }
+
+    // Always show last page if there is more than one page
+    if (totalPages > 1) {
+      items.push(
+        <PaginationItem key={`page-${totalPages}`}>
+          <PaginationLink 
+            isActive={currentPage === totalPages} 
+            onClick={() => handlePageChange(totalPages)}
+          >
+            {totalPages}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    }
+
+    return items;
+  };
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
@@ -43,17 +153,36 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
     );
   }
 
-  // Add a counter display to show how many items are being displayed
   return (
-    <div className="mt-4">
+    <div className="mt-4" id="results-top">
       <div className="mb-4 text-sm text-muted-foreground">
-        Showing {items.length} {items.length === 1 ? 'result' : 'results'}
+        Showing {paginatedItems.length} of {items.length} {items.length === 1 ? 'result' : 'results'}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((item) => (
+        {paginatedItems.map((item) => (
           <ECode key={item.code} data={item} />
         ))}
       </div>
+      
+      {totalPages > 1 && (
+        <Pagination className="my-8">
+          <PaginationContent>
+            {currentPage > 1 && (
+              <PaginationItem>
+                <PaginationPrevious onClick={() => handlePageChange(currentPage - 1)} />
+              </PaginationItem>
+            )}
+            
+            {renderPaginationItems()}
+            
+            {currentPage < totalPages && (
+              <PaginationItem>
+                <PaginationNext onClick={() => handlePageChange(currentPage + 1)} />
+              </PaginationItem>
+            )}
+          </PaginationContent>
+        </Pagination>
+      )}
     </div>
   );
 };

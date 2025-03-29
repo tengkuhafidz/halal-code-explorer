@@ -33,6 +33,11 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
 
   const { color, icon: Icon, text, bgColor } = statusConfig[data.status];
 
+  // Split description and remarks
+  const parts = data.description.split(/Remarks:/i);
+  const usage = parts[0].trim();
+  const remarks = parts.length > 1 ? parts[1].trim() : '';
+
   const handleShare = () => {
     // Get current URL and add this specific E-code as a search parameter
     const url = new URL(window.location.href);
@@ -48,13 +53,13 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
   };
 
   return (
-    <div className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in`}>
+    <div className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in h-full`}>
       <div className="relative">
         {/* Header with code, name and share button */}
         <div className="flex justify-between items-start mb-3">
           <div className="flex-grow pr-8">
             <h3 className="text-xl font-semibold">{data.code}</h3>
-            <p className="text-lg font-medium truncate w-full">{data.name}</p>
+            <p className="text-lg font-medium break-words w-full">{data.name}</p>
           </div>
           <div className="absolute right-0 top-0">
             <button 
@@ -76,14 +81,20 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
         </div>
       </div>
       
-      {/* Description */}
-      <p className="mt-3 text-muted-foreground">{data.description}</p>
+      {/* Usage (previously Description) */}
+      {usage && (
+        <div className="mt-3">
+          <h4 className="text-sm font-semibold text-muted-foreground">Usage:</h4>
+          <p className="text-sm text-muted-foreground">{usage}</p>
+        </div>
+      )}
       
-      {/* Source */}
-      {data.source && (
-        <p className="mt-2 text-xs text-muted-foreground">
-          <span className="font-semibold">Source:</span> {data.source}
-        </p>
+      {/* Remarks (extracted from Description) */}
+      {remarks && (
+        <div className="mt-2">
+          <h4 className="text-sm font-semibold text-muted-foreground">Remarks:</h4>
+          <p className="text-sm text-muted-foreground">{remarks}</p>
+        </div>
       )}
     </div>
   );
