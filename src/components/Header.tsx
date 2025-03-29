@@ -13,7 +13,7 @@ const Header = () => {
           <img 
             src="https://media.publit.io/file/projectassets/ehc-logo.webp" 
             alt="ECodes Halal Check Logo" 
-            className="h-10 w-auto"
+            className="h-10 w-auto rounded"
           />
           <h1 className="text-xl font-bold">E-Code <span className="text-primary">Halal</span> Check</h1>
         </div>

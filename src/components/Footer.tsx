@@ -8,9 +8,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <div className="flex items-center space-x-3">
-              <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">E</span>
-              </div>
+              <img 
+                src="https://media.publit.io/file/projectassets/ehc-logo.webp" 
+                alt="ECodes Halal Check Logo" 
+                className="h-8 w-8 rounded"
+              />
               <h2 className="text-lg font-bold">E-Code <span className="text-primary">Halal</span> Check</h2>
             </div>
             <p className="text-sm text-muted-foreground mt-2">

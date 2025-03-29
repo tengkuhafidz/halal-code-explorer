@@ -80,7 +80,7 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
       {/* Usage (from the rawData's Description) */}
       {data.source && (
         <div className="mt-3">
-          <p className="text-sm text-muted-foreground"><strong>Usage:</strong>{data.source}</p>
+          <p className="text-sm text-muted-foreground"><strong>Usage:</strong> {data.source}</p>
         </div>
       )}
       
