@@ -2059,30 +2059,10 @@ const rawEcodeDatabase = [
 const ecodeDatabase: ECodeData[] = rawEcodeDatabase.map(item => ({
   code: item["E-Code"],
   name: item["Chemical_Name"],
-  description: `${item["Description"]}. ${item["Remarks"]}`,
+  description: item["Remarks"],
   status: item["HALAL"] ? 'halal' : 'doubtful',
-  source: extractSourceFromRemarks(item["Remarks"])
+  source: item["Description"]
 }));
-
-// Helper function to extract source information from remarks
-function extractSourceFromRemarks(remarks: string): string {
-  // A simple extraction logic - this can be made more sophisticated based on the actual data
-  if (remarks.includes("derived from")) {
-    const derivedIndex = remarks.indexOf("derived from");
-    return remarks.substring(derivedIndex);
-  }
-  
-  // Look for other potential source indicators
-  if (remarks.includes("from ")) {
-    const fromIndex = remarks.indexOf("from ");
-    // Extract a reasonable portion after "from"
-    const sourceText = remarks.substring(fromIndex + 5);
-    // Return up to the first period or the whole string if no period
-    return sourceText.includes(".") ? sourceText.substring(0, sourceText.indexOf(".")) : sourceText;
-  }
-  
-  return "";
-}
 
 // Search function that filters the database based on multiple query strings
 export const searchECodes = (query: string): Promise<ECodeData[]> => {

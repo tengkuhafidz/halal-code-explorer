@@ -34,10 +34,6 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
   const { color, icon: Icon, text, bgColor } = statusConfig[data.status];
 
   // Split description and remarks
-  const parts = data.description.split(/Remarks:/i);
-  const usage = parts[0].trim(); // This now properly refers to the rawData's description
-  const remarks = parts.length > 1 ? parts[1].trim() : '';
-
   const handleShare = () => {
     // Get current URL and add this specific E-code as a search parameter
     const url = new URL(window.location.href);
@@ -82,20 +78,18 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
       </div>
       
       {/* Usage (from the rawData's Description) */}
-      {usage && (
+      {data.source && (
         <div className="mt-3">
           <h4 className="text-sm font-semibold text-muted-foreground">Usage:</h4>
-          <p className="text-sm text-muted-foreground">{usage}</p>
+          <p className="text-sm text-muted-foreground">{data.source}</p>
         </div>
       )}
       
       {/* Remarks as a separate section */}
-      {remarks && (
+      
         <div className="mt-2">
-          <h4 className="text-sm font-semibold text-muted-foreground">Remarks:</h4>
-          <p className="text-sm text-muted-foreground">{remarks}</p>
+          <p className="text-sm text-muted-foreground">{data.description}</p>
         </div>
-      )}
     </div>
   );
 };
