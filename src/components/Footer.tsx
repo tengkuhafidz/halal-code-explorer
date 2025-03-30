@@ -24,17 +24,6 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} E-Code Halal Check. All rights reserved.
             </p>
-            <div className="flex space-x-4 mt-2">
-              <a href="#" className="text-sm text-foreground hover:text-primary transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-foreground hover:text-primary transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-sm text-foreground hover:text-primary transition-colors">
-                Contact
-              </a>
-            </div>
           </div>
         </div>
       </div>
