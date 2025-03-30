@@ -13,7 +13,7 @@ const Footer = () => {
                 alt="ECodes Halal Check Logo" 
                 className="h-8 w-8 rounded"
               />
-              <h2 className="text-lg font-bold">E-Code <span className="text-primary">Halal</span> Check</h2>
+              <h2 className="text-lg font-bold">E-Code <span className="text-halal">Halal</span> Check</h2>
             </div>
             <p className="text-sm text-muted-foreground mt-2">
               Helping you make informed choices about food additives.

@@ -53,7 +53,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
         />
         <button
           type="submit"
-          className="absolute inset-y-0 right-0 flex items-center px-4 my-2 mr-2 text-sm font-medium text-white bg-primary rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+          className="absolute inset-y-0 right-0 flex items-center px-4 my-2 mr-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity"
         >
           Search
         </button>

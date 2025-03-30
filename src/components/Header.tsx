@@ -15,7 +15,7 @@ const Header = () => {
             alt="ECodes Halal Check Logo" 
             className="h-10 w-auto rounded"
           />
-          <h1 className="text-xl font-bold">E-Code <span className="text-primary">Halal</span> Check</h1>
+          <h1 className="text-xl font-bold">E-Code <span className="text-halal">Halal</span> Check</h1>
         </div>
         
         <div className="flex items-center space-x-6">

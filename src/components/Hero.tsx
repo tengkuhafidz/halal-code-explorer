@@ -9,7 +9,7 @@ const Hero = () => {
           New & Improved Look
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance leading-tight animate-fade-in" style={{ animationDelay: '100ms' }}>
-          Is it <span className="text-primary">Halal</span> or not?
+          Is it <span className="text-halal">Halal</span> or not?
         </h1>
         <p 
           className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance animate-fade-in" 
