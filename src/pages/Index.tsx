@@ -42,19 +42,30 @@ const Index = () => {
   }, [location.search]);
 
   useEffect(() => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(location.search);
     
     if (searchQuery) {
       params.set('q', searchQuery);
+    } else {
+      params.delete('q');
     }
     
     if (activeFilter) {
       params.set('filter', activeFilter);
+    } else {
+      params.delete('filter');
     }
     
-    const newUrl = params.toString() ? `?${params.toString()}` : '';
+    const page = params.get('page');
+    
+    const newParams = new URLSearchParams();
+    if (searchQuery) newParams.set('q', searchQuery);
+    if (activeFilter) newParams.set('filter', activeFilter);
+    if (page) newParams.set('page', page);
+    
+    const newUrl = newParams.toString() ? `?${newParams.toString()}` : '';
     navigate(newUrl, { replace: true });
-  }, [searchQuery, activeFilter, navigate]);
+  }, [searchQuery, activeFilter]);
 
   useEffect(() => {
     const loadFeatured = async () => {

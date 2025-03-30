@@ -42,11 +42,15 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
   
   // Reset to page 1 when items change (e.g., when filters are applied)
   useEffect(() => {
-    setCurrentPage(1);
-    const params = new URLSearchParams(location.search);
-    params.delete('page');
-    navigate(`?${params.toString()}`, { replace: true });
-  }, [items, navigate, location.search]);
+    // We only want to reset the page when items array content changes
+    // not when the component initially mounts
+    if (items.length > 0) {
+      const params = new URLSearchParams(location.search);
+      params.delete('page');
+      navigate(`?${params.toString()}`, { replace: true });
+      setCurrentPage(1);
+    }
+  }, [items.length]); // Only depend on items.length, not the full items array
 
   // Update paginated items when page or items change
   useEffect(() => {
@@ -68,7 +72,8 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
       params.set('page', page.toString());
     }
     
-    navigate(`?${params.toString()}`, { replace: true });
+    // Use replace: false to ensure browser history is updated
+    navigate(`?${params.toString()}`, { replace: false });
     
     // Scroll to top when pagination buttons are clicked
     window.scrollTo({
