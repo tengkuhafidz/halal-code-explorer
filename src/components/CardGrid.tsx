@@ -55,6 +55,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
         <PaginationLink 
           isActive={currentPage === 1} 
           onClick={() => handlePageChange(1)}
+          href={`#page=1`}
           aria-label="Page 1"
         >
           1
@@ -86,6 +87,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
           <PaginationLink 
             isActive={currentPage === i} 
             onClick={() => handlePageChange(i)}
+            href={`#page=${i}`}
             aria-label={`Page ${i}`}
           >
             {i}
@@ -110,6 +112,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
           <PaginationLink 
             isActive={currentPage === totalPages} 
             onClick={() => handlePageChange(totalPages)}
+            href={`#page=${totalPages}`}
             aria-label={`Page ${totalPages}`}
           >
             {totalPages}
@@ -168,12 +171,13 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
       </div>
       
       {totalPages > 1 && (
-        <Pagination className="my-8" aria-label="Pagination navigation">
+        <Pagination className="my-8 max-w-full overflow-x-auto" aria-label="Pagination navigation">
           <PaginationContent>
             {currentPage > 1 && (
               <PaginationItem>
                 <PaginationPrevious 
                   onClick={() => handlePageChange(currentPage - 1)} 
+                  href={`#page=${currentPage - 1}`}
                   aria-label="Go to previous page" 
                 />
               </PaginationItem>
@@ -185,6 +189,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
               <PaginationItem>
                 <PaginationNext 
                   onClick={() => handlePageChange(currentPage + 1)} 
+                  href={`#page=${currentPage + 1}`}
                   aria-label="Go to next page" 
                 />
               </PaginationItem>

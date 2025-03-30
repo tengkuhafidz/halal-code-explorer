@@ -11,7 +11,13 @@ const Hero = () => {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance leading-tight animate-fade-in" style={{ animationDelay: '100ms' }}>
           Is it <span className="text-primary">Halal</span> or not?
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '200ms' }}>
+        <p 
+          className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance animate-fade-in" 
+          style={{ animationDelay: '200ms' }}
+          id="hero-description"
+          aria-label="App description"
+          loading="eager"
+        >
           Instantly check the halal status of food additives and E-codes with our comprehensive database.
         </p>
       </div>
