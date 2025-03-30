@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ECode, { ECodeData } from './ECode';
 import {
@@ -33,16 +32,16 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     setPaginatedItems(items.slice(startIndex, endIndex));
-    
-    // Scroll to top when page changes
-    window.scrollTo({
-      top: document.getElementById('data-source')?.offsetTop || 0,
-      behavior: 'smooth',
-    });
   }, [currentPage, items]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    
+    // Only scroll to top when pagination buttons are clicked
+    window.scrollTo({
+      top: document.getElementById('results-top')?.offsetTop || 0,
+      behavior: 'smooth',
+    });
   };
 
   const renderPaginationItems = () => {
