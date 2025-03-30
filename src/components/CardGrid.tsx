@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ECode, { ECodeData } from './ECode';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Pagination,
   PaginationContent,
@@ -22,11 +23,30 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [paginatedItems, setPaginatedItems] = useState<ECodeData[]>([]);
   const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get page from URL on component mount and when location changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const pageParam = params.get('page');
+    const page = pageParam ? parseInt(pageParam, 10) : 1;
+    
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    } else if (pageParam) {
+      // If invalid page number in URL, reset to page 1
+      handlePageChange(1);
+    }
+  }, [location.search, totalPages]);
   
   // Reset to page 1 when items change (e.g., when filters are applied)
   useEffect(() => {
     setCurrentPage(1);
-  }, [items]);
+    const params = new URLSearchParams(location.search);
+    params.delete('page');
+    navigate(`?${params.toString()}`, { replace: true });
+  }, [items, navigate, location.search]);
 
   // Update paginated items when page or items change
   useEffect(() => {
@@ -36,9 +56,21 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
   }, [currentPage, items]);
 
   const handlePageChange = (page: number) => {
+    if (page === currentPage) return;
+    
     setCurrentPage(page);
     
-    // Only scroll to top when pagination buttons are clicked
+    // Update URL with new page parameter
+    const params = new URLSearchParams(location.search);
+    if (page === 1) {
+      params.delete('page');
+    } else {
+      params.set('page', page.toString());
+    }
+    
+    navigate(`?${params.toString()}`, { replace: true });
+    
+    // Scroll to top when pagination buttons are clicked
     window.scrollTo({
       top: document.getElementById('results-top')?.offsetTop || 0,
       behavior: 'smooth',
@@ -55,7 +87,6 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
         <PaginationLink 
           isActive={currentPage === 1} 
           onClick={() => handlePageChange(1)}
-          href={`#page=1`}
           aria-label="Page 1"
         >
           1
@@ -87,7 +118,6 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
           <PaginationLink 
             isActive={currentPage === i} 
             onClick={() => handlePageChange(i)}
-            href={`#page=${i}`}
             aria-label={`Page ${i}`}
           >
             {i}
@@ -112,7 +142,6 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
           <PaginationLink 
             isActive={currentPage === totalPages} 
             onClick={() => handlePageChange(totalPages)}
-            href={`#page=${totalPages}`}
             aria-label={`Page ${totalPages}`}
           >
             {totalPages}
@@ -177,7 +206,6 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
               <PaginationItem>
                 <PaginationPrevious 
                   onClick={() => handlePageChange(currentPage - 1)} 
-                  href={`#page=${currentPage - 1}`}
                   aria-label="Go to previous page" 
                 />
               </PaginationItem>
@@ -189,7 +217,6 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
               <PaginationItem>
                 <PaginationNext 
                   onClick={() => handlePageChange(currentPage + 1)} 
-                  href={`#page=${currentPage + 1}`}
                   aria-label="Go to next page" 
                 />
               </PaginationItem>
