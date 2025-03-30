@@ -16,7 +16,6 @@ const Hero = () => {
           style={{ animationDelay: '200ms' }}
           id="hero-description"
           aria-label="App description"
-          loading="eager"
         >
           Instantly check the halal status of food additives and E-codes with our comprehensive database.
         </p>
