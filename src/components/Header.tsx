@@ -5,19 +5,19 @@ import { useTheme } from '../hooks/use-theme';
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
-  
+
   return (
     <header className="py-6 w-full glass-morphism sticky top-0 z-50 border-b">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <img 
-            src="https://media.publit.io/file/projectassets/ehc-logo.webp" 
-            alt="ECodes Halal Check Logo" 
+          <img
+            src="https://media.publit.io/file/projectassets/ehc-logo.webp"
+            alt="E-Code Halal Check Logo"
             className="h-10 w-auto rounded"
           />
           <h1 className="text-xl font-bold">E-Code <span className="text-halal">Halal</span> Check</h1>
         </div>
-        
+
         <div className="flex items-center space-x-6">
           <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
