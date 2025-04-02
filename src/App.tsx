@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from './components/ui/toaster';
 import { Toaster as SonnerToaster } from 'sonner';
 import Index from './pages/Index';
+import ECodePage from './pages/ECodePage';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/ecode/:code" element={<ECodePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search as SearchIcon, X } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
+import { useNavigate } from 'react-router-dom';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -11,6 +12,7 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery);
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   
   // Update local state when initialQuery changes
   useEffect(() => {
@@ -19,7 +21,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearch(query);
+    
+    // Check if it's a single E-code query for direct navigation
+    const cleanQuery = query.trim();
+    const isSingleECode = !cleanQuery.includes(',') && /^E?\d+$/i.test(cleanQuery);
+    
+    if (isSingleECode) {
+      // Direct navigation to the E-code page
+      const codeNumber = cleanQuery.toUpperCase().replace('E', '');
+      navigate(`/ecode/${codeNumber}`);
+    } else {
+      // Normal search with multiple terms
+      onSearch(query);
+    }
   };
 
   // Parse comma-separated values and format them as tags

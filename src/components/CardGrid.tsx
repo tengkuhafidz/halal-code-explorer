@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ECode, { ECodeData } from './ECode';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import {
   Pagination,
   PaginationContent,
@@ -200,7 +200,13 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {paginatedItems.map((item) => (
-          <ECode key={item.code} data={item} />
+          <Link 
+            key={item.code} 
+            to={`/ecode/${item.code.replace('E', '')}`}
+            className="block transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-2xl"
+          >
+            <ECode data={item} />
+          </Link>
         ))}
       </div>
       
