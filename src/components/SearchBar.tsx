@@ -137,11 +137,19 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
       }
     } catch (error) {
       console.error('Error uploading image:', error);
-      toast({
-        variant: "destructive",
-        title: "Upload Failed",
-        description: "Failed to process the image. Please try again later.",
-      });
+      if (error instanceof Error && error.message?.indexOf('rate limit') > -1) {
+        toast({
+          variant: "destructive",
+          title: "Rate Limit Exceeded",
+          description: "Please try again later.",
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Upload Failed",
+          description: "Failed to process the image. Please try again later.",
+        });
+      }
     } finally {
       setIsUploading(false);
       // Reset the file input
