@@ -3,6 +3,7 @@ import { Search as SearchIcon, X, Upload, Loader2 } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
 import { useNavigate } from 'react-router-dom';
 import { useExperiments } from '../hooks/use-experiments';
+import { toast } from '@/components/ui/use-toast';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -112,7 +113,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
       }
     } catch (error) {
       console.error('Error uploading image:', error);
-      // You might want to show an error message to the user here
+      toast({
+        variant: "destructive",
+        title: "Upload Failed",
+        description: "Failed to process the image. Please try again later.",
+      });
     } finally {
       setIsUploading(false);
       // Reset the file input
