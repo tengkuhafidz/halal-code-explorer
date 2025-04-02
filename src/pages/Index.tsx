@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
@@ -23,7 +22,7 @@ const Index = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useIsMobile();
@@ -31,7 +30,7 @@ const Index = () => {
   // For SEO - determine if it's a single E-code search for page title
   const isSingleECodeSearch = searchQuery.trim().split(/\s*,\s*/).length === 1;
   const cleanSearchQuery = searchQuery.trim().toUpperCase();
-  
+
   // Get the current E-code data if we're viewing a single result
   const currentECodeData = isSingleECodeSearch && searchResults.length === 1 ? searchResults[0] : null;
 
@@ -53,22 +52,22 @@ const Index = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    
+
     if (searchQuery) {
       params.set('q', searchQuery);
     } else {
       params.delete('q');
     }
-    
+
     if (activeFilter) {
       params.set('filter', activeFilter);
     } else {
       params.delete('filter');
     }
-    
+
     const page = params.get('page');
     if (page) params.set('page', page);
-    
+
     const newUrl = params.toString() ? `?${params.toString()}` : '';
     navigate(newUrl, { replace: true });
   }, [searchQuery, activeFilter]);
@@ -107,11 +106,11 @@ const Index = () => {
     setIsLoading(true);
     setHasSearched(!!query.trim());
     setSearchQuery(query);
-    
+
     try {
       const results = await searchECodes(query);
       setSearchResults(results);
-      
+
       if (activeFilter) {
         setFilteredResults(results.filter(item => item.status === activeFilter));
       } else {
@@ -142,7 +141,7 @@ const Index = () => {
     }
     return 'E-Code Halal Check | Find Halal Status of Food Additives';
   };
-  
+
   const getPageDescription = () => {
     if (isSingleECodeSearch && currentECodeData) {
       return `${cleanSearchQuery} (${currentECodeData.name}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}. Find comprehensive information about this food additive at E-Code Halal Check.`;
@@ -173,8 +172,8 @@ const Index = () => {
   };
 
   const structuredData = getStructuredData();
-  const canonicalUrl = searchQuery 
-    ? `https://ecodehalalcheck.com?q=${encodeURIComponent(searchQuery)}` 
+  const canonicalUrl = searchQuery
+    ? `https://ecodehalalcheck.com?q=${encodeURIComponent(searchQuery)}`
     : 'https://ecodehalalcheck.com';
 
   return (
@@ -182,21 +181,21 @@ const Index = () => {
       <Helmet>
         <title>{getPageTitle()}</title>
         <meta name="description" content={getPageDescription()} />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content={getPageTitle()} />
         <meta property="og:description" content={getPageDescription()} />
         <meta property="og:url" content={canonicalUrl} />
-        
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={getPageTitle()} />
         <meta name="twitter:description" content={getPageDescription()} />
-        
+
         {/* Canonical URL for SEO */}
         <link rel="canonical" href={canonicalUrl} />
-        
+
         {/* Schema.org structured data */}
         {structuredData && (
           <script type="application/ld+json">
@@ -207,39 +206,41 @@ const Index = () => {
 
       <div className="min-h-screen flex flex-col">
         <Header />
-        
+
         <main className="flex-grow">
-          <Hero />
-          
-          <div className="container mx-auto px-4 py-6">
-            <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
-            
-            <div className="text-center text-sm text-muted-foreground mt-3" id="data-source">
-              Data source: <a 
-                href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="underline hover:text-primary transition-colors"
-              >
-                MUIS
-              </a>
+          <div className="content-container">
+            <Hero />
+
+            <div className="px-4 py-6">
+              <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
+
+              <div className="text-center text-sm text-muted-foreground mt-3" id="data-source">
+                Data source: <a
+                  href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-primary transition-colors"
+                >
+                  MUIS
+                </a>
+              </div>
+
+              <StatusDistribution
+                items={hasSearched ? searchResults : featured}
+                activeFilter={activeFilter}
+                onFilterChange={handleFilterChange}
+              />
+
+              <CardGrid
+                items={hasSearched ? filteredResults : filteredFeatured}
+                isLoading={isLoading}
+              />
             </div>
-            
-            <StatusDistribution 
-              items={hasSearched ? searchResults : featured} 
-              activeFilter={activeFilter}
-              onFilterChange={handleFilterChange}
-            />
-            
-            <CardGrid 
-              items={hasSearched ? filteredResults : filteredFeatured} 
-              isLoading={isLoading} 
-            />
+
+            <InfoSection />
           </div>
-          
-          <InfoSection />
         </main>
-        
+
         <Footer />
       </div>
     </ThemeProvider>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from '../hooks/use-theme';
@@ -9,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="py-4 w-full bg-background sticky top-0 z-50 border-b shadow-sm">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <div className="content-container px-4 sm:px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <img
             src="https://media.publit.io/file/projectassets/ehc-logo.webp"
