@@ -50,6 +50,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           placeholder={isMobile ? "E100, E200, etc..." : "Search multiple E-codes (e.g., E100, E200, Curcumin)"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search for E-codes or additives"
         />
         <button
           type="submit"
@@ -72,6 +73,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
                 type="button"
                 onClick={() => handleTagRemove(tag)}
                 className="rounded-full p-0.5 hover:bg-primary/20 transition-colors"
+                aria-label={`Remove ${tag} from search`}
               >
                 <X className="h-3 w-3" />
               </button>

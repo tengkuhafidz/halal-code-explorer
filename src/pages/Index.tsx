@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import SearchBar from '../components/SearchBar';
@@ -26,10 +28,18 @@ const Index = () => {
   const location = useLocation();
   const isMobile = useIsMobile();
 
+  // For SEO - determine if it's a single E-code search for page title
+  const isSingleECodeSearch = searchQuery.trim().split(/\s*,\s*/).length === 1;
+  const cleanSearchQuery = searchQuery.trim().toUpperCase();
+  
+  // Get the current E-code data if we're viewing a single result
+  const currentECodeData = isSingleECodeSearch && searchResults.length === 1 ? searchResults[0] : null;
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const query = params.get('q');
     const filter = params.get('filter');
+    const page = params.get('page');
 
     if (query) {
       setSearchQuery(query);
@@ -57,13 +67,9 @@ const Index = () => {
     }
     
     const page = params.get('page');
+    if (page) params.set('page', page);
     
-    const newParams = new URLSearchParams();
-    if (searchQuery) newParams.set('q', searchQuery);
-    if (activeFilter) newParams.set('filter', activeFilter);
-    if (page) newParams.set('page', page);
-    
-    const newUrl = newParams.toString() ? `?${newParams.toString()}` : '';
+    const newUrl = params.toString() ? `?${params.toString()}` : '';
     navigate(newUrl, { replace: true });
   }, [searchQuery, activeFilter]);
 
@@ -126,8 +132,79 @@ const Index = () => {
 
   const isMultiSearch = searchQuery.split(',').filter(t => t.trim()).length > 1;
 
+  // Generate dynamic meta title and description based on search
+  const getPageTitle = () => {
+    if (isSingleECodeSearch && currentECodeData) {
+      return `Is ${cleanSearchQuery} (${currentECodeData.name}) Halal? ${currentECodeData.status === 'halal' ? 'Yes' : 'Doubtful'} | E-Code Halal Check`;
+    }
+    if (searchQuery) {
+      return `E-Code Halal Check: ${cleanSearchQuery} Food Additive Status`;
+    }
+    return 'E-Code Halal Check | Find Halal Status of Food Additives';
+  };
+  
+  const getPageDescription = () => {
+    if (isSingleECodeSearch && currentECodeData) {
+      return `${cleanSearchQuery} (${currentECodeData.name}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}. Find comprehensive information about this food additive at E-Code Halal Check.`;
+    }
+    if (searchQuery) {
+      return `Check the halal status of ${cleanSearchQuery} and other food additives. Our database provides reliable information on whether food E-codes are permissible for Muslims.`;
+    }
+    return 'Find the halal status of food additives and E-codes. Comprehensive database of food additives with their halal or doubtful status, sources, and detailed information.';
+  };
+
+  // Generate schema.org structured data for rich results
+  const getStructuredData = () => {
+    if (isSingleECodeSearch && currentECodeData) {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": `Is ${cleanSearchQuery} (${currentECodeData.name}) halal?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `${cleanSearchQuery} (${currentECodeData.name}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}`
+          }
+        }]
+      };
+    }
+    return null;
+  };
+
+  const structuredData = getStructuredData();
+  const canonicalUrl = searchQuery 
+    ? `https://ecodehalalcheck.com?q=${encodeURIComponent(searchQuery)}` 
+    : 'https://ecodehalalcheck.com';
+
   return (
     <ThemeProvider>
+      <Helmet>
+        <title>{getPageTitle()}</title>
+        <meta name="description" content={getPageDescription()} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={getPageTitle()} />
+        <meta property="og:description" content={getPageDescription()} />
+        <meta property="og:url" content={canonicalUrl} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={getPageTitle()} />
+        <meta name="twitter:description" content={getPageDescription()} />
+        
+        {/* Canonical URL for SEO */}
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Schema.org structured data */}
+        {structuredData && (
+          <script type="application/ld+json">
+            {JSON.stringify(structuredData)}
+          </script>
+        )}
+      </Helmet>
+
       <div className="min-h-screen flex flex-col">
         <Header />
         
