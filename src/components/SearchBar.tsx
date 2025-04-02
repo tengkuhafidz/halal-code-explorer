@@ -144,20 +144,20 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
     <div className="w-full max-w-2xl mx-auto">
       <form 
         onSubmit={handleSubmit}
-        className="relative group"
+        className="relative group flex items-center gap-2 bg-background border-2 border-border focus-within:border-primary rounded-2xl shadow-sm focus-within:ring-2 focus-within:ring-primary/20 transition-all duration-200"
       >
-        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <SearchIcon className="h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors duration-200" />
+        <div className="flex items-center pl-4 text-muted-foreground group-focus-within:text-primary transition-colors duration-200 flex-shrink-0">
+          <SearchIcon className="h-5 w-5" />
         </div>
         <input
           type="text"
-          className="w-full py-4 pl-12 pr-48 bg-background border-2 border-border focus:border-primary rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+          className="flex-1 py-4 bg-transparent focus:outline-none min-w-0 text-ellipsis"
           placeholder={isMobile ? "E100, E200, etc..." : "Search multiple E-codes (e.g., E100, E200, Curcumin)"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Search for E-codes or additives"
         />
-        <div className="absolute inset-y-0 right-0 flex items-center gap-2 my-2 mr-2">
+        <div className="flex items-center gap-2 pr-2 flex-shrink-0">
           {isExperimentsEnabled && (
             <>
               <input
