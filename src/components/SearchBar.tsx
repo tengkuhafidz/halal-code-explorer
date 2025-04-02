@@ -106,10 +106,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
       }
 
       const data = await response.json();
-      if (data.additives && Array.isArray(data.additives)) {
+      if (data.additives && Array.isArray(data.additives) && data.additives.length > 0) {
         const additivesList = data.additives.join(', ');
         setQuery(additivesList);
         onSearch(additivesList);
+      } else {
+        toast({
+          variant: "default",
+          title: "No additives found in the image",
+          description: "Please key in the E-codes manually if this is an error.",
+        });
       }
     } catch (error) {
       console.error('Error uploading image:', error);
