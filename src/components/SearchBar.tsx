@@ -220,7 +220,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
                           type="button"
                           onClick={handleUploadClick}
                           disabled={isUploading}
-                          className="flex items-center px-4 py-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="flex items-center px-3 py-1 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                           aria-label="Upload image"
                         >
                           {isUploading ? (
@@ -255,12 +255,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
               </Dialog>
             </>
           )}
-          <button
+          <Button
             type="submit"
             className="px-4 py-1.5 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity"
           >
             Search
-          </button>
+          </Button>
         </div>
       </form>
 
