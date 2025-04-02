@@ -35,7 +35,7 @@ const ECode: React.FC<ECodeProps> = ({ data, expanded = false }) => {
   const { color, icon: Icon, text, bgColor } = statusConfig[data.status];
 
   return (
-    <article className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in h-full`} itemScope itemType="https://schema.org/Thing">
+    <article className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in h-full text-left`} itemScope itemType="https://schema.org/Thing">
       <div>
         {/* Header with code and name */}
         <div className="mb-3">
