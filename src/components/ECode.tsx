@@ -9,13 +9,15 @@ export interface ECodeData {
   description: string; // Will map to "Description" + "Remarks"
   status: 'halal' | 'doubtful'; // Will map to "HALAL" boolean
   source?: string;     // Will be derived from "Remarks"
+  category?: string;   // Category of the E-code
 }
 
 interface ECodeProps {
   data: ECodeData;
+  expanded?: boolean;  // Optional prop to show expanded view
 }
 
-const ECode: React.FC<ECodeProps> = ({ data }) => {
+const ECode: React.FC<ECodeProps> = ({ data, expanded = false }) => {
   const statusConfig = {
     halal: {
       color: 'bg-halal/10 text-halal border-halal/20',
@@ -84,6 +86,15 @@ const ECode: React.FC<ECodeProps> = ({ data }) => {
           <meta itemProp="name" content="Usage" />
           <meta itemProp="value" content={data.source} />
           <p className="text-sm text-muted-foreground"><strong>Usage:</strong> {data.source}</p>
+        </div>
+      )}
+      
+      {/* Category if available */}
+      {data.category && (
+        <div className="mt-2" itemProp="additionalProperty" itemScope itemType="https://schema.org/PropertyValue">
+          <meta itemProp="name" content="Category" />
+          <meta itemProp="value" content={data.category} />
+          <p className="text-sm text-muted-foreground"><strong>Category:</strong> {data.category}</p>
         </div>
       )}
       
