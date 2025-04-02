@@ -13,6 +13,12 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -207,19 +213,28 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
               />
               <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
                 <DialogTrigger asChild>
-                  <Button
-                    type="button"
-                    onClick={handleUploadClick}
-                    disabled={isUploading}
-                    className="flex items-center px-4 py-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                    aria-label="Upload image"
-                  >
-                    {isUploading ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Upload className="h-4 w-4" />
-                    )}
-                  </Button>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          type="button"
+                          onClick={handleUploadClick}
+                          disabled={isUploading}
+                          className="flex items-center px-4 py-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                          aria-label="Upload image"
+                        >
+                          {isUploading ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            <Upload className="h-4 w-4" />
+                          )}
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Upload an image of ingredients to automatically detect E-codes</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
