@@ -2,21 +2,22 @@
 import React from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from '../hooks/use-theme';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="py-6 w-full glass-morphism sticky top-0 z-50 border-b">
+    <header className="py-4 w-full bg-background sticky top-0 z-50 border-b shadow-sm">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+        <Link to="/" className="flex items-center space-x-3">
           <img
             src="https://media.publit.io/file/projectassets/ehc-logo.webp"
             alt="E-Code Halal Check Logo"
             className="h-10 w-auto rounded"
           />
           <h1 className="text-xl font-bold">E-Code <span className="text-halal">Halal</span> Check</h1>
-        </div>
+        </Link>
 
         <div className="flex items-center space-x-6">
           <button

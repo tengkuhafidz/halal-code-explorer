@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { Check, AlertTriangle, Share2 } from 'lucide-react';
-import { toast } from 'sonner';
+import { Check, AlertTriangle } from 'lucide-react';
 
 export interface ECodeData {
   code: string;        // Will map to "E-Code" in the original schema
@@ -35,38 +34,13 @@ const ECode: React.FC<ECodeProps> = ({ data, expanded = false }) => {
 
   const { color, icon: Icon, text, bgColor } = statusConfig[data.status];
 
-  const handleShare = () => {
-    // Get current URL and add this specific E-code as a search parameter
-    const url = new URL(window.location.href);
-    url.searchParams.set('q', data.code);
-    
-    navigator.clipboard.writeText(url.toString())
-      .then(() => {
-        toast.success(`Copied link to ${data.code}`);
-      })
-      .catch(() => {
-        toast.error("Failed to copy link. Please try again.");
-      });
-  };
-
   return (
     <article className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in h-full`} itemScope itemType="https://schema.org/Thing">
-      <div className="relative">
-        {/* Header with code, name and share button */}
-        <div className="flex justify-between items-start mb-3">
-          <div className="flex-grow pr-8">
-            <h3 className="text-xl font-semibold" itemProp="name">{data.code}</h3>
-            <p className="text-lg font-medium break-words w-full" itemProp="alternateName">{data.name}</p>
-          </div>
-          <div className="absolute right-0 top-0">
-            <button 
-              onClick={handleShare}
-              className="p-1.5 rounded-full hover:bg-background/80 transition-colors"
-              aria-label={`Share ${data.code}`}
-            >
-              <Share2 className="h-4 w-4 text-muted-foreground" />
-            </button>
-          </div>
+      <div>
+        {/* Header with code and name */}
+        <div className="mb-3">
+          <h3 className="text-xl font-semibold" itemProp="name">{data.code}</h3>
+          <p className="text-lg font-medium break-words" itemProp="alternateName">{data.name}</p>
         </div>
         
         {/* Status badge */}

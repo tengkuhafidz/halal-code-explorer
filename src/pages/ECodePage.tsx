@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
@@ -11,6 +10,7 @@ import { ThemeProvider } from '../hooks/use-theme';
 import { ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { toast } from 'sonner';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 const ECodePage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
@@ -183,33 +183,52 @@ const ECodePage: React.FC = () => {
                 <ECode data={ecodeData} expanded={true} />
               </div>
               
-              <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">Additional Information</h2>
-                <div className="prose dark:prose-invert max-w-none">
-                  <h3>What is {ecodeData.code}?</h3>
-                  <p>
-                    {ecodeData.code} ({ecodeData.name}) is a food additive that is {ecodeData.status} for Muslims.
-                    {ecodeData.description && ` ${ecodeData.description}`}
-                  </p>
+              <div className="mt-8 lg:max-w-3xl mx-auto">
+                <h2 className="text-2xl font-semibold mb-4">Additional Information</h2>
+                
+                <div className="grid gap-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>What is {ecodeData.code}?</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {ecodeData.code} ({ecodeData.name}) is a food additive that is {ecodeData.status} for Muslims.
+                        {ecodeData.description && ` ${ecodeData.description}`}
+                      </p>
+                    </CardContent>
+                  </Card>
                   
-                  <h3>Is {ecodeData.code} safe?</h3>
-                  <p>
-                    {ecodeData.code} ({ecodeData.name}) is {ecodeData.status === 'halal' ? 'generally considered safe' : 'considered doubtful'} for consumption by Muslims.
-                    Always check product labels if you have specific dietary restrictions.
-                  </p>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Is {ecodeData.code} safe?</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {ecodeData.code} ({ecodeData.name}) is {ecodeData.status === 'halal' ? 'generally considered safe' : 'considered doubtful'} for consumption by Muslims.
+                        Always check product labels if you have specific dietary restrictions.
+                      </p>
+                    </CardContent>
+                  </Card>
                   
-                  <h3>Where is {ecodeData.code} commonly found?</h3>
-                  <p>
-                    {ecodeData.code} ({ecodeData.name}) may be found in various food products such as 
-                    {ecodeData.category ? ` ${ecodeData.category.toLowerCase()} products` : ' processed foods'}.
-                    Always read ingredient lists if you're concerned about specific additives.
-                  </p>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Where is {ecodeData.code} commonly found?</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {ecodeData.code} ({ecodeData.name}) may be found in various food products such as 
+                        {ecodeData.category ? ` ${ecodeData.category.toLowerCase()} products` : ' processed foods'}.
+                        Always read ingredient lists if you're concerned about specific additives.
+                      </p>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
               
               {relatedECodes.length > 0 && (
                 <div className="mt-8">
-                  <h2 className="text-xl font-semibold mb-4">Related E-Codes</h2>
+                  <h2 className="text-2xl font-semibold mb-4">Related E-Codes</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {relatedECodes.map(eCode => (
                       <Link to={`/ecode/${eCode.code.replace('E', '')}`} key={eCode.code}>
