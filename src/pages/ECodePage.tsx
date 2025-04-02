@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
@@ -56,20 +57,24 @@ const ECodePage: React.FC = () => {
   
   // Handle share functionality
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `Is ${ecodeData?.code} (${ecodeData?.name}) Halal?`,
-          text: `${ecodeData?.code} (${ecodeData?.name}) is ${ecodeData?.status} for Muslims. Check it out!`,
-          url: window.location.href
-        });
-      } catch (error) {
-        // User likely canceled the share
+    const shareData = {
+      title: `Is ${ecodeData?.code} (${ecodeData?.name}) Halal?`,
+      text: `${ecodeData?.code} (${ecodeData?.name}) is ${ecodeData?.status} for Muslims. Check it out!`,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        // Use native share dialog if available
+        await navigator.share(shareData);
+      } else {
+        // Fallback to clipboard for desktop browsers
+        navigator.clipboard.writeText(window.location.href);
+        toast.success('Link copied to clipboard!');
       }
-    } else {
-      // Fallback for browsers that don't support navigator.share
-      navigator.clipboard.writeText(window.location.href);
-      toast.success('Link copied to clipboard!');
+    } catch (error) {
+      // User likely canceled sharing, no need to show an error
+      console.log('Share canceled or failed:', error);
     }
   };
   
