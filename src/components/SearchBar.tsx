@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search as SearchIcon, X, Upload, Loader2 } from 'lucide-react';
 import { useIsMobile } from '../hooks/use-mobile';
 import { useNavigate } from 'react-router-dom';
+import { useExperiments } from '../hooks/use-experiments';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -14,6 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { isExperimentsEnabled } = useExperiments();
   
   // Update local state when initialQuery changes
   useEffect(() => {
@@ -151,27 +153,31 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           aria-label="Search for E-codes or additives"
         />
         <div className="absolute inset-y-0 right-0 flex items-center gap-2 my-2 mr-2">
-          <input
-            type="file"
-            ref={fileInputRef}
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="hidden"
-            aria-label="Ingredient list image input"
-          />
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={isUploading}
-            className="flex items-center px-4 py-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Upload image"
-          >
-            {isUploading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Upload className="h-4 w-4" />
-            )}
-          </button>
+          {isExperimentsEnabled && (
+            <>
+              <input
+                type="file"
+                ref={fileInputRef}
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="hidden"
+                aria-label="Ingredient list image input"
+              />
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isUploading}
+                className="flex items-center px-4 py-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Upload image"
+              >
+                {isUploading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Upload className="h-4 w-4" />
+                )}
+              </button>
+            </>
+          )}
           <button
             type="submit"
             className="px-4 py-1.5 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity"
