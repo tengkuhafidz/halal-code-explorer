@@ -35,7 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { isExperimentsEnabled } = useExperiments();
-  
+
   // Update local state when initialQuery changes
   useEffect(() => {
     setQuery(initialQuery);
@@ -43,19 +43,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Check if it's a single E-code query for direct navigation
-    const cleanQuery = query.trim();
-    const isSingleECode = !cleanQuery.includes(',') && /^E?\d+$/i.test(cleanQuery);
-    
-    if (isSingleECode) {
-      // Direct navigation to the E-code page
-      const codeNumber = cleanQuery.toUpperCase().replace('E', '');
-      navigate(`/ecode/${codeNumber}`);
-    } else {
-      // Normal search with multiple terms
-      onSearch(query);
-    }
+    onSearch(query);
   };
 
   const processImage = (file: File): Promise<File> => {
@@ -162,7 +150,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
   const handleUploadClick = () => {
     // Check if the notification has been shown before
     const hasShownNotification = localStorage.getItem(UPLOAD_NOTIFICATION_KEY) === 'true';
-    
+
     if (!hasShownNotification) {
       setShowUploadModal(true);
     } else {
@@ -193,7 +181,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <form 
+      <form
         onSubmit={handleSubmit}
         className="relative group flex items-center gap-2 bg-background border-2 border-border focus-within:border-primary rounded-2xl shadow-sm focus-within:ring-2 focus-within:ring-primary/20 transition-all duration-200"
       >
@@ -209,60 +197,58 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           aria-label="Search for E-codes or additives"
         />
         <div className="flex items-center gap-2 pr-2 flex-shrink-0">
-          {isExperimentsEnabled && (
-            <>
-              <input
-                type="file"
-                ref={fileInputRef}
-                accept="image/*"
-                onChange={handleImageUpload}
-                className="hidden"
-                aria-label="Ingredient list image input"
-              />
-              <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
-                <DialogTrigger asChild>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button
-                          type="button"
-                          onClick={handleUploadClick}
-                          disabled={isUploading}
-                          className="flex items-center px-3 py-1 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                          aria-label="Upload image"
-                        >
-                          {isUploading ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : (
-                            <Upload className="h-4 w-4" />
-                          )}
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Upload an image of ingredients to automatically detect E-codes</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Notice</DialogTitle>
-                    <DialogDescription>
-                      <p className="mt-2">
-                        When you upload an image, it will be sent to our server for AI processing to extract the additives list.
-                      </p>
-                      <p className="mt-2 font-bold">
-                        Please ensure you do not upload any images containing personal or sensitive information.
-                      </p>
-                      <div className="mt-4 flex justify-center">
-                        <Button onClick={handleModalClose}>I Understand</Button>
-                      </div>
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-            </>
-          )}
+          <>
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="hidden"
+              aria-label="Ingredient list image input"
+            />
+            <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
+              <DialogTrigger asChild>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        type="button"
+                        onClick={handleUploadClick}
+                        disabled={isUploading}
+                        className="flex items-center px-4 py-2 text-sm font-medium bg-secondary text-primary border border-primary rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                        aria-label="Upload image"
+                      >
+                        {isUploading ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Upload className="h-4 w-4" />
+                        )}
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Upload an image of ingredients to automatically detect E-codes</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Notice</DialogTitle>
+                  <DialogDescription>
+                    <p className="mt-2">
+                      When you upload an image, it will be sent to our server for AI processing to extract the additives list.
+                    </p>
+                    <p className="mt-2 font-bold">
+                      Please ensure you do not upload any images containing personal or sensitive information.
+                    </p>
+                    <div className="mt-4 flex justify-center">
+                      <Button onClick={handleModalClose}>I Understand</Button>
+                    </div>
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+          </>
           <Button
             type="submit"
             className="px-4 py-1.5 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity"
@@ -276,12 +262,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
       {parsedTags.length > 1 && (
         <div className="flex flex-wrap gap-2 mt-2">
           {parsedTags.map((tag, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
             >
               <span>{tag}</span>
-              <button 
+              <button
                 type="button"
                 onClick={() => handleTagRemove(tag)}
                 className="rounded-full p-0.5 hover:bg-primary/20 transition-colors"
