@@ -120,7 +120,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
         toast({
           variant: "default",
           title: "No additives found in the image",
-          description: "Please key in the E-codes manually if this is an error.",
+          description: "Please ensure the image is clear and contains the ingredient list. Alternatively, you can key in the E-codes manually.",
         });
       }
     } catch (error) {
@@ -233,10 +233,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Notice</DialogTitle>
+                  <DialogTitle>Upload Image of Ingredient List</DialogTitle>
                   <DialogDescription>
                     <p className="mt-2">
-                      When you upload an image, it will be sent to our server for AI processing to extract the additives list.
+                      When you upload an image of the ingredient list, it will be sent to our server for AI processing to extract the additives list.
                     </p>
                     <p className="mt-2 font-bold">
                       Please ensure you do not upload any images containing personal or sensitive information.
