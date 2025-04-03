@@ -12,6 +12,7 @@ import { searchECodes, getFeaturedECodes } from '../services/eCodeService';
 import { ECodeData } from '../components/ECode';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
+import { PWAInstallPrompt } from '../components/PWAInstallPrompt';
 
 const Index = () => {
   const [searchResults, setSearchResults] = useState<ECodeData[]>([]);
@@ -206,7 +207,7 @@ const Index = () => {
 
       <div className="min-h-screen flex flex-col">
         <Header />
-
+        <PWAInstallPrompt />
         <main className="flex-grow">
           <div className="content-container">
             <Hero />
