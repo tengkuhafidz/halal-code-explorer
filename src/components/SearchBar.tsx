@@ -137,7 +137,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
       }
     } catch (error) {
       console.error('Error uploading image:', error);
-      if (error instanceof Error && error.message?.indexOf('rate limit') > -1) {
+      if (error instanceof Error && error.message?.toLowerCase().indexOf('rate limit') > -1) {
         toast({
           variant: "destructive",
           title: "Rate Limit Exceeded",
