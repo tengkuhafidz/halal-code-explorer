@@ -22,7 +22,7 @@ const InfoSection = () => {
     <section className="py-16 bg-secondary/50 rounded-lg">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Understanding E-Codes</h2>
+          <h2 className="text-3xl font-bold mb-4">Understanding <span className="inline-block">E-Codes</span></h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             E-codes are numbers assigned to food additives that have been assessed for use in foods within the European Union.
           </p>
