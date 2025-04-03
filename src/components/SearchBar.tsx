@@ -4,15 +4,33 @@ import { useIsMobile } from '../hooks/use-mobile';
 import { useNavigate } from 'react-router-dom';
 import { useExperiments } from '../hooks/use-experiments';
 import { toast } from '@/components/ui/use-toast';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
   initialQuery?: string;
 }
 
+const UPLOAD_NOTIFICATION_KEY = 'upload_notification_shown';
+
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery);
   const [isUploading, setIsUploading] = useState(false);
+  const [showUploadModal, setShowUploadModal] = useState(false);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -106,18 +124,32 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
       }
 
       const data = await response.json();
-      if (data.additives && Array.isArray(data.additives)) {
+      if (data.additives && Array.isArray(data.additives) && data.additives.length > 0) {
         const additivesList = data.additives.join(', ');
         setQuery(additivesList);
         onSearch(additivesList);
+      } else {
+        toast({
+          variant: "default",
+          title: "No additives found in the image",
+          description: "Please key in the E-codes manually if this is an error.",
+        });
       }
     } catch (error) {
       console.error('Error uploading image:', error);
-      toast({
-        variant: "destructive",
-        title: "Upload Failed",
-        description: "Failed to process the image. Please try again later.",
-      });
+      if (error instanceof Error && error.message?.toLowerCase().indexOf('rate limit') > -1) {
+        toast({
+          variant: "destructive",
+          title: "Rate Limit Exceeded",
+          description: "Please try again later.",
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Upload Failed",
+          description: "Failed to process the image. Please try again later.",
+        });
+      }
     } finally {
       setIsUploading(false);
       // Reset the file input
@@ -125,6 +157,25 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
         fileInputRef.current.value = '';
       }
     }
+  };
+
+  const handleUploadClick = () => {
+    // Check if the notification has been shown before
+    const hasShownNotification = localStorage.getItem(UPLOAD_NOTIFICATION_KEY) === 'true';
+    
+    if (!hasShownNotification) {
+      setShowUploadModal(true);
+    } else {
+      fileInputRef.current?.click();
+    }
+  };
+
+  const handleModalClose = () => {
+    setShowUploadModal(false);
+    // Store in localStorage that we've shown the notification
+    localStorage.setItem(UPLOAD_NOTIFICATION_KEY, 'true');
+    // Open file picker after modal is closed
+    fileInputRef.current?.click();
   };
 
   // Parse comma-separated values and format them as tags
@@ -168,27 +219,56 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
                 className="hidden"
                 aria-label="Ingredient list image input"
               />
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                disabled={isUploading}
-                className="flex items-center px-4 py-2 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Upload image"
-              >
-                {isUploading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <Upload className="h-4 w-4" />
-                )}
-              </button>
+              <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
+                <DialogTrigger asChild>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          type="button"
+                          onClick={handleUploadClick}
+                          disabled={isUploading}
+                          className="flex items-center px-3 py-1 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                          aria-label="Upload image"
+                        >
+                          {isUploading ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            <Upload className="h-4 w-4" />
+                          )}
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Upload an image of ingredients to automatically detect E-codes</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Notice</DialogTitle>
+                    <DialogDescription>
+                      <p className="mt-2">
+                        When you upload an image, it will be sent to our server for AI processing to extract the additives list.
+                      </p>
+                      <p className="mt-2 font-bold">
+                        Please ensure you do not upload any images containing personal or sensitive information.
+                      </p>
+                      <div className="mt-4 flex justify-center">
+                        <Button onClick={handleModalClose}>I Understand</Button>
+                      </div>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             </>
           )}
-          <button
+          <Button
             type="submit"
             className="px-4 py-1.5 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity"
           >
             Search
-          </button>
+          </Button>
         </div>
       </form>
 
