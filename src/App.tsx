@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from './components/ui/toaster';
 import { Toaster as SonnerToaster } from 'sonner';
 import { ExperimentsProvider } from './hooks/use-experiments';
+import { ScrollToTop } from './components/ScrollToTop';
 import Index from './pages/Index';
 import ECodePage from './pages/ECodePage';
 import NotFound from './pages/NotFound';
@@ -12,6 +13,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <ExperimentsProvider>
           <Routes>
             <Route path="/" element={<Index />} />
