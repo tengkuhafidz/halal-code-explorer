@@ -9,11 +9,13 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <div className="flex items-center space-x-3">
               <img
-                src="https://media.publit.io/file/projectassets/ehc-logo.webp"
+                src="/logo.webp"
                 alt="E-Code Halal Check Logo"
                 className="h-8 w-8 rounded"
+                width="32"
+                height="32"
               />
-              <h2 className="text-lg font-bold">E-Code <span className="text-halal">Halal</span> Check</h2>
+              <h2 className="text-lg font-bold">E-Code <span className="text-halalDark">Halal</span> Check</h2>
             </div>
             <p className="text-sm text-muted-foreground mt-2">
               Helping you make informed choices about food additives.

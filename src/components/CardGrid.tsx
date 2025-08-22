@@ -195,6 +195,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
 
   return (
     <div className="pt-4" id="results-top">
+      <h2 className="sr-only">E-Code Search Results</h2>
       <div className="mb-4 text-sm text-muted-foreground" role="status" aria-live="polite">
         Showing {paginatedItems.length} of {items.length} {items.length === 1 ? 'result' : 'results'}
       </div>

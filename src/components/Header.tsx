@@ -7,15 +7,25 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="py-4 w-full bg-background sticky top-0 z-50 border-b shadow-sm">
+    <>
+      {/* Skip Navigation Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+      >
+        Skip to main content
+      </a>
+      <header className="py-4 w-full bg-background sticky top-0 z-50 border-b shadow-sm">
       <div className="content-container px-4 sm:px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <img
-            src="https://media.publit.io/file/projectassets/ehc-logo.webp"
+            src="/logo.webp"
             alt="E-Code Halal Check Logo"
             className="h-10 w-auto rounded"
+            width="40"
+            height="40"
           />
-          <h1 className="text-xl font-bold">E-Code <span className="text-halal">Halal</span> Check</h1>
+          <h1 className="text-xl font-bold">E-Code <span className="text-halalDark">Halal</span> Check</h1>
         </Link>
 
         <div className="flex items-center space-x-6">
@@ -33,6 +43,7 @@ const Header = () => {
         </div>
       </div>
     </header>
+    </>
   );
 };
 

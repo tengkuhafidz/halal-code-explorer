@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import { searchECodes } from '../services/eCodeService';
@@ -17,6 +17,7 @@ const ECodePage: React.FC = () => {
   const [ecodeData, setEcodeData] = useState<ECodeData | null>(null);
   const [loading, setLoading] = useState(true);
   const [relatedECodes, setRelatedECodes] = useState<ECodeData[]>([]);
+  const [currentUrl] = useState(() => window.location.href);
 
   useEffect(() => {
     const fetchECodeData = async () => {
@@ -59,7 +60,7 @@ const ECodePage: React.FC = () => {
     const shareData = {
       title: `Is ${ecodeData?.code} (${ecodeData?.name}) Halal?`,
       text: `${ecodeData?.code} (${ecodeData?.name}) is ${ecodeData?.status} for Muslims. Check it out!`,
-      url: window.location.href
+      url: currentUrl
     };
 
     try {
@@ -68,7 +69,7 @@ const ECodePage: React.FC = () => {
         await navigator.share(shareData);
       } else {
         // Fallback to clipboard for desktop browsers
-        navigator.clipboard.writeText(window.location.href);
+        navigator.clipboard.writeText(currentUrl);
         toast.success('Link copied to clipboard!');
       }
     } catch (error) {
@@ -78,23 +79,23 @@ const ECodePage: React.FC = () => {
   };
 
   // Generate page title
-  const getPageTitle = () => {
+  const pageTitle = useMemo(() => {
     if (!ecodeData) return 'E-Code Information | E-Code Halal Check';
 
     return `Is ${ecodeData.code} (${ecodeData.name}) Halal? ${ecodeData.status === 'halal' ? 'Yes' : 'Doubtful'
       } | E-Code Halal Check`;
-  };
+  }, [ecodeData]);
 
   // Generate meta description
-  const getMetaDescription = () => {
+  const metaDescription = useMemo(() => {
     if (!ecodeData) return 'Find the halal status of food additives and E-codes.';
 
     return `${ecodeData.code} (${ecodeData.name}) is ${ecodeData.status} for Muslims. ${ecodeData.description || ''
       } Find comprehensive information about this food additive at E-Code Halal Check.`;
-  };
+  }, [ecodeData]);
 
   // Generate structured data for rich results
-  const getStructuredData = () => {
+  const structuredData = useMemo(() => {
     if (!ecodeData) return null;
 
     return {
@@ -121,29 +122,27 @@ const ECodePage: React.FC = () => {
         }
       ]
     };
-  };
-
-  const structuredData = getStructuredData();
+  }, [ecodeData]);
 
   return (
     <ThemeProvider>
       <Helmet>
-        <title>{getPageTitle()}</title>
-        <meta name="description" content={getMetaDescription()} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDescription} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={getPageTitle()} />
-        <meta property="og:description" content={getMetaDescription()} />
-        <meta property="og:url" content={window.location.href} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={currentUrl} />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={getPageTitle()} />
-        <meta name="twitter:description" content={getMetaDescription()} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={metaDescription} />
 
         {/* Canonical URL */}
-        <link rel="canonical" href={window.location.href} />
+        <link rel="canonical" href={currentUrl} />
 
         {/* Schema.org structured data */}
         {structuredData && (
@@ -156,7 +155,7 @@ const ECodePage: React.FC = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
 
-        <main className="flex-grow container mx-auto px-4 py-6">
+        <main id="main-content" className="flex-grow container mx-auto px-4 py-6">
           <div className="flex items-center justify-between mb-6">
             <Link to="/">
               <Button variant="outline" size="sm" className="flex items-center gap-2">

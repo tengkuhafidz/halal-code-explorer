@@ -9,15 +9,15 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://media.publit.io/file/projectassets/ehc-logo.webp",
-      "sizes": "192x192",
+      "src": "/logo.webp",
+      "sizes": "128x128",
       "type": "image/webp",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "https://media.publit.io/file/projectassets/ehc-logo.webp",
-      "sizes": "512x512",
-      "type": "image/webp",
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],

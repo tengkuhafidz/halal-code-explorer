@@ -3,8 +3,21 @@ import { Download } from 'lucide-react';
 
 export const PWAInstallPrompt = () => {
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        // Check if device is mobile
+        const checkMobile = () => {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+            const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword));
+            const isMobileViewport = window.innerWidth <= 768;
+            setIsMobile(isMobileDevice || isMobileViewport);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
         const handler = (e: Event) => {
             e.preventDefault();
             setDeferredPrompt(e);
@@ -14,6 +27,7 @@ export const PWAInstallPrompt = () => {
 
         return () => {
             window.removeEventListener('beforeinstallprompt', handler);
+            window.removeEventListener('resize', checkMobile);
         };
     }, []);
 
@@ -32,7 +46,7 @@ export const PWAInstallPrompt = () => {
         setDeferredPrompt(null);
     };
 
-    if (!deferredPrompt) return null;
+    if (!deferredPrompt || !isMobile) return null;
 
     return (
         <div className="bg-emerald-50 dark:bg-emerald-950/30 border-b border-emerald-100 dark:border-emerald-900">

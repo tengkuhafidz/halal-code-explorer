@@ -190,11 +190,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
         </div>
         <input
           type="text"
-          className="flex-1 py-4 bg-transparent focus:outline-none min-w-0 text-ellipsis"
+          className="flex-1 py-4 bg-transparent focus:outline-none focus:ring-0 min-w-0 text-ellipsis"
           placeholder={isMobile ? "E100, E200, etc..." : "Search multiple E-codes (e.g., E100, E200, Curcumin)"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Search for E-codes or additives"
+          aria-describedby="search-instructions"
         />
         <div className="flex items-center gap-2 pr-2 flex-shrink-0">
           <>
@@ -251,7 +252,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           </>
           <Button
             type="submit"
-            className="px-4 py-1.5 text-sm font-medium text-white bg-halal rounded-xl opacity-90 hover:opacity-100 transition-opacity"
+            className="px-4 py-1.5 text-sm font-medium text-white bg-halalDark rounded-xl hover:bg-halal transition-colors"
           >
             Search
           </Button>
@@ -279,6 +280,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           ))}
         </div>
       )}
+      
+      {/* Screen reader instructions */}
+      <div id="search-instructions" className="sr-only">
+        Search for E-codes by typing them separated by commas. Examples: E100, E200, or Curcumin.
+      </div>
     </div>
   );
 };

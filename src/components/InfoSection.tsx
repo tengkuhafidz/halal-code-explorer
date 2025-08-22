@@ -8,13 +8,13 @@ const InfoSection = () => {
       title: 'Halal',
       description: 'Food additives that are permissible according to Islamic law and are derived from halal sources.',
       icon: Check,
-      color: 'bg-halal text-white'
+      color: 'bg-halalDark text-white'
     },
     {
       title: 'Doubtful',
       description: 'Additives with unclear origins or multiple possible sources, some of which might be non-halal.',
       icon: AlertTriangle,
-      color: 'bg-mushbooh text-white'
+      color: 'bg-mushboohDark text-white'
     }
   ];
 

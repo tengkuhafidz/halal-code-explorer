@@ -74,20 +74,13 @@ const Index = () => {
   }, [searchQuery, activeFilter]);
 
   useEffect(() => {
-    const loadFeatured = async () => {
-      setIsLoading(true);
-      try {
-        const data = getFeaturedECodes();
-        setFeatured(data);
-        setFilteredFeatured(data);
-      } catch (error) {
-        console.error('Error loading featured e-codes:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadFeatured();
+    try {
+      const data = getFeaturedECodes();
+      setFeatured(data);
+      setFilteredFeatured(data);
+    } catch (error) {
+      console.error('Error loading featured e-codes:', error);
+    }
   }, []);
 
   useEffect(() => {
@@ -208,7 +201,7 @@ const Index = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <PWAInstallPrompt />
-        <main className="flex-grow">
+        <main id="main-content" className="flex-grow">
           <div className="content-container">
             <Hero />
 

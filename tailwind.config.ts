@@ -68,8 +68,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				halal: '#28a745',
+				halalDark: '#155724',
 				haram: '#dc3545',
 				mushbooh: '#ffc107',
+				mushboohDark: '#663d00',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

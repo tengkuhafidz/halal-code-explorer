@@ -16,16 +16,16 @@ interface ECodeProps {
   expanded?: boolean;  // Optional prop to show expanded view
 }
 
-const ECode: React.FC<ECodeProps> = ({ data, expanded = false }) => {
+const ECode: React.FC<ECodeProps> = React.memo(({ data, expanded = false }) => {
   const statusConfig = {
     halal: {
-      color: 'bg-halal/10 text-halal border-halal/20',
+      color: 'bg-green-100 text-halalDark border-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-700',
       bgColor: 'bg-halal/5',
       icon: Check,
       text: 'Halal',
     },
     doubtful: {
-      color: 'bg-mushbooh/10 text-mushbooh border-mushbooh/20',
+      color: 'bg-yellow-100 text-mushboohDark border-yellow-200 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700',
       bgColor: 'bg-mushbooh/5',
       icon: AlertTriangle,
       text: 'Doubtful',
@@ -35,11 +35,18 @@ const ECode: React.FC<ECodeProps> = ({ data, expanded = false }) => {
   const { color, icon: Icon, text, bgColor } = statusConfig[data.status];
 
   return (
-    <article className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in h-full text-left`} itemScope itemType="https://schema.org/Thing">
+    <article 
+      className={`${bgColor} rounded-2xl p-5 border shadow-sm hover:shadow-md transition-shadow duration-300 animate-scale-in h-full text-left focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2`} 
+      itemScope 
+      itemType="https://schema.org/Thing"
+      role="article"
+      aria-labelledby={`ecode-${data.code}`}
+      aria-describedby={`ecode-${data.code}-description`}
+    >
       <div>
         {/* Header with code and name */}
         <div className="mb-3">
-          <h3 className="text-xl font-semibold" itemProp="name">{data.code}</h3>
+          <span id={`ecode-${data.code}`} className="text-xl font-semibold block" itemProp="name">{data.code}</span>
           <p className="text-lg font-medium break-words" itemProp="alternateName">{data.name}</p>
         </div>
         
@@ -73,11 +80,13 @@ const ECode: React.FC<ECodeProps> = ({ data, expanded = false }) => {
       )}
       
       {/* Remarks as a separate section */}
-      <div className="mt-2" itemProp="description">
+      <div id={`ecode-${data.code}-description`} className="mt-2" itemProp="description">
         <p className="text-sm text-muted-foreground">{data.description}</p>
       </div>
     </article>
   );
-};
+});
+
+ECode.displayName = 'ECode';
 
 export default ECode;
