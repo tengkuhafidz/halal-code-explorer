@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ECode from '../components/ECode';
 import { ECodeData } from '../components/ECode';
+import ECodeSkeleton from '../components/ECodeSkeleton';
 import { ThemeProvider } from '../hooks/use-theme';
 import { ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -17,6 +18,12 @@ const ECodePage: React.FC = () => {
   const [ecodeData, setEcodeData] = useState<ECodeData | null>(null);
   const [loading, setLoading] = useState(true);
   const [relatedECodes, setRelatedECodes] = useState<ECodeData[]>([]);
+  const canonicalUrl = useMemo(() => {
+    const baseUrl = 'https://ecodehalalcheck.com';
+    const cleanCode = code?.toUpperCase().replace('E', '');
+    return `${baseUrl}/ecode/${cleanCode}`;
+  }, [code]);
+
   const [currentUrl] = useState(() => window.location.href);
 
   useEffect(() => {
@@ -134,7 +141,7 @@ const ECodePage: React.FC = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={metaDescription} />
-        <meta property="og:url" content={currentUrl} />
+        <meta property="og:url" content={canonicalUrl} />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -142,7 +149,7 @@ const ECodePage: React.FC = () => {
         <meta name="twitter:description" content={metaDescription} />
 
         {/* Canonical URL */}
-        <link rel="canonical" href={currentUrl} />
+        <link rel="canonical" href={canonicalUrl} />
 
         {/* Schema.org structured data */}
         {structuredData && (
@@ -171,10 +178,28 @@ const ECodePage: React.FC = () => {
           </div>
 
           {loading ? (
-            <div className="animate-pulse bg-card rounded-2xl p-5 border shadow-sm">
-              <div className="h-7 w-1/3 bg-secondary rounded mb-2"></div>
-              <div className="h-5 w-2/3 bg-secondary rounded mb-4"></div>
-              <div className="h-20 w-full bg-secondary rounded"></div>
+            <div className="space-y-8">
+              <div className="lg:max-w-3xl mx-auto">
+                <ECodeSkeleton />
+              </div>
+
+              <div className="mt-8 lg:max-w-3xl mx-auto">
+                <div className="h-8 w-64 bg-secondary rounded mb-4 animate-pulse"></div>
+
+                <div className="grid gap-6">
+                  {[1, 2, 3].map((i) => (
+                    <Card key={i} className="animate-pulse">
+                      <CardHeader>
+                        <div className="h-6 w-48 bg-secondary rounded"></div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="h-4 w-full bg-secondary rounded mb-2"></div>
+                        <div className="h-4 w-3/4 bg-secondary rounded"></div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             </div>
           ) : ecodeData ? (
             <div className="space-y-8">
