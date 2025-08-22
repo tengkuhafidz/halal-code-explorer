@@ -160,7 +160,12 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4" aria-busy="true" aria-label="Loading E-codes">
+      <div className="pt-4" id="results-top">
+        <h2 className="sr-only">E-Code Search Results</h2>
+        <div className="mb-4 text-sm text-muted-foreground h-5" role="status" aria-live="polite">
+          <span className="invisible">Loading results...</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-busy="true" aria-label="Loading E-codes">
         {Array(6).fill(0).map((_, i) => (
           <div key={i} className="bg-card rounded-2xl p-5 border shadow-sm" aria-hidden="true">
             <div className="flex justify-between items-start">
@@ -174,12 +179,18 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
           </div>
         ))}
       </div>
+      </div>
     );
   }
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-12 mt-4" role="status" aria-live="polite">
+      <div className="pt-4" id="results-top">
+        <h2 className="sr-only">E-Code Search Results</h2>
+        <div className="mb-4 text-sm text-muted-foreground h-5" role="status" aria-live="polite">
+          <span className="invisible">No results</span>
+        </div>
+        <div className="text-center py-12" role="status" aria-live="polite">
         <div className="mx-auto h-24 w-24 text-muted-foreground opacity-20">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -189,6 +200,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
         <p className="mt-2 text-muted-foreground">
           Try searching for different E-codes or additives, or check your comma-separated format.
         </p>
+        </div>
       </div>
     );
   }
@@ -196,7 +208,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
   return (
     <div className="pt-4" id="results-top">
       <h2 className="sr-only">E-Code Search Results</h2>
-      <div className="mb-4 text-sm text-muted-foreground" role="status" aria-live="polite">
+      <div className="mb-4 text-sm text-muted-foreground h-5" role="status" aria-live="polite">
         Showing {paginatedItems.length} of {items.length} {items.length === 1 ? 'result' : 'results'}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

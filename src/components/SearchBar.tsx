@@ -1,9 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Search as SearchIcon, X, Upload, Loader2 } from 'lucide-react';
-import { useIsMobile } from '../hooks/use-mobile';
-import { useNavigate } from 'react-router-dom';
-import { useExperiments } from '../hooks/use-experiments';
-import { toast } from '@/components/ui/use-toast';
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -12,13 +7,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { toast } from '@/components/ui/use-toast';
+import { Camera, Loader2, Search as SearchIcon, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useExperiments } from '../hooks/use-experiments';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -222,7 +222,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
                         {isUploading ? (
                           <Loader2 className="h-4 w-4 animate-spin" />
                         ) : (
-                          <Upload className="h-4 w-4" />
+                          <Camera className="h-4 w-4" />
                         )}
                       </Button>
                     </TooltipTrigger>
@@ -280,7 +280,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           ))}
         </div>
       )}
-      
+
       {/* Screen reader instructions */}
       <div id="search-instructions" className="sr-only">
         Search for E-codes by typing them separated by commas. Examples: E100, E200, or Curcumin.

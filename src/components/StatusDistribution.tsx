@@ -15,7 +15,9 @@ interface StatusDistributionProps {
 const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFilter, onFilterChange }) => {
   const isMobile = useIsMobile();
   
-  if (!items || items.length === 0) return null;
+  if (!items || items.length === 0) {
+    return <div className={`flex flex-wrap ${isMobile ? 'justify-start gap-2' : 'justify-center gap-4'} mt-4 mb-2 ${isMobile ? 'h-10' : 'h-12'}`}></div>;
+  }
   
   const counts = {
     halal: items.filter(item => item.status === 'halal').length,
