@@ -3,6 +3,7 @@
   "short_name": "E-Code HC",
   "description": "Find the halal status of food additives and E-codes. Comprehensive database of food additives with their halal or doubtful status.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#10b981",
@@ -30,5 +31,35 @@
   "categories": ["food", "health", "lifestyle", "utilities"],
   "lang": "en",
   "dir": "ltr",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/ss-light-phone.jpg",
+      "sizes": "393x852",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Light mode phone view"
+    },
+    {
+      "src": "/ss-dark-phone.jpg",
+      "sizes": "393x852",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Dark mode phone view"
+    },
+    {
+      "src": "/ss-light-tablet.jpg",
+      "sizes": "768x1024",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Light mode tablet view"
+    },
+    {
+      "src": "/ss-dark-tablet.jpg",
+      "sizes": "768x1024",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Dark mode tablet view"
+    }
+  ]
 } 
