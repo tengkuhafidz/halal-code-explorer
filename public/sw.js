@@ -38,6 +38,11 @@ function getCacheStrategy(url) {
 }
 
 self.addEventListener('fetch', (event) => {
+    // Only handle GET requests
+    if (event.request.method !== 'GET') {
+        return;
+    }
+
     const url = event.request.url;
     const strategy = getCacheStrategy(url);
 
@@ -46,7 +51,14 @@ self.addEventListener('fetch', (event) => {
             caches.match(event.request).then((response) => {
                 return response || fetch(event.request).then((fetchResponse) => {
                     return caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, fetchResponse.clone());
+                        // Only cache GET requests
+                        if (event.request.method === 'GET') {
+                            try {
+                                cache.put(event.request, fetchResponse.clone());
+                            } catch (error) {
+                                // Silently fail caching errors
+                            }
+                        }
                         return fetchResponse;
                     });
                 });
@@ -56,8 +68,19 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             caches.match(event.request).then((cachedResponse) => {
                 const fetchPromise = fetch(event.request).then((networkResponse) => {
+                    // Clone the response before using it
+                    const responseToCache = networkResponse.clone();
                     caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, networkResponse.clone());
+                        // Only cache GET requests
+                        if (event.request.method === 'GET') {
+                            try {
+                                cache.put(event.request, responseToCache);
+                            } catch (error) {
+                                // Silently fail caching errors
+                            }
+                        }
+                    }).catch(() => {
+                        // Silently fail cache open errors
                     });
                     return networkResponse;
                 });

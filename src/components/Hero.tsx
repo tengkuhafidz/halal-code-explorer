@@ -9,7 +9,7 @@ const Hero = () => {
           Fast & Reliable Verification
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance leading-tight animate-fade-in" style={{ animationDelay: '100ms' }}>
-          Is it <span className="text-halalDark">Halal</span>?
+          Is it <span className="text-halalDark dark:text-halal">Halal</span>?
         </h1>
         <p
           className="text-xl text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto text-balance"

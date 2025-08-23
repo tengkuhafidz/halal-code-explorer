@@ -207,11 +207,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
               className="hidden"
               aria-label="Ingredient list image input"
             />
-            <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
-              <DialogTrigger asChild>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
+            <TooltipProvider>
+              <Dialog open={showUploadModal} onOpenChange={setShowUploadModal}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DialogTrigger asChild>
                       <Button
                         type="button"
                         onClick={handleUploadClick}
@@ -225,13 +225,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
                           <Camera className="h-4 w-4" />
                         )}
                       </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Upload an image of ingredients to automatically detect E-codes</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </DialogTrigger>
+                    </DialogTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Upload an image of ingredients to automatically detect E-codes</p>
+                  </TooltipContent>
+                </Tooltip>
               <DialogContent>
                 <DialogHeader>
                   <DialogTitle>Upload Image of Ingredient List</DialogTitle>
@@ -248,7 +247,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
-            </Dialog>
+              </Dialog>
+            </TooltipProvider>
           </>
           <Button
             type="submit"

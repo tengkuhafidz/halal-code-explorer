@@ -15,7 +15,7 @@ const Footer = () => {
                 width="32"
                 height="32"
               />
-              <h2 className="text-lg font-bold">E-Code <span className="text-halalDark">Halal</span> Check</h2>
+              <h2 className="text-lg font-bold">E-Code <span className="text-halalDark dark:text-halal">Halal</span> Check</h2>
             </div>
             <p className="text-sm text-muted-foreground mt-2">
               Helping you make informed choices about food additives.
