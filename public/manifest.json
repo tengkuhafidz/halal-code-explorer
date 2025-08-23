@@ -1,6 +1,6 @@
 {
   "name": "E-Code Halal Check",
-  "short_name": "E-Code HC",
+  "short_name": "E-Code Halal Check",
   "description": "Find the halal status of food additives and E-codes. Comprehensive database of food additives with their halal or doubtful status.",
   "start_url": "/",
   "scope": "/",
