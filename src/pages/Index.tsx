@@ -13,6 +13,7 @@ import { ECodeData } from '../components/ECode';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 import { PWAInstallPrompt } from '../components/PWAInstallPrompt';
+import { generateWebsiteStructuredData, generateFAQStructuredData } from '../utils/seoHelpers';
 
 const Index = () => {
   const [searchResults, setSearchResults] = useState<ECodeData[]>([]);
@@ -148,8 +149,19 @@ const Index = () => {
 
   // Generate schema.org structured data for rich results
   const getStructuredData = () => {
+    const structuredDataArray = [];
+    
+    // Always include website structured data
+    structuredDataArray.push(generateWebsiteStructuredData());
+    
+    // Include FAQ structured data on homepage
+    if (!searchQuery) {
+      structuredDataArray.push(generateFAQStructuredData());
+    }
+    
+    // Include specific FAQ for single E-code search
     if (isSingleECodeSearch && currentECodeData) {
-      return {
+      structuredDataArray.push({
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [{
@@ -160,9 +172,10 @@ const Index = () => {
             "text": `${cleanSearchQuery} (${currentECodeData.name}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}`
           }
         }]
-      };
+      });
     }
-    return null;
+    
+    return structuredDataArray;
   };
 
   const structuredData = getStructuredData();
@@ -191,11 +204,11 @@ const Index = () => {
         <link rel="canonical" href={canonicalUrl} />
 
         {/* Schema.org structured data */}
-        {structuredData && (
-          <script type="application/ld+json">
-            {JSON.stringify(structuredData)}
+        {structuredData && structuredData.map((data, index) => (
+          <script key={index} type="application/ld+json">
+            {JSON.stringify(data)}
           </script>
-        )}
+        ))}
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

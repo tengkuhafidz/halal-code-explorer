@@ -12,6 +12,7 @@ import { ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { toast } from 'sonner';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { generateBreadcrumbStructuredData } from '../utils/seoHelpers';
 
 const ECodePage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
@@ -103,9 +104,9 @@ const ECodePage: React.FC = () => {
 
   // Generate structured data for rich results
   const structuredData = useMemo(() => {
-    if (!ecodeData) return null;
+    if (!ecodeData) return [];
 
-    return {
+    const faqData = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
@@ -129,7 +130,27 @@ const ECodePage: React.FC = () => {
         }
       ]
     };
-  }, [ecodeData]);
+
+    const breadcrumbData = generateBreadcrumbStructuredData([
+      { name: "Home", url: "https://ecodehalalcheck.com" },
+      { name: ecodeData.code, url: canonicalUrl }
+    ]);
+
+    const productData = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": `${ecodeData.code} - ${ecodeData.name}`,
+      "description": ecodeData.description || `${ecodeData.name} is a food additive`,
+      "category": "Food Additive",
+      "additionalProperty": {
+        "@type": "PropertyValue",
+        "name": "Halal Status",
+        "value": ecodeData.status
+      }
+    };
+
+    return [faqData, breadcrumbData, productData];
+  }, [ecodeData, canonicalUrl]);
 
   return (
     <ThemeProvider>
@@ -152,11 +173,11 @@ const ECodePage: React.FC = () => {
         <link rel="canonical" href={canonicalUrl} />
 
         {/* Schema.org structured data */}
-        {structuredData && (
-          <script type="application/ld+json">
-            {JSON.stringify(structuredData)}
+        {structuredData && structuredData.map((data, index) => (
+          <script key={index} type="application/ld+json">
+            {JSON.stringify(data)}
           </script>
-        )}
+        ))}
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
