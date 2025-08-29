@@ -27,6 +27,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://ecodehalalcheck.com/all-ecodes</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 ${eCodes.map(code => `  <url>
     <loc>https://ecodehalalcheck.com/ecode/${code.substring(1)}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
