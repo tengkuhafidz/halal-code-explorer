@@ -1,13 +1,14 @@
 import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Toaster } from './components/ui/toaster';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Toaster as SonnerToaster } from 'sonner';
-import { ExperimentsProvider } from './hooks/use-experiments';
-import { ScrollToTop } from './components/ScrollToTop';
-import Index from './pages/Index';
-import ECodePage from './pages/ECodePage';
-import NotFound from './pages/NotFound';
 import './App.css';
+import { ScrollToTop } from './components/ScrollToTop';
+import { Toaster } from './components/ui/toaster';
+import { ExperimentsProvider } from './hooks/use-experiments';
+import AllEcodes from './pages/AllEcodes';
+import ECodePage from './pages/ECodePage';
+import Index from './pages/Index';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/ecode/:code" element={<ECodePage />} />
+            <Route path="/all-ecodes" element={<AllEcodes />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

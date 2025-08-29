@@ -1,5 +1,5 @@
 
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -23,6 +23,11 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-center md:items-end">
+            <div className="flex gap-4 mb-2">
+              <Link to="/all-ecodes" className="text-sm text-muted-foreground hover:text-primary">
+                View All E-Codes
+              </Link>
+            </div>
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} E-Code Halal Check. All rights reserved.
             </p>
