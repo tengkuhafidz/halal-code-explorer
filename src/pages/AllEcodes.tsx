@@ -1,14 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ThemeProvider } from '../hooks/use-theme';
 import { getAllECodes } from '../services/eCodeService';
 import { ECodeData } from '../components/ECode';
+import { Button } from '@/components/ui/button';
+import { Search } from 'lucide-react';
 
 const Sitemap: React.FC = () => {
   const allECodes = getAllECodes();
+  const navigate = useNavigate();
 
   // Group E-codes by first digit for better organization
   const groupedEcodes = allECodes.reduce((acc: Record<string, ECodeData[]>, eCode: ECodeData) => {
@@ -34,10 +37,19 @@ const Sitemap: React.FC = () => {
           <h1 className="text-3xl font-bold mb-6">All E-Codes Directory</h1>
 
           <div className="mb-8">
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-6">
               Browse our complete database of {allECodes.length} food additives and E-codes.
               Click on any E-code to view detailed information about its halal status.
             </p>
+            <div className="flex justify-center">
+              <Button 
+                onClick={() => navigate('/')}
+                className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
+              >
+                <Search className="h-4 w-4" />
+                Search E-Codes
+              </Button>
+            </div>
           </div>
 
           {Object.entries(groupedEcodes).sort().map(([digit, codes]) => (
