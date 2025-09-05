@@ -34,12 +34,18 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const { isExperimentsEnabled } = useExperiments();
 
   // Update local state when initialQuery changes
   useEffect(() => {
     setQuery(initialQuery);
   }, [initialQuery]);
+
+  // Auto-focus the search input on component mount
+  useEffect(() => {
+    searchInputRef.current?.focus();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -189,11 +195,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, initialQuery = '' }) =>
           <SearchIcon className="h-5 w-5" />
         </div>
         <input
+          ref={searchInputRef}
           type="text"
           className="flex-1 py-4 bg-transparent focus:outline-none focus:ring-0 min-w-0 text-ellipsis"
           placeholder={isMobile ? "E100, E200, etc..." : "Search multiple E-codes (e.g., E100, E200, Curcumin)"}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          autoFocus
           aria-label="Search for E-codes or additives"
           aria-describedby="search-instructions"
         />
