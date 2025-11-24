@@ -180,8 +180,8 @@ const Index = () => {
 
   const structuredData = getStructuredData();
   const canonicalUrl = searchQuery
-    ? `https://ecodehalalcheck.com?q=${encodeURIComponent(searchQuery)}`
-    : 'https://ecodehalalcheck.com';
+    ? `https://www.ecodehalalcheck.com?q=${encodeURIComponent(searchQuery)}`
+    : 'https://www.ecodehalalcheck.com';
 
   return (
     <ThemeProvider>

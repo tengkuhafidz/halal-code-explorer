@@ -20,7 +20,7 @@ const ECodePage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [relatedECodes, setRelatedECodes] = useState<ECodeData[]>([]);
   const canonicalUrl = useMemo(() => {
-    const baseUrl = 'https://ecodehalalcheck.com';
+    const baseUrl = 'https://www.ecodehalalcheck.com';
     const cleanCode = code?.toUpperCase().replace('E', '');
     return `${baseUrl}/ecode/${cleanCode}`;
   }, [code]);
@@ -132,24 +132,11 @@ const ECodePage: React.FC = () => {
     };
 
     const breadcrumbData = generateBreadcrumbStructuredData([
-      { name: "Home", url: "https://ecodehalalcheck.com" },
+      { name: "Home", url: "https://www.ecodehalalcheck.com" },
       { name: ecodeData.code, url: canonicalUrl }
     ]);
 
-    const productData = {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": `${ecodeData.code} - ${ecodeData.name}`,
-      "description": ecodeData.description || `${ecodeData.name} is a food additive`,
-      "category": "Food Additive",
-      "additionalProperty": {
-        "@type": "PropertyValue",
-        "name": "Halal Status",
-        "value": ecodeData.status
-      }
-    };
-
-    return [faqData, breadcrumbData, productData];
+    return [faqData, breadcrumbData];
   }, [ecodeData, canonicalUrl]);
 
   return (

@@ -14,7 +14,7 @@ export const SEO: React.FC<SEOProps> = ({
   title = "E-Code Halal Check | Find Halal Status of Food Additives",
   description = "Find the halal status of food additives and E-codes. Comprehensive database of food additives with their halal or doubtful status, sources, and detailed information.",
   image = "https://media.publit.io/file/projectassets/ecode-preview-banner.png",
-  url = "https://ecodehalalcheck.com",
+  url = "https://www.ecodehalalcheck.com",
   type = "website",
   structuredData
 }) => {
@@ -54,13 +54,13 @@ export const generateWebsiteStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "E-Code Halal Check",
-  "url": "https://ecodehalalcheck.com",
+  "url": "https://www.ecodehalalcheck.com",
   "description": "Find the halal status of food additives and E-codes. Comprehensive database sourced from MUIS.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://ecodehalalcheck.com/?q={search_term_string}"
+      "urlTemplate": "https://www.ecodehalalcheck.com/?q={search_term_string}"
     },
     "query-input": "required name=search_term_string"
   },
@@ -69,7 +69,7 @@ export const generateWebsiteStructuredData = () => ({
     "name": "E-Code Halal Check",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ecodehalalcheck.com/apple-touch-icon.png"
+      "url": "https://www.ecodehalalcheck.com/apple-touch-icon.png"
     }
   }
 });

@@ -14,4 +14,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://ecodehalalcheck.com/sitemap.xml
+Sitemap: https://www.ecodehalalcheck.com/sitemap.xml
