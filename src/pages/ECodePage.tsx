@@ -12,7 +12,7 @@ import { ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { toast } from 'sonner';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { generateBreadcrumbStructuredData } from '../utils/seoHelpers';
+import { generateBreadcrumbStructuredData, generateProductStructuredData } from '../utils/seoHelpers';
 
 const ECodePage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
@@ -136,7 +136,15 @@ const ECodePage: React.FC = () => {
       { name: ecodeData.code, url: canonicalUrl }
     ]);
 
-    return [faqData, breadcrumbData];
+    const productData = generateProductStructuredData({
+      code: ecodeData.code,
+      name: ecodeData.name,
+      description: ecodeData.description,
+      status: ecodeData.status as 'halal' | 'doubtful',
+      category: ecodeData.category
+    });
+
+    return [faqData, breadcrumbData, productData];
   }, [ecodeData, canonicalUrl]);
 
   return (
@@ -211,6 +219,9 @@ const ECodePage: React.FC = () => {
             </div>
           ) : ecodeData ? (
             <div className="space-y-8">
+              <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
+                Is {ecodeData.code} Halal?
+              </h1>
               <div className="lg:max-w-3xl mx-auto">
                 <ECode data={ecodeData} expanded={true} />
               </div>

@@ -13,7 +13,7 @@ import { ECodeData } from '../components/ECode';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 import { PWAInstallPrompt } from '../components/PWAInstallPrompt';
-import { generateWebsiteStructuredData, generateFAQStructuredData } from '../utils/seoHelpers';
+import { generateWebsiteStructuredData, generateFAQStructuredData, generateOrganizationStructuredData } from '../utils/seoHelpers';
 
 const Index = () => {
   const [searchResults, setSearchResults] = useState<ECodeData[]>([]);
@@ -151,9 +151,10 @@ const Index = () => {
   const getStructuredData = () => {
     const structuredDataArray = [];
     
-    // Always include website structured data
+    // Always include website and organization structured data
     structuredDataArray.push(generateWebsiteStructuredData());
-    
+    structuredDataArray.push(generateOrganizationStructuredData());
+
     // Include FAQ structured data on homepage
     if (!searchQuery) {
       structuredDataArray.push(generateFAQStructuredData());

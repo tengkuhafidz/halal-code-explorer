@@ -50,6 +50,30 @@ export const SEO: React.FC<SEOProps> = ({
   );
 };
 
+export const generateOrganizationStructuredData = () => ({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "E-Code Halal Check",
+  "url": "https://www.ecodehalalcheck.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.ecodehalalcheck.com/apple-touch-icon.png",
+    "width": 180,
+    "height": 180
+  },
+  "description": "A free online tool to help Muslims check the halal status of food additives and E-codes, sourced from MUIS (Islamic Religious Council of Singapore).",
+  "foundingDate": "2024",
+  "areaServed": "Worldwide",
+  "serviceType": "Halal Food Information",
+  "knowsAbout": [
+    "Halal food additives",
+    "E-codes",
+    "Food ingredients",
+    "Islamic dietary guidelines",
+    "MUIS halal certification"
+  ]
+});
+
 export const generateWebsiteStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -113,6 +137,41 @@ export const generateFAQStructuredData = () => ({
   ]
 });
 
+interface ArticleData {
+  title: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+export const generateArticleStructuredData = (article: ArticleData) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.description,
+  "url": article.url,
+  "datePublished": article.datePublished || "2024-01-01",
+  "dateModified": article.dateModified || new Date().toISOString().split('T')[0],
+  "author": {
+    "@type": "Organization",
+    "name": "E-Code Halal Check",
+    "url": "https://www.ecodehalalcheck.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "E-Code Halal Check",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.ecodehalalcheck.com/apple-touch-icon.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": article.url
+  }
+});
+
 export const generateBreadcrumbStructuredData = (items: Array<{name: string, url: string}>) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -122,4 +181,43 @@ export const generateBreadcrumbStructuredData = (items: Array<{name: string, url
     "name": item.name,
     "item": item.url
   }))
+});
+
+interface ECodeProductData {
+  code: string;
+  name: string;
+  description?: string;
+  status: 'halal' | 'doubtful';
+  category?: string;
+}
+
+export const generateProductStructuredData = (eCode: ECodeProductData) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `${eCode.code} - ${eCode.name}`,
+  "description": eCode.description || `${eCode.code} (${eCode.name}) is a food additive with ${eCode.status} status for Muslims.`,
+  "category": eCode.category || "Food Additive",
+  "brand": {
+    "@type": "Brand",
+    "name": "E-Code Halal Check"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "E-Code",
+      "value": eCode.code
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Halal Status",
+      "value": eCode.status === 'halal' ? 'Halal' : 'Doubtful'
+    }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Information provided free of charge"
+  }
 });

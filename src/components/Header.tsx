@@ -24,6 +24,7 @@ const Header = () => {
               className="h-10 w-auto rounded"
               width="40"
               height="40"
+              loading="lazy"
             />
             <h1 className="text-xl font-bold">E-Code <span className="text-halalDark dark:text-halal">Halal</span> Check</h1>
           </Link>
