@@ -70,14 +70,14 @@
   "screenshots": [
     {
       "src": "/ss-light-phone.jpg",
-      "sizes": "393x852",
+      "sizes": "390x844",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Light mode phone view"
     },
     {
       "src": "/ss-dark-phone.jpg",
-      "sizes": "393x852",
+      "sizes": "390x844",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Dark mode phone view"
