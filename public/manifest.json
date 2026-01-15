@@ -48,6 +48,25 @@
   "launch_handler": {
     "client_mode": "navigate-existing"
   },
+  "shortcuts": [
+    {
+      "name": "Search E-Codes",
+      "url": "/?q=",
+      "description": "Search for E-codes"
+    },
+    {
+      "name": "All E-Codes",
+      "url": "/all-ecodes",
+      "description": "Browse all E-codes"
+    }
+  ],
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "text": "q"
+    }
+  },
   "screenshots": [
     {
       "src": "/ss-light-phone.jpg",
