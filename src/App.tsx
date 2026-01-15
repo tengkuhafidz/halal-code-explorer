@@ -9,6 +9,7 @@ import AllEcodes from './pages/AllEcodes';
 import ECodePage from './pages/ECodePage';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/ecode/:code" element={<ECodePage />} />
             <Route path="/all-ecodes" element={<AllEcodes />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

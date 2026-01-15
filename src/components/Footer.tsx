@@ -34,6 +34,13 @@ const Footer = () => {
               >
                 View All E-Codes
               </Link>
+              <Link
+                to="/privacy-policy"
+                className="text-sm text-muted-foreground hover:text-primary"
+                aria-current={location.pathname === '/privacy-policy' ? 'page' : undefined}
+              >
+                Privacy Policy
+              </Link>
             </div>
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} E-Code Halal Check. All rights reserved.
