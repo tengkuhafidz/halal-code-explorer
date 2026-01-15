@@ -1,8 +1,8 @@
 [{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.ecodehalalcheck.www.twa",
-    "sha256_cert_fingerprints": ["REPLACE_WITH_YOUR_APP_SIGNING_KEY_SHA256_FINGERPRINT"]
-  }
-}]
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.ecodehalalcheck.www.twa",
+        "sha256_cert_fingerprints": ["8B:0C:45:3D:3D:E0:C3:26:55:E4:C2:EC:33:99:01:B5:13:02:EC:06:31:7A:8F:DA:01:4C:95:03:4A:D4:4D:AB"]
+      }
+    }]
