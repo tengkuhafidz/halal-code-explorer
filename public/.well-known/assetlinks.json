@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.ecodehalalcheck.www.twa",
-        "sha256_cert_fingerprints": ["8B:0C:45:3D:3D:E0:C3:26:55:E4:C2:EC:33:99:01:B5:13:02:EC:06:31:7A:8F:DA:01:4C:95:03:4A:D4:4D:AB"]
+        "sha256_cert_fingerprints": ["A1:FD:38:27:D4:0A:C9:4C:F3:A9:2A:1B:53:80:2A:DE:E5:DE:59:52:B5:A5:0C:F1:F0:E1:70:A7:2A:B4:E0:F6"]
       }
     }]
