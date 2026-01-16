@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main id="main-content" className="flex-grow">
-          <div className="max-w-3xl px-4 py-12">
+          <div className="max-w-3xl mx-auto px-4 py-12 text-left">
             <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
 
             <p className="text-muted-foreground mb-6">
