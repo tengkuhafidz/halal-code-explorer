@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="py-10 mt-20 border-t">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
+          <div className="mb-4 md:mb-0 items-center md:items-start flex flex-col">
             <div className="flex items-center space-x-3">
               <img
                 src="/logo.webp"
@@ -20,8 +20,12 @@ const Footer = () => {
               />
               <h2 className="text-lg font-bold">E-Code <span className="text-halalDark dark:text-halal">Halal</span> Check</h2>
             </div>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-muted-foreground mt-2 text-center md:text-left">
               Helping you make informed choices about food additives.
+            </p>
+            <p className="text-sm text-muted-foreground mt-1 hidden md:block">
+              Built for the community by{' '}
+              <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
             </p>
           </div>
 
@@ -44,6 +48,13 @@ const Footer = () => {
             </div>
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} E-Code Halal Check. All rights reserved.
+            </p>
+          </div>
+
+          <div className="mt-6 pt-5 border-t w-full text-center md:hidden">
+            <p className="text-sm font-medium text-muted-foreground">
+              Built for the community by{' '}
+              <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
             </p>
           </div>
         </div>
