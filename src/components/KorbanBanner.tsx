@@ -4,7 +4,7 @@ const KorbanBanner = () => {
   return (
     <div className="px-4 pt-4">
       <a
-        href="https://korban.usemeem.com/select-livestock?type=palestine"
+        href="https://korban.usemeem.com/select-livestock?type=palestine&ref=tengku-hafidz"
         target="_blank"
         rel="noopener noreferrer"
         className="block max-w-3xl mx-auto rounded-xl overflow-hidden border border-emerald-200 dark:border-emerald-900 bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-emerald-950 dark:to-emerald-900 hover:shadow-md transition-shadow"
