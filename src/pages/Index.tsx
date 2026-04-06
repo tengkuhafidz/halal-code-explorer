@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import KorbanBanner from '../components/KorbanBanner';
 import SearchBar from '../components/SearchBar';
 import CardGrid from '../components/CardGrid';
 import InfoSection from '../components/InfoSection';
@@ -217,6 +218,8 @@ const Index = () => {
         <PWAInstallPrompt />
         <main id="main-content" className="flex-grow">
           <div className="content-container">
+            <KorbanBanner />
+
             <Hero />
 
             <div className="px-4 py-6">
