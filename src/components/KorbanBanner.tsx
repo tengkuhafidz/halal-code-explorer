@@ -4,7 +4,7 @@ const KorbanBanner = () => {
   return (
     <div className="px-4 pt-4">
       <a
-        href="https://korban.usemeem.com/select-livestock?type=palestine&ref=tengku-hafidz"
+        href="https://meem.to/korban-mini-apps"
         target="_blank"
         rel="noopener noreferrer"
         onClick={() =>
