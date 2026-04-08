@@ -7,7 +7,13 @@ const KorbanBanner = () => {
         href="https://korban.usemeem.com/select-livestock?type=palestine&ref=tengku-hafidz"
         target="_blank"
         rel="noopener noreferrer"
-        className="block max-w-3xl mx-auto rounded-xl overflow-hidden border border-emerald-200 dark:border-emerald-900 bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-emerald-950 dark:to-emerald-900 hover:shadow-md transition-shadow"
+        onClick={() =>
+          window.gtag?.('event', 'korban_banner_click', {
+            event_category: 'banner',
+            event_label: 'korban_2026_palestine',
+          })
+        }
+        className="block max-w-3xl mx-auto rounded-xl overflow-hidden border border-emerald-200 dark:border-emerald-900/60 bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-emerald-950/40 dark:to-emerald-900/30 hover:shadow-md transition-shadow"
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 p-4 md:p-5">
           <div className="flex items-center gap-3 md:gap-4 min-w-0">
