@@ -1,6 +1,41 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+const SITE_ORIGIN = 'https://www.ecodehalalcheck.com';
+
+const TRACKING_PARAM_NAMES = new Set([
+  'ref', 'trk', 'fbclid', 'gclid', 'gbraid', 'wbraid', 'msclkid',
+  'mc_cid', 'mc_eid', '_hsenc', '_hsmi', 'yclid', 'dclid', 'igshid',
+]);
+
+const isTrackingParam = (key: string): boolean =>
+  key.startsWith('utm_') || TRACKING_PARAM_NAMES.has(key);
+
+export const hasTrackingParams = (search: string): boolean => {
+  if (!search) return false;
+  const params = new URLSearchParams(search);
+  for (const key of params.keys()) {
+    if (isTrackingParam(key)) return true;
+  }
+  return false;
+};
+
+export const buildCanonicalUrl = (
+  pathname: string,
+  search: string = '',
+  allowedParams: string[] = [],
+): string => {
+  const allowed = new Set(allowedParams);
+  const params = new URLSearchParams(search);
+  const out = new URLSearchParams();
+  for (const key of allowed) {
+    const value = params.get(key);
+    if (value) out.set(key, value);
+  }
+  const qs = out.toString();
+  return `${SITE_ORIGIN}${pathname}${qs ? `?${qs}` : ''}`;
+};
+
 interface SEOProps {
   title?: string;
   description?: string;

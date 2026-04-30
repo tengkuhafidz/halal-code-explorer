@@ -9,6 +9,12 @@ export interface ECodeData {
   status: 'halal' | 'doubtful'; // Will map to "HALAL" boolean
   source?: string;     // Will be derived from "Remarks"
   category?: string;   // Category of the E-code
+  detailedDescription?: string;
+  commonFoods?: string[];
+  origin?: string;
+  isVegan?: boolean;
+  isVegetarian?: boolean;
+  alternatives?: string[];
 }
 
 interface ECodeProps {

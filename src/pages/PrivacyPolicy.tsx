@@ -1,16 +1,28 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ThemeProvider } from '../hooks/use-theme';
+import { generateBreadcrumbStructuredData, hasTrackingParams } from '../utils/seoHelpers';
 
 const PrivacyPolicy = () => {
+  const location = useLocation();
+  const shouldNoIndex = hasTrackingParams(location.search);
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: "Home", url: "https://www.ecodehalalcheck.com" },
+    { name: "Privacy Policy", url: "https://www.ecodehalalcheck.com/privacy-policy" }
+  ]);
+
   return (
     <ThemeProvider>
       <Helmet>
         <title>Privacy Policy | E-Code Halal Check</title>
         <meta name="description" content="Privacy Policy for E-Code Halal Check. Learn how we handle your data and protect your privacy." />
         <link rel="canonical" href="https://www.ecodehalalcheck.com/privacy-policy" />
+        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbData)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

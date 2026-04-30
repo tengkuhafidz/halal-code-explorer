@@ -6,6 +6,8 @@ import KorbanBanner from '../components/KorbanBanner';
 import SearchBar from '../components/SearchBar';
 import CardGrid from '../components/CardGrid';
 import InfoSection from '../components/InfoSection';
+import MostSearchedECodes from '../components/MostSearchedECodes';
+import BrowseByCategory from '../components/BrowseByCategory';
 import StatusDistribution from '../components/StatusDistribution';
 import Footer from '../components/Footer';
 import { ThemeProvider } from '../hooks/use-theme';
@@ -14,7 +16,7 @@ import { ECodeData } from '../components/ECode';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useIsMobile } from '../hooks/use-mobile';
 import { PWAInstallPrompt } from '../components/PWAInstallPrompt';
-import { generateWebsiteStructuredData, generateFAQStructuredData, generateOrganizationStructuredData } from '../utils/seoHelpers';
+import { generateWebsiteStructuredData, generateFAQStructuredData, generateOrganizationStructuredData, buildCanonicalUrl, hasTrackingParams } from '../utils/seoHelpers';
 
 const Index = () => {
   const [searchResults, setSearchResults] = useState<ECodeData[]>([]);
@@ -181,9 +183,8 @@ const Index = () => {
   };
 
   const structuredData = getStructuredData();
-  const canonicalUrl = searchQuery
-    ? `https://www.ecodehalalcheck.com?q=${encodeURIComponent(searchQuery)}`
-    : 'https://www.ecodehalalcheck.com';
+  const canonicalUrl = buildCanonicalUrl('/', location.search, ['q']);
+  const shouldNoIndex = hasTrackingParams(location.search);
 
   return (
     <ThemeProvider>
@@ -204,6 +205,9 @@ const Index = () => {
 
         {/* Canonical URL for SEO */}
         <link rel="canonical" href={canonicalUrl} />
+
+        {/* Avoid indexing tracking-parameter variants (utm_*, ref, trk, fbclid, gclid, etc.) */}
+        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
 
         {/* Schema.org structured data */}
         {structuredData && structuredData.map((data, index) => (
@@ -247,6 +251,13 @@ const Index = () => {
                 isLoading={isLoading}
               />
             </div>
+
+            {!hasSearched && (
+              <>
+                <MostSearchedECodes />
+                <BrowseByCategory />
+              </>
+            )}
 
             <InfoSection />
           </div>

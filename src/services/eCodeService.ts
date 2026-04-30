@@ -7,2061 +7,3741 @@ const rawEcodeDatabase = [
       "Chemical_Name": "Curcumin (C.I. 75300)",
       "Description": "Colouring",
       "Remarks": "Orange-yellow colouring extracted from the rhizome of a plant of the ginger family called *Curcuma longa* (turmeric)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Curcumin is the bright orange-yellow pigment extracted from the rhizome of Curcuma longa (turmeric). It is a polyphenol commonly used as a natural food colourant and is also studied for anti-inflammatory effects.",
+      "commonFoods": ["mustard", "curry powders", "margarine", "processed cheese", "soft drinks", "baked goods"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["turmeric powder", "saffron", "annatto (E160b)"]
     },
     {
       "E-Code": "E101",
       "Chemical_Name": "Riboflavin/Lactofavin/Vitamin B2 *",
       "Description": "Colouring/ Vitamin",
       "Remarks": "Yellow or orange-yellow colouring manufactured from yeast or other fermenting organisms. May also be synthesised from xylene, ribose or alloxan",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Riboflavin (vitamin B2) is a yellow-orange pigment that doubles as a colourant and an essential B-vitamin. It is most commonly produced by microbial fermentation using yeasts or bacteria, though it can also be chemically synthesised.",
+      "commonFoods": ["breakfast cereals", "energy drinks", "processed cheese", "sauces", "vitamin-fortified milk", "supplements"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["natural riboflavin from leafy greens", "curcumin (E100)"]
     },
     {
       "E-Code": "E102",
       "Chemical_Name": "Tartrazine/FD&C Yellow 5 (C.I. 19140)",
       "Description": "Colouring",
       "Remarks": "Synthetic yellow colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Tartrazine is a synthetic lemon-yellow azo dye derived from petroleum byproducts. It is one of the most widely used artificial food colours and a frequent target of intolerance studies.",
+      "commonFoods": ["soft drinks", "candy", "ice cream", "mustard", "instant noodles", "snack foods"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["curcumin (E100)", "riboflavin (E101)", "beta-carotene (E160a)"]
     },
     {
       "E-Code": "E104",
       "Chemical_Name": "Quinoline Yellow (C.I. 47005)",
       "Description": "Colouring",
       "Remarks": "Synthetic dull yellow colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Quinoline Yellow is a synthetic dull-yellow dye produced from quinoline-derived chemicals. It is permitted in food in the EU and several other regions but banned in others.",
+      "commonFoods": ["smoked haddock", "scotch eggs", "soft drinks", "ice cream", "confectionery"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["riboflavin (E101)", "curcumin (E100)"]
     },
     {
       "E-Code": "E107",
       "Chemical_Name": "Yellow 2G (C.I. 18965)",
       "Description": "Colouring",
       "Remarks": "Synthetic yellow colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Yellow 2G is a synthetic yellow azo dye historically used in food. Its use is now restricted or banned in most major markets due to safety concerns.",
+      "commonFoods": ["soft drinks", "marzipan", "confectionery"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["tartrazine (E102)", "curcumin (E100)", "riboflavin (E101)"]
     },
     {
       "E-Code": "E110",
       "Chemical_Name": "Sunset Yellow FCF/FD&C Yellow 6 (C.I. 15985)",
       "Description": "Colouring",
       "Remarks": "Synthetic yellow colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sunset Yellow FCF is a synthetic orange-yellow azo dye produced from petroleum derivatives. It is one of the most common artificial colours found in processed foods worldwide.",
+      "commonFoods": ["orange soft drinks", "candy", "ice cream", "breakfast cereals", "instant soups", "snack foods"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "annatto (E160b)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E120",
       "Chemical_Name": "Cochineal/Carmines (C.I. 75470)",
       "Description": "Colouring",
       "Remarks": "Natural red colouring which may be extracted from the bodies of female insects called *Dactilopius coccus*",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Cochineal (carmine) is a deep red colourant extracted from the dried bodies of female Dactylopius coccus scale insects. The pigment, carminic acid, is one of the oldest known natural red dyes.",
+      "commonFoods": ["yogurts", "fruit juices", "candy", "cured meats and sausages", "alcoholic beverages", "lipstick"],
+      "origin": "Animal-derived",
+      "isVegan": false,
+      "isVegetarian": false,
+      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "lycopene (E160d)"]
     },
     {
       "E-Code": "E122",
       "Chemical_Name": "Carmoisine/Azorubine (C.I. 14720)",
       "Description": "Colouring",
       "Remarks": "Synthetic red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Carmoisine (azorubine) is a synthetic red azo dye produced from petroleum derivatives. It provides a bright bluish-red colour stable to heat and light.",
+      "commonFoods": ["jams and preserves", "yogurts", "marzipan", "cheesecake mixes", "sauces", "cordials"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "cochineal (E120)"]
     },
     {
       "E-Code": "E123",
       "Chemical_Name": "Amaranth/FD&C Red 2 (C.I. 16185)",
       "Description": "Colouring",
       "Remarks": "Synthetic purplish red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Amaranth is a synthetic dark purplish-red azo dye produced from petroleum derivatives. Its use is heavily restricted globally due to historical concerns about carcinogenicity.",
+      "commonFoods": ["caviar", "aperitifs", "fruit pie fillings", "fortified wine"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "cochineal (E120)"]
     },
     {
       "E-Code": "E124",
       "Chemical_Name": "Ponceau 4R/Cochineal Red A (C.I. 16255)",
       "Description": "Colouring",
       "Remarks": "Synthetic red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ponceau 4R (Cochineal Red A) is a synthetic red azo dye, despite its name being unrelated to natural cochineal. It is produced from petroleum chemicals.",
+      "commonFoods": ["dessert mixes", "jellies", "fruit pie fillings", "salami casings", "tinned strawberries"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "cochineal (E120)", "anthocyanins (E163)"]
     },
     {
       "E-Code": "E127",
       "Chemical_Name": "Erythrosine/FD&C Red 3 (C.I. 45430)",
       "Description": "Colouring",
       "Remarks": "Synthetic cherry pink to red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Erythrosine is a synthetic cherry-pink to red iodine-containing xanthene dye. The high iodine content distinguishes it from most other red food dyes.",
+      "commonFoods": ["cocktail and glace cherries", "canned fruit", "dessert mixes", "biscuits", "dental disclosing tablets"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "lycopene (E160d)", "cochineal (E120)"]
     },
     {
       "E-Code": "E128",
       "Chemical_Name": "Red 2G (C.I. 18050)",
       "Description": "Colouring",
       "Remarks": "Synthetic red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Red 2G is a synthetic red azo dye historically used to colour processed meats and jams. Its food use has been progressively withdrawn worldwide.",
+      "commonFoods": ["sausages", "burgers", "minced meat products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "cochineal (E120)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E129",
       "Chemical_Name": "Allura Red AC/Food Red 17/FD&C Red 40 (C.I. 16035)",
       "Description": "Colouring",
       "Remarks": "Synthetic red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Allura Red AC (FD&C Red 40) is a synthetic red azo dye and one of the most widely used artificial food colours, particularly in the US. It is produced from petroleum derivatives.",
+      "commonFoods": ["soft drinks", "candy", "breakfast cereals", "condiments", "sauces", "ice cream"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "cochineal (E120)"]
     },
     {
       "E-Code": "E131",
       "Chemical_Name": "Patent Blue V (C.I. 42051)",
       "Description": "Colouring",
       "Remarks": "Synthetic dark bluish-violet colour",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Patent Blue V is a synthetic dark bluish-violet triphenylmethane dye. Beyond food use, it is also used medically as a tracer dye in lymphatic mapping.",
+      "commonFoods": ["scotch eggs", "jellies", "confectionery", "ice cream", "soft drinks"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["indigo carmine (E132)", "spirulina extract", "anthocyanins (E163)"]
     },
     {
       "E-Code": "E132",
       "Chemical_Name": "Indigo Carmine/Indigotine/FD&C Blue 2 (C.I. 73015)",
       "Description": "Colouring",
       "Remarks": "Synthetic blue colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Indigo Carmine (indigotine) is a synthetic dark blue dye derived from indigo. Outside food, it is widely used as a pH indicator and a medical diagnostic dye.",
+      "commonFoods": ["sweets", "ice cream", "biscuits", "baked goods", "cocktail garnishes"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["spirulina extract", "anthocyanins (E163)", "brilliant blue (E133)"]
     },
     {
       "E-Code": "E133",
       "Chemical_Name": "Brilliant Blue FCF/FD&C Blue 1 (C.I. 42090)",
       "Description": "Colouring",
       "Remarks": "Synthetic blue colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Brilliant Blue FCF (FD&C Blue 1) is a synthetic bright blue triphenylmethane dye. It is one of the most commonly used artificial blue food colours globally.",
+      "commonFoods": ["canned processed peas", "blue sports drinks", "ice cream", "candy", "icing", "baked goods"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["spirulina extract", "indigo carmine (E132)", "anthocyanins (E163)"]
     },
     {
       "E-Code": "E140",
       "Chemical_Name": "Chlorophyll (C.I. 75810)*",
       "Description": "Colouring",
       "Remarks": "Natural olive to dark green colouring found in many plants. Solvents such as ethanol are used in the extraction of chlorophyll",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Chlorophyll is the natural olive to dark green pigment responsible for photosynthesis in plants. Food-grade chlorophyll is typically extracted from alfalfa, nettle or grass using organic solvents such as ethanol or acetone.",
+      "commonFoods": ["chewing gum", "ice cream", "sauces", "oils", "soaps", "pasta"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["spinach extract", "spirulina extract", "copper chlorophyll (E141)"]
     },
     {
       "E-Code": "E141",
       "Chemical_Name": "Copper Complexes of Chlorophyll (C.I. 75810)*",
       "Description": "Colouring",
       "Remarks": "Olive-green colouring which is derived from the substitution of magnesium ion in chlorophyll with copper",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Copper complexes of chlorophyll are produced by replacing the central magnesium ion in natural chlorophyll with copper, yielding a more stable, vivid olive-green pigment. The starting chlorophyll is typically obtained by solvent extraction from plants.",
+      "commonFoods": ["canned vegetables", "soups", "sauces", "oils and fats", "dairy products", "confectionery"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["chlorophyll (E140)", "spirulina extract", "spinach extract"]
     },
     {
       "E-Code": "E142",
       "Chemical_Name": "Green S/Acid Brilliant Green BS/Food green S/Lissamine green (C.I.44090)",
       "Description": "Colouring",
       "Remarks": "Synthetic green colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Green S is a synthetic green triarylmethane dye. It is often blended with yellow dyes such as tartrazine to produce richer green shades.",
+      "commonFoods": ["mint sauce", "mint jelly", "tinned peas", "ice cream", "gravy granules"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["chlorophyll (E140)", "spirulina extract", "copper chlorophyll (E141)"]
     },
     {
       "E-Code": "E150",
       "Chemical_Name": "Caramel",
       "Description": "Colouring",
       "Remarks": "Dark brown colouring prepared by the controlled heat treatment of carbohydrates (e.g. glucose syrup, sucrose)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Caramel is a dark brown colourant produced by the controlled heat treatment of carbohydrates such as glucose syrup or sucrose. Four classes (E150a-d) exist depending on whether ammonia, sulphite or both are used in production.",
+      "commonFoods": ["cola drinks", "beer", "soy sauce", "gravies", "sauces", "baked goods"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["malt extract", "molasses", "burnt sugar"]
     },
     {
       "E-Code": "E151",
       "Chemical_Name": "Brilliant Black BN (C.I. 28440)",
       "Description": "Colouring",
       "Remarks": "Synthetic black colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Brilliant Black BN (Black PN) is a synthetic black diazo dye derived from petroleum. It is often used in conjunction with red dyes to produce blackcurrant or rich brown shades.",
+      "commonFoods": ["blackcurrant flavoured products", "sauces", "fruit-flavoured drinks", "confectionery", "cake decorations"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["vegetable carbon (E153)", "caramel (E150)", "anthocyanins (E163)"]
     },
     {
       "E-Code": "E153",
       "Chemical_Name": "Carbon Black/Vegetable Carbon*",
       "Description": "Colouring",
       "Remarks": "Black colouring which may be prepared from animal charcoal or vegetable sources. The commercial source is mainly from plant material",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Carbon Black is an intense black colouring produced by carbonising plant material such as wood, peat or coconut shell, though historically also from animal bones (bone char). The halal concern centres on the source of the charred material.",
+      "commonFoods": ["liquorice", "jams and jellies", "gourmet cheese rinds", "confectionery", "sauces"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["caramel (E150)", "iron oxides (E172)", "brilliant black (E151)"]
     },
     {
       "E-Code": "E154",
       "Chemical_Name": "Brown FK/Food Brown",
       "Description": "Colouring",
       "Remarks": "Synthetic brown colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Brown FK is a synthetic mixture of azo dyes specifically developed to colour smoked fish. The 'FK' stands for 'for kippers'.",
+      "commonFoods": ["kippers", "smoked herring", "smoked fish products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["caramel (E150)", "iron oxides (E172)", "brown HT (E155)"]
     },
     {
       "E-Code": "E155",
       "Chemical_Name": "Brown HT/Chocolate Brown HT (C.I. 20285)",
       "Description": "Colouring",
       "Remarks": "Synthetic brown colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Brown HT (Chocolate Brown HT) is a synthetic brown diazo dye used as an alternative to caramel in baked products. It provides a stable rich chocolate-brown colour.",
+      "commonFoods": ["chocolate cakes", "milk chocolate substitutes", "biscuits", "imitation chocolate coatings"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["caramel (E150)", "iron oxides (E172)", "cocoa powder"]
     },
     {
       "E-Code": "E160a",
       "Chemical_Name": "Alpha-/Beta-/Gamma-Carotene (C.I. 75130)*",
       "Description": "Colouring",
       "Remarks": "Orange-yellow colouring which is naturally found in many plants including in carrots. May be commercially synthesised in the laboratory",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Carotenes are orange-yellow carotenoid pigments naturally found in carrots, palm oil and many vegetables. Food-grade carotene can be extracted from plant sources or produced synthetically by chemical synthesis or fermentation.",
+      "commonFoods": ["margarine", "butter", "fruit juices", "soft drinks", "cheese", "confectionery"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["paprika extract (E160c)", "annatto (E160b)", "lycopene (E160d)"]
     },
     {
       "E-Code": "E160b",
       "Chemical_Name": "Annatto/Bixin/Norbixin (C.I. 75120)*",
       "Description": "Colouring",
       "Remarks": "Yellow to peach colouring naturally found in the pericarp (seed coat) of the Annato tree. May be extracted by means of water-soluble or oil-soluble methods",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Annatto is a yellow-to-peach colouring obtained from the seeds of the achiote tree (Bixa orellana). It contains two main pigments, water-soluble norbixin and oil-soluble bixin.",
+      "commonFoods": ["cheddar cheese", "butter", "margarine", "smoked fish", "snack foods", "rice dishes"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["turmeric / curcumin (E100)", "beta-carotene (E160a)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E160c",
       "Chemical_Name": "Capsanthin/Capsorubin/Paprika extract*",
       "Description": "Colouring",
       "Remarks": "Red to orange colouring prepared by solvent extraction of the fruit pods and seeds of *Capsicum annuum*",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Paprika extract (capsanthin/capsorubin) is a red-to-orange colouring obtained by solvent extraction of the dried pods and seeds of Capsicum annuum. It also contributes a mild paprika flavour.",
+      "commonFoods": ["processed meats", "snack seasonings", "sauces", "soups", "sausages", "cheese coatings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["annatto (E160b)", "beet red (E162)", "lycopene (E160d)"]
     },
     {
       "E-Code": "E160d",
       "Chemical_Name": "Lycopene (C.I. 75125)*",
       "Description": "Colouring",
       "Remarks": "Natural red colouring extracted from tomatoes",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Lycopene is the bright red carotenoid pigment that gives tomatoes, watermelon and pink grapefruit their colour. Commercial lycopene is typically extracted from tomatoes or produced via microbial fermentation.",
+      "commonFoods": ["sauces", "soft drinks", "processed foods", "dietary supplements"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "paprika extract (E160c)", "cochineal (E120)"]
     },
     {
       "E-Code": "E160e",
       "Chemical_Name": "Beta-apo-8'-carotenal/Beta-8’-apocarotenal*",
       "Description": "Colouring",
       "Remarks": "Synthetic orange to yellowish-red colouring",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Beta-apo-8'-carotenal is a synthetic carotenoid colourant chemically related to beta-carotene. It produces orange to yellowish-red shades and is more stable than beta-carotene in many food matrices.",
+      "commonFoods": ["dairy products", "beverages", "ice cream", "soups", "sauces"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "annatto (E160b)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E160f",
       "Chemical_Name": "Ethyl ester of Beta-apo-8-carotenoic acid*",
       "Description": "Colouring",
       "Remarks": "Synthetic orange to yellow colouring",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Ethyl ester of beta-apo-8-carotenoic acid is a synthetic carotenoid colourant providing orange to yellow shades. It is closely related structurally to beta-apo-8'-carotenal (E160e).",
+      "commonFoods": ["beverages", "soups", "sauces", "dairy desserts"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "annatto (E160b)", "beta-apo-8'-carotenal (E160e)"]
     },
     {
       "E-Code": "E161a",
       "Chemical_Name": "Flavoxanthin*",
       "Description": "Colouring",
       "Remarks": "Yellow colouring which is a derivative of carotene (E160a). May contain other substances such as oils and fats derived from the source material",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Flavoxanthin is a yellow xanthophyll pigment derived from carotenoids in plants. It is rarely used in human food and is more common in animal feed.",
+      "commonFoods": ["animal feed", "limited specialty food applications"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "lutein (E161b)", "annatto (E160b)"]
     },
     {
       "E-Code": "E161b",
       "Chemical_Name": "Lutein*",
       "Description": "Colouring",
       "Remarks": "Natural yellow to reddish colouring taken from plant extract. May also be obtained from the same source as chlorophyll (E140)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Lutein is a yellow-to-orange xanthophyll pigment naturally present in marigolds, leafy greens and egg yolks. Commercial lutein is typically extracted from marigold flowers using organic solvents.",
+      "commonFoods": ["dietary supplements", "baked goods", "dairy products", "soups", "pasta", "egg substitutes"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "annatto (E160b)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E161c",
       "Chemical_Name": "Cryptoxanthin*",
       "Description": "Colouring",
       "Remarks": "Yellow colouring present in plants, orange rind, egg yolk and butter",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Cryptoxanthin is a yellow-orange xanthophyll pigment found in plants such as oranges and papaya, as well as in egg yolk and butter. It has provitamin A activity.",
+      "commonFoods": ["limited food use", "research supplements", "fortified products"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["beta-carotene (E160a)", "lutein (E161b)", "annatto (E160b)"]
     },
     {
       "E-Code": "E161d",
       "Chemical_Name": "Rubixanthin*",
       "Description": "Colouring",
       "Remarks": "Yellow colouring present in rosehips",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Rubixanthin is a yellow xanthophyll pigment naturally found in rosehips. It is a minor carotenoid used only in very limited food applications.",
+      "commonFoods": ["specialty colouring applications", "rosehip-based products"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "lutein (E161b)", "rhodoxanthin (E161f)"]
     },
     {
       "E-Code": "E161e",
       "Chemical_Name": "Violaxanthin*",
       "Description": "Colouring",
       "Remarks": "Yellow colouring taken from plants e.g. yellow pansies",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Violaxanthin is a yellow xanthophyll pigment found in many plants, notably in yellow pansy flowers. It is not commonly used in food.",
+      "commonFoods": ["limited specialty applications"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "lutein (E161b)", "annatto (E160b)"]
     },
     {
       "E-Code": "E161f",
       "Chemical_Name": "Rhodoxanthin*",
       "Description": "Colouring",
       "Remarks": "Yellow colouring found in the seeds of the yew tree",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Rhodoxanthin is a yellow-red xanthophyll pigment naturally found in the seeds of the yew tree. It has very limited food use.",
+      "commonFoods": ["limited specialty applications"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beta-carotene (E160a)", "lycopene (E160d)", "rubixanthin (E161d)"]
     },
     {
       "E-Code": "E161g",
       "Chemical_Name": "Canthaxanthin (C.I. 40850)*",
       "Description": "Colouring",
       "Remarks": "Orange colouring isolated from some mushrooms. May be commercially produced as part of the synthesis of carotene (E160a)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Canthaxanthin is an orange-pink carotenoid pigment originally isolated from edible mushrooms and now produced largely by chemical synthesis. It is also widely used in poultry and fish feed to enhance the colour of egg yolks and salmon flesh.",
+      "commonFoods": ["farmed salmon and trout feed", "poultry feed", "limited human food use"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["astaxanthin", "beta-carotene (E160a)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E162",
       "Chemical_Name": "Beet Red/Betanin/Betanidin",
       "Description": "Colouring",
       "Remarks": "Deep purplish-red colouring extracted from beetroot",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Betanin is the deep purplish-red pigment extracted from beetroot (Beta vulgaris). It is heat-sensitive and tends to fade in baking, so it is best used in cold or neutral-pH foods.",
+      "commonFoods": ["ice cream", "yogurts", "jams", "candy", "soft drinks", "tomato pastes"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["anthocyanins (E163)", "cochineal (E120)", "lycopene (E160d)"]
     },
     {
       "E-Code": "E163",
       "Chemical_Name": "Anthocyanins*",
       "Description": "Colouring",
       "Remarks": "Red, blue colouring extracted from grape-skin extract and/or red cabbage by means of water, methanol or ethanol",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Anthocyanins are red, purple and blue water-soluble pigments extracted from grape skins, red cabbage, blackcurrants and other plants. They are highly pH-sensitive and shift colour from red in acid to blue in alkaline conditions.",
+      "commonFoods": ["yogurts", "jams and jellies", "fruit-flavoured beverages", "confectionery", "wine"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["beet red (E162)", "paprika extract (E160c)", "cochineal (E120)"]
     },
     {
       "E-Code": "E170",
       "Chemical_Name": "Calcium Carbonate/Chalk (C.I. 77220)*",
       "Description": "Inorganic colouring",
       "Remarks": "May be extracted from naturally occurring white mineral or animal bones",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium carbonate is a white powder used as both a colourant and a calcium source. It can be obtained from naturally occurring chalk, limestone or marble, or historically from ground animal bones.",
+      "commonFoods": ["chewing gum", "baking powder", "breakfast cereals", "calcium supplements", "toothpaste", "white-coated confectionery"],
+      "origin": "Mineral",
+      "alternatives": ["titanium dioxide (E171)", "rice flour", "cornstarch"]
     },
     {
       "E-Code": "E171",
       "Chemical_Name": "Titanium Dioxide (C.I. 77891)",
       "Description": "Inorganic colouring",
       "Remarks": "White colouring prepared from naturally occurring mineral ilmenite",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Titanium dioxide is a brilliant white opacifier produced from the naturally occurring minerals ilmenite or rutile. It is prized for its high refractive index and ability to make products look bright white and opaque.",
+      "commonFoods": ["confectionery coatings", "chewing gum", "white sauces", "cake decorations", "icing", "supplements (in some markets)"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium carbonate (E170)", "rice starch", "cornstarch"]
     },
     {
       "E-Code": "E172",
       "Chemical_Name": "Iron Oxides/Red: 77491/Black: 77499 (Yellow: C.I. 77492)",
       "Description": "Inorganic colouring",
       "Remarks": "Yellow, red, orange, brown and black colouring from naturally occurring pigments or iron",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Iron oxides are inorganic pigments providing yellow, red, orange, brown and black hues, derived from naturally occurring iron-containing minerals or produced synthetically. They are extremely stable to heat and light.",
+      "commonFoods": ["cake decorations", "salmon paste and pâtés", "dragees", "tablet coatings", "olives (Spanish-style)"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["caramel (E150)", "beet red (E162)", "annatto (E160b)"]
     },
     {
       "E-Code": "E173",
       "Chemical_Name": "Aluminium (C.I. 77000)",
       "Description": "Inorganic colouring",
       "Remarks": "Naturally occurring metallic colour from bauxite",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Aluminium is used as a metallic silver-grey surface colouring, typically as fine flakes or powder. It is produced from naturally occurring bauxite ore.",
+      "commonFoods": ["cake decorations", "sugar coatings on dragees", "decorative confectionery"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["silver (E174)", "titanium dioxide (E171)", "edible glitter (sugar-based)"]
     },
     {
       "E-Code": "E174",
       "Chemical_Name": "Silver (C.I. 77820)",
       "Description": "Inorganic colouring",
       "Remarks": "Metallic colour from naturally occurring metal",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Silver is used as a metallic decorative colouring, typically as edible silver leaf or fine particles. It is obtained from the naturally occurring metal.",
+      "commonFoods": ["edible silver leaf", "dragees", "luxury confectionery", "decorative liqueurs", "Indian sweets (varak)"],
+      "origin": "Mineral",
+      "alternatives": ["aluminium (E173)", "titanium dioxide (E171)", "pearl essence"]
     },
     {
       "E-Code": "E175",
       "Chemical_Name": "Gold (C.I. 77480)",
       "Description": "Inorganic colouring",
       "Remarks": "Metallic colour from naturally occurring metal",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Gold is used as a metallic decorative colouring, typically as edible gold leaf, flakes or fine powder. It is biologically inert and passes through the digestive system unchanged.",
+      "commonFoods": ["edible gold leaf on luxury desserts", "Goldschläger and Goldwasser liqueurs", "premium chocolates", "cake decorations"],
+      "origin": "Mineral",
+      "alternatives": ["silver (E174)", "aluminium (E173)", "yellow mica-based glitter"]
     },
     {
       "E-Code": "E180",
       "Chemical_Name": "Pigment Rubine/Lithol Rubine BK (C.I. 15850)",
       "Description": "Inorganic colouring",
       "Remarks": "Synthetic red colouring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Pigment Rubine (Lithol Rubine BK) is a synthetic red azo dye. In the EU it is approved only for colouring the inedible rinds of hard cheeses such as Edam and Gouda.",
+      "commonFoods": ["cheese rinds (Edam, Gouda)", "cosmetics"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["annatto (E160b)", "beet red (E162)", "paprika extract (E160c)"]
     },
     {
       "E-Code": "E200",
       "Chemical_Name": "Sorbic Acid",
       "Description": "Preservative",
       "Remarks": "Naturally occurring in some fruits. May be synthetically manufactured from ketene",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sorbic acid is a natural preservative originally isolated from the berries of the rowan tree (Sorbus aucuparia). Most commercial sorbic acid is now produced synthetically from ketene and crotonaldehyde.",
+      "commonFoods": ["cheese", "baked goods", "dried fruits", "wine", "soft drinks", "salad dressings"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sorbate (E202)", "benzoic acid (E210)", "natural rosemary extract"]
     },
     {
       "E-Code": "E201",
       "Chemical_Name": "Sodium Sorbate",
       "Description": "Preservative",
       "Remarks": "Manufactured by neutralisation of sorbic acid (E200)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium sorbate is the sodium salt of sorbic acid, used as an antimicrobial preservative. It is produced by neutralising sorbic acid with sodium hydroxide.",
+      "commonFoods": ["cheese", "baked goods", "dried fruits", "soft drinks", "jams"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sorbate (E202)", "sorbic acid (E200)", "calcium sorbate (E203)"]
     },
     {
       "E-Code": "E202",
       "Chemical_Name": "Potassium Sorbate",
       "Description": "Preservative",
       "Remarks": "Manufactured by neutralisation of sorbic acid (E200)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium sorbate is the potassium salt of sorbic acid and is the most commonly used form of sorbate preservative. It works by inhibiting the growth of moulds, yeasts and some bacteria.",
+      "commonFoods": ["cheese", "yogurt", "wine", "dried meats", "baked goods", "salad dressings"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "benzoic acid (E210)", "calcium sorbate (E203)"]
     },
     {
       "E-Code": "E203",
       "Chemical_Name": "Calcium Sorbate",
       "Description": "Preservative",
       "Remarks": "Manufactured by neutralisation of sorbic acid (E200)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium sorbate is the calcium salt of sorbic acid, used as an antimicrobial preservative. It is produced by neutralising sorbic acid with calcium hydroxide.",
+      "commonFoods": ["dairy products", "cheese", "baked goods", "dried fruits"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sorbate (E202)", "sorbic acid (E200)"]
     },
     {
       "E-Code": "E210",
       "Chemical_Name": "Benzoic Acid",
       "Description": "Preservative",
       "Remarks": "Naturally occurring in many edible berries, fruits and vegetables. May also be synthetically produced",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Benzoic acid is a preservative naturally found in cranberries, prunes, plums and many other fruits, but commercial supply is mostly produced synthetically from toluene. It is most effective in acidic foods.",
+      "commonFoods": ["soft drinks", "fruit juices", "pickles", "sauces", "jams", "cordials"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "natural rosemary extract"]
     },
     {
       "E-Code": "E211",
       "Chemical_Name": "Sodium Benzoate",
       "Description": "Preservative",
       "Remarks": "Sodium salt of benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium benzoate is the sodium salt of benzoic acid and is the most widely used form of benzoate preservative. It is highly soluble in water and most effective in acidic foods (pH below 4.5).",
+      "commonFoods": ["soft drinks", "fruit juices", "salad dressings", "condiments", "jams", "pickles"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sorbate (E202)", "benzoic acid (E210)", "potassium benzoate (E212)"]
     },
     {
       "E-Code": "E212",
       "Chemical_Name": "Potassium Benzoate",
       "Description": "Preservative",
       "Remarks": "Potassium salt of benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium benzoate is the potassium salt of benzoic acid, used as an antimicrobial preservative. It is often used in low-sodium products as an alternative to sodium benzoate.",
+      "commonFoods": ["low-sodium soft drinks", "fruit juices", "sauces", "margarine", "cordials"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium benzoate (E211)", "potassium sorbate (E202)", "benzoic acid (E210)"]
     },
     {
       "E-Code": "E213",
       "Chemical_Name": "Calcium Benzoate",
       "Description": "Preservative",
       "Remarks": "Calcium salt of benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium benzoate is the calcium salt of benzoic acid, used as an antimicrobial preservative. It is most often used in foods where adding calcium is also desirable.",
+      "commonFoods": ["low-sodium foods", "fruit-based products", "margarine", "beverages"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium benzoate (E211)", "potassium benzoate (E212)", "potassium sorbate (E202)"]
     },
     {
       "E-Code": "E214",
       "Chemical_Name": "Ethyl 4-hydroxybenzoate/Ethyl para-hydroxybenzoate",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ethylparaben (ethyl 4-hydroxybenzoate) is a synthetic preservative from the paraben family, manufactured from benzoic acid. It is effective against moulds and yeasts across a wide pH range.",
+      "commonFoods": ["jellies", "preserves", "sauces", "beverages", "pharmaceuticals"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "benzoic acid (E210)"]
     },
     {
       "E-Code": "E215",
       "Chemical_Name": "Ethyl 4-hydroxybenzoate, Sodium Salt/Sodium ethyl para-hydroxybenzoate",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium ethylparaben is the sodium salt of ethyl 4-hydroxybenzoate (E214), giving it greater water solubility. It serves the same antimicrobial preservative role as the parent paraben.",
+      "commonFoods": ["jellies", "preserves", "sauces", "beverages"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "ethylparaben (E214)"]
     },
     {
       "E-Code": "E216",
       "Chemical_Name": "Propyl 4-hydroxybenzoate/Propylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Propylparaben (propyl 4-hydroxybenzoate) is a synthetic paraben preservative manufactured from benzoic acid. It is more lipophilic than methyl- or ethylparaben, making it effective in fatty foods.",
+      "commonFoods": ["baked goods", "cosmetics", "pharmaceuticals", "personal care products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "methylparaben (E218)"]
     },
     {
       "E-Code": "E217",
       "Chemical_Name": "Propyl 4-hydroxybenzoate, Sodium Salt",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium propylparaben is the sodium salt of propyl 4-hydroxybenzoate (E216), with improved water solubility. It functions identically as a paraben preservative.",
+      "commonFoods": ["baked goods (legacy use)", "sauces (legacy use)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "methylparaben (E218)"]
     },
     {
       "E-Code": "E218",
       "Chemical_Name": "Methyl 4-hydroxybenzoate/Methylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Methylparaben (methyl 4-hydroxybenzoate) is the most water-soluble of the paraben preservatives, manufactured from benzoic acid. It is effective against moulds and yeasts across a wide pH range.",
+      "commonFoods": ["baked goods", "sauces", "beverages", "cosmetics", "pharmaceuticals"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "benzoic acid (E210)"]
     },
     {
       "E-Code": "E219",
       "Chemical_Name": "Methyl 4-hydroxybenzoate, Sodium Salt",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium methylparaben is the sodium salt of methyl 4-hydroxybenzoate (E218), giving it greater water solubility. It plays the same antimicrobial preservative role.",
+      "commonFoods": ["baked goods", "sauces", "beverages", "cosmetics"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "potassium sorbate (E202)", "methylparaben (E218)"]
     },
     {
       "E-Code": "E220",
       "Chemical_Name": "Sulphur Dioxide",
       "Description": "Preservative",
       "Remarks": "Manufactured chemically by the combustion of sulphur or gypsum",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sulphur dioxide is a pungent gas used as a preservative and antioxidant, mainly in dried fruits and wine. It is produced industrially by burning sulphur or by smelting sulphide ores.",
+      "commonFoods": ["dried fruits", "wine", "fruit juices", "pickled vegetables", "processed potato products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sorbate (E202)", "ascorbic acid (E300)", "sodium sulphite (E221)"]
     },
     {
       "E-Code": "E221",
       "Chemical_Name": "Sodium Sulphite",
       "Description": "Preservative",
       "Remarks": "Sodium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium sulphite is the sodium salt of sulphurous acid, used as an antioxidant and antimicrobial preservative. It releases sulphur dioxide on contact with acid.",
+      "commonFoods": ["dried fruits", "frozen seafood", "wine", "fruit juices", "pickled vegetables"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sulphur dioxide (E220)", "potassium metabisulphite (E224)", "ascorbic acid (E300)"]
     },
     {
       "E-Code": "E222",
       "Chemical_Name": "Sodium Hydrogen Sulphite/Sodium Bisulphite",
       "Description": "Preservative",
       "Remarks": "Sodium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium hydrogen sulphite (sodium bisulphite) is a sodium salt of sulphurous acid that releases sulphur dioxide in acidic conditions. It functions as a preservative and antioxidant.",
+      "commonFoods": ["wine", "dried fruits", "fruit juices", "pickled vegetables", "frozen seafood"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium sulphite (E221)", "sulphur dioxide (E220)", "potassium metabisulphite (E224)"]
     },
     {
       "E-Code": "E223",
       "Chemical_Name": "Sodium Metabisulphite",
       "Description": "Preservative",
       "Remarks": "Sodium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium metabisulphite is a white crystalline sulphite salt that releases sulphur dioxide on dissolving in water. It is used as a preservative and antioxidant in many processed foods.",
+      "commonFoods": ["wine and beer", "dried fruits", "shrimp and seafood", "pickled vegetables", "fruit juices"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sulphur dioxide (E220)", "potassium metabisulphite (E224)", "ascorbic acid (E300)"]
     },
     {
       "E-Code": "E224",
       "Chemical_Name": "Potassium Metabisulphite/Potassium Pyrosulphite",
       "Description": "Preservative",
       "Remarks": "Potassium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium metabisulphite (potassium pyrosulphite) is a sulphite preservative widely used in winemaking and fruit processing. It releases sulphur dioxide to inhibit microbes and prevent oxidation.",
+      "commonFoods": ["wine", "beer", "dried fruits", "fruit juices", "pickled vegetables"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium metabisulphite (E223)", "sulphur dioxide (E220)", "potassium sulphite (E225)"]
     },
     {
       "E-Code": "E225",
       "Chemical_Name": "Potassium Sulphite",
       "Description": "Preservative",
       "Remarks": "Potassium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium sulphite is the potassium salt of sulphurous acid, used as a preservative and antioxidant. It releases sulphur dioxide in acidic conditions.",
+      "commonFoods": ["wine", "fruit juices", "dried fruits", "pickled vegetables"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium sulphite (E221)", "potassium metabisulphite (E224)", "sulphur dioxide (E220)"]
     },
     {
       "E-Code": "E226",
       "Chemical_Name": "Calcium Sulphite",
       "Description": "Preservative",
       "Remarks": "Calcium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium sulphite is the calcium salt of sulphurous acid, functioning as a preservative and firming agent. It releases sulphur dioxide in acidic conditions.",
+      "commonFoods": ["pickled vegetables", "wine", "dried fruits", "fruit juices"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium sulphite (E221)", "potassium sulphite (E225)", "sulphur dioxide (E220)"]
     },
     {
       "E-Code": "E227",
       "Chemical_Name": "Calcium Hydrogen Sulphite/Calcium Bisulphite",
       "Description": "Preservative",
       "Remarks": "Calcium salt of sulphurous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium hydrogen sulphite (calcium bisulphite) is a calcium salt of sulphurous acid commonly used in brewing as a preservative and to prevent secondary fermentation.",
+      "commonFoods": ["beer", "wine", "soft drinks", "fruit juices", "pickled foods"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium hydrogen sulphite (E222)", "sulphur dioxide (E220)", "potassium metabisulphite (E224)"]
     },
     {
       "E-Code": "E230",
       "Chemical_Name": "Biphenyl/Diphenyl",
       "Description": "Preservative",
       "Remarks": "Synthetically produced by action of heat on benzene",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Biphenyl (diphenyl) is a synthetic preservative used primarily on the surface of citrus fruits to prevent fungal growth during storage and shipping. It is produced by heating benzene.",
+      "commonFoods": ["surface treatment of citrus fruits", "fruit packaging materials"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["2-hydroxybiphenyl (E231)", "thiabendazole (E233)"]
     },
     {
       "E-Code": "E231",
       "Chemical_Name": "2-Hydroxybiphenyl",
       "Description": "Preservative",
       "Remarks": "Manufactured from phenyl ether or dibenzofuran",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "2-Hydroxybiphenyl (orthophenylphenol) is a synthetic surface preservative used to protect citrus fruits from mould during storage and transport.",
+      "commonFoods": ["surface treatment of citrus fruits", "post-harvest fruit treatments"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["biphenyl (E230)", "sodium biphenyl-2-yl-oxide (E232)", "thiabendazole (E233)"]
     },
     {
       "E-Code": "E232",
       "Chemical_Name": "Sodium Biphenyl-2-yl-oxide",
       "Description": "Preservative",
       "Remarks": "Synthetically produced",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium biphenyl-2-yl-oxide is the sodium salt of orthophenylphenol, used as a surface antimicrobial on citrus fruits. It is produced synthetically.",
+      "commonFoods": ["surface treatment of citrus fruits"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["2-hydroxybiphenyl (E231)", "biphenyl (E230)"]
     },
     {
       "E-Code": "E233",
       "Chemical_Name": "2-(Thiazol-4-yl) Benzimidazole",
       "Description": "Preservative",
       "Remarks": "Chemically synthesised",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Thiabendazole (2-(thiazol-4-yl) benzimidazole) is a synthetic fungicide used as a post-harvest surface treatment to prevent mould on fruits and vegetables. It is also used pharmaceutically as an antiparasitic.",
+      "commonFoods": ["surface treatment of citrus fruits", "bananas", "apples", "potatoes"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["biphenyl (E230)", "2-hydroxybiphenyl (E231)"]
     },
     {
       "E-Code": "E234",
       "Chemical_Name": "Nisin*",
       "Description": "Preservative",
       "Remarks": "Produced by the growth of a bacterium called Streptococcus lactis.",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Nisin is a polypeptide antimicrobial preservative produced by the bacterium Lactococcus lactis (formerly Streptococcus lactis), typically grown on a milk-based substrate. It is effective against gram-positive bacteria including Listeria.",
+      "commonFoods": ["processed cheese", "canned foods", "dairy desserts", "cured meats"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["natamycin (E235)", "potassium sorbate (E202)", "sodium benzoate (E211)"]
     },
     {
       "E-Code": "E235",
       "Chemical_Name": "Natamycin/Pimaricin*",
       "Description": "Preservative",
       "Remarks": "Produced by the growth of a bacterium called Strepmycess natalensis",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Natamycin (pimaricin) is a polyene antifungal preservative produced by fermentation of Streptomyces natalensis. It is mainly used on the surface of cheeses and cured meats.",
+      "commonFoods": ["surface treatment of hard cheeses", "dry-cured sausages", "yogurt drinks"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["nisin (E234)", "potassium sorbate (E202)", "calcium propionate (E282)"]
     },
     {
       "E-Code": "E236",
       "Chemical_Name": "Formic Acid",
       "Description": "Preservative",
       "Remarks": "Produced commercially by heating carbon monoxide and sodium hydroxide under pressure and decomposing the resulting sodium formate with sulphuric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Formic acid is a simple carboxylic acid used as a preservative and antibacterial agent, mainly in animal feed and silage rather than human food. It is produced commercially from carbon monoxide and methanol.",
+      "commonFoods": ["animal feed and silage", "limited beverage applications"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetic acid (E260)", "propionic acid (E280)", "sorbic acid (E200)"]
     },
     {
       "E-Code": "E237",
       "Chemical_Name": "Sodium Formate",
       "Description": "Preservative",
       "Remarks": "Sodium salt of formic acid (E236)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium formate is the sodium salt of formic acid, used as a preservative and acidity buffer. It is produced by neutralising formic acid with sodium hydroxide.",
+      "commonFoods": ["limited food applications", "animal feed", "deicing agents (non-food)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["formic acid (E236)", "calcium formate (E238)", "sodium acetate (E262)"]
     },
     {
       "E-Code": "E238",
       "Chemical_Name": "Calcium Formate",
       "Description": "Preservative",
       "Remarks": "Calcium salt of formic acid (E236)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium formate is the calcium salt of formic acid, used as a preservative and feed additive. It is produced by reacting formic acid with calcium hydroxide.",
+      "commonFoods": ["animal feed (most common use)", "limited food applications"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["formic acid (E236)", "sodium formate (E237)", "calcium propionate (E282)"]
     },
     {
       "E-Code": "E239",
       "Chemical_Name": "Hexamine",
       "Description": "Preservative",
       "Remarks": "Manufactured from formaldehyde and ammonia",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Hexamine (hexamethylenetetramine, methenamine) is a synthetic preservative formed from formaldehyde and ammonia. It is permitted as a preservative only in certain provolone cheeses in the EU.",
+      "commonFoods": ["Provolone cheese (limited EU use)", "caviar (some markets)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sorbate (E202)", "sodium benzoate (E211)", "natamycin (E235)"]
     },
     {
       "E-Code": "E249",
       "Chemical_Name": "Potassium Nitrite",
       "Description": "Preservative",
       "Remarks": "Potassium salt of nitrous acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium nitrite is the potassium salt of nitrous acid, used as a curing agent in processed meats. It contributes to the characteristic pink colour and inhibits Clostridium botulinum.",
+      "commonFoods": ["cured meats", "sausages", "ham", "bacon"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium nitrite (E250)", "potassium nitrate (E252)", "celery powder (natural source)"]
     },
     {
       "E-Code": "E250",
       "Chemical_Name": "Sodium Nitrite",
       "Description": "Preservative",
       "Remarks": "Manufactured from sodium nitrate by bacterial or chemical actions",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium nitrite is the sodium salt of nitrous acid, the most commonly used curing agent for processed meats. It inhibits Clostridium botulinum, develops cured-meat flavour, and produces the characteristic pink colour.",
+      "commonFoods": ["bacon", "ham", "hot dogs", "sausages", "cured beef", "smoked fish"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium nitrite (E249)", "sodium nitrate (E251)", "celery juice powder (natural source)"]
     },
     {
       "E-Code": "E251",
       "Chemical_Name": "Sodium Nitrate",
       "Description": "Preservative",
       "Remarks": "Naturally occurring mineral",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium nitrate is the sodium salt of nitric acid, occurring naturally as the mineral nitratine and also produced synthetically. It is used as a preservative and curing agent that gradually converts to nitrite during meat curing.",
+      "commonFoods": ["dry-cured meats", "salami", "prosciutto", "some hard cheeses"],
+      "origin": "Mineral or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium nitrite (E250)", "potassium nitrate (E252)", "celery powder"]
     },
     {
       "E-Code": "E252",
       "Chemical_Name": "Potassium Nitrate/Saltpetre*",
       "Description": "Preservative",
       "Remarks": "Naturally occurring mineral. May also be artificially produced from vegetable material and waste animal",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium nitrate (saltpetre) is a naturally occurring mineral also produced synthetically, used as a preservative and curing agent for meats. The MUIS doubtful classification reflects historical preparation from animal waste alongside vegetable material.",
+      "commonFoods": ["dry-cured meats", "salami", "ham", "some traditional cheeses"],
+      "origin": "Mineral or Synthetic",
+      "alternatives": ["sodium nitrate (E251)", "sodium nitrite (E250)", "potassium nitrite (E249)"]
     },
     {
       "E-Code": "E260",
       "Chemical_Name": "Acetic Acid*",
       "Description": "Food Acid",
       "Remarks": "Commercially manufactured by the action of methanol and carbon monoxide. The acetic acid in vinegar may be produced by the action of bacterium Acetobacter on alcohol",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Acetic acid is the active component of vinegar, produced either by chemical synthesis from methanol and carbon monoxide or by bacterial fermentation of alcohol. It functions as an acidity regulator and preservative.",
+      "commonFoods": ["vinegar", "pickles", "ketchup", "mayonnaise", "salad dressings", "pickled vegetables"],
+      "origin": "Synthetic or Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["lactic acid (E270)", "citric acid (E330)", "sodium acetate (E262)"]
     },
     {
       "E-Code": "E261",
       "Chemical_Name": "Potassium Acetate",
       "Description": "Food Acid",
       "Remarks": "Potassium salt of acetic acid (E260)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium acetate is the potassium salt of acetic acid, used as an acidity regulator and preservative. It is produced by neutralising acetic acid with potassium carbonate or hydroxide.",
+      "commonFoods": ["low-sodium foods", "pickled products", "sauces", "snack seasonings"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetic acid (E260)", "sodium acetate (E262)", "calcium acetate (E263)"]
     },
     {
       "E-Code": "E262",
       "Chemical_Name": "Sodium Acetate",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of acetic acid (E260)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium acetate is the sodium salt of acetic acid, used as an acidity regulator, preservative and seasoning agent. It contributes the characteristic salt-and-vinegar flavour to many savoury snacks.",
+      "commonFoods": ["salt-and-vinegar crisps", "pickled foods", "cured meats", "sauces", "bread"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetic acid (E260)", "potassium acetate (E261)", "calcium acetate (E263)"]
     },
     {
       "E-Code": "E263",
       "Chemical_Name": "Calcium Acetate",
       "Description": "Food Acid",
       "Remarks": "Calcium salt of acetic acid (E260)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium acetate is the calcium salt of acetic acid, used as a preservative, acidity regulator and firming agent. It is produced by reacting acetic acid with calcium carbonate.",
+      "commonFoods": ["bread", "candies", "tofu (firming agent)", "pet food"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetic acid (E260)", "calcium propionate (E282)", "sodium acetate (E262)"]
     },
     {
       "E-Code": "E264",
       "Chemical_Name": "Ammonium Acetate",
       "Description": "Food Acid",
       "Remarks": "Ammonium salt of acetic acid (E260)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium acetate is the ammonium salt of acetic acid, used as an acidity regulator and buffering agent. It is more often used in laboratory and pharmaceutical applications than in food.",
+      "commonFoods": ["limited food applications", "pharmaceuticals", "buffer solutions"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetic acid (E260)", "sodium acetate (E262)", "ammonium lactate (E328)"]
     },
     {
       "E-Code": "E270",
       "Chemical_Name": "Lactic Acid*",
       "Description": "Food Acid",
       "Remarks": "Commercially produced by heat treatment of carbohydrate, such as whey, and fermented by bacteria such as Bacillus acidilacti, Lactobacillus delbueckii or L. bulgaricus",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Lactic acid is a carboxylic acid produced by bacterial fermentation of carbohydrates such as whey, corn or sugar. It is a natural product of muscle metabolism and is widely used as an acidity regulator and preservative.",
+      "commonFoods": ["yogurt", "sourdough bread", "cheese", "pickled vegetables", "beverages", "cured meats"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "acetic acid (E260)", "malic acid (E296)"]
     },
     {
       "E-Code": "E280",
       "Chemical_Name": "Propionic Acid*",
       "Description": "Preservative",
       "Remarks": "May be commercially derived from natural gas or from wood pulp waste liquor by the fermentation activity of Propionibacteria",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Propionic acid is a short-chain fatty acid used as a preservative against mould and rope-forming bacteria, particularly in baked goods. It is produced commercially from natural gas or by bacterial fermentation.",
+      "commonFoods": ["bread", "baked goods", "processed cheese", "animal feed"],
+      "origin": "Synthetic or Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbic acid (E200)", "calcium propionate (E282)", "sodium propionate (E281)"]
     },
     {
       "E-Code": "E281",
       "Chemical_Name": "Sodium Propionate*",
       "Description": "Preservative",
       "Remarks": "Sodium salt of propionic acid (E280)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium propionate is the sodium salt of propionic acid, used as a preservative against mould in baked goods and dairy products.",
+      "commonFoods": ["bread", "baked goods", "processed cheese", "tobacco"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium propionate (E282)", "potassium propionate (E283)", "propionic acid (E280)"]
     },
     {
       "E-Code": "E282",
       "Chemical_Name": "Calcium Propionate*",
       "Description": "Preservative",
       "Remarks": "Calcium salt of propionic acid (E280)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium propionate is the calcium salt of propionic acid, the most widely used propionate preservative. It is highly effective at preventing mould and bacterial growth in baked goods.",
+      "commonFoods": ["bread", "buns", "tortillas", "processed cheese", "pet food"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium propionate (E281)", "potassium propionate (E283)", "propionic acid (E280)"]
     },
     {
       "E-Code": "E283",
       "Chemical_Name": "Potassium Propionate*",
       "Description": "Preservative",
       "Remarks": "Potassium salt of propionic acid (E280)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium propionate is the potassium salt of propionic acid, used as a preservative against mould and rope-forming bacteria. It is often used in low-sodium baked products.",
+      "commonFoods": ["low-sodium bread", "baked goods", "processed cheese"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium propionate (E282)", "sodium propionate (E281)", "propionic acid (E280)"]
     },
     {
       "E-Code": "E290",
       "Chemical_Name": "Carbon Dioxide",
       "Description": "Propellant",
       "Remarks": "Naturally occuring. May also be produced by way of fermentation or acid-carbonate reaction",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Carbon dioxide is a colourless gas used as a propellant, packaging gas and carbonating agent. It occurs naturally in the atmosphere and is also produced by fermentation and other industrial processes.",
+      "commonFoods": ["carbonated soft drinks", "sparkling water", "beer", "modified-atmosphere packaging", "whipped cream propellant"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["nitrogen (E941)", "nitrous oxide (E942)"]
     },
     {
       "E-Code": "E296",
       "Chemical_Name": "Malic Acid (DL- or L-)",
       "Description": "Food Acid",
       "Remarks": "Commercially synthesised by means of heating malic with sulphuric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Malic acid is a dicarboxylic acid that occurs naturally in apples and other fruits, contributing to their tart taste. Commercial malic acid is produced synthetically from maleic anhydride.",
+      "commonFoods": ["sour candies", "fruit-flavoured beverages", "wine", "fruit preserves", "carbonated drinks"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "tartaric acid (E334)", "fumaric acid (E297)"]
     },
     {
       "E-Code": "E297",
       "Chemical_Name": "Fumaric Acid*",
       "Description": "Food Acid",
       "Remarks": "Commercially prepared by glucose fermentation using fungi such as Rhizopus nigricans",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Fumaric acid is a dicarboxylic acid produced commercially by chemical isomerisation of maleic acid, which is itself made from butane or benzene oxidation; fungal fermentation (e.g. Rhizopus) is a known but minor alternative. It is used as an acidity regulator with about 1.5 times the sourness of citric acid.",
+      "commonFoods": ["powdered fruit drinks", "gelatin desserts", "sourdough bread", "wine", "bakery fillings"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "malic acid (E296)", "tartaric acid (E334)"]
     },
     {
       "E-Code": "E300",
       "Chemical_Name": "L-Ascorbic Acid/Vitamin C*",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Occurs naturally in many fruits and vegetables. May be synthesised from the hydrogenation of glucose to sorbitol and its eventual conversion to ascorbic acid. May also be biologically synthesised through means of fermentation",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "L-Ascorbic acid (vitamin C) is a water-soluble vitamin used as an antioxidant, acidity regulator and dough conditioner. Most commercial ascorbic acid is produced by the Reichstein process from glucose, often via microbial fermentation steps.",
+      "commonFoods": ["fruit juices", "soft drinks", "cured meats", "bread", "vitamin supplements", "preserved fruits"],
+      "origin": "Microbial or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium ascorbate (E301)", "erythorbic acid (E317)", "tocopherols (E306)"]
     },
     {
       "E-Code": "E301",
       "Chemical_Name": "Sodium Ascorbate",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Synthetic sodium salt of ascorbic acid (E300)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium ascorbate is the sodium salt of ascorbic acid, used as an antioxidant. It is more pH-neutral than ascorbic acid and is preferred in cured meat applications.",
+      "commonFoods": ["cured meats", "sausages", "ham", "bacon", "soft drinks", "vitamin supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ascorbic acid (E300)", "calcium ascorbate (E302)", "erythorbic acid (E317)"]
     },
     {
       "E-Code": "E302",
       "Chemical_Name": "Calcium Ascorbate",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Synthetic calcium salt of ascorbic acid (E300)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium ascorbate is the calcium salt of ascorbic acid, used as an antioxidant and vitamin-C source. It provides both vitamin C activity and supplemental calcium.",
+      "commonFoods": ["fruit-based products", "vitamin supplements", "fortified juices", "cured meats"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ascorbic acid (E300)", "sodium ascorbate (E301)", "potassium ascorbate (E303)"]
     },
     {
       "E-Code": "E303",
       "Chemical_Name": "Potassium Ascorbate",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Synthetic potassium salt of ascorbic acid (E300)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium ascorbate is the potassium salt of ascorbic acid, used as an antioxidant. It is less common than the sodium and calcium forms.",
+      "commonFoods": ["limited beverage applications", "vitamin supplements", "low-sodium products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ascorbic acid (E300)", "sodium ascorbate (E301)", "calcium ascorbate (E302)"]
     },
     {
       "E-Code": "E304",
       "Chemical_Name": "Ascorbyl Palmitate*",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Ascorbic acid ester comprising ascorbic acid and palmitic acid",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Ascorbyl palmitate is a fat-soluble ester of ascorbic acid and palmitic acid, used as an antioxidant in oils and fatty foods. The MUIS doubtful classification reflects palmitic acid's possible animal-fat origin.",
+      "commonFoods": ["vegetable oils", "infant formula", "cereals", "vitamin supplements"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["ascorbic acid (E300)", "tocopherols (E306)", "BHA (E320)"]
     },
     {
       "E-Code": "E306",
       "Chemical_Name": "Tocopherol Concentrate, Mixed/Vitamin E",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Extracts from soya bean oil, rice germ, wheat germ, maize and green leaves",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Tocopherol concentrate is a natural vitamin E antioxidant extracted from vegetable oils such as soybean, wheat germ, rice germ and maize. It is one of the most commonly used natural antioxidants in food.",
+      "commonFoods": ["vegetable oils", "margarine", "infant formula", "cereal products", "supplements"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["synthetic alpha-tocopherol (E307)", "ascorbic acid (E300)", "rosemary extract"]
     },
     {
       "E-Code": "E307",
       "Chemical_Name": "Synthetic Alpha-Tocopherol",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Manufactured by chemical synthesis",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Synthetic alpha-tocopherol is the synthesised form of vitamin E, used as a fat-soluble antioxidant. It is chemically identical to natural alpha-tocopherol but produced by chemical synthesis.",
+      "commonFoods": ["vegetable oils", "margarine", "snack foods", "vitamin supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["tocopherol concentrate (E306)", "ascorbyl palmitate (E304)", "rosemary extract"]
     },
     {
       "E-Code": "E308",
       "Chemical_Name": "Synthetic Gamma-Tocopherol",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Manufactured by chemical synthesis",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Synthetic gamma-tocopherol is one of the synthetic forms of vitamin E, used as a fat-soluble antioxidant in oils and fatty foods.",
+      "commonFoods": ["vegetable oils", "margarine", "fortified foods", "supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["alpha-tocopherol (E307)", "delta-tocopherol (E309)", "tocopherol concentrate (E306)"]
     },
     {
       "E-Code": "E309",
       "Chemical_Name": "Synthetic Delta-Tocopherol",
       "Description": "Antioxidant/ Vitamin",
       "Remarks": "Manufactured by chemical synthesis",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Synthetic delta-tocopherol is a synthetic form of vitamin E with strong antioxidant activity, used to extend the shelf life of oils and fatty products.",
+      "commonFoods": ["vegetable oils", "fatty foods", "supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["alpha-tocopherol (E307)", "gamma-tocopherol (E308)", "tocopherol concentrate (E306)"]
     },
     {
       "E-Code": "E310",
       "Chemical_Name": "Propyl Gallate",
       "Description": "Antioxidant",
       "Remarks": "Manufactured from gallic acid found in the tannins of nut galls. May also be produced from the hydrolysis of tannase, which may occur in spent fungal broth",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Propyl gallate is a synthetic antioxidant derived from gallic acid, which is obtained from tannins of nut galls or by tannase fermentation. It is used to prevent rancidity in oils and fatty foods.",
+      "commonFoods": ["vegetable oils", "chewing gum", "fats and lard", "snack foods", "cereals"],
+      "origin": "Plant-based or Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["BHA (E320)", "BHT (E321)", "tocopherols (E306)"]
     },
     {
       "E-Code": "E311",
       "Chemical_Name": "Octyl Gallate",
       "Description": "Antioxidant",
       "Remarks": "Manufactured from gallic acid found in the tannins of nut galls. May also be produced from the hydrolysis of tannase, which may occur in spent fungal broth",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Octyl gallate is a synthetic antioxidant ester of gallic acid with octanol, used to prevent oxidation in fatty foods. It has greater fat solubility than propyl gallate.",
+      "commonFoods": ["margarine", "vegetable oils", "fatty processed foods"],
+      "origin": "Plant-based or Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["propyl gallate (E310)", "dodecyl gallate (E312)", "tocopherols (E306)"]
     },
     {
       "E-Code": "E312",
       "Chemical_Name": "Dodecyl Gallate",
       "Description": "Antioxidant",
       "Remarks": "Manufactured from gallic acid found in the tannins of nut galls. May also be produced from the hydrolysis of tannase, which may occur in spent fungal broth",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Dodecyl gallate (lauryl gallate) is a synthetic antioxidant ester of gallic acid with lauryl alcohol, used to prevent rancidity in oils and fats. It is the most fat-soluble of the common gallates.",
+      "commonFoods": ["vegetable oils", "margarine", "fatty foods"],
+      "origin": "Plant-based or Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["propyl gallate (E310)", "octyl gallate (E311)", "BHT (E321)"]
     },
     {
       "E-Code": "E317",
       "Chemical_Name": "Erythorbic Acid/Iso-ascorbic Acid*",
       "Description": "Antioxidant",
       "Remarks": "Commercially produced from sucrose by fermentation with Penicillinum sp.",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Erythorbic acid (iso-ascorbic acid) is a stereoisomer of ascorbic acid produced by fermentation with Penicillium fungi. It has antioxidant activity but no significant vitamin C function.",
+      "commonFoods": ["cured meats", "frozen seafood", "soft drinks", "canned fruits"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ascorbic acid (E300)", "sodium erythorbate (E318)", "sodium ascorbate (E301)"]
     },
     {
       "E-Code": "E318",
       "Chemical_Name": "Sodium Erythorbate/Sodium Iso-Ascorbate*",
       "Description": "Antioxidant",
       "Remarks": "Sodium salt of erythorbic acid (E317)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium erythorbate is the sodium salt of erythorbic acid, used as an antioxidant in cured meats. It accelerates the curing process and stabilises colour.",
+      "commonFoods": ["bacon", "ham", "hot dogs", "cured meats", "frozen fish"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium ascorbate (E301)", "erythorbic acid (E317)", "ascorbic acid (E300)"]
     },
     {
       "E-Code": "E319",
       "Chemical_Name": "tert-Butylhydroquinone/TBHQ*",
       "Description": "Antioxidant",
       "Remarks": "Derived from petroleum",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "tert-Butylhydroquinone (TBHQ) is a synthetic antioxidant derived from petroleum, used to extend the shelf life of fats and oils. It is highly effective against oxidative rancidity at low concentrations.",
+      "commonFoods": ["vegetable oils", "frozen meat products", "instant noodles", "snack crackers", "fast-food fryer oils"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["BHA (E320)", "BHT (E321)", "tocopherols (E306)"]
     },
     {
       "E-Code": "E320",
       "Chemical_Name": "Butylated Hydroxyanisole (BHA)*",
       "Description": "Antioxidant",
       "Remarks": "Commercially prepared from p-methoxyphenol and isobutene",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Butylated hydroxyanisole (BHA) is a synthetic phenolic antioxidant prepared from p-methoxyphenol and isobutene. It is widely used to prevent rancidity in fats and oils.",
+      "commonFoods": ["chewing gum", "vegetable oils", "snack foods", "cereals", "lard", "instant mashed potatoes"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["BHT (E321)", "TBHQ (E319)", "tocopherols (E306)"]
     },
     {
       "E-Code": "E321",
       "Chemical_Name": "Butylated Hydroxytoluene (BHT)*",
       "Description": "Antioxidant",
       "Remarks": "Prepared synthetically from p-cresol and isobutylene",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Butylated hydroxytoluene (BHT) is a synthetic phenolic antioxidant prepared from p-cresol and isobutylene. It is widely used to prevent rancidity in fats, oils and fatty foods.",
+      "commonFoods": ["cereals", "snack foods", "vegetable oils", "chewing gum", "shortening", "lard"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["BHA (E320)", "TBHQ (E319)", "tocopherols (E306)"]
     },
     {
       "E-Code": "E322",
       "Chemical_Name": "Lecithins*",
       "Description": "Emulsifier/Antioxidant",
       "Remarks": "Obtained from animal or vegetable materials through physical procedures. Most lecithin are commercially obtained from soya beans",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Lecithins are phospholipid mixtures used as emulsifiers and antioxidants. Most commercial lecithin is extracted from soybeans, but it can also be obtained from egg yolk, sunflower or other sources, which is why MUIS classifies it as doubtful.",
+      "commonFoods": ["chocolate", "margarine", "baked goods", "infant formula", "salad dressings", "ice cream"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["mono- and diglycerides (E471)", "polysorbate 80 (E433)", "sunflower lecithin"]
     },
     {
       "E-Code": "E325",
       "Chemical_Name": "Sodium Lactate*",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium lactate is the sodium salt of lactic acid, used as an acidity regulator, humectant and preservative. The doubtful classification stems from lactic acid (E270) being commonly produced from whey, a dairy by-product.",
+      "commonFoods": ["cured meats", "cheese", "bakery products", "salad dressings", "candies"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["potassium lactate (E326)", "calcium lactate (E327)", "sodium acetate (E262)"]
     },
     {
       "E-Code": "E326",
       "Chemical_Name": "Potassium Lactate*",
       "Description": "Food Acid",
       "Remarks": "Potassium salt of lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium lactate is the potassium salt of lactic acid, used as an acidity regulator and antimicrobial preservative. It is often used in low-sodium meat products. Lactic acid is commonly produced from whey, hence the doubtful classification.",
+      "commonFoods": ["low-sodium cured meats", "poultry products", "ready meals"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["sodium lactate (E325)", "calcium lactate (E327)", "potassium acetate (E261)"]
     },
     {
       "E-Code": "E327",
       "Chemical_Name": "Calcium Lactate*",
       "Description": "Food Acid",
       "Remarks": "Calcium salt of lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium lactate is the calcium salt of lactic acid, used as a calcium source, firming agent and acidity regulator. The MUIS doubtful classification reflects the typical whey origin of lactic acid.",
+      "commonFoods": ["fresh-cut fruits (firming)", "calcium-fortified beverages", "cheese", "baking powder", "fresh mozzarella"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["sodium lactate (E325)", "potassium lactate (E326)", "calcium acetate (E263)"]
     },
     {
       "E-Code": "E328",
       "Chemical_Name": "Ammonium Lactate*",
       "Description": "Food Acid",
       "Remarks": "Ammonium salt of lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Ammonium lactate is the ammonium salt of lactic acid, used as a buffering agent in food and as an active ingredient in skincare. The MUIS doubtful classification stems from lactic acid's typical whey origin.",
+      "commonFoods": ["limited food applications", "skincare products", "pharmaceuticals"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["sodium lactate (E325)", "potassium lactate (E326)", "ammonium acetate (E264)"]
     },
     {
       "E-Code": "E329",
       "Chemical_Name": "Magnesium Lactate*",
       "Description": "Food Acid",
       "Remarks": "Magnesium salt of lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Magnesium lactate is the magnesium salt of lactic acid, used as a magnesium source and acidity regulator. The doubtful classification reflects lactic acid's typical whey origin.",
+      "commonFoods": ["fortified beverages", "supplements", "limited food applications"],
+      "origin": "Microbial",
+      "isVegetarian": true,
+      "alternatives": ["calcium lactate (E327)", "sodium lactate (E325)", "magnesium sulphate (E518)"]
     },
     {
       "E-Code": "E330",
       "Chemical_Name": "Citric Acid*",
       "Description": "Food Acid",
       "Remarks": "Commercially prepared by the fermentation of molasses with fungal strains of Aspergillus niger. May also be isolated from pineapple by-products and low-grade lemons",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Citric acid is a tricarboxylic acid that occurs naturally in citrus fruits. Commercial citric acid is produced industrially by fungal fermentation of molasses or other sugar sources using Aspergillus niger.",
+      "commonFoods": ["soft drinks", "candies", "jams and jellies", "canned fruits", "wine", "frozen foods"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["malic acid (E296)", "tartaric acid (E334)", "lactic acid (E270)"]
     },
     {
       "E-Code": "E331",
       "Chemical_Name": "Sodium Citrates*",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of citric acid (E330)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium citrates are sodium salts of citric acid, used as acidity regulators, emulsifiers and stabilisers. They are produced by neutralising citric acid with sodium hydroxide or sodium bicarbonate.",
+      "commonFoods": ["soft drinks", "ice cream", "processed cheese", "jams", "gelatin desserts"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "potassium citrates (E332)", "calcium citrates (E333)"]
     },
     {
       "E-Code": "E332",
       "Chemical_Name": "Potassium Citrates*",
       "Description": "Food Acid",
       "Remarks": "Potassium salt of citric acid (E330)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium citrates are potassium salts of citric acid, used as acidity regulators, sequestrants and stabilisers. They are produced by neutralising fermentation-derived citric acid with potassium hydroxide.",
+      "commonFoods": ["soft drinks", "low-sodium foods", "sports drinks", "processed cheese", "powdered desserts"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium citrates (E331)", "calcium citrates (E333)", "citric acid (E330)"]
     },
     {
       "E-Code": "E333",
       "Chemical_Name": "Calcium Citrates*",
       "Description": "Food Acid",
       "Remarks": "Calcium salt of citric acid (E330)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium citrates are calcium salts of citric acid, used as firming agents, calcium fortifiers and acidity regulators. They are produced by reacting citric acid with calcium carbonate or hydroxide.",
+      "commonFoods": ["calcium-fortified beverages", "infant formula", "supplements", "fresh-cut fruits"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "sodium citrates (E331)", "potassium citrates (E332)"]
     },
     {
       "E-Code": "E334",
       "Chemical_Name": "Tartaric Acid*",
       "Description": "Food Acid",
       "Remarks": "Most commercially available tartaric acid is manufactured as a by-product of the wide industry. May also be extracted from tamarind pulp",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Tartaric acid is a naturally occurring organic acid found in grapes and other fruits. Most commercial tartaric acid is recovered as a by-product from the wine industry, which is the origin of the MUIS doubtful classification.",
+      "commonFoods": ["wine", "soft drinks", "candy", "baking powder", "jams"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "malic acid (E296)", "fumaric acid (E297)"]
     },
     {
       "E-Code": "E335",
       "Chemical_Name": "Sodium Tartrate*",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of tartaric acid (E334)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium tartrate is the sodium salt of tartaric acid, used as an acidity regulator, emulsifier and sequestrant. It inherits the wine-industry by-product origin of tartaric acid.",
+      "commonFoods": ["jams and jellies", "processed cheese", "sausages", "candies", "baked goods"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["tartaric acid (E334)", "sodium citrates (E331)", "potassium tartrate (E336)"]
     },
     {
       "E-Code": "E336",
       "Chemical_Name": "Potassium Tartrate/Potassium Hydrogen Tartrate/Cream of Tartar *",
       "Description": "Food Acid",
       "Remarks": "By-product of the wine industry",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium tartrate (cream of tartar) is the potassium salt of tartaric acid, recovered as a by-product of winemaking. It is widely used as a leavening acid in baking powder and to stabilise beaten egg whites.",
+      "commonFoods": ["baking powder", "meringues", "marshmallows", "frostings", "candy"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["tartaric acid (E334)", "sodium tartrate (E335)", "monocalcium phosphate (E341)"]
     },
     {
       "E-Code": "E337",
       "Chemical_Name": "Potassium Sodium Tartrate*",
       "Description": "Food Acid",
       "Remarks": "Derivative of tartaric acid (E334)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium sodium tartrate (Rochelle salt) is a double salt of tartaric acid, used as a buffering agent and emulsifier. It also has industrial uses in silvering mirrors and electroplating.",
+      "commonFoods": ["processed cheese", "baked goods", "jellies", "meat products"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["tartaric acid (E334)", "sodium tartrate (E335)", "potassium tartrate (E336)"]
     },
     {
       "E-Code": "E338",
       "Chemical_Name": "Phosphoric Acid/Orthophosphoric Acid",
       "Description": "Miscellaneous",
       "Remarks": "Manufactured from phosphate ore",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Phosphoric acid (orthophosphoric acid) is a strong inorganic acid manufactured from phosphate rock. It is widely used as an acidulant, especially in cola-flavoured soft drinks where it provides sharp tartness.",
+      "commonFoods": ["cola drinks", "jams", "cheese products", "baking powder", "cured meats"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "malic acid (E296)", "lactic acid (E270)"]
     },
     {
       "E-Code": "E339",
       "Chemical_Name": "Sodium Phosphates",
       "Description": "Mineral Salt",
       "Remarks": "Sodium salt of phosphoric acid (E338)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium phosphates are sodium salts of phosphoric acid (mono-, di- and trisodium phosphate), used as buffering agents, emulsifiers, sequestrants and leavening agents.",
+      "commonFoods": ["processed cheese", "instant pudding", "baked goods", "cured meats", "evaporated milk"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium phosphates (E340)", "calcium phosphates (E341)", "phosphoric acid (E338)"]
     },
     {
       "E-Code": "E340",
       "Chemical_Name": "Potassium Phosphates",
       "Description": "Mineral Salt",
       "Remarks": "Potassium salt of phosphoric acid (E338)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium phosphates are potassium salts of phosphoric acid, used as buffers, emulsifiers and sequestrants. They are commonly used in low-sodium versions of phosphate-containing products.",
+      "commonFoods": ["low-sodium processed foods", "sports drinks", "baking", "powdered creamers", "processed meats"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium phosphates (E339)", "calcium phosphates (E341)", "phosphoric acid (E338)"]
     },
     {
       "E-Code": "E341",
       "Chemical_Name": "Calcium Phosphates",
       "Description": "Mineral Salt",
       "Remarks": "Calcium salt of phosphoric acid (E338)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium phosphates (mono-, di- and tricalcium phosphate) are calcium salts of phosphoric acid, used as leavening agents, calcium fortifiers and anticaking agents.",
+      "commonFoods": ["baking powder", "self-raising flour", "calcium-fortified cereals", "infant formula", "powdered drinks"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium phosphates (E339)", "potassium phosphates (E340)", "magnesium phosphates (E343)"]
     },
     {
       "E-Code": "E343",
       "Chemical_Name": "Magnesium Phosphates",
       "Description": "Mineral Salt",
       "Remarks": "Naturally occurring mineral",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium phosphates are mineral salts of phosphoric acid, produced commercially by reacting phosphoric acid with magnesium hydroxide or magnesium oxide. They are used as anticaking agents, acidity regulators and nutritional supplements.",
+      "commonFoods": ["powdered foods", "infant formula", "supplements", "fortified cereals"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium phosphates (E341)", "sodium phosphates (E339)", "magnesium sulphate (E518)"]
     },
     {
       "E-Code": "E350",
       "Chemical_Name": "Sodium Malate/Sodium Hydrogen Malate",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of malic acid (E296)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium malate is the sodium salt of malic acid, used as an acidity regulator and humectant. It contributes a smoother sourness than sodium citrate.",
+      "commonFoods": ["fruit-flavoured drinks", "candies", "fruit preserves", "low-sodium products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["malic acid (E296)", "potassium malate (E351)", "sodium citrates (E331)"]
     },
     {
       "E-Code": "E351",
       "Chemical_Name": "Potassium Malate",
       "Description": "Food Acid",
       "Remarks": "Potassium salt of malic acid (E296)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium malate is the potassium salt of malic acid, used as an acidity regulator. It is sometimes used in low-sodium fruit-flavoured products.",
+      "commonFoods": ["low-sodium beverages", "fruit-flavoured products", "candies"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["malic acid (E296)", "sodium malate (E350)", "calcium malate (E352)"]
     },
     {
       "E-Code": "E352",
       "Chemical_Name": "Calcium Malate/Calcium Hydrogen Malate",
       "Description": "Food Acid",
       "Remarks": "Calcium salt of malic acid (E296)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium malate is the calcium salt of malic acid, used as a calcium fortifier and acidity regulator. It is more bioavailable than some other calcium salts.",
+      "commonFoods": ["calcium-fortified beverages", "supplements", "infant nutrition"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium citrates (E333)", "calcium lactate (E327)", "malic acid (E296)"]
     },
     {
       "E-Code": "E353",
       "Chemical_Name": "Metatartaric Acid*",
       "Description": "Sequestrant",
       "Remarks": "Prepared from tartaric acid (E334)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Metatartaric acid is a polymeric form of tartaric acid produced by heating tartaric acid. It is used in winemaking to inhibit the precipitation of tartrate crystals.",
+      "commonFoods": ["wine (stabiliser)", "limited beverage applications"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["tartaric acid (E334)", "potassium tartrate (E336)", "carboxymethylcellulose (E466)"]
     },
     {
       "E-Code": "E355",
       "Chemical_Name": "Adipic Acid/Hexanedioic Acid",
       "Description": "Buffer",
       "Remarks": "Commercially produced by oxidising cyclohexanol with concentrated nitric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Adipic acid (hexanedioic acid) is a dicarboxylic acid produced commercially by oxidising cyclohexanol. It is used as an acidity regulator and provides a long-lasting tartness.",
+      "commonFoods": ["powdered drink mixes", "gelatin desserts", "fillings", "synthetic fruit flavours"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "fumaric acid (E297)", "malic acid (E296)"]
     },
     {
       "E-Code": "E357",
       "Chemical_Name": "Potassium Adipate",
       "Description": "Buffer",
       "Remarks": "Potassium salt of adipic acid (E355)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium adipate is the potassium salt of adipic acid, used as an acidity regulator and buffering agent.",
+      "commonFoods": ["powdered drinks", "gelatin desserts", "low-sodium products"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["adipic acid (E355)", "potassium citrates (E332)", "potassium malate (E351)"]
     },
     {
       "E-Code": "E363",
       "Chemical_Name": "Succinic Acid*",
       "Description": "Buffer/Food Acid*",
       "Remarks": "Commercially prepared from acetic acid (E260)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Succinic acid is a dicarboxylic acid commercially prepared from acetic acid or by fermentation. The MUIS doubtful classification reflects acetic acid's possible vinegar-fermentation origin.",
+      "commonFoods": ["limited food applications", "flavouring in seasonings", "pharmaceuticals"],
+      "origin": "Synthetic or Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["fumaric acid (E297)", "malic acid (E296)", "adipic acid (E355)"]
     },
     {
       "E-Code": "E365",
       "Chemical_Name": "Sodium Fumarate*",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of fumaric acid (E297)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium fumarate is the sodium salt of fumaric acid, used as an acidity regulator. The doubtful classification reflects MUIS's general caution about fermentation- or chemically-produced acidulants.",
+      "commonFoods": ["powdered desserts", "drink mixes", "wine"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["fumaric acid (E297)", "sodium citrates (E331)", "potassium fumarate (E366)"]
     },
     {
       "E-Code": "E366",
       "Chemical_Name": "Potassium Fumarate*",
       "Description": "Food Acid",
       "Remarks": "Potassium salt of fumaric acid (E297)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Potassium fumarate is the potassium salt of fumaric acid, used as an acidity regulator. Like fumaric acid, it is normally produced by chemical synthesis.",
+      "commonFoods": ["powdered drinks", "low-sodium products", "gelatin desserts"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["fumaric acid (E297)", "sodium fumarate (E365)", "potassium citrates (E332)"]
     },
     {
       "E-Code": "E367",
       "Chemical_Name": "Calcium Fumarate*",
       "Description": "Food Acid",
       "Remarks": "Calcium salt of fumaric acid (E297)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium fumarate is the calcium salt of fumaric acid, used as a calcium fortifier and acidity regulator.",
+      "commonFoods": ["calcium-fortified products", "powdered drinks", "supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["fumaric acid (E297)", "calcium citrates (E333)", "calcium malate (E352)"]
     },
     {
       "E-Code": "E370",
       "Chemical_Name": "1,4-Heptonolactone",
       "Description": "Sequestrant",
       "Remarks": "Prepared from hydroxycarboxylic acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "1,4-Heptonolactone is a cyclic ester (lactone) of hydroxycarboxylic acid, used as a sequestrant in food processing. It has limited current commercial use.",
+      "commonFoods": ["limited food applications"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "EDTA (E385)", "phosphates (E339)"]
     },
     {
       "E-Code": "E375",
       "Chemical_Name": "Niacin/Nicotinic Acid/Nicotinamide",
       "Description": "Vitamin",
       "Remarks": "Commercially prepared by the oxidation of nicotine with concentrated nitric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Niacin (nicotinic acid / nicotinamide) is vitamin B3, an essential nutrient. It is used both as a vitamin fortifier and as a colour stabiliser in cured meats. Commercial niacin is produced by chemical synthesis.",
+      "commonFoods": ["fortified cereals", "vitamin supplements", "energy drinks", "cured meats", "infant formula"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["natural sources (yeast, peanuts)", "riboflavin (E101)"]
     },
     {
       "E-Code": "E380",
       "Chemical_Name": "Triammonium Citrate*",
       "Description": "Buffer",
       "Remarks": "Ammonium salt of citric acid (E330)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Triammonium citrate is the ammonium salt of citric acid, used as a buffering agent and acidity regulator. It is mostly used in processed cheese and dairy products.",
+      "commonFoods": ["processed cheese spreads", "limited dairy products"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium citrates (E331)", "potassium citrates (E332)", "citric acid (E330)"]
     },
     {
       "E-Code": "E381",
       "Chemical_Name": "Ammonium Ferric Citrate*",
       "Description": "Dietary Supplement",
       "Remarks": "Prepared from citric acid (E330)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Ammonium ferric citrate is an iron-fortification compound made from citric acid, ammonia and iron. It is used to add iron to foods and supplements.",
+      "commonFoods": ["iron-fortified flour", "breakfast cereals", "infant formula", "iron supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ferrous gluconate (E579)", "ferrous lactate (E585)", "elemental iron"]
     },
     {
       "E-Code": "E385",
       "Chemical_Name": "Calcium Disodium EDTA",
       "Description": "Chelating Agent",
       "Remarks": "Synthetically prepared",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium disodium EDTA is a synthetic chelating agent that binds metal ions to prevent oxidation, discolouration and rancidity. It is also used pharmaceutically to treat heavy-metal poisoning.",
+      "commonFoods": ["mayonnaise", "salad dressings", "canned vegetables", "processed shrimp", "soft drinks"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "ascorbic acid (E300)", "phosphates (E339)"]
     },
     {
       "E-Code": "E400",
       "Chemical_Name": "Alginic Acid",
       "Description": "Vegetable Gum",
       "Remarks": "Extracted from brown seaweeds such as the species of Laminaria, Macrocystis and Ascophyllum",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Alginic acid is a polysaccharide extracted from brown seaweeds (kelps) such as Laminaria and Macrocystis species. It forms thick gels with calcium ions and is widely used as a thickener and stabiliser.",
+      "commonFoods": ["ice cream", "salad dressings", "bakery fillings", "instant noodles", "jellies"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["agar (E406)", "carrageenan (E407)", "pectin (E440a)"]
     },
     {
       "E-Code": "E401",
       "Chemical_Name": "Sodium Alginate",
       "Description": "Vegetable Gum",
       "Remarks": "Sodium salt of alginic acid (E400)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium alginate is the sodium salt of alginic acid, the most widely used form of alginate. It dissolves readily in water to form viscous solutions that gel in the presence of calcium.",
+      "commonFoods": ["ice cream", "fruit fillings", "instant noodles", "salad dressings", "molecular gastronomy (spherification)"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["alginic acid (E400)", "potassium alginate (E402)", "carrageenan (E407)"]
     },
     {
       "E-Code": "E402",
       "Chemical_Name": "Potassium Alginate",
       "Description": "Vegetable Gum",
       "Remarks": "Potassium salt of alginic acid (E400)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium alginate is the potassium salt of alginic acid, used as a thickener, stabiliser and gelling agent. It is sometimes preferred in low-sodium formulations.",
+      "commonFoods": ["ice cream", "fruit drinks", "low-sodium dairy products"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium alginate (E401)", "alginic acid (E400)", "carrageenan (E407)"]
     },
     {
       "E-Code": "E403",
       "Chemical_Name": "Ammonium Alginate",
       "Description": "Vegetable Gum",
       "Remarks": "Ammonium salt of alginic acid (E400)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium alginate is the ammonium salt of alginic acid, used as a thickener and stabiliser. It has limited commercial use compared to sodium and potassium alginates.",
+      "commonFoods": ["limited bakery applications", "icings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium alginate (E401)", "alginic acid (E400)", "potassium alginate (E402)"]
     },
     {
       "E-Code": "E404",
       "Chemical_Name": "Calcium Alginate",
       "Description": "Vegetable Gum",
       "Remarks": "Calcium salt of alginic acid (E400)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium alginate is the calcium salt of alginic acid. Its insolubility in water makes it ideal for forming gel skins on liquids in molecular gastronomy and for restructured foods.",
+      "commonFoods": ["restructured foods (e.g. olives, fruit pearls)", "molecular gastronomy", "encapsulated flavours"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium alginate (E401)", "alginic acid (E400)", "agar (E406)"]
     },
     {
       "E-Code": "E405",
       "Chemical_Name": "Propane-1,2-Diol Alginate/Propylene Glycol Alginate/Alginate Ester",
       "Description": "Vegetable Gum",
       "Remarks": "Propylene glycol ester of alginic acid (E400)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Propylene glycol alginate is an ester of alginic acid with propylene glycol. It functions as an emulsifier, stabiliser and thickener and is more acid-stable than other alginates.",
+      "commonFoods": ["beer foam stabiliser", "salad dressings", "ice cream", "fruit drinks", "yogurts"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium alginate (E401)", "alginic acid (E400)", "carrageenan (E407)"]
     },
     {
       "E-Code": "E406",
       "Chemical_Name": "Agar/Agar-Agar/Japanese Isinglass",
       "Description": "Vegetable Gum",
       "Remarks": "Extracted from red seaweeds such as the Gelidium amansii. May also be taken from members of the related red algae Rhodophyceae",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Agar is a gelling polysaccharide extracted from red seaweeds such as Gelidium and Gracilaria species. It forms strong, heat-stable gels and is used as a vegetarian alternative to gelatin.",
+      "commonFoods": ["jellies", "Asian desserts", "vegetarian aspics", "dairy alternatives", "microbiology media"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["carrageenan (E407)", "alginic acid (E400)", "pectin (E440a)"]
     },
     {
       "E-Code": "E407",
       "Chemical_Name": "Carrageenan/Irish Moss",
       "Description": "Vegetable Gum",
       "Remarks": "Occurs naturally in red seaweeds belonging to the Gigartinaceae, Solieriaceae, Hypnaceae and Furcellariaceae families",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Carrageenan is a family of sulphated polysaccharides extracted from red seaweeds, particularly Eucheuma, Chondrus crispus (Irish moss) and Kappaphycus. It is used as a thickener, gelling agent and stabiliser.",
+      "commonFoods": ["dairy desserts", "ice cream", "plant-based milks", "deli meats", "jellies", "yogurts"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["agar (E406)", "alginic acid (E400)", "locust bean gum (E410)"]
     },
     {
       "E-Code": "E410",
       "Chemical_Name": "Locust Bean Gum/Carob Bean Gum",
       "Description": "Vegetable Gum",
       "Remarks": "Taken from the Locust or Carob tree (Ceratonia siliqua), which is an evergreen tree belonging to the Leguminoseae or pea family",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Locust bean gum (carob bean gum) is a galactomannan polysaccharide extracted from the seeds of the carob tree (Ceratonia siliqua). It is used as a thickener and stabiliser, often in synergistic blends with other gums.",
+      "commonFoods": ["ice cream", "cream cheese", "yogurts", "salad dressings", "dairy desserts", "infant formula"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["guar gum (E412)", "xanthan gum (E415)", "carrageenan (E407)"]
     },
     {
       "E-Code": "E412",
       "Chemical_Name": "Guar Gum",
       "Description": "Vegetable Gum",
       "Remarks": "Extracted from the seeds of Cyanopsis tetragonolobus, or C. psoraloides, a member of the pea family",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Guar gum is a galactomannan polysaccharide extracted from the seeds of the guar plant (Cyamopsis tetragonoloba). It is a powerful cold-water-soluble thickener used in many food and industrial applications.",
+      "commonFoods": ["ice cream", "yogurts", "salad dressings", "gluten-free baked goods", "soups", "sauces"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["locust bean gum (E410)", "xanthan gum (E415)", "tara gum (E417)"]
     },
     {
       "E-Code": "E413",
       "Chemical_Name": "Tragacanth/Gum Tragacanth",
       "Description": "Vegetable Gum",
       "Remarks": "Extracted from the trunk and branches of Astragalus gummifier and other species of the pea family",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Tragacanth is a natural gum exuded by Astragalus species shrubs native to the Middle East. It is one of the oldest known food gums, used as a thickener, emulsifier and stabiliser.",
+      "commonFoods": ["confectionery", "salad dressings", "ice cream", "icings", "gum paste decorations"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["gum arabic (E414)", "guar gum (E412)", "locust bean gum (E410)"]
     },
     {
       "E-Code": "E414",
       "Chemical_Name": "Acacia/Gum Arabic",
       "Description": "Vegetable Gum",
       "Remarks": "Occurs naturally in the stems and branches of Acacia senegal and members of the pea family",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Gum arabic (acacia gum) is a natural exudate from the Acacia senegal and Acacia seyal trees. It is one of the most versatile food hydrocolloids, used as an emulsifier, stabiliser and thickener.",
+      "commonFoods": ["soft drinks (citrus emulsions)", "candy", "marshmallows", "icings", "wine fining", "chewing gum"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["guar gum (E412)", "tragacanth (E413)", "modified starches"]
     },
     {
       "E-Code": "E415",
       "Chemical_Name": "Xanthan Gum/Corn Sugar Gum*",
       "Description": "Vegetable Gum",
       "Remarks": "Produced by the fermentation of carbohydrate using a bacterium known as Xanthomonas campestris",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Xanthan gum is a polysaccharide produced by bacterial fermentation of carbohydrates with Xanthomonas campestris. It is highly effective as a thickener and stabiliser, performing well at low concentrations.",
+      "commonFoods": ["salad dressings", "gluten-free baked goods", "sauces", "ice cream", "plant-based milks", "yogurts"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["guar gum (E412)", "locust bean gum (E410)", "carrageenan (E407)"]
     },
     {
       "E-Code": "E416",
       "Chemical_Name": "Karaya Gum/Sterculia Gum",
       "Description": "Vegetable Gum",
       "Remarks": "Occurs naturally in the trunk and stem of the tree Sterculia urens",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Karaya gum is a natural exudate from the Sterculia urens tree, native to India. It is used as a thickener, emulsifier and binder, and is also used as a denture adhesive.",
+      "commonFoods": ["whipped products", "cheese spreads", "meringues", "frozen desserts"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["gum arabic (E414)", "tragacanth (E413)", "guar gum (E412)"]
     },
     {
       "E-Code": "E420",
       "Chemical_Name": "Sorbitol/Sorbitol Syrup*",
       "Description": "Humectant",
       "Remarks": "Commercially produced from glucose by hydrogenation or electrolytic reduction",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sorbitol is a sugar alcohol (polyol) produced commercially by hydrogenation of glucose. It is used as a sweetener, humectant and bulking agent, providing about 60% of the sweetness of sucrose with fewer calories.",
+      "commonFoods": ["sugar-free chewing gum", "sugar-free candies", "diabetic foods", "toothpaste", "baked goods"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["mannitol (E421)", "xylitol (E967)", "maltitol (E965)"]
     },
     {
       "E-Code": "E421",
       "Chemical_Name": "Mannitol/Manna Sugar",
       "Description": "Humectant",
       "Remarks": "Prepared from seaweed or manna, the dried exudate of Fraxinus omus. May be commercially prepared by the hydrogenation of invert sugar, monosaccharides and sucrose",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Mannitol is a sugar alcohol obtained from seaweed, the manna ash tree, or by hydrogenation of fructose. It is used as a sweetener, anti-caking agent and bulking agent.",
+      "commonFoods": ["sugar-free chewing gum", "sugar-free candies", "dietetic foods", "pharmaceuticals (tablet coatings)"],
+      "origin": "Plant-based or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbitol (E420)", "xylitol (E967)", "erythritol (E968)"]
     },
     {
       "E-Code": "E422",
       "Chemical_Name": "Glycerol/Glycerin*",
       "Description": "Humectant",
       "Remarks": "Industrial by-product in the manufacture of soaps, candles and fatty acids from oils and fats. May also be synthesised from propylene or by the fermentation of sugars",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Glycerol (glycerine) is a polyol obtained as a by-product of soap-making and biodiesel production. It can be derived from animal fats, vegetable oils or petroleum, which is why MUIS classifies it as doubtful — supplier disclosure of source is essential.",
+      "commonFoods": ["icings", "fillings", "low-fat baked goods", "humectant in confectionery", "liqueurs"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["sorbitol (E420)", "propylene glycol (E1520)", "vegetable glycerine (specified)"]
     },
     {
       "E-Code": "E430",
       "Chemical_Name": "Polyoxyethylene (8) Stearate*",
       "Description": "Emulsifier",
       "Remarks": "Synthesised using stearic acid (E570)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polyoxyethylene (8) stearate is a synthetic non-ionic emulsifier produced from stearic acid (E570). The MUIS doubtful classification reflects that stearic acid can be derived from either animal or vegetable fats.",
+      "commonFoods": ["bakery products", "frozen desserts", "limited food applications"],
+      "origin": "Synthetic",
+      "alternatives": ["polysorbate 60 (E435)", "mono- and diglycerides (E471)", "sodium stearoyl lactylate (E481)"]
     },
     {
       "E-Code": "E431",
       "Chemical_Name": "Polyoxyethylene (40) Stearate*",
       "Description": "Emulsifier",
       "Remarks": "Synthesised using stearic acid (E570)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polyoxyethylene (40) stearate is a synthetic non-ionic emulsifier with longer ethylene oxide chains than E430. The doubtful classification reflects stearic acid's potential animal or vegetable origin.",
+      "commonFoods": ["limited bakery applications"],
+      "origin": "Synthetic",
+      "alternatives": ["polyoxyethylene (8) stearate (E430)", "polysorbate 60 (E435)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E432",
       "Chemical_Name": "Polyoxyethylene (20) Sorbitan Monolaurate/Polysorbate 20/Tween 20*",
       "Description": "Emulsifier",
       "Remarks": "Lauric ester of sorbitol and sorbitol anhydride",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polysorbate 20 (Tween 20) is a non-ionic emulsifier made from sorbitol, lauric acid and ethylene oxide. The MUIS doubtful classification reflects that the fatty acid can be sourced from either animal or vegetable fats.",
+      "commonFoods": ["ice cream", "salad dressings", "vitamin oil emulsions", "pickles"],
+      "origin": "Synthetic",
+      "alternatives": ["polysorbate 80 (E433)", "polysorbate 60 (E435)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E433",
       "Chemical_Name": "Polyoxyethylene (20) Sorbitan Mono-Oleate/Polysorbate 80/Tween 80*",
       "Description": "Emulsifier",
       "Remarks": "Oleic ester of sorbitol and sorbitol anhydride",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polysorbate 80 (Tween 80) is a non-ionic emulsifier made from sorbitol, oleic acid and ethylene oxide. It is one of the most widely used food emulsifiers; the doubtful flag reflects oleic acid's potential animal or vegetable origin.",
+      "commonFoods": ["ice cream", "non-dairy creamers", "salad dressings", "frozen desserts", "vitamin and pharmaceutical formulations"],
+      "origin": "Synthetic",
+      "alternatives": ["polysorbate 60 (E435)", "polysorbate 20 (E432)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E434",
       "Chemical_Name": "Polyoxyethylene (20) Sorbitan Monopalmitate/Polysorbate 40/Tween 40*",
       "Description": "Emulsifier",
       "Remarks": "Palmitate ester of sorbitol and sorbitol anhydride",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polysorbate 40 (Tween 40) is a non-ionic emulsifier made from sorbitol, palmitic acid and ethylene oxide. The doubtful classification reflects palmitic acid's potential animal or vegetable origin.",
+      "commonFoods": ["ice cream", "frozen desserts", "non-dairy creamers"],
+      "origin": "Synthetic",
+      "alternatives": ["polysorbate 80 (E433)", "polysorbate 60 (E435)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E435",
       "Chemical_Name": "Polyoxyethylene (20) Sorbitan Monostearate/Polysorbate 60/Tween 60*",
       "Description": "Emulsifier",
       "Remarks": "Stearic acid ester of sorbitol and sorbitol anhydride",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polysorbate 60 (Tween 60) is a non-ionic emulsifier made from sorbitol, stearic acid and ethylene oxide. It is one of the most common bakery emulsifiers; the doubtful classification reflects stearic acid's potential animal or vegetable origin.",
+      "commonFoods": ["whipped toppings", "icings", "cake mixes", "ice cream", "non-dairy creamers"],
+      "origin": "Synthetic",
+      "alternatives": ["polysorbate 80 (E433)", "polysorbate 65 (E436)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E436",
       "Chemical_Name": "Polyoxyethylene (20) Sorbitan Tristearate/Polysorbate 65/Tween 65*",
       "Description": "Emulsifier",
       "Remarks": "Stearic acid ester of sorbitol and sorbitol anhydride",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polysorbate 65 (Tween 65) is a non-ionic emulsifier made from sorbitol and stearic acid (tri-stearate ester). The doubtful classification reflects stearic acid's potential animal or vegetable origin.",
+      "commonFoods": ["whipped toppings", "frozen desserts", "icings", "cake mixes"],
+      "origin": "Synthetic",
+      "alternatives": ["polysorbate 60 (E435)", "polysorbate 80 (E433)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E440a",
       "Chemical_Name": "Pectin",
       "Description": "Stabiliser/Thickening Agent",
       "Remarks": "Apple residues and orange pith are commercial sources of pectin",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Pectin is a structural polysaccharide naturally found in plant cell walls, commercially extracted from apple pomace and citrus peels. It is the classic gelling agent for jams, jellies and fruit preserves.",
+      "commonFoods": ["jams and jellies", "fruit preserves", "fruit-flavoured yogurts", "confectionery", "fruit fillings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["agar (E406)", "carrageenan (E407)", "alginic acid (E400)"]
     },
     {
       "E-Code": "E440b",
       "Chemical_Name": "Amidated Pectin",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Derived from the treatment of pectin (E440a) with ammonia",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Amidated pectin is pectin chemically modified by treatment with ammonia. The amide groups make the gelation less calcium-sensitive and more controllable.",
+      "commonFoods": ["low-sugar jams", "fruit preserves", "dairy desserts", "fruit fillings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["pectin (E440a)", "carrageenan (E407)", "alginic acid (E400)"]
     },
     {
       "E-Code": "E441",
       "Chemical_Name": "Gelatine*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Obtained by boiling animal skin (usually cattle or pig's), ligaments, bones, or any tissue that contains collagen",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Gelatin is a protein obtained by partial hydrolysis of collagen extracted from the skin, bones and connective tissues of animals (typically cattle or pig). It is the classic gelling agent for many desserts and gummy candies.",
+      "commonFoods": ["gummy candies", "marshmallows", "jelly desserts", "yogurts", "ice cream", "pharmaceutical capsules"],
+      "origin": "Animal-derived",
+      "isVegan": false,
+      "isVegetarian": false,
+      "alternatives": ["agar (E406)", "carrageenan (E407)", "pectin (E440a)"]
     },
     {
       "E-Code": "E442",
       "Chemical_Name": "Ammonium Phosphatides/Emulsifier YN",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared synthetically",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium phosphatides (Emulsifier YN) are synthetic emulsifiers produced from glycerol, fatty acids and phosphoric acid neutralised with ammonia. They are used almost exclusively in cocoa-based confectionery as a lecithin alternative.",
+      "commonFoods": ["cocoa and chocolate products", "compound chocolate coatings"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["lecithin (E322)", "polyglycerol polyricinoleate (E476)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E450",
       "Chemical_Name": "Sodium and Potassium Metaphosphates, Polyphosphates and Pyrophosphates",
       "Description": "Mineral Salt",
       "Remarks": "Sodium and potassium salt of phosphoric acid (E338)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "E450 covers sodium and potassium metaphosphates, polyphosphates and pyrophosphates — a family of phosphate salts used as emulsifying salts, sequestrants and water-binding agents.",
+      "commonFoods": ["processed cheese", "cured meats", "seafood", "instant noodles", "powdered drinks"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium phosphates (E339)", "potassium phosphates (E340)", "calcium phosphates (E341)"]
     },
     {
       "E-Code": "E460",
       "Chemical_Name": "Microcrystalline Cellulose/Powdered Cellulose",
       "Description": "Anticaking Agent",
       "Remarks": "Prepared from the cellulose component of plant cell wall",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Microcrystalline cellulose (MCC) and powdered cellulose are bulking agents prepared from purified plant cellulose. They are used as anti-caking agents, stabilisers and fat replacers.",
+      "commonFoods": ["grated cheese (anti-caking)", "low-fat ice cream", "high-fibre breads", "tablets and capsules", "sauces"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["methylcellulose (E461)", "carboxymethylcellulose (E466)", "modified starches"]
     },
     {
       "E-Code": "E461",
       "Chemical_Name": "Methylcellulose/Cologel/Methocel",
       "Description": "Vegetable Gum",
       "Remarks": "Prepared from plant cellulose",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Methylcellulose is a semi-synthetic polymer prepared by methylating plant cellulose. It is used as a thickener, emulsifier and gelling agent, and notably forms gels on heating rather than cooling.",
+      "commonFoods": ["plant-based meat substitutes (e.g. Beyond, Impossible)", "low-fat dressings", "diet shakes", "ice cream", "baked goods"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["carboxymethylcellulose (E466)", "hydroxypropylmethylcellulose (E464)", "xanthan gum (E415)"]
     },
     {
       "E-Code": "E463",
       "Chemical_Name": "Hydroxypropylcellulose",
       "Description": "Vegetable Gum",
       "Remarks": "Prepared from plant cellulose",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Hydroxypropyl cellulose (HPC) is a semi-synthetic polymer prepared by treating plant cellulose with propylene oxide. It is used as a thickener, emulsifier and film-former.",
+      "commonFoods": ["whipped toppings", "salad dressings", "tablet coatings", "fruit fillings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["methylcellulose (E461)", "hydroxypropylmethylcellulose (E464)", "carboxymethylcellulose (E466)"]
     },
     {
       "E-Code": "E464",
       "Chemical_Name": "Hydroxypropyl-Methylcellulose",
       "Description": "Vegetable Gum",
       "Remarks": "Prepared from plant cellulose",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Hydroxypropyl methylcellulose (HPMC) is a semi-synthetic polymer prepared by chemical modification of plant cellulose. It is widely used as a thickener, emulsifier and film-forming agent.",
+      "commonFoods": ["plant-based meat substitutes", "gluten-free baked goods", "ice cream", "tablet coatings", "salad dressings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["methylcellulose (E461)", "hydroxypropyl cellulose (E463)", "xanthan gum (E415)"]
     },
     {
       "E-Code": "E465",
       "Chemical_Name": "Ethylmethylcellulose",
       "Description": "Vegetable Gum",
       "Remarks": "Prepared from plant cellulose",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ethylmethylcellulose is a semi-synthetic polymer prepared from plant cellulose, used as a thickener, emulsifier and foam stabiliser.",
+      "commonFoods": ["whipped products", "cake mixes", "puddings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["methylcellulose (E461)", "hydroxypropylmethylcellulose (E464)", "carboxymethylcellulose (E466)"]
     },
     {
       "E-Code": "E466",
       "Chemical_Name": "Sodium Carboxymethylcellulose/CMC",
       "Description": "Vegetable Gum",
       "Remarks": "Prepared from plant cellulose",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium carboxymethylcellulose (CMC) is a semi-synthetic polymer prepared by chemical modification of plant cellulose. It is one of the most widely used food thickeners and stabilisers, with applications across nearly every food category.",
+      "commonFoods": ["ice cream", "salad dressings", "low-fat yogurts", "gluten-free baked goods", "soft drinks", "diet products"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["xanthan gum (E415)", "methylcellulose (E461)", "guar gum (E412)"]
     },
     {
       "E-Code": "E469",
       "Chemical_Name": "Sodium Caseinate",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Derived from the protein of cow's milk",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium caseinate is a milk protein produced by treating casein from cow's milk with sodium hydroxide. It is used as an emulsifier, foaming agent and source of dairy protein.",
+      "commonFoods": ["non-dairy creamers (despite the name)", "whipped toppings", "processed cheese", "protein bars", "instant breakfast drinks"],
+      "origin": "Animal-derived",
+      "isVegan": false,
+      "isVegetarian": true,
+      "alternatives": ["soy protein isolate", "pea protein", "calcium caseinate"]
     },
     {
       "E-Code": "E470",
       "Chemical_Name": "Sodium, Potassium and Calcium Salts of Fatty Acids*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from fatty acids",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "E470 covers the sodium, potassium and calcium salts of fatty acids, used as emulsifiers, anti-caking agents and stabilisers. The MUIS doubtful classification reflects that the fatty acids can be sourced from either animal or vegetable fats.",
+      "commonFoods": ["powdered drinks", "icing sugar", "salt mixtures", "powdered creamers", "salt blocks for animals"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["mono- and diglycerides (E471)", "calcium silicate (E552)", "magnesium stearate (E572)"]
     },
     {
       "E-Code": "E471",
       "Chemical_Name": "Mono-and Diglycerides of Fatty Acids*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Commercially prepared from glycerin (E422) and fatty acids",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Mono- and diglycerides of fatty acids are the most widely used food emulsifiers. They are prepared from glycerol and fatty acids; the doubtful classification reflects that both starting materials can be derived from animal or vegetable sources.",
+      "commonFoods": ["bread", "margarine", "ice cream", "peanut butter", "whipped toppings", "cake mixes"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["lecithin (E322)", "diacetyl tartaric esters (E472e)", "polysorbates (E433/E435)"]
     },
     {
       "E-Code": "E472",
       "Chemical_Name": "Various Esters of Glycerol*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from esters of glycerol and fatty acids",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "E472 is a family of glycerol esters of various organic acids (acetic, lactic, citric, tartaric and others) used as emulsifiers and stabilisers. The doubtful classification stems from the potentially animal or vegetable origin of the underlying fats.",
+      "commonFoods": ["bread and baked goods", "margarine", "ice cream", "non-dairy whipped toppings", "instant noodles"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["lecithin (E322)", "mono- and diglycerides (E471)", "polysorbates (E433/E435)"]
     },
     {
       "E-Code": "E473",
       "Chemical_Name": "Sucrose Esters of Fatty Acids*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from esters of glycerol and sucrose",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sucrose esters of fatty acids are emulsifiers prepared from sucrose and fatty acids. The doubtful classification reflects the potentially animal or vegetable origin of the fatty acids used.",
+      "commonFoods": ["bakery products", "non-dairy creamers", "frosted cereals", "Asian beverages", "ice cream"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["polysorbates (E433/E435)", "mono- and diglycerides (E471)", "lecithin (E322)"]
     },
     {
       "E-Code": "E474",
       "Chemical_Name": "Sucroglycerides*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared by the action of sucrose on natural triglycerides (from lard, tallow, palm oil, etc)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sucroglycerides are emulsifiers prepared by reacting sucrose with natural triglycerides. MUIS notes the source can include lard, tallow or palm oil, which is the basis for the doubtful classification.",
+      "commonFoods": ["bakery products", "ice cream", "non-dairy creamers", "powdered drink mixes"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["sucrose esters (E473)", "mono- and diglycerides (E471)", "lecithin (E322)"]
     },
     {
       "E-Code": "E475",
       "Chemical_Name": "Polyglycerol Esters of Fatty Acids*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared in the laboratory",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polyglycerol esters of fatty acids are emulsifiers prepared by esterifying polyglycerol with fatty acids. The doubtful classification reflects the potentially animal or vegetable origin of the fatty acids.",
+      "commonFoods": ["whipped toppings", "cake mixes", "shortenings", "chewing gum", "low-fat margarine"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["polyglycerol polyricinoleate (E476)", "polysorbates (E433/E435)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E476",
       "Chemical_Name": "Polyglycerol Polyricinoleate*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from castor oil and glycerol esters",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polyglycerol polyricinoleate (PGPR) is an emulsifier prepared from castor oil and glycerol esters. It is mainly used to reduce the viscosity of chocolate, allowing manufacturers to use less cocoa butter.",
+      "commonFoods": ["chocolate", "compound coatings", "low-fat spreads", "nut butters"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["lecithin (E322)", "ammonium phosphatides (E442)", "polyglycerol esters (E475)"]
     },
     {
       "E-Code": "E477",
       "Chemical_Name": "Propane-1,2-Diol Esters of Fatty Acids*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from propylene glycol",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Propylene glycol esters of fatty acids are emulsifiers prepared by esterifying propylene glycol with fatty acids. The doubtful classification reflects the potentially animal or vegetable origin of the fatty acids.",
+      "commonFoods": ["whipped toppings", "cake mixes", "shortenings", "icings"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["mono- and diglycerides (E471)", "polysorbate 60 (E435)", "polyglycerol esters (E475)"]
     },
     {
       "E-Code": "E481",
       "Chemical_Name": "Sodium Stearoyl-2-Lactylate*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium stearoyl-2-lactylate (SSL) is a dough conditioner and emulsifier prepared from stearic acid (often plant-based) and lactic acid. The doubtful classification reflects that stearic acid can be from animal or plant fats and lactic acid is typically whey-derived.",
+      "commonFoods": ["bread", "buns", "tortillas", "pancake mixes", "instant noodles", "cake mixes"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["calcium stearoyl-2-lactylate (E482)", "mono- and diglycerides (E471)", "diacetyl tartaric esters (E472e)"]
     },
     {
       "E-Code": "E482",
       "Chemical_Name": "Calcium Stearoyl-2-Lactylate*",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from lactic acid (E270)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium stearoyl-2-lactylate (CSL) is a dough conditioner and emulsifier, the calcium analogue of E481. The doubtful classification reflects the potentially animal or vegetable origin of stearic acid and the whey origin of lactic acid.",
+      "commonFoods": ["bread", "tortillas", "biscuits", "instant noodles", "pancake mixes"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["sodium stearoyl-2-lactylate (E481)", "mono- and diglycerides (E471)", "diacetyl tartaric esters (E472e)"]
     },
     {
       "E-Code": "E483",
       "Chemical_Name": "Stearyl Tartrate*",
       "Description": "Emulsifier/ Stabiliser",
       "Remarks": "Prepared from tartaric acid (E334)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Stearyl tartrate is an emulsifier prepared from tartaric acid and stearyl alcohol. The doubtful classification reflects that the stearyl group can be derived from either animal or vegetable fats.",
+      "commonFoods": ["bread (limited use)", "baked goods"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["sodium stearoyl-2-lactylate (E481)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E491",
       "Chemical_Name": "Sorbitan Monostearate*",
       "Description": "Emulsifier/ Stabiliser",
       "Remarks": "Prepared synthetically from stearic acid (E570) and sorbitol (E420)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sorbitan monostearate (Span 60) is a non-ionic emulsifier prepared from sorbitol and stearic acid. The doubtful classification reflects that stearic acid can be sourced from either animal or vegetable fats.",
+      "commonFoods": ["whipped toppings", "cake icings", "yeast", "ice cream", "non-dairy coffee whitener"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["sorbitan tristearate (E492)", "polysorbate 60 (E435)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E492",
       "Chemical_Name": "Sorbitan Tristearate/Span 65*",
       "Description": "Emulsifier/ Stabiliser",
       "Remarks": "Prepared synthetically from stearic acid (E570) and sorbitol (E420)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sorbitan tristearate (Span 65) is a non-ionic emulsifier prepared from sorbitol and stearic acid. It is used to control fat crystallisation, especially in chocolate. The doubtful classification reflects stearic acid's potential animal or vegetable origin.",
+      "commonFoods": ["chocolate (bloom inhibitor)", "cake mixes", "whipped toppings", "icings"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["sorbitan monostearate (E491)", "polysorbate 65 (E436)", "lecithin (E322)"]
     },
     {
       "E-Code": "E493",
       "Chemical_Name": "Sorbitan Monolaurate/Span 20*",
       "Description": "Emulsifier/ Stabiliser",
       "Remarks": "Prepared synthetically from sorbitol (E420) and lauric acid",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sorbitan monolaurate (Span 20) is a non-ionic emulsifier prepared from sorbitol and lauric acid. The doubtful classification reflects that lauric acid can be sourced from either animal or vegetable fats (though most commercial supply is from coconut or palm kernel oil).",
+      "commonFoods": ["yeast products", "cake mixes", "whipped toppings", "ice cream"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["polysorbate 20 (E432)", "sorbitan monostearate (E491)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E494",
       "Chemical_Name": "Sorbitan Monooleate/Span 80*",
       "Description": "Emulsifier/ Stabiliser",
       "Remarks": "Prepared synthetically from sorbitol (E420) and oleic acid",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sorbitan monooleate (Span 80) is a non-ionic emulsifier prepared from sorbitol and oleic acid. The doubtful classification reflects oleic acid's potential animal or vegetable origin.",
+      "commonFoods": ["cake mixes", "ice cream", "whipped toppings", "salad dressings"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["polysorbate 80 (E433)", "sorbitan monostearate (E491)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E495",
       "Chemical_Name": "Sorbitan Monopalmitate/Span 40*",
       "Description": "Emulsifier/ Stabiliser",
       "Remarks": "Prepared synthetically from sorbitol (E420) and palmitic acid",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sorbitan monopalmitate (Span 40) is a non-ionic emulsifier prepared from sorbitol and palmitic acid. The doubtful classification reflects palmitic acid's potential animal or vegetable origin.",
+      "commonFoods": ["cake mixes", "whipped toppings", "ice cream", "non-dairy creamers"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["polysorbate 40 (E434)", "sorbitan monostearate (E491)", "mono- and diglycerides (E471)"]
     },
     {
       "E-Code": "E500",
       "Chemical_Name": "Sodium Carbonate/Sodium Bicarbonate/Baking Soda",
       "Description": "Mineral Salt",
       "Remarks": "Synthetically prepared. May also be manufactured by the Solvay process or electrolytically from sea water",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium carbonate (washing soda) and sodium bicarbonate (baking soda) are alkaline salts used as raising agents, acidity regulators and stabilisers. They are produced industrially by the Solvay process or by mining trona ore.",
+      "commonFoods": ["baking soda", "self-raising flour", "Chinese-style noodles", "soft drinks", "cocoa products"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium carbonate (E501)", "ammonium bicarbonate (E503)", "calcium carbonate (E170)"]
     },
     {
       "E-Code": "E501",
       "Chemical_Name": "Potassium Carbonate/Potassium Hydrogen Carbonate",
       "Description": "Mineral Salt",
       "Remarks": "Prepared by saturating a concentrated solution of potassium carbonate with carbon dioxide",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium carbonate and potassium hydrogen carbonate are alkaline potassium salts used as acidity regulators, leavening agents and stabilisers. They are commonly used in cocoa processing and Chinese noodle production.",
+      "commonFoods": ["cocoa processing (Dutch-process)", "ramen noodles", "low-sodium baked goods", "wine"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium carbonate (E500)", "calcium carbonate (E170)", "ammonium bicarbonate (E503)"]
     },
     {
       "E-Code": "E503",
       "Chemical_Name": "Ammonium Bicarbonate/Ammonium Hydrogen Carbonate",
       "Description": "Mineral Salt",
       "Remarks": "Prepared by passing excess carbon dioxide through concentrated ammonia water",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium bicarbonate (hartshorn) is a leavening agent that decomposes completely into ammonia, water and carbon dioxide on heating, leaving no residue. It is preferred in flat baked goods like crackers and cookies.",
+      "commonFoods": ["traditional crackers", "cookies", "biscotti", "Northern European Christmas baking"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium bicarbonate (E500)", "potassium carbonate (E501)", "baking powder"]
     },
     {
       "E-Code": "E504",
       "Chemical_Name": "Magnesium Carbonate",
       "Description": "Mineral Salt",
       "Remarks": "May be prepared by mixing boiling concentrated solutions of magnesium sulphate and sodium carbonate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium carbonate is a white mineral salt used as an anti-caking agent, alkaliser and dietary magnesium source. It is also used as a drying agent on athletes' hands.",
+      "commonFoods": ["table salt (anti-caking)", "powdered foods", "antacid tablets", "ice cream"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium carbonate (E170)", "magnesium oxide (E530)", "silicon dioxide (E551)"]
     },
     {
       "E-Code": "E507",
       "Chemical_Name": "Hydrochloric Acid",
       "Description": "Food Acid",
       "Remarks": "Industrially produced by the reaction of sodium chloride and sulphuric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Hydrochloric acid is a strong inorganic acid used as an acidity regulator and processing aid. It is naturally produced by the human stomach and is industrially manufactured from sodium chloride and sulphuric acid.",
+      "commonFoods": ["processing aid in starch and gelatin manufacture", "limited direct food use"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "phosphoric acid (E338)", "sulphuric acid (E513)"]
     },
     {
       "E-Code": "E508",
       "Chemical_Name": "Potassium Chloride",
       "Description": "Salt Substitute",
       "Remarks": "Naturally occurs as a saline residue associated with rock salt",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium chloride is a mineral salt used as a salt substitute for sodium reduction, as well as a gelling agent and yeast nutrient. It occurs naturally as the mineral sylvite.",
+      "commonFoods": ["low-sodium salt blends", "sports drinks", "infant formula", "canned vegetables"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium chloride (table salt)", "magnesium chloride (E511)", "calcium chloride (E509)"]
     },
     {
       "E-Code": "E509",
       "Chemical_Name": "Calcium Chloride",
       "Description": "Mineral Salt",
       "Remarks": "Obtained as a by-product of the Solvay process and is also a product from natural salt brines",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium chloride is a mineral salt used as a firming agent, sequestrant and electrolyte. It is obtained as a by-product of the Solvay process and from natural brines.",
+      "commonFoods": ["canned vegetables (firming)", "tofu", "cheese-making", "sports drinks", "pickles", "molecular gastronomy"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium chloride (E508)", "magnesium chloride (E511)", "calcium lactate (E327)"]
     },
     {
       "E-Code": "E510",
       "Chemical_Name": "Ammonium Chloride",
       "Description": "Flour Treatment Agent",
       "Remarks": "Synthetically prepared",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium chloride is a salt used as a flour treatment agent, yeast nutrient and flavouring. It contributes the characteristic salty-tangy flavour to Scandinavian salt liquorice.",
+      "commonFoods": ["salty liquorice (Salmiakki)", "yeast bread", "flour treatment"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium chloride", "potassium chloride (E508)", "calcium chloride (E509)"]
     },
     {
       "E-Code": "E511",
       "Chemical_Name": "Magnesium Chloride",
       "Description": "Firming Agent",
       "Remarks": "Prepared from magnesium ammonium chloride hexahydrate, in the presence of hydrochloric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium chloride (nigari) is a mineral salt used as a firming agent, especially as the traditional coagulant for tofu in East Asia. It is also a magnesium nutrient source.",
+      "commonFoods": ["tofu (traditional coagulant)", "salt substitutes", "sports drinks", "supplements"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium chloride (E509)", "calcium sulphate (E516)", "potassium chloride (E508)"]
     },
     {
       "E-Code": "E513",
       "Chemical_Name": "Sulphuric Acid",
       "Description": "Food Acid",
       "Remarks": "Commercially prepared by the 'contact' or 'chamber' process",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sulphuric acid is a strong inorganic acid used as an acidity regulator and processing aid in food manufacture. Direct food use is limited; it is mainly a starch-modification and pH-adjustment aid.",
+      "commonFoods": ["processing aid in modified starches", "wine pH adjustment"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["phosphoric acid (E338)", "hydrochloric acid (E507)", "citric acid (E330)"]
     },
     {
       "E-Code": "E514",
       "Chemical_Name": "Sodium Sulphate",
       "Description": "Diluent",
       "Remarks": "Naturally occurring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium sulphate is a mineral salt used as a diluent in colour preparations and as a processing aid. It occurs naturally as the mineral mirabilite.",
+      "commonFoods": ["colour preparations", "limited direct food use", "salt cakes for tofu coagulation"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium sulphate (E515)", "calcium sulphate (E516)", "sodium chloride"]
     },
     {
       "E-Code": "E515",
       "Chemical_Name": "Potassium Sulphate",
       "Description": "Salt Substitute",
       "Remarks": "Naturally occurring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium sulphate is a mineral salt used as an acidity regulator and salt substitute. It is also a major fertiliser ingredient.",
+      "commonFoods": ["low-sodium salt blends", "limited beverage applications", "processing aid"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium chloride (E508)", "sodium sulphate (E514)", "calcium sulphate (E516)"]
     },
     {
       "E-Code": "E516",
       "Chemical_Name": "Calcium Sulphate",
       "Description": "Flour Treatment Agent",
       "Remarks": "Naturally occurring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium sulphate (gypsum) is a mineral salt used as a firming agent, dough conditioner, calcium fortifier and tofu coagulant. It occurs naturally and is also a by-product of phosphoric acid production.",
+      "commonFoods": ["tofu (alternative coagulant)", "bread (dough conditioner)", "calcium-fortified beverages", "wine fining", "yeast nutrient"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium chloride (E509)", "calcium lactate (E327)", "calcium phosphate (E341)"]
     },
     {
       "E-Code": "E518",
       "Chemical_Name": "Magnesium Sulphate",
       "Description": "Dietary Supplement/ Firming Agent",
       "Remarks": "Naturally occurring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium sulphate (Epsom salt) is a mineral salt used as a firming agent, magnesium fortifier and processing aid. It is also widely used as a bath salt and laxative.",
+      "commonFoods": ["beer (yeast nutrient)", "tofu (coagulant)", "bottled mineral waters", "magnesium supplements"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium sulphate (E516)", "magnesium chloride (E511)", "magnesium oxide (E530)"]
     },
     {
       "E-Code": "E519",
       "Chemical_Name": "Cupric Sulphate/Copper Sulphate",
       "Description": "Preservative/ Colour Fixative",
       "Remarks": "Industrially prepared by spraying hot dilute sulphuric acid on to scrap copper in a lead-lined tower",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Cupric sulphate (copper sulphate) is a copper salt used in very small amounts as a colour fixative and copper nutrient. It is more commonly used in agriculture and water treatment.",
+      "commonFoods": ["limited food applications", "copper nutrient in animal feed", "wine fining"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["copper gluconate", "iron sulphate", "manganese sulphate"]
     },
     {
       "E-Code": "E524",
       "Chemical_Name": "Sodium Hydroxide",
       "Description": "Neutralising Agent",
       "Remarks": "Prepared by electrolysis from brine, or precipitated from sodium carbonate and lime solution",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium hydroxide (caustic soda, lye) is a strong alkali used as an acidity regulator and processing aid. It is famously used in the production of pretzels, hominy and traditional lye-cured olives.",
+      "commonFoods": ["pretzels", "hominy / nixtamalised corn", "cocoa processing", "olives", "Chinese-style noodles"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium hydroxide (E525)", "sodium carbonate (E500)", "calcium hydroxide (E526)"]
     },
     {
       "E-Code": "E525",
       "Chemical_Name": "Potassium Hydroxide",
       "Description": "Oxidising Agent",
       "Remarks": "Industrially prepared by electrolysis of potassium chloride",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium hydroxide (caustic potash) is a strong alkali used as an acidity regulator and processing aid, mainly in cocoa processing and as an alternative to sodium hydroxide in low-sodium products.",
+      "commonFoods": ["cocoa processing", "low-sodium pretzels", "olives", "limited bakery applications"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium hydroxide (E524)", "potassium carbonate (E501)", "calcium hydroxide (E526)"]
     },
     {
       "E-Code": "E526",
       "Chemical_Name": "Calcium Hydroxide",
       "Description": "Neutralising Agent",
       "Remarks": "Prepared by the hydration of lime",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium hydroxide (slaked lime, pickling lime) is an alkali used as a firming agent, acidity regulator and calcium fortifier. It is essential for nixtamalising corn for tortillas.",
+      "commonFoods": ["corn tortillas (nixtamalisation)", "fruit preserves (firming)", "sugar refining", "infant formula"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium hydroxide (E524)", "calcium oxide (E529)", "calcium carbonate (E170)"]
     },
     {
       "E-Code": "E527",
       "Chemical_Name": "Ammonium Hydroxide",
       "Description": "Alkali",
       "Remarks": "Prepared from ammonia gas",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium hydroxide is an alkaline solution of ammonia in water, used as an acidity regulator and leavening agent. It is also used in the production of caramel colour III and IV.",
+      "commonFoods": ["caramel colour production", "cocoa processing", "limited bakery applications", "lean finely textured beef (US)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium hydroxide (E524)", "ammonium bicarbonate (E503)", "potassium hydroxide (E525)"]
     },
     {
       "E-Code": "E528",
       "Chemical_Name": "Magnesium Hydroxide",
       "Description": "Alkali",
       "Remarks": "Commercially prepared from magnesite ores",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium hydroxide (milk of magnesia) is an alkali used as an acidity regulator and colour stabiliser. It is more familiar as an antacid and laxative.",
+      "commonFoods": ["limited food applications", "antacids", "supplements"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium hydroxide (E526)", "magnesium oxide (E530)", "magnesium carbonate (E504)"]
     },
     {
       "E-Code": "E529",
       "Chemical_Name": "Calcium Oxide",
       "Description": "Alkali",
       "Remarks": "Prepared from limestone",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium oxide (quicklime) is a strong alkali produced by calcining limestone. It is used as a flour treatment agent, acidity regulator and processing aid in sugar refining.",
+      "commonFoods": ["flour improvement", "sugar refining", "bakery applications", "cocoa processing"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium hydroxide (E526)", "calcium carbonate (E170)", "sodium hydroxide (E524)"]
     },
     {
       "E-Code": "E530",
       "Chemical_Name": "Magnesium Oxide",
       "Description": "Alkali",
       "Remarks": "Commercially prepared from magnesite ores",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium oxide is a mineral oxide used as an anti-caking agent, alkaliser and dietary magnesium source. It is produced by calcining magnesium carbonate or magnesium hydroxide.",
+      "commonFoods": ["powdered drink mixes", "table salt (anti-caking)", "magnesium supplements", "antacids"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["magnesium hydroxide (E528)", "magnesium carbonate (E504)", "magnesium phosphate (E343)"]
     },
     {
       "E-Code": "E535",
       "Chemical_Name": "Sodium Ferrocyanide",
       "Description": "Anticaking Agent",
       "Remarks": "Synthetically produced",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium ferrocyanide is an iron-cyanide complex used as an anti-caking agent in table salt. Despite the name, the cyanide is tightly bound and not biologically available in normal use.",
+      "commonFoods": ["table salt (anti-caking)", "wine fining (some markets)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["potassium ferrocyanide (E536)", "calcium silicate (E552)", "silicon dioxide (E551)"]
     },
     {
       "E-Code": "E536",
       "Chemical_Name": "Potassium Ferrocyanide",
       "Description": "Anticaking Agent",
       "Remarks": "Commercially prepared as a by-product in the purification of coal gas",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium ferrocyanide is an iron-cyanide complex used as an anti-caking agent in salt and as a wine fining agent. It is produced as a by-product of coal-gas purification.",
+      "commonFoods": ["table salt (anti-caking)", "wine fining"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium ferrocyanide (E535)", "calcium silicate (E552)", "silicon dioxide (E551)"]
     },
     {
       "E-Code": "E540",
       "Chemical_Name": "Dicalcium Diphosphate",
       "Description": "Buffer",
       "Remarks": "Naturally occurring mineral. May also be synthetically produced",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Dicalcium diphosphate (dicalcium pyrophosphate) is a calcium phosphate salt used as a buffer, emulsifier and leavening acid in baked goods. It is found naturally as a mineral and is also synthetically produced.",
+      "commonFoods": ["baking powder", "cake mixes", "self-raising flour", "processed cheese"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium phosphates (E450)", "calcium phosphates (E341)", "monocalcium phosphate"]
     },
     {
       "E-Code": "E541",
       "Chemical_Name": "Sodium Aluminium Phosphate",
       "Description": "Aerator/ Emulsifying Salt",
       "Remarks": "Prepared from phosphoric acid (E338)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium aluminium phosphate is a leavening acid used in self-raising flour and baking powder. It produces a slow, sustained leavening reaction.",
+      "commonFoods": ["baking powder", "self-raising flour", "cake mixes", "processed cheese"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["monocalcium phosphate (E341)", "sodium pyrophosphate (E450)", "cream of tartar (E336)"]
     },
     {
       "E-Code": "E542",
       "Chemical_Name": "Edible Bone Phosphate/Bone Meal*",
       "Description": "Anticaking Agent",
       "Remarks": "Extract from animal bones",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Edible bone phosphate is calcium phosphate extracted from the bones of cattle, pigs or other animals. It is used as an anti-caking agent and calcium fortifier.",
+      "commonFoods": ["powdered foods", "salt mixtures", "bone-meal supplements", "infant formula (in some markets)"],
+      "origin": "Animal-derived",
+      "isVegan": false,
+      "isVegetarian": false,
+      "alternatives": ["calcium phosphates (E341)", "calcium carbonate (E170)", "tricalcium phosphate"]
     },
     {
       "E-Code": "E544",
       "Chemical_Name": "Calcium Polyphosphates*",
       "Description": "Emulsifying Salt",
       "Remarks": "Calcium salts of polyphosphoric acid",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium polyphosphates are calcium salts of polyphosphoric acid, used as emulsifying salts and sequestrants. The MUIS doubtful classification likely reflects supply-chain considerations.",
+      "commonFoods": ["processed cheese", "cured meats", "baked goods"],
+      "origin": "Mineral",
+      "alternatives": ["sodium polyphosphates (E450)", "calcium phosphates (E341)", "ammonium polyphosphates (E545)"]
     },
     {
       "E-Code": "E545",
       "Chemical_Name": "Ammonium Polyphosphates",
       "Description": "Emulsifying Salt",
       "Remarks": "Ammonium salts of polyphosphoric acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ammonium polyphosphates are ammonium salts of polyphosphoric acid, used as emulsifying salts. They have wider use in fire retardants and fertilisers than in food.",
+      "commonFoods": ["limited food applications", "non-food fire retardants and fertilisers"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium polyphosphates (E450)", "calcium polyphosphates (E544)", "phosphoric acid (E338)"]
     },
     {
       "E-Code": "E551",
       "Chemical_Name": "Silicon Dioxide/Silica Salt",
       "Description": "Anticaking Agent",
       "Remarks": "Rock-forming mineral and sand which is composed mainly of quartz or flint",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Silicon dioxide (silica) is a naturally abundant mineral used as an anti-caking agent and clarifying agent. It is one of the most common ingredients in powdered foods.",
+      "commonFoods": ["powdered drink mixes", "spices and seasonings", "salt", "powdered creamers", "supplements"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium silicate (E552)", "magnesium silicate (E553a)", "talc (E553b)"]
     },
     {
       "E-Code": "E552",
       "Chemical_Name": "Calcium Silicate",
       "Description": "Anticaking Agent",
       "Remarks": "Commercially prepared from lime and diatomaceous earth",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium silicate is a mineral compound used as an anti-caking agent in powdered foods. It absorbs moisture and prevents clumping.",
+      "commonFoods": ["table salt", "powdered drink mixes", "baking powder", "spice blends", "supplements"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["silicon dioxide (E551)", "magnesium silicate (E553a)", "sodium aluminosilicate (E554)"]
     },
     {
       "E-Code": "E553a",
       "Chemical_Name": "Magnesium Silicate/Magnesium Trisilicate",
       "Description": "Anticaking Agent",
       "Remarks": "Synthetic compound of magnesium oxide and silicon dioxide. May also be prepared from sodium silicate and magnesium sulphate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Magnesium silicate (magnesium trisilicate) is a mineral compound used as an anti-caking agent and antacid. It absorbs moisture in powdered foods.",
+      "commonFoods": ["table salt", "powdered foods", "antacids", "rice (anti-clumping)"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["silicon dioxide (E551)", "calcium silicate (E552)", "talc (E553b)"]
     },
     {
       "E-Code": "E553b",
       "Chemical_Name": "Talc",
       "Description": "Anticaking Agent",
       "Remarks": "Naturally occurring mineral",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Talc is a naturally occurring magnesium silicate mineral used as an anti-caking agent, glazing agent and dusting powder in food. The food-grade material is purified to remove asbestos contamination.",
+      "commonFoods": ["polished rice", "chewing gum", "confectionery glazing", "pill coatings", "salt anti-caking"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium silicate (E552)", "silicon dioxide (E551)", "magnesium silicate (E553a)"]
     },
     {
       "E-Code": "E554",
       "Chemical_Name": "Aluminium Sodium Silicate/Sodium Aluminosilicate",
       "Description": "Anticaking Agent",
       "Remarks": "Prepared synthetically from quartz and gibbsite",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium aluminosilicate (aluminium sodium silicate) is a synthetic anti-caking agent prepared from quartz and gibbsite. It is widely used in salt and powdered products.",
+      "commonFoods": ["table salt", "powdered drink mixes", "non-dairy creamers", "powdered sugar"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium silicate (E552)", "silicon dioxide (E551)", "tricalcium phosphate (E341)"]
     },
     {
       "E-Code": "E556",
       "Chemical_Name": "Aluminium Calcium Silicate",
       "Description": "Anticaking Agent",
       "Remarks": "Naturally occurring mineral",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Aluminium calcium silicate is a naturally occurring mineral compound used as an anti-caking agent in powdered foods.",
+      "commonFoods": ["table salt", "powdered drink mixes", "spice blends"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium silicate (E552)", "silicon dioxide (E551)", "sodium aluminosilicate (E554)"]
     },
     {
       "E-Code": "E558",
       "Chemical_Name": "Bentonite",
       "Description": "Anticaking Agent",
       "Remarks": "Naturally occurring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Bentonite is a naturally occurring clay mineral used as a clarifying agent in winemaking and as a processing aid in oils and fats. It is rarely a labelled ingredient.",
+      "commonFoods": ["wine fining", "fruit juice clarification", "edible oil processing"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["kaolin (E559)", "diatomaceous earth", "kieselsol"]
     },
     {
       "E-Code": "E559",
       "Chemical_Name": "Kaolin",
       "Description": "Anticaking Agent",
       "Remarks": "Naturally occurring",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Kaolin (china clay) is a naturally occurring clay mineral used as an anti-caking agent and clarifier. It is more familiar as a ceramics raw material and pharmaceutical anti-diarrhoeal.",
+      "commonFoods": ["wine fining", "edible oil processing", "limited direct food use"],
+      "origin": "Mineral",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["bentonite (E558)", "diatomaceous earth", "calcium silicate (E552)"]
     },
     {
       "E-Code": "E570",
       "Chemical_Name": "Stearic Acid*",
       "Description": "Anticaking Agent",
       "Remarks": "Naturally occurring fatty acid found in all animal fats and vegetable oils. May be prepared synthetically for commercial use",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Stearic acid is a saturated fatty acid found in all animal fats and most vegetable oils. The MUIS doubtful classification reflects that commercial stearic acid can be derived from either animal or plant sources, and supplier disclosure is essential.",
+      "commonFoods": ["margarine", "candies", "baked goods", "cosmetics", "pharmaceuticals (tablet binder)"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["palmitic acid", "oleic acid", "vegetable stearic acid (specified)"]
     },
     {
       "E-Code": "E572",
       "Chemical_Name": "Magnesium Stearate*",
       "Description": "Anticaking Agent",
       "Remarks": "Magnesium salt of stearic acid (E570)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Magnesium stearate is the magnesium salt of stearic acid, used as an anti-caking agent and tablet lubricant. The doubtful classification reflects stearic acid's potential animal or vegetable origin.",
+      "commonFoods": ["powdered foods", "confectionery", "supplements (tablet excipient)", "baking powder"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["calcium stearate", "silicon dioxide (E551)", "calcium silicate (E552)"]
     },
     {
       "E-Code": "E575",
       "Chemical_Name": "Glucono Delta-Lactone*",
       "Description": "Sequestrant",
       "Remarks": "Prepared by the oxidation of glucose",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Glucono-delta-lactone (GDL) is a cyclic ester of gluconic acid prepared by oxidation of glucose. It hydrolyses slowly in water to release gluconic acid, providing a slow, controlled acidification.",
+      "commonFoods": ["silken tofu (coagulant)", "fresh sausages", "feta cheese", "leavening for biscuits"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "lactic acid (E270)", "fumaric acid (E297)"]
     },
     {
       "E-Code": "E576",
       "Chemical_Name": "Sodium Gluconate",
       "Description": "Sequestrant",
       "Remarks": "Sodium salt of gluconic acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Sodium gluconate is the sodium salt of gluconic acid, produced by fermentation of glucose. It is used as a sequestrant and acidity regulator, particularly in dairy products and cured meats.",
+      "commonFoods": ["dairy products", "cured meats", "limited direct food applications", "industrial cleaning (non-food)"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["gluconic acid", "potassium gluconate (E577)", "calcium gluconate (E578)"]
     },
     {
       "E-Code": "E577",
       "Chemical_Name": "Potassium Gluconate",
       "Description": "Sequestrant",
       "Remarks": "Potassium salt of gluconic acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium gluconate is the potassium salt of gluconic acid, used as an acidity regulator and potassium fortifier.",
+      "commonFoods": ["potassium-fortified products", "supplements", "limited beverage applications"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sodium gluconate (E576)", "calcium gluconate (E578)", "potassium citrates (E332)"]
     },
     {
       "E-Code": "E578",
       "Chemical_Name": "Calcium Gluconate",
       "Description": "Sequestrant",
       "Remarks": "Calcium salt of gluconic acid",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Calcium gluconate is the calcium salt of gluconic acid, used as a calcium fortifier, firming agent and acidity regulator. It is also widely used as an injectable calcium source in medicine.",
+      "commonFoods": ["calcium-fortified beverages", "infant formula", "supplements", "fresh-cut fruits"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["calcium lactate (E327)", "calcium citrates (E333)", "calcium phosphates (E341)"]
     },
     {
       "E-Code": "E579",
       "Chemical_Name": "Ferrous Gluconate",
       "Description": "Colouring/Flavouring",
       "Remarks": "Prepared from barium gluconate and ferrous sulphate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ferrous gluconate is an iron salt of gluconic acid, used as a colour fixative for black olives and as an iron-fortification compound. It darkens olives by complexing with their natural pigments.",
+      "commonFoods": ["black olives (colour fixative)", "iron-fortified foods", "iron supplements"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["iron sulphate", "ammonium ferric citrate (E381)", "ferrous lactate"]
     },
     {
       "E-Code": "E620",
       "Chemical_Name": "L-Glutamic Acid*",
       "Description": "Flavour Enhancer",
       "Remarks": "Commercially prepared by the fermentation of carbohydrate by a bacterium e.g. Micrococcus glutamicus",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "L-Glutamic acid is a non-essential amino acid that occurs naturally in many foods and acts as the basis for the savoury 'umami' taste. Commercial glutamic acid is produced by bacterial fermentation of carbohydrates.",
+      "commonFoods": ["savoury seasonings", "soup bases", "stocks", "Asian cuisine", "snack foods"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["natural sources (parmesan, tomatoes, mushrooms)", "yeast extract", "disodium guanylate (E627)"]
     },
     {
       "E-Code": "E621",
       "Chemical_Name": "Monosodium Glutamate/MSG*",
       "Description": "Flavour Enhancer",
       "Remarks": "Sodium salt of glutamic acid (E620)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Monosodium glutamate (MSG) is the sodium salt of glutamic acid, the most widely used flavour enhancer in the world. It is produced by bacterial fermentation of starch, sugar beet molasses or sugar cane.",
+      "commonFoods": ["Chinese food", "instant noodles", "savoury snacks", "soup bases", "bouillon cubes", "processed meats"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["yeast extract", "natural umami sources (parmesan, mushrooms)", "disodium 5'-ribonucleotides (E635)"]
     },
     {
       "E-Code": "E622",
       "Chemical_Name": "Monopotassium Glutamate*",
       "Description": "Flavour Enhancer",
       "Remarks": "Potassium salt of glutamic acid (E620)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Monopotassium glutamate is the potassium salt of glutamic acid, used as a flavour enhancer. It is often used in low-sodium products as an alternative to MSG.",
+      "commonFoods": ["low-sodium savoury foods", "soup bases", "seasonings"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["MSG (E621)", "calcium glutamate (E623)", "yeast extract"]
     },
     {
       "E-Code": "E623",
       "Chemical_Name": "Calcium Glutamate*",
       "Description": "Flavour Enhancer",
       "Remarks": "Calcium salt of glutamic acid (E620)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Calcium glutamate is the calcium salt of glutamic acid, used as a flavour enhancer with mild calcium fortification.",
+      "commonFoods": ["low-sodium savoury seasonings", "salt substitutes"],
+      "origin": "Microbial",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["MSG (E621)", "monopotassium glutamate (E622)", "yeast extract"]
     },
     {
       "E-Code": "E627",
       "Chemical_Name": "Disodium Guanylate*",
       "Description": "Flavour Enhancer",
       "Remarks": "Sodium salt of guanylic acid, a widely occurring nucleotide found in yeast extract and sardines. May be synthetically prepared from commercial use",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Disodium guanylate is a flavour enhancer derived from guanylic acid, a nucleotide naturally found in dried mushrooms, yeast extract and sardines. Commercial production uses either yeast or sardines/anchovies as starting material — supplier disclosure is essential for vegan/vegetarian labelling.",
+      "commonFoods": ["instant noodles", "savoury snacks", "soup mixes", "stocks", "Asian seasoning blends"],
+      "origin": "Microbial or Animal-derived",
+      "alternatives": ["disodium inosinate (E631)", "yeast extract", "MSG (E621)"]
     },
     {
       "E-Code": "E631",
       "Chemical_Name": "Disodium Inosinate*",
       "Description": "Flavour Enhancer",
       "Remarks": "Sodium salt of inosinic acid, found in meat extract and sardines",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Disodium inosinate is a flavour enhancer derived from inosinic acid, a nucleotide commercially obtained from sardines, anchovies, meat extract or by bacterial fermentation. The animal-derived sources are why MUIS classifies it as doubtful.",
+      "commonFoods": ["instant noodles", "savoury snacks", "soup mixes", "stocks", "savoury seasoning blends"],
+      "origin": "Animal-derived or Microbial",
+      "alternatives": ["disodium guanylate (E627)", "yeast extract", "MSG (E621)"]
     },
     {
       "E-Code": "E635",
       "Chemical_Name": "Sodium 5'-Ribonucleotide*",
       "Description": "Flavour Enhancer",
       "Remarks": "Mixture of disodium guanylate (E627) and disodium inosinate (E631)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Sodium 5'-ribonucleotide is a 50/50 mixture of disodium guanylate (E627) and disodium inosinate (E631), used as a flavour enhancer that synergises strongly with MSG. The doubtful classification reflects the potentially fish-derived origin of the inosinate component.",
+      "commonFoods": ["instant noodles", "savoury snacks", "stocks and bouillons", "Asian seasoning blends"],
+      "origin": "Animal-derived or Microbial",
+      "alternatives": ["MSG (E621)", "yeast extract", "disodium guanylate (E627)"]
     },
     {
       "E-Code": "E636",
       "Chemical_Name": "MaltoI",
       "Description": "Flavour Enhancer",
       "Remarks": "Occurs naturally in the bark of larch trees, pine needles and roasted malt. May also be obtained by the alkaline hydrolysis of streptomycin salt",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Maltol is a naturally occurring flavour compound found in larch bark, pine needles and roasted malt, contributing a sweet, caramel-cotton-candy aroma. Commercial maltol is mostly produced by chemical synthesis.",
+      "commonFoods": ["baked goods", "candy", "ice cream", "fragrances", "tobacco"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ethyl maltol (E637)", "vanillin", "natural caramel flavouring"]
     },
     {
       "E-Code": "E637",
       "Chemical_Name": "Ethyl MaltoI",
       "Description": "Flavour Enhancer",
       "Remarks": "Prepared from maltoI (E636)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Ethyl maltol is a synthetic flavour compound related to maltol but with about 4-6 times the flavour intensity. It contributes a sweet, fruit-cotton-candy aroma.",
+      "commonFoods": ["candy", "baked goods", "fragrances and perfumes", "fruit-flavoured drinks"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["maltol (E636)", "vanillin", "natural caramel flavouring"]
     },
     {
       "E-Code": "E900",
       "Chemical_Name": "Dimethylpolysiloxane/Dimethicone",
       "Description": "Antifoaming Agent",
       "Remarks": "A mixture of liquid dimethylpolysiloxane and silicon gel or silicon dioxide",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Dimethylpolysiloxane (dimethicone) is a silicone oil used as an anti-foaming agent and lubricant in food processing. It prevents foam formation in fryer oils and other liquids.",
+      "commonFoods": ["fryer oils (especially fast food)", "soft drinks", "jams (anti-foaming during cooking)", "chewing gum"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["natural anti-foaming agents (oleic acid)", "polyglycerol esters (E475)"]
     },
     {
       "E-Code": "E901",
       "Chemical_Name": "Beeswax*",
       "Description": "Glazing Agent",
       "Remarks": "Naturally occurring from bee honeycomb. White beeswax is bleached and purified",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Beeswax is a natural wax produced by honeybees (Apis mellifera) to build their honeycomb. The yellow form is unbleached; white beeswax is purified and bleached. It is used as a glazing agent and food coating.",
+      "commonFoods": ["candy coatings", "fruit waxing (apples, citrus)", "chocolate confectionery", "chewing gum", "cheese rinds"],
+      "origin": "Animal-derived",
+      "isVegan": false,
+      "isVegetarian": true,
+      "alternatives": ["carnauba wax (E903)", "candelilla wax (E902)", "rice bran wax"]
     },
     {
       "E-Code": "E903",
       "Chemical_Name": "Carnauba Wax",
       "Description": "Glazing Agent",
       "Remarks": "Obtained from the surface of leaves of Copernicia cerifera, a Brazilian wax palm",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Carnauba wax is a hard, brittle wax obtained from the leaves of the Brazilian wax palm (Copernicia prunifera). It is the hardest natural wax and is used as a high-gloss coating.",
+      "commonFoods": ["candy coatings", "chocolate confectionery", "chewing gum", "fruit waxing", "tablet coatings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["candelilla wax (E902)", "beeswax (E901)", "rice bran wax"]
     },
     {
       "E-Code": "E904",
       "Chemical_Name": "Shellac*",
       "Description": "Glazing Agent",
       "Remarks": "Obtained from the resin produced by lac insect (Laccifer lacca)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Shellac is a resin secreted by the female lac insect (Kerria lacca) on certain trees in India and Thailand. It is processed into flakes and used as a glazing agent and food coating.",
+      "commonFoods": ["candy coatings", "chocolate confectionery", "fruit waxing", "tablet coatings", "jelly beans"],
+      "origin": "Animal-derived",
+      "isVegan": false,
+      "isVegetarian": false,
+      "alternatives": ["carnauba wax (E903)", "candelilla wax (E902)", "zein (corn protein)"]
     },
     {
       "E-Code": "E905",
       "Chemical_Name": "Mineral Oil/Petrolatum",
       "Description": "Glazing Agent",
       "Remarks": "Derived from petroleum",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Mineral oil (petrolatum) is a clear, odourless liquid derived from petroleum. Food-grade mineral oil is used as a glazing agent, release agent and lubricant in food processing.",
+      "commonFoods": ["candy coatings", "fruit waxing", "bakery release agents", "egg coatings (some markets)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["carnauba wax (E903)", "vegetable oils", "beeswax (E901)"]
     },
     {
       "E-Code": "E907",
       "Chemical_Name": "Refined Microcrystalline Wax",
       "Description": "Glazing Agent",
       "Remarks": "Derived from petroleum",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Refined microcrystalline wax is a hydrocarbon wax derived from petroleum, used as a glazing and coating agent. It has a finer crystal structure than paraffin wax.",
+      "commonFoods": ["chewing gum base", "candy coatings", "cheese coatings", "fruit waxing"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["carnauba wax (E903)", "beeswax (E901)", "candelilla wax (E902)"]
     },
     {
       "E-Code": "E920",
       "Chemical_Name": "L-Cysteine Hydrochloride*",
       "Description": "Flour Treatment Agent",
       "Remarks": "Manufactured from animal hair and chicken feathers",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "L-Cysteine hydrochloride is an amino acid used as a flour treatment agent and dough conditioner. Commercial L-cysteine is most often manufactured by hydrolysis of human hair, animal hair (pig, duck) or chicken feathers — though microbial fermentation alternatives exist. The animal-derived sourcing is the basis for the MUIS doubtful classification.",
+      "commonFoods": ["bread and bread rolls", "pizza dough", "bagels", "tortillas", "flavour development"],
+      "origin": "Animal-derived (predominantly) or Microbial",
+      "alternatives": ["microbial L-cysteine (specified)", "ascorbic acid (E300)", "potassium bromate (E924)"],
+      "isVegan": false,
+      "isVegetarian": false
     },
     {
       "E-Code": "E924",
       "Chemical_Name": "Potassium Bromate",
       "Description": "Flour Treatment Agent",
       "Remarks": "Synthetically produced",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Potassium bromate is a synthetic flour treatment agent that strengthens dough and improves bread rise. Its use is restricted or banned in many countries due to safety concerns.",
+      "commonFoods": ["bread (where permitted)", "limited bakery applications"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ascorbic acid (E300)", "azodicarbonamide (E927)", "L-cysteine (E920)"]
     },
     {
       "E-Code": "E925",
       "Chemical_Name": "Chlorine",
       "Description": "Preservative/ Bleaching Agent",
       "Remarks": "Commercially produced by electrolysis",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Chlorine is a strong oxidising agent used as a bleaching agent in flour and as a disinfectant for processing water. Direct food use is largely limited to flour treatment.",
+      "commonFoods": ["cake flour (bleached)", "processing water disinfection"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["chlorine dioxide (E926)", "benzoyl peroxide (E928)", "ascorbic acid (E300)"]
     },
     {
       "E-Code": "E926",
       "Chemical_Name": "Chlorine Dioxide",
       "Description": "Bleaching Agent/ Improving Agent",
       "Remarks": "Synthetically prepared",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Chlorine dioxide is a yellow-green gas used as a flour bleaching agent and improver. It is also widely used to disinfect drinking water and processing equipment.",
+      "commonFoods": ["bleached cake flour", "water disinfection (non-additive use)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["chlorine (E925)", "benzoyl peroxide (E928)", "ascorbic acid (E300)"]
     },
     {
       "E-Code": "E927",
       "Chemical_Name": "Azodicarbonamide/Azoformamide",
       "Description": "Improving Agent",
       "Remarks": "Synthetically prepared",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Azodicarbonamide (ADA) is a synthetic flour treatment agent that bleaches and strengthens dough. Its food use is banned in the EU, Australia and elsewhere; it is also used industrially as a foaming agent in plastics.",
+      "commonFoods": ["bread (where permitted)", "yoga mats and plastic foams (non-food)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["ascorbic acid (E300)", "L-cysteine (E920)", "potassium bromate (E924)"]
     },
     {
       "E-Code": "E928",
       "Chemical_Name": "Benzoyl Peroxide/Dibenzoyl Peroxide",
       "Description": "Bleaching Agent",
       "Remarks": "Synthetically prepared",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Benzoyl peroxide is a synthetic flour bleaching agent that whitens flour by oxidising the natural yellow pigments. It is also widely used as an acne treatment and in plastics manufacture.",
+      "commonFoods": ["bleached white flour", "milk products (rare)"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["chlorine (E925)", "chlorine dioxide (E926)", "azodicarbonamide (E927)"]
     },
     {
       "E-Code": "E931",
       "Chemical_Name": "Nitrogen",
       "Description": "Propellant",
       "Remarks": "Industrially produced by the reduction of ammonia or by the fractional distillation of liquid air",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Nitrogen is an inert gas making up about 78% of air, used as a packaging gas and propellant. It displaces oxygen to extend shelf life and prevent oxidation.",
+      "commonFoods": ["modified-atmosphere packaging (snacks, fresh produce)", "wine preservation", "coffee packaging", "instant whipped cream propellant"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["carbon dioxide (E290)", "argon", "vacuum packaging"]
     },
     {
       "E-Code": "E932",
       "Chemical_Name": "Nitrous Oxide",
       "Description": "Propellant",
       "Remarks": "Industrially produced by the thermal decomposition of ammonium nitrate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Nitrous oxide (laughing gas) is a propellant and packaging gas, most commonly used to drive whipped cream from aerosol canisters. It is also used as an anaesthetic.",
+      "commonFoods": ["aerosol whipped cream", "coffee whiteners", "modified-atmosphere packaging"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["nitrogen (E941)", "carbon dioxide (E290)", "compressed air"]
     },
     {
       "E-Code": "E950",
       "Chemical_Name": "Acesulphame Potassium/Sunett",
       "Description": "Artificial Sweetener",
       "Remarks": "Potassium salt of 6-methyl-1,2,3-oxathiazin-4(3H)-1,2,2-dioxide",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Acesulfame potassium (Ace-K, Sunett) is a synthetic non-caloric sweetener about 200 times sweeter than sucrose. It is heat-stable, making it suitable for cooking and baking, and is often blended with other sweeteners.",
+      "commonFoods": ["sugar-free soft drinks", "sugar-free desserts", "tabletop sweeteners", "sugar-free chewing gum", "protein shakes"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["aspartame (E951)", "sucralose (E955)", "stevia"]
     },
     {
       "E-Code": "E951",
       "Chemical_Name": "Aspartame/Nutrasweet*",
       "Description": "Artificial Sweetener",
       "Remarks": "Commercially produced by combining two amino acids together, namely L-phenylalanine and L-aspartic acid",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Aspartame (NutraSweet, Equal) is a synthetic non-caloric sweetener about 200 times sweeter than sucrose. It is composed of two amino acids (L-phenylalanine and L-aspartic acid) with a methyl ester group, produced by chemical synthesis.",
+      "commonFoods": ["sugar-free soft drinks", "sugar-free yogurts", "tabletop sweeteners", "sugar-free chewing gum", "diet desserts"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acesulfame potassium (E950)", "sucralose (E955)", "stevia"]
     },
     {
       "E-Code": "E952",
       "Chemical_Name": "Cyclamic and its Calcium and Sodium Salts",
       "Description": "Artificial Sweetener",
       "Remarks": "Manufactured by many different methods",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Cyclamic acid (cyclamate) and its calcium and sodium salts are synthetic non-caloric sweeteners about 30-50 times sweeter than sucrose. Cyclamate is heat-stable and often blended with saccharin to mask off-flavours.",
+      "commonFoods": ["sugar-free soft drinks (where permitted)", "tabletop sweeteners", "sugar-free desserts"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["saccharin (E954)", "aspartame (E951)", "acesulfame potassium (E950)"]
     },
     {
       "E-Code": "E954",
       "Chemical_Name": "Saccharin and its Calcium and Sodium Salts",
       "Description": "Artificial Sweetener",
       "Remarks": "Manufactured by many different methods",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Saccharin and its calcium and sodium salts are synthetic non-caloric sweeteners around 300-500 times sweeter than sucrose. Saccharin is the oldest commercial artificial sweetener, dating to 1879.",
+      "commonFoods": ["tabletop sweeteners (Sweet'N Low)", "sugar-free soft drinks", "diet jams", "sugar-free chewing gum"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["aspartame (E951)", "sucralose (E955)", "stevia"]
     },
     {
       "E-Code": "E957",
       "Chemical_Name": "Thaumatin",
       "Description": "Artificial Sweetener",
       "Remarks": "Derived from an African plant called Thaumococcus danielli",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Thaumatin is a sweet protein extracted from the fruit of the West African plant Thaumatococcus daniellii. It is around 2,000-3,000 times sweeter than sucrose and also functions as a flavour enhancer.",
+      "commonFoods": ["chewing gum", "dairy desserts", "tabletop sweeteners", "flavour enhancement in coffee and savoury foods"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["stevia", "monk fruit extract", "aspartame (E951)"]
     },
     {
       "E-Code": "E965",
       "Chemical_Name": "Hydrogenated Glucose Syrup*",
       "Description": "Humectant",
       "Remarks": "Derived from starches, which originate from many different sources, and broken down by enzymes and water to form glucose, oligosaccharides, followed by maltitol and sorbitol (E420)",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Hydrogenated glucose syrup (maltitol syrup) is a polyol sweetener produced by enzymatic hydrolysis of starch followed by hydrogenation. It is around 75% as sweet as sucrose with fewer calories.",
+      "commonFoods": ["sugar-free candies", "diabetic chocolate", "ice cream", "baked goods", "pharmaceuticals"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbitol (E420)", "maltitol (E965)", "xylitol (E967)"]
     },
     {
       "E-Code": "E967",
       "Chemical_Name": "Xylitol",
       "Description": "Sweetener",
       "Remarks": "Commercially produced as a waste product of the pulp industry",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Xylitol is a sugar alcohol commercially produced from xylose, often obtained from birch wood, corn cobs or other plant materials. It has the same sweetness as sucrose with about 40% fewer calories and does not promote tooth decay.",
+      "commonFoods": ["sugar-free chewing gum", "toothpaste and oral care", "diabetic foods", "sugar-free candy", "diabetic chocolate"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["sorbitol (E420)", "erythritol (E968)", "maltitol (E965)"]
     },
     {
       "E-Code": "E1200",
       "Chemical_Name": "Polydextrose*",
       "Description": "Miscellaneous",
       "Remarks": "Manufactured from glucose, citric acid and sorbitol",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Polydextrose is a synthetic soluble fibre and bulking agent produced by polymerising glucose with sorbitol and citric acid. It provides bulk and a slight sweetness in reduced-calorie foods.",
+      "commonFoods": ["low-calorie baked goods", "sugar-free ice cream", "fibre-fortified products", "diabetic foods", "low-fat dairy"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["inulin", "soluble corn fibre", "maltodextrin"]
     },
     {
       "E-Code": "E1201",
       "Chemical_Name": "Polyvinylpyrrolidone",
       "Description": "Miscellaneous",
       "Remarks": "Commercially produced from acetylene, hydrogen, formaldehyde and ammonia",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Polyvinylpyrrolidone (PVP, povidone) is a synthetic polymer used as a clarifier in beverages, tablet binder and film former. It is produced from acetylene and other simple chemicals.",
+      "commonFoods": ["beer and wine clarification", "tablet coatings", "supplement binders"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["polyvinylpolypyrrolidone (E1202)", "isinglass (animal-derived)", "bentonite (E558)"]
     },
     {
       "E-Code": "E1202",
       "Chemical_Name": "Polyvinyl Polypyrrolidone",
       "Description": "Miscellaneous",
       "Remarks": "It is the insoluble form of polyvinylpyrrolidone (E1201)",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Polyvinylpolypyrrolidone (PVPP, crospovidone) is the cross-linked, insoluble form of polyvinylpyrrolidone. It is widely used as a stabiliser and clarifier in beer and wine.",
+      "commonFoods": ["beer clarification", "wine clarification", "tablet disintegrant"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["polyvinylpyrrolidone (E1201)", "bentonite (E558)", "silica gel"]
     },
     {
       "E-Code": "E1400",
       "Chemical_Name": "Dextrin",
       "Description": "Thickener",
       "Remarks": "May be produced by the dry heating of unmodified starch or in the presence of acids and buffers. Starches used are mainly from corn (maize) and tapioca",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Dextrins are partially hydrolysed starches produced by dry roasting or acid treatment of starch. They are used as thickeners, binders and crispness enhancers.",
+      "commonFoods": ["snack foods", "fried foods (crispness)", "powdered foods", "bakery glazes", "infant formula"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["maltodextrin", "modified starches (E1410-E1450)", "rice flour"]
     },
     {
       "E-Code": "E1403",
       "Chemical_Name": "Bleached Starch",
       "Description": "Thickener",
       "Remarks": "May be obtained by treating native starch with various chemicals including hydrogen peroxide, sodium chlorite or sulphur dioxide",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Bleached starch is native starch treated with mild bleaching agents such as hydrogen peroxide to whiten it and reduce off-odours. It is used as a thickener and stabiliser.",
+      "commonFoods": ["bakery products", "soups", "sauces", "salad dressings", "instant puddings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["native starch", "modified starches (E1410-E1450)", "wheat starch"]
     },
     {
       "E-Code": "E1404",
       "Chemical_Name": "Oxidised Starch",
       "Description": "Thickener",
       "Remarks": "Produced by treating native starch with sodium hypochlorite",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Oxidised starch is a modified starch produced by treating native starch with sodium hypochlorite. The oxidation lowers the gelatinisation temperature and improves clarity.",
+      "commonFoods": ["batter coatings", "candy", "ice cream", "salad dressings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["bleached starch (E1403)", "modified starches (E1410-E1450)", "dextrin (E1400)"]
     },
     {
       "E-Code": "E1405",
       "Chemical_Name": "Enzyme-treated Starch*",
       "Description": "Thickener",
       "Remarks": "Produced by subjecting corn starch to acid-enzyme treatment to yield glucose, maltose and higher oligosaccharides",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Enzyme-treated starch is a modified starch produced by enzymatic hydrolysis to break it down into sugars and dextrins. The MUIS doubtful classification likely reflects the potential origin of the enzymes used.",
+      "commonFoods": ["sweeteners", "low-DE corn syrups", "industrial food applications"],
+      "origin": "Plant-based",
+      "isVegetarian": true,
+      "alternatives": ["acid-modified starch", "dextrin (E1400)", "maltodextrin"]
     },
     {
       "E-Code": "E1410",
       "Chemical_Name": "Monostarch Phosphate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with orthophosphoric acid, sodium or potassium orthophosphate, or sodium tripolyphosphate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Monostarch phosphate is a modified starch produced by esterifying native starch with phosphoric acid or its salts. The phosphate groups improve freeze-thaw stability and clarity.",
+      "commonFoods": ["frozen foods", "sauces", "soups", "bakery fillings", "salad dressings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["distarch phosphate (E1412)", "native starch", "modified starches (E1414, E1422)"]
     },
     {
       "E-Code": "E1412",
       "Chemical_Name": "Distarch Phosphate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with sodium trimetaphosphate or phosphorus oxychloride",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Distarch phosphate is a modified starch produced by cross-linking native starch with phosphate esters. The cross-links improve heat, acid and shear stability.",
+      "commonFoods": ["canned foods", "frozen foods", "instant soups", "salad dressings", "sauces"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["monostarch phosphate (E1410)", "phosphated distarch phosphate (E1413)", "modified starches (E1414, E1422)"]
     },
     {
       "E-Code": "E1413",
       "Chemical_Name": "Phosphated Distarch Phosphate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with phosphate, and dually stabilised with a 'monosubstituent group' of phosphate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Phosphated distarch phosphate is a doubly modified starch — first cross-linked and then stabilised with phosphate. This combination provides excellent stability under processing stresses.",
+      "commonFoods": ["canned soups", "ready meals", "frozen foods", "infant foods", "sauces"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["distarch phosphate (E1412)", "acetylated distarch phosphate (E1414)", "hydroxypropyl distarch phosphate (E1442)"]
     },
     {
       "E-Code": "E1414",
       "Chemical_Name": "Acetylated Distarch Phosphate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with sodium trimetaphosphate or phosphorus oxychloride, and stabilised with a 'monosubstituent group' of acetate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Acetylated distarch phosphate is a modified starch that combines cross-linking with acetylation to provide both heat stability and freeze-thaw stability.",
+      "commonFoods": ["frozen sauces", "ready meals", "instant soups", "fruit pie fillings", "yogurts"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetylated distarch adipate (E1422)", "hydroxypropyl distarch phosphate (E1442)", "distarch phosphate (E1412)"]
     },
     {
       "E-Code": "E1420",
       "Chemical_Name": "Starch Acetate Esterified with Acetic Anhydride",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with a mixed anhydride of adipic and acetic anhydride, and stabilised with a 'monosubstituent group' of acetate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Acetylated starch (E1420) is a modified starch produced by esterification with acetic anhydride. The acetyl groups improve freeze-thaw stability and reduce retrogradation.",
+      "commonFoods": ["frozen foods", "bakery fillings", "salad dressings", "sauces"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetylated distarch phosphate (E1414)", "starch acetate (E1421)", "hydroxypropyl starch (E1440)"]
     },
     {
       "E-Code": "E1421",
       "Chemical_Name": "Starch Acetate Esterified with Vinyl Acetate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with monosubstituent groups of vinyl acetate",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Starch acetate esterified with vinyl acetate is a modified starch with improved processing stability. It is used in similar applications to other acetylated starches.",
+      "commonFoods": ["frozen foods", "bakery fillings", "sauces"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetylated starch (E1420)", "acetylated distarch phosphate (E1414)", "hydroxypropyl starch (E1440)"]
     },
     {
       "E-Code": "E1422",
       "Chemical_Name": "Acetylated Distarch Adipate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with a mixed anhydride of adipic and acetic anhydride",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Acetylated distarch adipate is a modified starch produced by cross-linking with adipic anhydride and acetylation. It is one of the most commonly used modified starches in canned and ready meals.",
+      "commonFoods": ["canned soups", "ready meals", "baby foods", "instant sauces", "frozen entrees"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetylated distarch phosphate (E1414)", "hydroxypropyl distarch phosphate (E1442)", "distarch phosphate (E1412)"]
     },
     {
       "E-Code": "E1440",
       "Chemical_Name": "Hydroxypropyl Starch",
       "Description": "Thickener",
       "Remarks": "Produced by treating native starch with the hydroxypropyl group",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Hydroxypropyl starch is a modified starch produced by treating native starch with propylene oxide to introduce hydroxypropyl groups. It improves cold-storage stability and clarity.",
+      "commonFoods": ["frozen foods", "salad dressings", "instant soups", "bakery fillings"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["hydroxypropyl distarch phosphate (E1442)", "acetylated starch (E1420)", "distarch phosphate (E1412)"]
     },
     {
       "E-Code": "E1442",
       "Chemical_Name": "Hydroxypropyl Distarch Phosphate",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with phosphate, and stabilised with a monosubstituent hydroxyl group",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Hydroxypropyl distarch phosphate is a doubly modified starch — cross-linked with phosphate and substituted with hydroxypropyl groups. It is one of the most versatile modified starches.",
+      "commonFoods": ["canned soups", "ready meals", "frozen foods", "yogurts", "fruit fillings", "infant foods"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["acetylated distarch phosphate (E1414)", "acetylated distarch adipate (E1422)", "hydroxypropyl starch (E1440)"]
     },
     {
       "E-Code": "E1450",
       "Chemical_Name": "Starch, Sodium Octenylsuccinate",
       "Description": "Thickener",
       "Remarks": "Produced by treating native starch with an octenylsuccinate half ester monosubstituent group",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Starch sodium octenylsuccinate (OSA starch) is a modified starch with hydrophobic octenylsuccinate groups attached. It functions as an emulsifier as well as a thickener and is widely used in beverage and powder applications.",
+      "commonFoods": ["powdered drink mixes", "encapsulated flavours", "salad dressings", "infant formula", "non-dairy creamers"],
+      "origin": "Plant-based",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["gum arabic (E414)", "modified starches (E1414, E1422)", "lecithin (E322)"]
     },
     {
       "E-Code": "E1505",
       "Chemical_Name": "Triethyl Citrate/Ethyl Citrate",
       "Description": "Miscellaneous",
       "Remarks": "Bitter oily liquid which is soluble in water and can be mixed with alcohol",
-      "HALAL": true
+      "HALAL": true,
+      "detailedDescription": "Triethyl citrate is a colourless, odourless ester of citric acid and ethanol, used as a foam stabiliser, plasticiser and flavour-fixing agent. It is also used as a plasticiser in pharmaceutical tablet coatings.",
+      "commonFoods": ["whipped egg whites (foam stabiliser)", "tablet coatings", "limited food applications"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["citric acid (E330)", "lecithin (E322)", "propylene glycol (E1520)"]
     },
     {
       "E-Code": "E1510",
       "Chemical_Name": "Ethyl Alcohol/Ethanol*",
       "Description": "Miscellaneous",
       "Remarks": "Produced by the fermentation of carbohydrates. May also be obtained from ethylene, acetylene or liquors from waste sulphites. Other manufacturing process includes hydrolysis of ethyl sulphate or by the oxidation of methane",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Ethanol (ethyl alcohol) is produced by fermentation of carbohydrates or by chemical synthesis from petrochemicals. In food it is used as a solvent for flavours, extracts and colourings, and as an extraction medium.",
+      "commonFoods": ["flavour extracts (vanilla, almond)", "alcoholic beverages", "confectionery (limited)", "pharmaceutical preparations"],
+      "origin": "Microbial or Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["glycerol (E422)", "propylene glycol (E1520)", "water"]
     },
     {
       "E-Code": "E1518",
       "Chemical_Name": "Triacetin/Glycerol Triacetate*",
       "Description": "Miscellaneous",
       "Remarks": "Produced by the acetylation of glycerol",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Triacetin (glycerol triacetate) is the triester of glycerol and acetic acid, used as a humectant, plasticiser and flavour solvent. The MUIS doubtful classification reflects glycerol's potential animal or vegetable origin.",
+      "commonFoods": ["chewing gum (humectant)", "flavour carrier in baked goods", "icing fillings", "pharmaceuticals"],
+      "origin": "Plant-based or Animal-derived",
+      "alternatives": ["propylene glycol (E1520)", "glycerol (E422)", "triethyl citrate (E1505)"]
     },
     {
       "E-Code": "E1520",
       "Chemical_Name": "Propylene Glycol*",
       "Description": "Miscellaneous",
       "Remarks": "Commercially produced from propylene, or by heating glycerol with sodium hydroxide, or by reacting propylene oxide with water",
-      "HALAL": false
+      "HALAL": false,
+      "detailedDescription": "Propylene glycol is a synthetic polyol commonly produced from propylene oxide. It is used as a humectant, solvent for flavours and antifreeze in food applications.",
+      "commonFoods": ["flavour and colour solvents", "ice cream", "frostings", "food sprays", "soft-baked cookies"],
+      "origin": "Synthetic",
+      "isVegan": true,
+      "isVegetarian": true,
+      "alternatives": ["glycerol (E422)", "triacetin (E1518)", "sorbitol (E420)"]
     }
   ];
 
 // Map the raw database to our application's ECodeData format
-const ecodeDatabase: ECodeData[] = rawEcodeDatabase.map(item => ({
-  code: item["E-Code"],
-  name: item["Chemical_Name"],
-  description: item["Remarks"],
-  status: item["HALAL"] ? 'halal' : 'doubtful',
-  source: item["Description"]
+const ecodeDatabase: ECodeData[] = rawEcodeDatabase.map((item: Record<string, unknown>) => ({
+  code: item["E-Code"] as string,
+  name: (item["Chemical_Name"] as string).replace(/\*/g, '').trim(),
+  description: item["Remarks"] as string,
+  status: (item["HALAL"] ? 'halal' : 'doubtful') as 'halal' | 'doubtful',
+  source: item["Description"] as string,
+  detailedDescription: item["detailedDescription"] as string | undefined,
+  commonFoods: item["commonFoods"] as string[] | undefined,
+  origin: item["origin"] as string | undefined,
+  isVegan: item["isVegan"] as boolean | undefined,
+  isVegetarian: item["isVegetarian"] as boolean | undefined,
+  alternatives: item["alternatives"] as string[] | undefined,
 }));
 
 // Search function that filters the database based on multiple query strings

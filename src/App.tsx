@@ -6,6 +6,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { Toaster } from './components/ui/toaster';
 import { ExperimentsProvider } from './hooks/use-experiments';
 import AllEcodes from './pages/AllEcodes';
+import CategoryPage from './pages/CategoryPage';
 import ECodePage from './pages/ECodePage';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/ecode/:code" element={<ECodePage />} />
             <Route path="/all-ecodes" element={<AllEcodes />} />
+            <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

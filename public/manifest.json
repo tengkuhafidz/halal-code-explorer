@@ -51,7 +51,7 @@
   "shortcuts": [
     {
       "name": "Search E-Codes",
-      "url": "/?q=",
+      "url": "/",
       "description": "Search for E-codes"
     },
     {

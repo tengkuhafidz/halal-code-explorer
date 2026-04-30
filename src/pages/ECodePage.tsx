@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { searchECodes } from '../services/eCodeService';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -12,10 +12,11 @@ import { ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { toast } from 'sonner';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { generateBreadcrumbStructuredData, generateProductStructuredData } from '../utils/seoHelpers';
+import { generateBreadcrumbStructuredData, generateProductStructuredData, hasTrackingParams } from '../utils/seoHelpers';
 
 const ECodePage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
+  const location = useLocation();
   const [ecodeData, setEcodeData] = useState<ECodeData | null>(null);
   const [loading, setLoading] = useState(true);
   const [relatedECodes, setRelatedECodes] = useState<ECodeData[]>([]);
@@ -24,6 +25,7 @@ const ECodePage: React.FC = () => {
     const cleanCode = code?.toUpperCase().replace('E', '');
     return `${baseUrl}/ecode/${cleanCode}`;
   }, [code]);
+  const shouldNoIndex = hasTrackingParams(location.search);
 
   const [currentUrl] = useState(() => window.location.href);
 
@@ -102,9 +104,45 @@ const ECodePage: React.FC = () => {
       } Find comprehensive information about this food additive at E-Code Halal Check.`;
   }, [ecodeData]);
 
+  // FAQ answers — derived from ecodeData, used in both rendered cards and JSON-LD
+  const faqAnswers = useMemo(() => {
+    if (!ecodeData) return null;
+
+    const formatList = (items: string[] | undefined): string => {
+      if (!items || items.length === 0) return '';
+      if (items.length === 1) return items[0];
+      if (items.length === 2) return `${items[0]} and ${items[1]}`;
+      return `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
+    };
+
+    const firstSentence = (text: string | undefined): string => {
+      if (!text) return '';
+      const m = text.match(/^[^.!?]+[.!?]/);
+      return (m ? m[0] : text).trim();
+    };
+
+    const statusLabel = ecodeData.status === 'halal' ? 'halal' : 'doubtful';
+    const intro = `${ecodeData.code} (${ecodeData.name}) is ${statusLabel} for Muslims.`;
+    const detailedFirst = firstSentence(ecodeData.detailedDescription);
+
+    const isHalal = detailedFirst
+      ? `${intro} ${detailedFirst}`
+      : `${intro}${ecodeData.description ? ` ${ecodeData.description}` : ''}`;
+
+    const whatIs = ecodeData.detailedDescription
+      || `${ecodeData.code} (${ecodeData.name}) is a food additive used in various products.${ecodeData.description ? ` ${ecodeData.description}` : ''}`;
+
+    const foodsList = formatList(ecodeData.commonFoods);
+    const commonlyFound = foodsList
+      ? `${ecodeData.code} is commonly found in ${foodsList}.`
+      : `${ecodeData.code} (${ecodeData.name}) may be found in various processed foods. Always read ingredient lists if you're concerned about specific additives.`;
+
+    return { isHalal, whatIs, commonlyFound };
+  }, [ecodeData]);
+
   // Generate structured data for rich results
   const structuredData = useMemo(() => {
-    if (!ecodeData) return [];
+    if (!ecodeData || !faqAnswers) return [];
 
     const faqData = {
       "@context": "https://schema.org",
@@ -115,8 +153,7 @@ const ECodePage: React.FC = () => {
           "name": `Is ${ecodeData.code} (${ecodeData.name}) halal?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `${ecodeData.code} (${ecodeData.name}) is ${ecodeData.status} for Muslims. ${ecodeData.description || ''
-              }`
+            "text": faqAnswers.isHalal
           }
         },
         {
@@ -124,17 +161,35 @@ const ECodePage: React.FC = () => {
           "name": `What is ${ecodeData.code}?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `${ecodeData.code} is ${ecodeData.name}, which is ${ecodeData.description || 'a food additive used in various products.'
-              }`
+            "text": faqAnswers.whatIs
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Where is ${ecodeData.code} commonly found?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faqAnswers.commonlyFound
           }
         }
       ]
     };
 
-    const breadcrumbData = generateBreadcrumbStructuredData([
-      { name: "Home", url: "https://www.ecodehalalcheck.com" },
-      { name: ecodeData.code, url: canonicalUrl }
-    ]);
+    const categoryLabel = ecodeData.category || ecodeData.source;
+    const breadcrumbItems: Array<{ name: string; url: string }> = [
+      { name: "Home", url: "https://www.ecodehalalcheck.com" }
+    ];
+    if (categoryLabel) {
+      breadcrumbItems.push({
+        name: categoryLabel,
+        url: `https://www.ecodehalalcheck.com/all-ecodes`
+      });
+    }
+    breadcrumbItems.push({
+      name: `${ecodeData.code} ${ecodeData.name}`,
+      url: canonicalUrl
+    });
+    const breadcrumbData = generateBreadcrumbStructuredData(breadcrumbItems);
 
     const productData = generateProductStructuredData({
       code: ecodeData.code,
@@ -145,7 +200,7 @@ const ECodePage: React.FC = () => {
     });
 
     return [faqData, breadcrumbData, productData];
-  }, [ecodeData, canonicalUrl]);
+  }, [ecodeData, canonicalUrl, faqAnswers]);
 
   return (
     <ThemeProvider>
@@ -166,6 +221,9 @@ const ECodePage: React.FC = () => {
 
         {/* Canonical URL */}
         <link rel="canonical" href={canonicalUrl} />
+
+        {/* Avoid indexing tracking-parameter variants (utm_*, ref, trk, fbclid, gclid, etc.) */}
+        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
 
         {/* Schema.org structured data */}
         {structuredData && structuredData.map((data, index) => (
@@ -227,6 +285,114 @@ const ECodePage: React.FC = () => {
               </div>
 
               <div className="mt-8 lg:max-w-3xl mx-auto">
+                <div className="grid gap-6">
+                  {ecodeData.detailedDescription && (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>About {ecodeData.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">{ecodeData.detailedDescription}</p>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {ecodeData.commonFoods && ecodeData.commonFoods.length > 0 && (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Commonly Found In</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                          {ecodeData.commonFoods.map((food, idx) => (
+                            <li key={idx}>{food}</li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {(ecodeData.source || ecodeData.isVegan || ecodeData.isVegetarian) && (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Source & Origin</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
+                          {ecodeData.source && (
+                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border text-sm font-medium">
+                              {ecodeData.source}
+                            </span>
+                          )}
+                          {ecodeData.isVegan && (
+                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 border border-green-200 dark:border-green-700 text-sm font-medium">
+                              Vegan
+                            </span>
+                          )}
+                          {ecodeData.isVegetarian && (
+                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 border border-green-200 dark:border-green-700 text-sm font-medium">
+                              Vegetarian
+                            </span>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {(() => {
+                    const healthNotes = (ecodeData as { healthNotes?: string }).healthNotes;
+                    return healthNotes && healthNotes.trim() ? (
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Health & Dietary Notes</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground">{healthNotes}</p>
+                        </CardContent>
+                      </Card>
+                    ) : null;
+                  })()}
+
+                  {ecodeData.alternatives && ecodeData.alternatives.length > 0 && (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Alternatives</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">
+                          {ecodeData.alternatives.map((alt, idx) => {
+                            const match = alt.match(/E\d+[a-z]?/i);
+                            const isLast = idx === ecodeData.alternatives!.length - 1;
+                            const separator = isLast ? '' : ', ';
+                            if (match) {
+                              const ecodeRef = match[0].toUpperCase();
+                              return (
+                                <React.Fragment key={idx}>
+                                  <Link
+                                    to={`/ecode/${ecodeRef.replace('E', '')}`}
+                                    className="text-primary hover:underline"
+                                  >
+                                    {alt}
+                                  </Link>
+                                  {separator}
+                                </React.Fragment>
+                              );
+                            }
+                            return (
+                              <React.Fragment key={idx}>
+                                {alt}
+                                {separator}
+                              </React.Fragment>
+                            );
+                          })}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-8 lg:max-w-3xl mx-auto">
                 <h2 className="text-2xl font-semibold mb-4">Additional Information</h2>
 
                 <div className="grid gap-6">
@@ -236,7 +402,7 @@ const ECodePage: React.FC = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
-                        {ecodeData.code} ({ecodeData.name}) is {ecodeData.status} for Muslims.
+                        {faqAnswers?.isHalal}
                       </p>
                     </CardContent>
                   </Card>
@@ -247,8 +413,7 @@ const ECodePage: React.FC = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
-                        {ecodeData.code} ({ecodeData.name}) is a food additive used in various products.
-                        {ecodeData.description && ` ${ecodeData.description}`}
+                        {faqAnswers?.whatIs}
                       </p>
                     </CardContent>
                   </Card>
@@ -259,9 +424,7 @@ const ECodePage: React.FC = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
-                        {ecodeData.code} ({ecodeData.name}) may be found in various food products such as
-                        {ecodeData.category ? ` ${ecodeData.category.toLowerCase()} products` : ' processed foods'}.
-                        Always read ingredient lists if you're concerned about specific additives.
+                        {faqAnswers?.commonlyFound}
                       </p>
                     </CardContent>
                   </Card>
@@ -305,6 +468,9 @@ const ECodePage: React.FC = () => {
               MUIS
             </a>
           </div>
+          <p className="text-center text-xs text-muted-foreground max-w-2xl mx-auto px-4">
+            Information on this page is for general reference only. Halal-status data is sourced from MUIS. For current regulatory status, allergen warnings, or dietary advice, please consult your local food safety authority or a qualified professional.
+          </p>
         </div>
 
         <Footer />
