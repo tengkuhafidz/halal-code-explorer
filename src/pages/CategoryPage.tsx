@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import ECodeListTile from '../components/ECodeListTile';
 import { ECodeData } from '../components/ECode';
+import AppECodeList from '../components/app/AppECodeList';
 import { AppLayout } from '../components/app/AppLayout';
 import { Button } from '../components/ui/button';
 import { WebLayout } from '../components/web/WebLayout';
@@ -135,6 +136,10 @@ const CategoryPage: React.FC = () => {
 
       {codes.length === 0 ? (
         <p className="text-muted-foreground">No E-codes are listed in this range.</p>
+      ) : isInApp ? (
+        <div className="-mx-4 border-t border-border/60">
+          <AppECodeList items={codes} />
+        </div>
       ) : (
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {codes.map((c) => (

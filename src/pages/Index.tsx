@@ -10,7 +10,9 @@ import KorbanBanner from '../components/KorbanBanner';
 import MostSearchedECodes from '../components/MostSearchedECodes';
 import SearchBar from '../components/SearchBar';
 import StatusDistribution from '../components/StatusDistribution';
+import AppECodeList from '../components/app/AppECodeList';
 import { AppLayout } from '../components/app/AppLayout';
+import AppSearchBar from '../components/app/AppSearchBar';
 import { WebLayout } from '../components/web/WebLayout';
 import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider } from '../hooks/use-theme';
@@ -184,45 +186,65 @@ const Index = () => {
   const canonicalUrl = buildCanonicalUrl('/', location.search, ['q']);
   const shouldNoIndex = hasTrackingParams(location.search);
 
-  const homeContent = (
-    <>
-      {isWeb && <KorbanBanner />}
-      {isWeb && <Hero />}
+  const displayItems = hasSearched ? filteredResults : filteredFeatured;
+  const totalItems = hasSearched ? searchResults : featured;
 
+  const webHomeContent = (
+    <>
+      <KorbanBanner />
+      <Hero />
       <div className="px-4 py-6">
         <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
-
-        {isWeb && (
-          <div className="text-center text-sm text-muted-foreground mt-3" id="data-source">
-            Data source:{' '}
-            <a
-              href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-primary transition-colors"
-            >
-              MUIS
-            </a>
-          </div>
-        )}
-
+        <div className="text-center text-sm text-muted-foreground mt-3" id="data-source">
+          Data source:{' '}
+          <a
+            href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-primary transition-colors"
+          >
+            MUIS
+          </a>
+        </div>
         <StatusDistribution
-          items={hasSearched ? searchResults : featured}
+          items={totalItems}
           activeFilter={activeFilter}
           onFilterChange={handleFilterChange}
         />
-
-        <CardGrid items={hasSearched ? filteredResults : filteredFeatured} isLoading={isLoading} />
+        <CardGrid items={displayItems} isLoading={isLoading} />
       </div>
-
       {!hasSearched && (
         <>
           <MostSearchedECodes />
-          {isWeb && <BrowseByCategory />}
+          <BrowseByCategory />
         </>
       )}
+      <InfoSection />
+    </>
+  );
 
-      {isWeb && <InfoSection />}
+  const appHomeContent = (
+    <>
+      <AppSearchBar onSearch={handleSearch} initialQuery={searchQuery} />
+      <div className="px-4 pb-2">
+        <StatusDistribution
+          items={totalItems}
+          activeFilter={activeFilter}
+          onFilterChange={handleFilterChange}
+        />
+      </div>
+      <AppECodeList
+        items={displayItems}
+        isLoading={isLoading}
+        resultsLabel={
+          !isLoading && displayItems.length > 0
+            ? `${hasSearched ? 'Showing' : 'Featured'} ${displayItems.length} ${
+                displayItems.length === 1 ? 'result' : 'results'
+              }`
+            : undefined
+        }
+      />
+      {!hasSearched && !isLoading && <MostSearchedECodes />}
     </>
   );
 
@@ -254,9 +276,9 @@ const Index = () => {
       </Helmet>
 
       {isInApp ? (
-        <AppLayout title="Search">{homeContent}</AppLayout>
+        <AppLayout title="Search">{appHomeContent}</AppLayout>
       ) : (
-        <WebLayout showInstallPrompt>{homeContent}</WebLayout>
+        <WebLayout showInstallPrompt>{webHomeContent}</WebLayout>
       )}
     </ThemeProvider>
   );

@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
+import { useAppContext } from '../hooks/use-app-context';
 import { getAllECodes } from '../services/eCodeService';
+import AppECodeList from './app/AppECodeList';
 import { ECodeData } from './ECode';
 import ECodeListTile from './ECodeListTile';
 
@@ -15,6 +17,7 @@ const MOST_SEARCHED_CODES = [
 ];
 
 const MostSearchedECodes: React.FC = () => {
+  const { isInApp } = useAppContext();
   const items = useMemo<ECodeData[]>(() => {
     const lookup = new Map(getAllECodes().map((c) => [c.code, c]));
     return MOST_SEARCHED_CODES.map((code) => lookup.get(code)).filter(
@@ -24,17 +27,24 @@ const MostSearchedECodes: React.FC = () => {
 
   if (items.length === 0) return null;
 
+  if (isInApp) {
+    return (
+      <section aria-labelledby="most-searched-heading" className="mt-4">
+        <div className="px-4 pt-4 pb-2">
+          <h2 id="most-searched-heading" className="text-[13px] font-semibold uppercase tracking-wide text-muted-foreground">
+            Most Searched
+          </h2>
+        </div>
+        <AppECodeList items={items} />
+      </section>
+    );
+  }
+
   return (
-    <section
-      aria-labelledby="most-searched-heading"
-      className="py-12 px-4"
-    >
+    <section aria-labelledby="most-searched-heading" className="py-12 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
-          <h2
-            id="most-searched-heading"
-            className="text-2xl sm:text-3xl font-bold mb-2"
-          >
+          <h2 id="most-searched-heading" className="text-2xl sm:text-3xl font-bold mb-2">
             Most Searched <span className="inline-block">E-Codes</span>
           </h2>
           <p className="text-muted-foreground">
