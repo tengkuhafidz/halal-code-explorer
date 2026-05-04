@@ -26,20 +26,21 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-slot', '@radix-ui/react-toast'],
-          'helmet': ['react-helmet-async'],
-          'icons': ['lucide-react'],
-          'forms': ['react-hook-form', '@hookform/resolvers'],
+        manualChunks: (id) => {
+          if (!id.includes('node_modules')) return undefined;
+          if (/node_modules\/(react|react-dom|react-router-dom|scheduler)\//.test(id)) return 'react-vendor';
+          if (id.includes('node_modules/@radix-ui/')) return 'ui-vendor';
+          if (id.includes('node_modules/react-helmet-async/')) return 'helmet';
+          if (id.includes('node_modules/lucide-react/')) return 'icons';
+          if (/node_modules\/(react-hook-form|@hookform)\//.test(id)) return 'forms';
+          return undefined;
         },
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
-          const extType = info[info.length - 1];
-          if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico|webp)$/i.test(assetInfo.name)) {
+          const name = assetInfo.names?.[0] ?? (assetInfo as { name?: string }).name ?? '';
+          if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico|webp)$/i.test(name)) {
             return `assets/images/[name]-[hash][extname]`;
           }
-          if (/\.(woff2?|eot|ttf|otf)$/i.test(assetInfo.name)) {
+          if (/\.(woff2?|eot|ttf|otf)$/i.test(name)) {
             return `assets/fonts/[name]-[hash][extname]`;
           }
           return `assets/[name]-[hash][extname]`;
