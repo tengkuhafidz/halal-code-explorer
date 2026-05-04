@@ -1,34 +1,22 @@
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { AppLayout } from '../components/app/AppLayout';
+import { WebLayout } from '../components/web/WebLayout';
+import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider } from '../hooks/use-theme';
 import { generateBreadcrumbStructuredData, hasTrackingParams } from '../utils/seoHelpers';
 
 const PrivacyPolicy = () => {
   const location = useLocation();
+  const { isInApp } = useAppContext();
   const shouldNoIndex = hasTrackingParams(location.search);
   const breadcrumbData = generateBreadcrumbStructuredData([
     { name: "Home", url: "https://www.ecodehalalcheck.com" },
     { name: "Privacy Policy", url: "https://www.ecodehalalcheck.com/privacy-policy" }
   ]);
 
-  return (
-    <ThemeProvider>
-      <Helmet>
-        <title>Privacy Policy | E-Code Halal Check</title>
-        <meta name="description" content="Privacy Policy for E-Code Halal Check. Learn how we handle your data and protect your privacy." />
-        <link rel="canonical" href="https://www.ecodehalalcheck.com/privacy-policy" />
-        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbData)}
-        </script>
-      </Helmet>
-
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main id="main-content" className="flex-grow">
-          <div className="max-w-3xl mx-auto px-4 py-12 text-left">
+  const content = (
+    <div className="max-w-3xl mx-auto px-4 py-12 text-left">
             <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
 
             <p className="text-muted-foreground mb-6">
@@ -118,18 +106,36 @@ const PrivacyPolicy = () => {
               </p>
             </section>
 
-            <div className="mt-12 pt-8 border-t">
-              <Link
-                to="/"
-                className="text-primary hover:underline"
-              >
-                &larr; Back to Home
-              </Link>
-            </div>
-          </div>
-        </main>
-        <Footer />
+      <div className="mt-12 pt-8 border-t">
+        <Link
+          to="/"
+          className="text-primary hover:underline"
+        >
+          &larr; Back to Home
+        </Link>
       </div>
+    </div>
+  );
+
+  return (
+    <ThemeProvider>
+      <Helmet>
+        <title>Privacy Policy | E-Code Halal Check</title>
+        <meta name="description" content="Privacy Policy for E-Code Halal Check. Learn how we handle your data and protect your privacy." />
+        <link rel="canonical" href="https://www.ecodehalalcheck.com/privacy-policy" />
+        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbData)}
+        </script>
+      </Helmet>
+
+      {isInApp ? (
+        <AppLayout title="Privacy Policy" backLabel="About">
+          {content}
+        </AppLayout>
+      ) : (
+        <WebLayout>{content}</WebLayout>
+      )}
     </ThemeProvider>
   );
 };

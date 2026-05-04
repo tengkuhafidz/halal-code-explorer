@@ -9,6 +9,19 @@
   width: 100%;
 }
 
+/* Disable hover-only feedback in app mode (touch devices have no hover) */
+[data-app-mode="native"] *:hover,
+[data-app-mode="pwa"] *:hover,
+[data-app-mode="twa"] *:hover {
+  transform: none !important;
+}
+
+/* Prevent overscroll bounce in app mode (feels web-y on iOS) */
+[data-app-mode="native"],
+[data-app-mode="pwa"] {
+  overscroll-behavior-y: none;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
