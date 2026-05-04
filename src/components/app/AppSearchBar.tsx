@@ -1,6 +1,7 @@
 import { Camera, Loader2, Search as SearchIcon, X } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
+import { impactMedium } from '../../lib/native';
 
 const UPLOAD_NOTIFICATION_KEY = 'upload_notification_shown';
 const UPLOAD_ENDPOINT = 'https://additives-extractor.ruqqq.sg';
@@ -122,6 +123,7 @@ const AppSearchBar: React.FC<AppSearchBarProps> = ({ onSearch, initialQuery = ''
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          impactMedium();
           onSearch(query);
           (document.activeElement as HTMLElement)?.blur();
         }}

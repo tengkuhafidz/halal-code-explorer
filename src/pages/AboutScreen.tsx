@@ -14,6 +14,7 @@ import {
 import { WebLayout } from '../components/web/WebLayout';
 import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider, useTheme } from '../hooks/use-theme';
+import { openExternalUrl, shareContent } from '../lib/native';
 
 const APP_VERSION = '1.0.0';
 const SITE_URL = 'https://www.ecodehalalcheck.com';
@@ -62,10 +63,21 @@ function SettingsRow({
 
   if (href) {
     if (external) {
+      const isMailto = href.startsWith('mailto:');
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        <button
+          type="button"
+          onClick={() => {
+            if (isMailto) {
+              window.location.href = href;
+            } else {
+              openExternalUrl(href);
+            }
+          }}
+          className={className}
+        >
           {content}
-        </a>
+        </button>
       );
     }
     return (
@@ -87,20 +99,14 @@ function AboutContent() {
   const [themePickerOpen, setThemePickerOpen] = useState(false);
 
   const handleShare = async () => {
-    const shareData = {
+    const result = await shareContent({
       title: 'E-Code Halal Check',
       text: 'Find the halal status of food additives instantly.',
       url: SITE_URL,
-    };
-    try {
-      if (navigator.share && navigator.canShare?.(shareData)) {
-        await navigator.share(shareData);
-      } else {
-        await navigator.clipboard.writeText(SITE_URL);
-        toast.success('Link copied to clipboard');
-      }
-    } catch {
-      // user cancelled, ignore
+      dialogTitle: 'Share E-Code Halal Check',
+    });
+    if (result === 'clipboard') {
+      toast.success('Link copied to clipboard');
     }
   };
 

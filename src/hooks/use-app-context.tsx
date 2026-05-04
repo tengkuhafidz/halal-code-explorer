@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { onHardwareBack } from '../lib/native';
 
 export type AppMode = 'browser' | 'pwa' | 'twa' | 'native';
 
@@ -33,6 +34,22 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     document.documentElement.setAttribute('data-app-mode', mode);
   }, [mode]);
+
+  useEffect(() => {
+    let cleanup: (() => void) | undefined;
+    onHardwareBack(() => {
+      if (window.history.length > 1) {
+        window.history.back();
+        return true;
+      }
+      return false;
+    }).then((c) => {
+      cleanup = c;
+    });
+    return () => {
+      cleanup?.();
+    };
+  }, []);
 
   const value = useMemo<AppContextType>(
     () => ({

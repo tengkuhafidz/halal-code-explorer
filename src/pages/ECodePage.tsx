@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { WebLayout } from '../components/web/WebLayout';
 import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider } from '../hooks/use-theme';
+import { shareContent } from '../lib/native';
 import { searchECodes } from '../services/eCodeService';
 import {
   generateBreadcrumbStructuredData,
@@ -69,21 +70,14 @@ const ECodePage: React.FC = () => {
   }, [code]);
 
   const handleShare = async () => {
-    const shareData = {
+    const result = await shareContent({
       title: `Is ${ecodeData?.code} (${ecodeData?.name}) Halal?`,
       text: `${ecodeData?.code} (${ecodeData?.name}) is ${ecodeData?.status} for Muslims. Check it out!`,
       url: currentUrl,
-    };
-
-    try {
-      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-        await navigator.share(shareData);
-      } else {
-        navigator.clipboard.writeText(currentUrl);
-        toast.success('Link copied to clipboard!');
-      }
-    } catch (error) {
-      console.log('Share canceled or failed:', error);
+      dialogTitle: 'Share E-Code',
+    });
+    if (result === 'clipboard') {
+      toast.success('Link copied to clipboard!');
     }
   };
 

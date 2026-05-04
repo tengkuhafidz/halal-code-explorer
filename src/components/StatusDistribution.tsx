@@ -5,6 +5,7 @@ import { Check, AlertTriangle } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '../hooks/use-mobile';
+import { impactLight } from '../lib/native';
 
 interface StatusDistributionProps {
   items: ECodeData[];
@@ -14,6 +15,10 @@ interface StatusDistributionProps {
 
 const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFilter, onFilterChange }) => {
   const isMobile = useIsMobile();
+  const handleFilter = (status: string | null) => {
+    impactLight();
+    onFilterChange(status);
+  };
   
   if (!items || items.length === 0) {
     return <div className={`flex flex-wrap ${isMobile ? 'justify-start gap-2' : 'justify-center gap-4'} mt-4 mb-2 ${isMobile ? 'h-10' : 'h-12'}`}></div>;
@@ -50,7 +55,7 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
           "border-2", 
           activeFilter === null ? "border-primary" : "border-transparent"
         )}
-        onClick={() => onFilterChange(null)}
+        onClick={() => handleFilter(null)}
       >
         All ({items.length})
       </Button>
@@ -64,7 +69,7 @@ const StatusDistribution: React.FC<StatusDistributionProps> = ({ items, activeFi
             "flex items-center space-x-2 border-2", 
             activeFilter === status ? "border-primary" : "border-transparent"
           )}
-          onClick={() => onFilterChange(status)}
+          onClick={() => handleFilter(status)}
         >
           <div className={`${color} p-1.5 rounded-lg text-white`}>
             <Icon className="h-3 w-3" />
