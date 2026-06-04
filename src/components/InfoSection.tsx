@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Check, AlertTriangle } from 'lucide-react';
+import { Check, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const InfoSection = () => {
   const statusItems = [
@@ -43,6 +44,16 @@ const InfoSection = () => {
               <p className="text-muted-foreground text-center">{item.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            to="/all-ecodes"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-colors"
+          >
+            Browse all E-codes A–Z with their halal status
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

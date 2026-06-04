@@ -36,6 +36,71 @@ export const buildCanonicalUrl = (
   return `${SITE_ORIGIN}${pathname}${qs ? `?${qs}` : ''}`;
 };
 
+/**
+ * Minimal shape needed to derive a human-friendly common name and SEO copy
+ * for an E-code, without coupling these helpers to the full ECodeData type.
+ */
+export interface NamedECode {
+  code: string;
+  name: string;
+  commonName?: string;
+  status?: 'halal' | 'doubtful';
+  source?: string;
+  origin?: string;
+}
+
+/**
+ * Cleans a raw Chemical_Name into a readable label:
+ * strips "(C.I. 16035)"-style parentheticals and trailing asterisks,
+ * and normalises slash-separated aliases to " / ".
+ */
+const cleanChemicalName = (raw: string): string =>
+  raw
+    .replace(/\([^)]*\)/g, '') // drop parentheticals like "(C.I. 75300)"
+    .replace(/\*/g, '')
+    .replace(/\s*\/\s*/g, ' / ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+/**
+ * Returns the best common/search name for an E-code, capped to the primary
+ * name plus one alias so titles and snippets stay readable. Prefers a curated
+ * `commonName` (for messy priority entries) and otherwise cleans the raw name.
+ */
+export const getCommonName = (ecode: NamedECode): string => {
+  const base = ecode.commonName?.trim() || cleanChemicalName(ecode.name);
+  const parts = base
+    .split(' / ')
+    .map((part) => part.trim())
+    .filter(Boolean);
+  return parts.slice(0, 2).join(' / ') || ecode.name;
+};
+
+/**
+ * SEO title in the format searchers use: includes the common name and the
+ * "Halal or Haram?" intent phrasing. Drops the brand suffix when it would push
+ * the title well past Google's ~60–70 char display limit.
+ */
+export const buildECodeTitle = (ecode: NamedECode): string => {
+  const name = getCommonName(ecode);
+  const base = `Is ${ecode.code} (${name}) Halal or Haram?`;
+  const withBrand = `${base} | E-Code Halal Check`;
+  return withBrand.length <= 70 ? withBrand : base;
+};
+
+/**
+ * Meta description that states what the additive is (origin + functional class)
+ * and teases the verdict to drive click-through, without asserting a ruling we
+ * don't have data for.
+ */
+export const buildECodeMeta = (ecode: NamedECode): string => {
+  const name = getCommonName(ecode);
+  const origin = ecode.origin?.trim().toLowerCase();
+  const kind = (ecode.source || 'food additive').toLowerCase();
+  const descriptor = origin && !kind.includes(origin) ? `${origin} ${kind}` : kind;
+  return `${ecode.code} (${name}) is a ${descriptor} — find out if it's halal, haram, or doubtful, its source and the MUIS ruling, on E-Code Halal Check.`;
+};
+
 interface SEOProps {
   title?: string;
   description?: string;

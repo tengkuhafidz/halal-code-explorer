@@ -5,6 +5,7 @@ import { Check, AlertTriangle } from 'lucide-react';
 export interface ECodeData {
   code: string;        // Will map to "E-Code" in the original schema
   name: string;        // Will map to "Chemical_Name"
+  commonName?: string; // Curated common/search name (e.g. "Allura Red / FD&C Red 40")
   description: string; // Will map to "Description" + "Remarks"
   status: 'halal' | 'doubtful'; // Will map to "HALAL" boolean
   source?: string;     // Will be derived from "Remarks"

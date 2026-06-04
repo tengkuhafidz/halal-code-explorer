@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, AlertTriangle } from 'lucide-react';
 import { ECodeData } from './ECode';
+import { getCommonName } from '../utils/seoHelpers';
 
 const statusStyles = {
   halal: {
@@ -25,18 +26,19 @@ interface ECodeListTileProps {
 const ECodeListTile: React.FC<ECodeListTileProps> = React.memo(({ data }) => {
   const styles = statusStyles[data.status];
   const Icon = styles.icon;
+  const commonName = getCommonName(data);
 
   return (
     <Link
       to={`/ecode/${data.code.replace(/^E/i, '')}`}
       className="block h-full p-4 rounded-lg border bg-card hover:bg-secondary/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-      aria-label={`${data.code} ${data.name} — ${styles.label}`}
+      aria-label={`Is ${data.code} ${commonName} halal? — ${styles.label}`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="font-semibold">{data.code}</div>
           <div className="text-sm text-muted-foreground break-words">
-            {data.name}
+            {commonName}
           </div>
         </div>
         <span

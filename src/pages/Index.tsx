@@ -18,9 +18,12 @@ import { ThemeProvider } from '../hooks/use-theme';
 import { getFeaturedECodes, searchECodes } from '../services/eCodeService';
 import {
   buildCanonicalUrl,
+  buildECodeMeta,
+  buildECodeTitle,
   generateFAQStructuredData,
   generateOrganizationStructuredData,
   generateWebsiteStructuredData,
+  getCommonName,
   hasTrackingParams,
 } from '../utils/seoHelpers';
 
@@ -132,24 +135,22 @@ const Index = () => {
 
   const getPageTitle = () => {
     if (isSingleECodeSearch && currentECodeData) {
-      return `Is ${cleanSearchQuery} (${currentECodeData.name}) Halal? ${
-        currentECodeData.status === 'halal' ? 'Yes' : 'Doubtful'
-      } | E-Code Halal Check`;
+      return buildECodeTitle(currentECodeData);
     }
     if (searchQuery) {
       return `E-Code Halal Check: ${cleanSearchQuery} Food Additive Status`;
     }
-    return 'E-Code Halal Check | Find Halal Status of Food Additives';
+    return 'Halal Check & Halal Checker for Food Additives & E-Codes | E-Code Halal Check';
   };
 
   const getPageDescription = () => {
     if (isSingleECodeSearch && currentECodeData) {
-      return `${cleanSearchQuery} (${currentECodeData.name}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}. Find comprehensive information about this food additive at E-Code Halal Check.`;
+      return buildECodeMeta(currentECodeData);
     }
     if (searchQuery) {
       return `Check the halal status of ${cleanSearchQuery} and other food additives. Our database provides reliable information on whether food E-codes are permissible for Muslims.`;
     }
-    return 'Find the halal status of food additives and E-codes. Comprehensive database of food additives with their halal or doubtful status, sources, and detailed information.';
+    return 'Free halal checker for food additives and E-codes. Instantly check whether any E-number is halal, haram, or doubtful, with its source and the MUIS ruling.';
   };
 
   const getStructuredData = () => {
@@ -168,10 +169,10 @@ const Index = () => {
         mainEntity: [
           {
             '@type': 'Question',
-            name: `Is ${cleanSearchQuery} (${currentECodeData.name}) halal?`,
+            name: `Is ${currentECodeData.code} (${getCommonName(currentECodeData)}) halal or haram?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: `${cleanSearchQuery} (${currentECodeData.name}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}`,
+              text: `${currentECodeData.code} (${getCommonName(currentECodeData)}) is ${currentECodeData.status} for Muslims. ${currentECodeData.description}`,
             },
           },
         ],

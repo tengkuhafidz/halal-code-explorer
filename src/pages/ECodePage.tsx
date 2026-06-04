@@ -14,8 +14,11 @@ import { ThemeProvider } from '../hooks/use-theme';
 import { shareContent } from '../lib/native';
 import { searchECodes } from '../services/eCodeService';
 import {
+  buildECodeMeta,
+  buildECodeTitle,
   generateBreadcrumbStructuredData,
   generateProductStructuredData,
+  getCommonName,
   hasTrackingParams,
 } from '../utils/seoHelpers';
 
@@ -81,18 +84,19 @@ const ECodePage: React.FC = () => {
     }
   };
 
+  const commonName = useMemo(
+    () => (ecodeData ? getCommonName(ecodeData) : ''),
+    [ecodeData],
+  );
+
   const pageTitle = useMemo(() => {
     if (!ecodeData) return 'E-Code Information | E-Code Halal Check';
-    return `Is ${ecodeData.code} (${ecodeData.name}) Halal? ${
-      ecodeData.status === 'halal' ? 'Yes' : 'Doubtful'
-    } | E-Code Halal Check`;
+    return buildECodeTitle(ecodeData);
   }, [ecodeData]);
 
   const metaDescription = useMemo(() => {
     if (!ecodeData) return 'Find the halal status of food additives and E-codes.';
-    return `${ecodeData.code} (${ecodeData.name}) is ${ecodeData.status} for Muslims. ${
-      ecodeData.description || ''
-    } Find comprehensive information about this food additive at E-Code Halal Check.`;
+    return buildECodeMeta(ecodeData);
   }, [ecodeData]);
 
   const faqAnswers = useMemo(() => {
@@ -142,7 +146,7 @@ const ECodePage: React.FC = () => {
       mainEntity: [
         {
           '@type': 'Question',
-          name: `Is ${ecodeData.code} (${ecodeData.name}) halal?`,
+          name: `Is ${ecodeData.code} (${commonName}) halal or haram?`,
           acceptedAnswer: { '@type': 'Answer', text: faqAnswers.isHalal },
         },
         {
@@ -183,7 +187,7 @@ const ECodePage: React.FC = () => {
     });
 
     return [faqData, breadcrumbData, productData];
-  }, [ecodeData, canonicalUrl, faqAnswers]);
+  }, [ecodeData, canonicalUrl, faqAnswers, commonName]);
 
   const loadingContent = (
     <div className="space-y-8 px-4 py-6">
@@ -244,9 +248,22 @@ const ECodePage: React.FC = () => {
       )}
 
       {isWeb && (
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
-          Is {ecodeData.code} Halal?
-        </h1>
+        <div className="text-center mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">
+            Is {ecodeData.code} ({commonName}) Halal?
+          </h1>
+          <p
+            className={`text-lg font-semibold ${
+              ecodeData.status === 'halal'
+                ? 'text-halalDark dark:text-halal'
+                : 'text-mushboohDark dark:text-yellow-300'
+            }`}
+          >
+            {ecodeData.status === 'halal'
+              ? `Yes — ${ecodeData.code} (${commonName}) is generally considered halal.`
+              : `${ecodeData.code} (${commonName}) has a doubtful status — its source can vary, so verify before consuming.`}
+          </p>
+        </div>
       )}
 
       <div className="lg:max-w-3xl mx-auto">

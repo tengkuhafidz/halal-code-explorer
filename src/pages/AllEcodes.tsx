@@ -46,11 +46,15 @@ const AllEcodes: React.FC = () => {
 
   const webContent = (
     <div className="container mx-auto px-4 py-6 sm:py-8">
-      <h1 className="text-3xl font-bold mb-6">All E-Codes Directory</h1>
+      <h1 className="text-3xl font-bold mb-6">
+        All E-Codes: Halal Status Directory (E100–E1520)
+      </h1>
       <div className="mb-8">
         <p className="text-muted-foreground mb-6">
-          Browse our complete database of {allECodes.length} food additives and E-codes. Click
-          on any E-code to view detailed information about its halal status.
+          Browse our complete database of {allECodes.length} food additives and E-numbers, each
+          listed by its common name (such as MSG, guar gum, or carrageenan) and marked halal,
+          haram, or doubtful. Click any E-code to see its source, what it's made from, and the
+          MUIS ruling.
         </p>
         <div className="flex justify-start">
           <Button
@@ -95,10 +99,10 @@ const AllEcodes: React.FC = () => {
   return (
     <ThemeProvider>
       <Helmet>
-        <title>All E-Codes | E-Code Halal Check</title>
+        <title>All E-Codes Halal Status: Full Food Additive Directory | E-Code Halal Check</title>
         <meta
           name="description"
-          content="Complete list of all E-codes and food additives with their halal status. Browse all E-codes from E100 to E1520."
+          content="Browse the complete A–Z directory of E-numbers (E100–E1520) by common name, with each food additive marked halal, haram, or doubtful and sourced from MUIS."
         />
         <link rel="canonical" href="https://www.ecodehalalcheck.com/all-ecodes" />
         {shouldNoIndex && <meta name="robots" content="noindex, follow" />}

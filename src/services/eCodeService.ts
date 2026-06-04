@@ -161,6 +161,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E129",
       "Chemical_Name": "Allura Red AC/Food Red 17/FD&C Red 40 (C.I. 16035)",
+      "commonName": "Allura Red / FD&C Red 40",
       "Description": "Colouring",
       "Remarks": "Synthetic red colouring",
       "HALAL": true,
@@ -252,6 +253,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E150",
       "Chemical_Name": "Caramel",
+      "commonName": "Caramel Colour",
       "Description": "Colouring",
       "Remarks": "Dark brown colouring prepared by the controlled heat treatment of carbohydrates (e.g. glucose syrup, sucrose)",
       "HALAL": true,
@@ -2398,6 +2400,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E476",
       "Chemical_Name": "Polyglycerol Polyricinoleate*",
+      "commonName": "Polyglycerol Polyricinoleate / PGPR",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from castor oil and glycerol esters",
       "HALAL": false,
@@ -2510,6 +2513,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E500",
       "Chemical_Name": "Sodium Carbonate/Sodium Bicarbonate/Baking Soda",
+      "commonName": "Sodium Bicarbonate / Baking Soda",
       "Description": "Mineral Salt",
       "Remarks": "Synthetically prepared. May also be manufactured by the Solvay process or electrolytically from sea water",
       "HALAL": true,
@@ -2885,6 +2889,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E551",
       "Chemical_Name": "Silicon Dioxide/Silica Salt",
+      "commonName": "Silicon Dioxide / Silica",
       "Description": "Anticaking Agent",
       "Remarks": "Rock-forming mineral and sand which is composed mainly of quartz or flint",
       "HALAL": true,
@@ -3089,6 +3094,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E621",
       "Chemical_Name": "Monosodium Glutamate/MSG*",
+      "commonName": "Monosodium Glutamate / MSG",
       "Description": "Flavour Enhancer",
       "Remarks": "Sodium salt of glutamic acid (E620)",
       "HALAL": false,
@@ -3733,6 +3739,7 @@ const rawEcodeDatabase = [
 const ecodeDatabase: ECodeData[] = rawEcodeDatabase.map((item: Record<string, unknown>) => ({
   code: item["E-Code"] as string,
   name: (item["Chemical_Name"] as string).replace(/\*/g, '').trim(),
+  commonName: item["commonName"] as string | undefined,
   description: item["Remarks"] as string,
   status: (item["HALAL"] ? 'halal' : 'doubtful') as 'halal' | 'doubtful',
   source: item["Description"] as string,
