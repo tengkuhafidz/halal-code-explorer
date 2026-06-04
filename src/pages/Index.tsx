@@ -6,7 +6,6 @@ import CardGrid from '../components/CardGrid';
 import { ECodeData } from '../components/ECode';
 import Hero from '../components/Hero';
 import InfoSection from '../components/InfoSection';
-import KorbanBanner from '../components/KorbanBanner';
 import MostSearchedECodes from '../components/MostSearchedECodes';
 import SearchBar from '../components/SearchBar';
 import StatusDistribution from '../components/StatusDistribution';
@@ -191,7 +190,6 @@ const Index = () => {
 
   const webHomeContent = (
     <>
-      <KorbanBanner />
       <Hero />
       <div className="px-4 py-6">
         <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
