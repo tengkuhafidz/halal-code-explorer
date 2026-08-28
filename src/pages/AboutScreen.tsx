@@ -14,6 +14,7 @@ import {
 import { WebLayout } from '../components/web/WebLayout';
 import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider, useTheme } from '../hooks/use-theme';
+import { COMMUNITY_APPS } from '../lib/communityApps';
 import { openExternalUrl, shareContent } from '../lib/native';
 
 const APP_VERSION = '1.0.0';
@@ -32,14 +33,18 @@ const THEME_LABEL: Record<ThemeOption, string> = {
 
 function SettingsRow({
   icon: Icon,
+  iconSrc,
   label,
+  sublabel,
   value,
   onClick,
   href,
   external,
 }: {
-  icon: React.ComponentType<{ className?: string }>;
+  icon?: React.ComponentType<{ className?: string }>;
+  iconSrc?: string;
   label: string;
+  sublabel?: string;
   value?: string;
   onClick?: () => void;
   href?: string;
@@ -47,9 +52,30 @@ function SettingsRow({
 }) {
   const content = (
     <>
-      <div className="flex items-center gap-3 flex-1">
-        <Icon className="h-5 w-5 text-primary" />
-        <span className="text-base text-foreground">{label}</span>
+      <div className="flex items-center gap-3 flex-1 min-w-0">
+        {iconSrc ? (
+          <img
+            src={iconSrc}
+            alt=""
+            aria-hidden="true"
+            className="h-7 w-7 rounded-[7px] shrink-0"
+            width="28"
+            height="28"
+            loading="lazy"
+          />
+        ) : (
+          Icon && (
+            <span className="w-7 shrink-0 flex justify-center">
+              <Icon className="h-5 w-5 text-primary" />
+            </span>
+          )
+        )}
+        <span className="min-w-0 text-left">
+          <span className="block text-base text-foreground">{label}</span>
+          {sublabel && (
+            <span className="block text-[13px] text-muted-foreground">{sublabel}</span>
+          )}
+        </span>
       </div>
       <div className="flex items-center gap-1.5">
         {value && <span className="text-[15px] text-muted-foreground">{value}</span>}
@@ -68,6 +94,7 @@ function SettingsRow({
         <button
           type="button"
           onClick={() => {
+            onClick?.();
             if (isMailto) {
               window.location.href = href;
             } else {
@@ -141,6 +168,30 @@ function AboutContent() {
             external
           />
           <SettingsRow icon={Shield} label="Privacy Policy" href="/privacy-policy" />
+        </div>
+
+        <div>
+          <h3 className="px-4 pb-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground">
+            More from 10kb.co
+          </h3>
+          <div className="bg-background rounded-xl overflow-hidden border divide-y">
+            {COMMUNITY_APPS.map(({ name, url, tagline, iconSrc, gaLabel }) => (
+              <SettingsRow
+                key={url}
+                iconSrc={iconSrc}
+                label={name}
+                sublabel={tagline}
+                href={url}
+                external
+                onClick={() =>
+                  window.gtag?.('event', 'community_app_click', {
+                    event_category: 'about',
+                    event_label: gaLabel,
+                  })
+                }
+              />
+            ))}
+          </div>
         </div>
 
         <div className="bg-background rounded-xl overflow-hidden border divide-y">

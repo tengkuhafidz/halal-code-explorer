@@ -1,5 +1,6 @@
 
 import { Link, useLocation } from 'react-router-dom';
+import { CommunityAppsDialog } from './CommunityAppsDialog';
 import { Popover, PopoverTrigger, PopoverContent } from './ui/popover';
 
 const Footer = () => {
@@ -27,6 +28,8 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground mt-1 hidden md:block">
               Built for the community by{' '}
               <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
+              <span className="mx-2 text-muted-foreground/40" aria-hidden="true">|</span>
+              <CommunityAppsDialog />
             </p>
           </div>
 
@@ -89,6 +92,8 @@ const Footer = () => {
           <p className="text-sm font-medium text-muted-foreground">
             Built for the community by{' '}
             <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
+            <span className="mx-2 text-muted-foreground/40" aria-hidden="true">|</span>
+            <CommunityAppsDialog />
           </p>
         </div>
       </div>
