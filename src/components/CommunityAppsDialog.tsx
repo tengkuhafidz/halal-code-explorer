@@ -32,14 +32,15 @@ export function CommunityAppsDialog() {
         <DialogHeader>
           <DialogTitle>Built by 10kb.co</DialogTitle>
           <DialogDescription className="text-left">
-            10kb.co is a product consultancy. Alongside our client work, we build free apps for
-            the Muslim community — this one included.
+            10kb.co builds technical solutions for teams and organisations — websites, apps,
+            automations, integrations and dashboards. Alongside our client work, we build free
+            community apps like this one.
           </DialogDescription>
         </DialogHeader>
 
         <div className="mt-2">
           <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-            Our other community apps
+            Other community apps
           </h4>
           <div className="space-y-2">
             {COMMUNITY_APPS.map(({ name, url, tagline, iconSrc, gaLabel }) => (

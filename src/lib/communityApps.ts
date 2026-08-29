@@ -26,4 +26,11 @@ export const COMMUNITY_APPS: CommunityApp[] = [
     iconSrc: '/community/tahfizcheck.png',
     gaLabel: 'tahfiz_check',
   },
+  {
+    name: 'GoMosque.sg',
+    url: 'https://gomosque.sg',
+    tagline: 'Check in at mosques across Singapore',
+    iconSrc: '/community/gomosque.png',
+    gaLabel: 'gomosque_sg',
+  },
 ];
