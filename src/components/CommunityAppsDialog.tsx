@@ -32,9 +32,9 @@ export function CommunityAppsDialog() {
         <DialogHeader>
           <DialogTitle>Built by 10kb.co</DialogTitle>
           <DialogDescription className="text-left">
-            10kb.co builds technical solutions for teams and organisations — websites, apps,
-            automations, integrations and dashboards. Alongside our client work, we build free
-            community apps like this one.
+            10kb.co builds technical solutions — websites, apps, automations, integrations,
+            dashboards, you name it. Alongside our client work, we build free community apps
+            like this one.
           </DialogDescription>
         </DialogHeader>
 
