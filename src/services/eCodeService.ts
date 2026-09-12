@@ -2410,10 +2410,11 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E472",
       "Chemical_Name": "Various Esters of Glycerol*",
+      "commonName": "E472a–E472f Esters of Glycerol",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from esters of glycerol and fatty acids",
       "HALAL": false,
-      "detailedDescription": "E472 is a family of glycerol esters of various organic acids (acetic, lactic, citric, tartaric and others) used as emulsifiers and stabilisers. The doubtful classification stems from the potentially animal or vegetable origin of the underlying fats.",
+      "detailedDescription": "E472 is a family of glycerol esters of various organic acids (acetic, lactic, citric, tartaric and others) used as emulsifiers and stabilisers. The doubtful classification stems from the potentially animal or vegetable origin of the underlying fats. The family covers E472a (acetic acid esters), E472b (lactic acid esters), E472c (citric acid esters), E472d (tartaric acid esters), E472e (DATEM, diacetyl tartaric acid esters, the common bread improver) and E472f (mixed acetic and tartaric esters); MUIS lists them together under E472.",
       "commonFoods": ["bread and baked goods", "margarine", "ice cream", "non-dairy whipped toppings", "instant noodles"],
       "origin": "Plant-based or Animal-derived",
       "alternatives": ["lecithin (E322)", "mono- and diglycerides (E471)", "polysorbates (E433/E435)"],

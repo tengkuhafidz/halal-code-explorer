@@ -17,7 +17,11 @@ const NotFound = () => {
   const redirectTarget = (() => {
     if (!ecodeMatch) return null;
     const candidate = `E${ecodeMatch[1]}`.toLowerCase();
-    const hit = getAllECodes().find(item => item.code.toLowerCase() === candidate);
+    const all = getAllECodes();
+    const hit =
+      all.find(item => item.code.toLowerCase() === candidate) ??
+      // E472e, E150c, E407a...: MUIS lists these under the parent code
+      all.find(item => item.code.toLowerCase() === candidate.replace(/[a-z]$/, ''));
     return hit ? `/ecode/${hit.code.replace(/^E/, '')}` : null;
   })();
 

@@ -3,6 +3,21 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/ecode/472:suffix([a-fA-F])",
+      "destination": "/ecode/472",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/150:suffix([a-dA-D])",
+      "destination": "/ecode/150",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/407:suffix([aA])",
+      "destination": "/ecode/407",
+      "permanent": true
+    },
+    {
       "source": "/ecode/E:code(\\d{3,4}[a-z]?)",
       "destination": "/ecode/:code",
       "permanent": true
