@@ -2,7 +2,6 @@ import { ArrowLeft, ChevronRight, Share2 } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { toast } from 'sonner';
 import ECode, { ECodeData } from '../components/ECode';
 import { AppLayout } from '../components/app/AppLayout';
 import { Button } from '../components/ui/button';
@@ -12,6 +11,7 @@ import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider } from '../hooks/use-theme';
 import { getCategoryForCode } from '../lib/categories';
 import { shareContent } from '../lib/native';
+import { showToast } from '../lib/toast';
 import { getAllECodes } from '../services/eCodeService';
 import {
   SITE_LAST_REVIEWED,
@@ -84,7 +84,7 @@ const ECodePage: React.FC = () => {
       dialogTitle: 'Share E-Code',
     });
     if (result === 'clipboard') {
-      toast.success('Link copied to clipboard!');
+      showToast('Link copied to clipboard!');
     }
   };
 

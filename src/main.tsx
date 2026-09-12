@@ -6,8 +6,8 @@ import './index.css';
 // Google Analytics types
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
   }
 }
 
@@ -18,7 +18,15 @@ if (root) {
   // differs, so render from scratch instead of fighting a hydration mismatch.
   const canHydrate = root.hasChildNodes() && detectMode() === 'browser';
   if (canHydrate) {
-    hydrateRoot(root, <App />);
+    // The prerendered HTML is complete and its links work without JS, so
+    // hydrate once the main thread is idle instead of competing with the
+    // user's first tap (Interaction to Next Paint).
+    const hydrate = () => hydrateRoot(root, <App />);
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(hydrate, { timeout: 1500 });
+    } else {
+      window.setTimeout(hydrate, 0);
+    }
   } else {
     createRoot(root).render(<App />);
   }

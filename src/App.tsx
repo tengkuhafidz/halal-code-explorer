@@ -1,9 +1,7 @@
 import { HelmetProvider } from 'react-helmet-async';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { Toaster as SonnerToaster } from 'sonner';
 import './App.css';
 import { ScrollToTop } from './components/ScrollToTop';
-import { Toaster } from './components/ui/toaster';
 import { AppContextProvider } from './hooks/use-app-context';
 import { ExperimentsProvider } from './hooks/use-experiments';
 import AboutScreen from './pages/AboutScreen';
@@ -34,8 +32,6 @@ export function AppShell() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Toaster />
-        <SonnerToaster position="top-center" closeButton />
       </ExperimentsProvider>
     </AppContextProvider>
   );

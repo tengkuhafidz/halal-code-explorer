@@ -1,7 +1,9 @@
 
+import { Suspense, lazy } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { CommunityAppsDialog } from './CommunityAppsDialog';
-import { Popover, PopoverTrigger, PopoverContent } from './ui/popover';
+const CommunityAppsDialog = lazy(() =>
+  import('./CommunityAppsDialog').then((m) => ({ default: m.CommunityAppsDialog })),
+);
 
 const Footer = () => {
   const location = useLocation();
@@ -29,7 +31,9 @@ const Footer = () => {
               Built for the community by{' '}
               <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
               <span className="mx-2 text-muted-foreground/40" aria-hidden="true">|</span>
-              <CommunityAppsDialog />
+              <Suspense fallback={<span className="text-muted-foreground">More details</span>}>
+                <CommunityAppsDialog />
+              </Suspense>
             </p>
           </div>
 
@@ -49,19 +53,19 @@ const Footer = () => {
               >
                 Browse by Category
               </Link>
-              <Popover>
-                <PopoverTrigger
+              <details className="relative group">
+                <summary
                   onClick={() =>
                     window.gtag?.('event', 'advertise_inquiry_click', {
                       event_category: 'footer',
                       event_label: 'advertise_with_us_link',
                     })
                   }
-                  className="text-sm text-muted-foreground hover:text-primary"
+                  className="list-none cursor-pointer text-sm text-muted-foreground hover:text-primary [&::-webkit-details-marker]:hidden"
                 >
                   Advertise with us
-                </PopoverTrigger>
-                <PopoverContent align="end" className="w-72 text-sm text-left">
+                </summary>
+                <div className="absolute right-0 z-20 mt-2 w-72 rounded-md border bg-popover p-4 text-sm text-left text-popover-foreground shadow-md">
                   <div className="font-semibold mb-1">Advertise with us</div>
                   <p className="text-muted-foreground text-xs leading-relaxed">
                     Reach Muslims globally — <span className="font-medium text-foreground">6.5k–10k+ monthly active users</span> researching halal products. Drop us a note at{' '}
@@ -79,8 +83,8 @@ const Footer = () => {
                     </a>{' '}
                     and we'll get back to you with placements and pricing.
                   </p>
-                </PopoverContent>
-              </Popover>
+                </div>
+              </details>
               <Link
                 to="/privacy-policy"
                 className="text-sm text-muted-foreground hover:text-primary"
@@ -100,7 +104,9 @@ const Footer = () => {
             Built for the community by{' '}
             <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
             <span className="mx-2 text-muted-foreground/40" aria-hidden="true">|</span>
-            <CommunityAppsDialog />
+            <Suspense fallback={<span className="text-muted-foreground">More details</span>}>
+                <CommunityAppsDialog />
+              </Suspense>
           </p>
         </div>
       </div>

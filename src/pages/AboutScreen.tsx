@@ -2,7 +2,6 @@ import { ChevronRight, Database, Heart, MessageSquare, Share2, Shield, SunMoon }
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { toast } from 'sonner';
 import { AppLayout } from '../components/app/AppLayout';
 import {
   Dialog,
@@ -16,6 +15,7 @@ import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider, useTheme } from '../hooks/use-theme';
 import { COMMUNITY_APPS } from '../lib/communityApps';
 import { openExternalUrl, shareContent } from '../lib/native';
+import { showToast } from '../lib/toast';
 
 const APP_VERSION = '1.0.0';
 const SITE_URL = 'https://www.ecodehalalcheck.com';
@@ -133,7 +133,7 @@ function AboutContent() {
       dialogTitle: 'Share E-Code Halal Check',
     });
     if (result === 'clipboard') {
-      toast.success('Link copied to clipboard');
+      showToast('Link copied to clipboard');
     }
   };
 
