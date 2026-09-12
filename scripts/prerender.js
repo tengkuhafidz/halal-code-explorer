@@ -67,5 +67,20 @@ for (const route of routes) {
 }
 fs.writeFileSync(path.join(dist, '404.html'), renderRoute(NOT_FOUND_URL));
 
+// Uppercase-suffix variants (/ecode/553A, /ecode/160C) show up in Search
+// Console. Vercel cannot lowercase in a redirect rule, so emit tiny alias
+// pages with an instant meta refresh, which Google treats as a permanent
+// redirect, plus a canonical to the real page.
+let aliases = 0;
+for (const route of routes) {
+  const m = route.match(/^\/ecode\/(\d{3,4})([a-z])$/);
+  if (!m) continue;
+  const upper = `/ecode/${m[1]}${m[2].toUpperCase()}`;
+  const target = `https://www.ecodehalalcheck.com${route}`;
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${route}"><link rel="canonical" href="${target}"><title>Redirecting to ${target}</title></head><body><a href="${route}">${target}</a></body></html>\n`;
+  fs.writeFileSync(path.join(dist, `${upper.replace(/^\//, '')}.html`), html);
+  aliases += 1;
+}
+
 fs.rmSync(ssrDir, { recursive: true, force: true });
-console.log(`✅ Prerendered ${count} routes + 404.html`);
+console.log(`✅ Prerendered ${count} routes + 404.html (+${aliases} uppercase alias redirects)`);
