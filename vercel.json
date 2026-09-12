@@ -3,6 +3,91 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/ecode/160A",
+      "destination": "/ecode/160a",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/160B",
+      "destination": "/ecode/160b",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/160C",
+      "destination": "/ecode/160c",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/160D",
+      "destination": "/ecode/160d",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/160E",
+      "destination": "/ecode/160e",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/160F",
+      "destination": "/ecode/160f",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161A",
+      "destination": "/ecode/161a",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161B",
+      "destination": "/ecode/161b",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161C",
+      "destination": "/ecode/161c",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161D",
+      "destination": "/ecode/161d",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161E",
+      "destination": "/ecode/161e",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161F",
+      "destination": "/ecode/161f",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/161G",
+      "destination": "/ecode/161g",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/440A",
+      "destination": "/ecode/440a",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/440B",
+      "destination": "/ecode/440b",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/553A",
+      "destination": "/ecode/553a",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/553B",
+      "destination": "/ecode/553b",
+      "permanent": true
+    },
+    {
       "source": "/ecode/472:suffix([a-fA-F])",
       "destination": "/ecode/472",
       "permanent": true
