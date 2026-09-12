@@ -26,7 +26,7 @@ const Header = () => {
               height="40"
               loading="lazy"
             />
-            <h1 className="text-xl font-bold">E-Code <span className="text-halalDark dark:text-halal">Halal</span> Check</h1>
+            <span className="text-xl font-bold">E-Code <span className="text-halalDark dark:text-halal">Halal</span> Check</span>
           </Link>
 
           <div className="flex items-center space-x-6">

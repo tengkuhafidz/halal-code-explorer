@@ -11,7 +11,7 @@ type AppContextType = {
 
 const AppContext = createContext<AppContextType | null>(null);
 
-function detectMode(): AppMode {
+export function detectMode(): AppMode {
   if (typeof window === 'undefined') return 'browser';
 
   if ((window as any).Capacitor?.isNativePlatform?.()) return 'native';

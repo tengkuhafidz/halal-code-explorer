@@ -1,8 +1,37 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/ecode/E:code(\\d{3,4}[a-z]?)",
+      "destination": "/ecode/:code",
+      "permanent": true
+    },
+    {
+      "source": "/ecode/e:code(\\d{3,4}[a-z]?)",
+      "destination": "/ecode/:code",
+      "permanent": true
+    },
+    {
+      "source": "/E:code(\\d{3,4}[a-z]?)",
+      "destination": "/ecode/:code",
+      "permanent": true
+    },
+    {
+      "source": "/e:code(\\d{3,4}[a-z]?)",
+      "destination": "/ecode/:code",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

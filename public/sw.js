@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ecode-halal-check-v3';
+const CACHE_NAME = 'ecode-halal-check-v4';
 const urlsToCache = [
     '/',
     '/index.html',

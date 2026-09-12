@@ -23,6 +23,11 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // The SSR bundle only exists for build-time prerendering (scripts/prerender.js);
+  // bundle every dependency into it so Node never has to interop CJS packages.
+  ssr: {
+    noExternal: true,
+  },
   build: {
     rollupOptions: {
       output: {

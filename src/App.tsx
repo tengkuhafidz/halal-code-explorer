@@ -1,5 +1,5 @@
 import { HelmetProvider } from 'react-helmet-async';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { Toaster as SonnerToaster } from 'sonner';
 import './App.css';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -15,28 +15,38 @@ import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
+/**
+ * Everything that lives inside a router. Shared by the browser entry
+ * (BrowserRouter) and the build-time prerenderer (StaticRouter).
+ */
+export function AppShell() {
+  return (
+    <AppContextProvider>
+      <ScrollToTop />
+      <ExperimentsProvider>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/ecode/:code" element={<ECodePage />} />
+          <Route path="/all-ecodes" element={<AllEcodes />} />
+          <Route path="/categories" element={<CategoriesIndex />} />
+          <Route path="/category/:slug" element={<CategoryPage />} />
+          <Route path="/about" element={<AboutScreen />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Toaster />
+        <SonnerToaster position="top-center" closeButton />
+      </ExperimentsProvider>
+    </AppContextProvider>
+  );
+}
+
 function App() {
   return (
     <HelmetProvider>
-      <AppContextProvider>
-        <Router>
-          <ScrollToTop />
-          <ExperimentsProvider>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/ecode/:code" element={<ECodePage />} />
-              <Route path="/all-ecodes" element={<AllEcodes />} />
-              <Route path="/categories" element={<CategoriesIndex />} />
-              <Route path="/category/:slug" element={<CategoryPage />} />
-              <Route path="/about" element={<AboutScreen />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Toaster />
-            <SonnerToaster position="top-center" closeButton />
-          </ExperimentsProvider>
-        </Router>
-      </AppContextProvider>
+      <BrowserRouter>
+        <AppShell />
+      </BrowserRouter>
     </HelmetProvider>
   );
 }

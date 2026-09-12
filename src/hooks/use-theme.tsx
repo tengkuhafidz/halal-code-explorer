@@ -28,9 +28,18 @@ export function ThemeProvider({
   storageKey = 'e-code-halal-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
+
+  // Read the stored preference after mount: the page is prerendered without
+  // access to localStorage, and hydration must match that initial markup.
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(storageKey) as Theme | null;
+      if (stored && stored !== defaultTheme) setTheme(stored);
+    } catch {
+      // localStorage unavailable (private mode, etc.) — keep the default
+    }
+  }, [storageKey, defaultTheme]);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -50,7 +59,11 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
+      try {
+        localStorage.setItem(storageKey, theme);
+      } catch {
+        // ignore storage failures
+      }
       setTheme(theme);
     },
   };

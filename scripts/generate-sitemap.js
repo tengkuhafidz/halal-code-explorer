@@ -10,7 +10,7 @@ const eCodeServicePath = path.join(__dirname, '../src/services/eCodeService.ts')
 const content = fs.readFileSync(eCodeServicePath, 'utf8');
 
 // Extract all E-codes
-const eCodePattern = /"E-Code":\s*"(E\d+)"/g;
+const eCodePattern = /"E-Code":\s*"(E\d+[a-z]?)"/g;
 const eCodes = [];
 let match;
 
