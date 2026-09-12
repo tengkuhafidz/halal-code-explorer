@@ -14,8 +14,8 @@ import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const dist = path.join(root, 'dist');
-const ssrDir = path.join(root, 'dist-ssr');
+const dist = path.join(root, process.env.PRERENDER_DIST || 'dist');
+const ssrDir = path.join(root, process.env.PRERENDER_SSR || 'dist-ssr');
 
 const findEntry = (dir) => {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

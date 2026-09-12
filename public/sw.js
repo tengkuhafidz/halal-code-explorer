@@ -1,14 +1,10 @@
-const CACHE_NAME = 'ecode-halal-check-v4';
+const CACHE_NAME = 'ecode-halal-check-v5';
 const urlsToCache = [
     '/',
-    '/index.html',
     '/favicon.ico',
     '/manifest.json',
-    '/robots.txt',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap',
-    '/icon.svg',
     '/logo.webp',
-    '/banner.svg'
+    '/icon-192.png'
 ];
 
 // Cache strategies

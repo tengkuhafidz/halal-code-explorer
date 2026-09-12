@@ -21,6 +21,7 @@ import {
   formatReviewedDate,
   generateBreadcrumbStructuredData,
   getCommonName,
+  getECodeSubject,
   getHalalReason,
   getLabelTips,
   hasTrackingParams,
@@ -142,7 +143,7 @@ const ECodePage: React.FC = () => {
       mainEntity: [
         {
           '@type': 'Question',
-          name: `Is ${ecodeData.code} (${commonName}) halal or haram?`,
+          name: `Is ${getECodeSubject(ecodeData)} halal or haram?`,
           acceptedAnswer: { '@type': 'Answer', text: faqAnswers.isHalal },
         },
         {
@@ -384,7 +385,7 @@ const ECodePage: React.FC = () => {
           <div className="grid gap-6">
             <Card>
               <CardHeader>
-                <CardTitle as="h3">Is {ecodeData.code} halal or haram?</CardTitle>
+                <CardTitle as="h3">Is {getECodeSubject(ecodeData)} halal or haram?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{faqAnswers?.isHalal}</p>

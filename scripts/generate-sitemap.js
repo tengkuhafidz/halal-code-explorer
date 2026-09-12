@@ -18,7 +18,13 @@ while ((match = eCodePattern.exec(content)) !== null) {
   eCodes.push(match[1]);
 }
 
-const today = new Date().toISOString().split('T')[0];
+// lastmod must reflect real content changes, not build time: Google ignores
+// lastmod when it is bumped on every build. Use the data review date from
+// seoHelpers, which is bumped whenever the halal data/copy is reviewed.
+const seoHelpers = fs.readFileSync(path.join(__dirname, '../src/utils/seoHelpers.tsx'), 'utf8');
+const reviewed = seoHelpers.match(/SITE_LAST_REVIEWED = '(\d{4}-\d{2}-\d{2})'/);
+if (!reviewed) throw new Error('SITE_LAST_REVIEWED not found in seoHelpers.tsx');
+const today = reviewed[1];
 
 const categorySlugs = [
   'colours',
@@ -45,6 +51,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecodehalalcheck.com/categories</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 ${categorySlugs.map(slug => `  <url>
     <loc>https://www.ecodehalalcheck.com/category/${slug}</loc>

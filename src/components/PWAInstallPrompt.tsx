@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Download, Share, Plus, ChevronDown, ChevronUp } from 'lucide-react';
 
+type BeforeInstallPromptEvent = Event & {
+    prompt: () => void;
+    userChoice: Promise<{ outcome: string }>;
+};
+
 export const PWAInstallPrompt = () => {
-    const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+    const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
     const [isMobile, setIsMobile] = useState(false);
     const [isIOS, setIsIOS] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -27,7 +32,7 @@ export const PWAInstallPrompt = () => {
 
         const handler = (e: Event) => {
             e.preventDefault();
-            setDeferredPrompt(e);
+            setDeferredPrompt(e as BeforeInstallPromptEvent);
         };
 
         window.addEventListener('beforeinstallprompt', handler);
@@ -65,7 +70,12 @@ export const PWAInstallPrompt = () => {
     if (!showAndroidPrompt && !showIOSPrompt) return null;
 
     return (
-        <div className="bg-emerald-50 dark:bg-emerald-950/30 border-b border-emerald-100 dark:border-emerald-900">
+        <div
+            className="fixed inset-x-0 bottom-0 z-40 bg-emerald-50 dark:bg-emerald-950 border-t border-emerald-100 dark:border-emerald-900 shadow-lg"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+            role="complementary"
+            aria-label="Install app"
+        >
             <div className="content-container px-4 sm:px-6 py-2">
                 {showAndroidPrompt && (
                     <button

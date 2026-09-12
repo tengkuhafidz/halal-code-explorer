@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ECode, { ECodeData } from './ECode';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import {
@@ -20,11 +20,19 @@ interface CardGridProps {
 const ITEMS_PER_PAGE = 9;
 
 const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [paginatedItems, setPaginatedItems] = useState<ECodeData[]>([]);
-  const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
   const navigate = useNavigate();
   const location = useLocation();
+  const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+  // Start on the page named in the URL so the prerendered/hydrated markup is
+  // already correct (no empty grid that pops in after mount).
+  const [currentPage, setCurrentPage] = useState(() => {
+    const page = parseInt(new URLSearchParams(location.search).get('page') || '1', 10);
+    return page >= 1 && page <= totalPages ? page : 1;
+  });
+  const paginatedItems = useMemo<ECodeData[]>(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return items.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [currentPage, items]);
   
   // Get page from URL on component mount and when location changes
   useEffect(() => {
@@ -40,24 +48,19 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
     }
   }, [location.search, totalPages]);
   
-  // Reset to page 1 when items change (e.g., when filters are applied)
+  // Reset to page 1 when the result set changes (search/filter), but not on
+  // the initial mount, which would rewrite the URL of a freshly loaded page.
+  const previousLength = useRef(items.length);
   useEffect(() => {
-    // We only want to reset the page when items array content changes
-    // not when the component initially mounts
-    if (items.length > 0) {
-      const params = new URLSearchParams(location.search);
+    if (previousLength.current === items.length) return;
+    previousLength.current = items.length;
+    const params = new URLSearchParams(location.search);
+    if (params.has('page')) {
       params.delete('page');
       navigate(`?${params.toString()}`, { replace: true });
-      setCurrentPage(1);
     }
-  }, [items.length]); // Only depend on items.length, not the full items array
-
-  // Update paginated items when page or items change
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    setPaginatedItems(items.slice(startIndex, endIndex));
-  }, [currentPage, items]);
+    setCurrentPage(1);
+  }, [items.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handlePageChange = (page: number) => {
     if (page === currentPage) return;
@@ -101,7 +104,7 @@ const CardGrid: React.FC<CardGridProps> = ({ items, isLoading }) => {
 
     // Calculate range of pages to show
     let startPage = Math.max(2, currentPage - Math.floor(maxVisiblePages / 2));
-    let endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 3);
+    const endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 3);
     
     if (endPage - startPage < maxVisiblePages - 3) {
       startPage = Math.max(2, endPage - (maxVisiblePages - 3) + 1);

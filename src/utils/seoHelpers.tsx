@@ -92,12 +92,33 @@ export const formatReviewedDate = (iso: string = SITE_LAST_REVIEWED): string =>
  * obscure ones by E-number ("e476 halal"). Lead with whichever the searcher
  * is likelier to type: the common name when it is short, else the E-number.
  */
-const nameLeads = (ecode: NamedECode): boolean => getCommonName(ecode).length <= 28;
+/**
+ * Shorter name for titles/H1s, so they stay inside Google's ~60-char display
+ * limit: the first alias when it is short, otherwise the shortest alias.
+ */
+export const getTitleName = (ecode: NamedECode): string => {
+  const base = ecode.commonName?.trim() || cleanChemicalName(ecode.name);
+  const parts = base
+    .split(' / ')
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (parts.length === 0) return ecode.name;
+  const [first] = parts;
+  if (first.length <= 30) {
+    const two = parts.slice(0, 2).join(' / ');
+    return two.length <= 40 ? two : first;
+  }
+  return parts.reduce((a, b) => (b.length < a.length ? b : a));
+};
 
-const subject = (ecode: NamedECode): string => {
-  const name = getCommonName(ecode);
+const nameLeads = (ecode: NamedECode): boolean => getTitleName(ecode).length <= 28;
+
+/** "Pectin (E440a)" or "E476 (PGPR)": the subject as a searcher would type it. */
+export const getECodeSubject = (ecode: NamedECode): string => {
+  const name = getTitleName(ecode);
   return nameLeads(ecode) ? `${name} (${ecode.code})` : `${ecode.code} (${name})`;
 };
+const subject = getECodeSubject;
 
 /**
  * SEO title in the format searchers use, with the "Halal or Haram?" intent
@@ -282,7 +303,7 @@ export const generateOrganizationStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "E-Code Halal Check",
-  "url": "https://www.ecodehalalcheck.com",
+  "url": "https://www.ecodehalalcheck.com/",
   "logo": {
     "@type": "ImageObject",
     "url": "https://www.ecodehalalcheck.com/apple-touch-icon.png",
@@ -306,7 +327,7 @@ export const generateWebsiteStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "E-Code Halal Check",
-  "url": "https://www.ecodehalalcheck.com",
+  "url": "https://www.ecodehalalcheck.com/",
   "description": "Find the halal status of food additives and E-codes. Comprehensive database sourced from MUIS.",
   "potentialAction": {
     "@type": "SearchAction",

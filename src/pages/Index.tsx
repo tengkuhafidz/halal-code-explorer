@@ -31,8 +31,10 @@ const Index = () => {
   const { isInApp, isWeb } = useAppContext();
   const [searchResults, setSearchResults] = useState<ECodeData[]>([]);
   const [filteredResults, setFilteredResults] = useState<ECodeData[]>([]);
-  const [featured, setFeatured] = useState<ECodeData[]>([]);
-  const [filteredFeatured, setFilteredFeatured] = useState<ECodeData[]>([]);
+  // Featured data is embedded in the bundle: resolve it synchronously so the
+  // prerendered homepage already contains the grid (no layout shift on hydrate).
+  const [featured] = useState<ECodeData[]>(() => getFeaturedECodes());
+  const [filteredFeatured, setFilteredFeatured] = useState<ECodeData[]>(featured);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -82,16 +84,6 @@ const Index = () => {
     const newUrl = params.toString() ? `?${params.toString()}` : '';
     navigate(newUrl, { replace: true });
   }, [searchQuery, activeFilter]);
-
-  useEffect(() => {
-    try {
-      const data = getFeaturedECodes();
-      setFeatured(data);
-      setFilteredFeatured(data);
-    } catch (error) {
-      console.error('Error loading featured e-codes:', error);
-    }
-  }, []);
 
   useEffect(() => {
     if (activeFilter) {
@@ -183,8 +175,11 @@ const Index = () => {
   };
 
   const structuredData = getStructuredData();
-  const canonicalUrl = buildCanonicalUrl('/', location.search, ['q']);
-  const shouldNoIndex = hasTrackingParams(location.search);
+  // Internal search results (?q=, ?filter=) are not separate pages: keep one
+  // canonical for the homepage so it matches the prerendered HTML, and keep
+  // them out of the index.
+  const canonicalUrl = buildCanonicalUrl('/');
+  const shouldNoIndex = hasTrackingParams(location.search) || Boolean(searchQuery) || Boolean(activeFilter);
 
   const displayItems = hasSearched ? filteredResults : filteredFeatured;
   const totalItems = hasSearched ? searchResults : featured;

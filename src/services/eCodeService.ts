@@ -387,6 +387,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E160f",
       "Chemical_Name": "Ethyl ester of Beta-apo-8-carotenoic acid*",
+      "commonName": "Beta-apo-8-carotenoic Acid Ester",
       "Description": "Colouring",
       "Remarks": "Synthetic orange to yellow colouring",
       "HALAL": false,
@@ -704,6 +705,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E214",
       "Chemical_Name": "Ethyl 4-hydroxybenzoate/Ethyl para-hydroxybenzoate",
+      "commonName": "Ethylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
       "HALAL": true,
@@ -717,6 +719,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E215",
       "Chemical_Name": "Ethyl 4-hydroxybenzoate, Sodium Salt/Sodium ethyl para-hydroxybenzoate",
+      "commonName": "Sodium Ethylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
       "HALAL": true,
@@ -730,6 +733,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E216",
       "Chemical_Name": "Propyl 4-hydroxybenzoate/Propylparaben",
+      "commonName": "Propylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
       "HALAL": true,
@@ -743,6 +747,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E217",
       "Chemical_Name": "Propyl 4-hydroxybenzoate, Sodium Salt",
+      "commonName": "Sodium Propylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
       "HALAL": true,
@@ -756,6 +761,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E218",
       "Chemical_Name": "Methyl 4-hydroxybenzoate/Methylparaben",
+      "commonName": "Methylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
       "HALAL": true,
@@ -769,6 +775,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E219",
       "Chemical_Name": "Methyl 4-hydroxybenzoate, Sodium Salt",
+      "commonName": "Sodium Methylparaben",
       "Description": "Preservative",
       "Remarks": "Manufactured from benzoic acid (E210)",
       "HALAL": true,
@@ -1629,6 +1636,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E338",
       "Chemical_Name": "Phosphoric Acid/Orthophosphoric Acid",
+      "commonName": "Phosphoric Acid",
       "Description": "Miscellaneous",
       "Remarks": "Manufactured from phosphate ore",
       "HALAL": true,
@@ -1694,6 +1702,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E350",
       "Chemical_Name": "Sodium Malate/Sodium Hydrogen Malate",
+      "commonName": "Sodium Malate",
       "Description": "Food Acid",
       "Remarks": "Sodium salt of malic acid (E296)",
       "HALAL": true,
@@ -1720,6 +1729,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E352",
       "Chemical_Name": "Calcium Malate/Calcium Hydrogen Malate",
+      "commonName": "Calcium Malate",
       "Description": "Food Acid",
       "Remarks": "Calcium salt of malic acid (E296)",
       "HALAL": true,
@@ -2231,6 +2241,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E442",
       "Chemical_Name": "Ammonium Phosphatides/Emulsifier YN",
+      "commonName": "Ammonium Phosphatides",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared synthetically",
       "HALAL": true,
@@ -2245,6 +2256,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E450",
       "Chemical_Name": "Sodium and Potassium Metaphosphates, Polyphosphates and Pyrophosphates",
+      "commonName": "Diphosphates / Polyphosphates",
       "Description": "Mineral Salt",
       "Remarks": "Sodium and potassium salt of phosphoric acid (E338)",
       "HALAL": true,
@@ -2350,6 +2362,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E470",
       "Chemical_Name": "Sodium, Potassium and Calcium Salts of Fatty Acids*",
+      "commonName": "Salts of Fatty Acids",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from fatty acids",
       "HALAL": false,
@@ -2432,6 +2445,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E477",
       "Chemical_Name": "Propane-1,2-Diol Esters of Fatty Acids*",
+      "commonName": "Propylene Glycol Esters",
       "Description": "Emulsifier/Stabiliser",
       "Remarks": "Prepared from propylene glycol",
       "HALAL": false,
@@ -3363,6 +3377,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E928",
       "Chemical_Name": "Benzoyl Peroxide/Dibenzoyl Peroxide",
+      "commonName": "Benzoyl Peroxide",
       "Description": "Bleaching Agent",
       "Remarks": "Synthetically prepared",
       "HALAL": true,
@@ -3428,6 +3443,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E952",
       "Chemical_Name": "Cyclamic and its Calcium and Sodium Salts",
+      "commonName": "Cyclamate",
       "Description": "Artificial Sweetener",
       "Remarks": "Manufactured by many different methods",
       "HALAL": true,
@@ -3441,6 +3457,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E954",
       "Chemical_Name": "Saccharin and its Calcium and Sodium Salts",
+      "commonName": "Saccharin",
       "Description": "Artificial Sweetener",
       "Remarks": "Manufactured by many different methods",
       "HALAL": true,
@@ -3635,6 +3652,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E1420",
       "Chemical_Name": "Starch Acetate Esterified with Acetic Anhydride",
+      "commonName": "Acetylated Starch",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with a mixed anhydride of adipic and acetic anhydride, and stabilised with a 'monosubstituent group' of acetate",
       "HALAL": true,
@@ -3648,6 +3666,7 @@ const rawEcodeDatabase = [
     {
       "E-Code": "E1421",
       "Chemical_Name": "Starch Acetate Esterified with Vinyl Acetate",
+      "commonName": "Acetylated Starch (Vinyl Acetate)",
       "Description": "Thickener",
       "Remarks": "Produced by the esterification of native starch with monosubstituent groups of vinyl acetate",
       "HALAL": true,

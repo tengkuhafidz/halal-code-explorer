@@ -13,6 +13,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.ecodehalalcheck.com/categories</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.ecodehalalcheck.com/category/colours</loc>
     <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>

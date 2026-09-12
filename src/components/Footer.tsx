@@ -42,6 +42,13 @@ const Footer = () => {
               >
                 View All E-Codes
               </Link>
+              <Link
+                to="/categories"
+                className="text-sm text-muted-foreground hover:text-primary"
+                aria-current={location.pathname === '/categories' ? 'page' : undefined}
+              >
+                Browse by Category
+              </Link>
               <Popover>
                 <PopoverTrigger
                   onClick={() =>
