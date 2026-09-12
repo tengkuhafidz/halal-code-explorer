@@ -16,6 +16,8 @@ export interface ECodeData {
   isVegan?: boolean;
   isVegetarian?: boolean;
   alternatives?: string[];
+  /** Curated explanation of why MUIS lists the additive as halal/doubtful. */
+  halalNotes?: string;
 }
 
 interface ECodeProps {

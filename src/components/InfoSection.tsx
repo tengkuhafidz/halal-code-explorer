@@ -2,6 +2,10 @@
 import React from 'react';
 import { Check, AlertTriangle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SITE_LAST_REVIEWED, formatReviewedDate } from '../utils/seoHelpers';
+
+const MUIS_PDF =
+  'https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf';
 
 const InfoSection = () => {
   const statusItems = [
@@ -44,6 +48,31 @@ const InfoSection = () => {
               <p className="text-muted-foreground text-center">{item.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-3xl mx-auto mt-12 bg-card border rounded-2xl p-6 shadow-sm text-left">
+          <h3 className="text-xl font-semibold mb-3">How we determine halal status</h3>
+          <p className="text-muted-foreground mb-3">
+            Every status on this site follows the{' '}
+            <a
+              href={MUIS_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-primary transition-colors"
+            >
+              MUIS (Majlis Ugama Islam Singapura) food additive listing
+            </a>
+            . MUIS marks an additive as <strong>halal</strong> when its normal production involves no
+            animal-derived material, and as <strong>doubtful</strong> (mashbooh) when the same E-number
+            can come from animal sources, fermentation media or processing aids that differ between
+            manufacturers. Doubtful does not mean haram: for those additives the reliable check is a
+            recognised halal certification logo on the finished product.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Each E-code page explains why it has its status, where it is commonly found, and what to
+            look for on the label. Data last reviewed{' '}
+            <time dateTime={SITE_LAST_REVIEWED}>{formatReviewedDate()}</time>.
+          </p>
         </div>
 
         <div className="text-center mt-12">

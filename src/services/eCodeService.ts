@@ -26,7 +26,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["natural riboflavin from leafy greens", "curcumin (E100)"]
+      "alternatives": ["natural riboflavin from leafy greens", "curcumin (E100)"],
+      "halalNotes": "Riboflavin (vitamin B2) is produced by fermentation using yeasts or bacteria. MUIS lists it as doubtful because the growth medium and processing aids can include animal-derived materials and the E-number does not identify the producer. Riboflavin from the major manufacturers is commonly halal-certified."
     },
     {
       "E-Code": "E102",
@@ -170,7 +171,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "cochineal (E120)"]
+      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "cochineal (E120)"],
+      "halalNotes": "Allura Red AC is a synthetic azo dye made from petroleum-derived raw materials with no animal input, so MUIS lists it as halal. It is the most widely used red food colour in soft drinks, sweets and cereals."
     },
     {
       "E-Code": "E131",
@@ -209,7 +211,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["spirulina extract", "indigo carmine (E132)", "anthocyanins (E163)"]
+      "alternatives": ["spirulina extract", "indigo carmine (E132)", "anthocyanins (E163)"],
+      "halalNotes": "Brilliant Blue FCF is a synthetic dye made from petroleum-derived aromatic compounds with no animal input, so MUIS lists it as halal. Like other synthetic colours it may be supplied as an aluminium 'lake' pigment, which is also mineral-based."
     },
     {
       "E-Code": "E140",
@@ -262,7 +265,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based or Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["malt extract", "molasses", "burnt sugar"]
+      "alternatives": ["malt extract", "molasses", "burnt sugar"],
+      "halalNotes": "Caramel colour is made by the controlled heating of carbohydrates such as glucose, sucrose or malt syrup, sometimes with acids, alkalis or sulphite and ammonium compounds. The raw materials are plant-based and MUIS lists it as halal."
     },
     {
       "E-Code": "E151",
@@ -325,7 +329,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based or Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["paprika extract (E160c)", "annatto (E160b)", "lycopene (E160d)"]
+      "alternatives": ["paprika extract (E160c)", "annatto (E160b)", "lycopene (E160d)"],
+      "halalNotes": "Beta-carotene itself is plant-derived or made synthetically, but commercial preparations are often supplied as beadlets coated with gelatine, or dissolved in oils of unspecified origin, to make the pigment stable. That carrier is why MUIS lists E160a as doubtful. Look for a halal logo or a manufacturer statement that a plant-based carrier is used."
     },
     {
       "E-Code": "E160b",
@@ -1453,7 +1458,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Lecithins are phospholipid mixtures used as emulsifiers and antioxidants. Most commercial lecithin is extracted from soybeans, but it can also be obtained from egg yolk, sunflower or other sources, which is why MUIS classifies it as doubtful.",
       "commonFoods": ["chocolate", "margarine", "baked goods", "infant formula", "salad dressings", "ice cream"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["mono- and diglycerides (E471)", "polysorbate 80 (E433)", "sunflower lecithin"]
+      "alternatives": ["mono- and diglycerides (E471)", "polysorbate 80 (E433)", "sunflower lecithin"],
+      "halalNotes": "Lecithin is extracted mostly from soybeans, sunflower or rapeseed, but it can also come from egg yolk or animal fats. MUIS lists it as doubtful because the E-number does not indicate the source. Soy and sunflower lecithin are halal and are by far the most common; labels usually say 'soy lecithin' or 'sunflower lecithin'."
     },
     {
       "E-Code": "E325",
@@ -1526,7 +1532,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["malic acid (E296)", "tartaric acid (E334)", "lactic acid (E270)"]
+      "alternatives": ["malic acid (E296)", "tartaric acid (E334)", "lactic acid (E270)"],
+      "halalNotes": "Nearly all citric acid is produced by fermenting sugar with the mould Aspergillus niger; the acid itself contains no animal material. MUIS lists it as doubtful because the fermentation medium and processing aids vary by producer. Citric acid from the major manufacturers is widely halal-certified."
     },
     {
       "E-Code": "E331",
@@ -1838,7 +1845,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["natural sources (yeast, peanuts)", "riboflavin (E101)"]
+      "alternatives": ["natural sources (yeast, peanuts)", "riboflavin (E101)"],
+      "halalNotes": "Niacin (vitamin B3) is made synthetically, typically by oxidising 3-methylpyridine or nicotine, with no animal-derived raw materials, so MUIS lists it as halal. It is used to fortify flour, cereals and drinks."
     },
     {
       "E-Code": "E380",
@@ -1981,7 +1989,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["agar (E406)", "alginic acid (E400)", "locust bean gum (E410)"]
+      "alternatives": ["agar (E406)", "alginic acid (E400)", "locust bean gum (E410)"],
+      "halalNotes": "Carrageenan is extracted from red seaweed using hot water or alkali. It is plant-based and MUIS lists it as halal. Certification bodies treat the additive itself as halal; a product such as a dairy dessert or deli meat still needs its other ingredients checked."
     },
     {
       "E-Code": "E410",
@@ -1994,7 +2003,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["guar gum (E412)", "xanthan gum (E415)", "carrageenan (E407)"]
+      "alternatives": ["guar gum (E412)", "xanthan gum (E415)", "carrageenan (E407)"],
+      "halalNotes": "Locust bean gum is milled from the seeds of the carob tree. It is plant-based, processed without animal material, and MUIS lists it as halal. It is often blended with carrageenan (E407) or xanthan gum (E415) in ice cream and dairy desserts."
     },
     {
       "E-Code": "E412",
@@ -2007,7 +2017,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["locust bean gum (E410)", "xanthan gum (E415)", "tara gum (E417)"]
+      "alternatives": ["locust bean gum (E410)", "xanthan gum (E415)", "tara gum (E417)"],
+      "halalNotes": "Guar gum is milled from the endosperm of guar beans, a legume grown mainly in India and Pakistan. It is purely plant-based, its normal processing involves no animal material, and MUIS lists it as halal. It is also suitable for vegans and vegetarians."
     },
     {
       "E-Code": "E413",
@@ -2046,7 +2057,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["guar gum (E412)", "locust bean gum (E410)", "carrageenan (E407)"]
+      "alternatives": ["guar gum (E412)", "locust bean gum (E410)", "carrageenan (E407)"],
+      "halalNotes": "Xanthan gum is produced by fermenting sugars with the bacterium Xanthomonas campestris and then recovering the gum with alcohol (usually isopropyl alcohol, which is removed). MUIS lists it as doubtful because the fermentation medium and processing can involve animal-derived nutrients and the E-number does not reveal the producer. Xanthan gum from the major manufacturers is commonly halal-certified; check the product's halal logo."
     },
     {
       "E-Code": "E416",
@@ -2186,7 +2198,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["agar (E406)", "carrageenan (E407)", "alginic acid (E400)"]
+      "alternatives": ["agar (E406)", "carrageenan (E407)", "alginic acid (E400)"],
+      "halalNotes": "Pectin is extracted from citrus peel and apple pomace, both plant materials, so MUIS lists it as halal. It is the standard vegetarian alternative to gelatine in jams, gummies and fruit desserts. Amidated pectin (E440b) is the same fruit pectin modified with ammonia and is also plant-based."
     },
     {
       "E-Code": "E440b",
@@ -2212,7 +2225,8 @@ const rawEcodeDatabase = [
       "origin": "Animal-derived",
       "isVegan": false,
       "isVegetarian": false,
-      "alternatives": ["agar (E406)", "carrageenan (E407)", "pectin (E440a)"]
+      "alternatives": ["agar (E406)", "carrageenan (E407)", "pectin (E440a)"],
+      "halalNotes": "Gelatine is made by boiling animal skin, bones and connective tissue. Pork gelatine is haram; gelatine from cattle or other permitted animals is halal only when the animal was slaughtered according to Islamic law; fish gelatine is halal. Because the E-number does not state the source, MUIS lists it as doubtful. Look for 'halal gelatine', 'halal-certified bovine' or 'fish gelatine' on the label, or choose pectin (E440a) or agar (E406) alternatives."
     },
     {
       "E-Code": "E442",
@@ -2225,7 +2239,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["lecithin (E322)", "polyglycerol polyricinoleate (E476)", "mono- and diglycerides (E471)"]
+      "alternatives": ["lecithin (E322)", "polyglycerol polyricinoleate (E476)", "mono- and diglycerides (E471)"],
+      "halalNotes": "Ammonium phosphatides (emulsifier YN) are synthesised from rapeseed-oil glycerides, phosphorus pentoxide and ammonia. The raw materials are plant-based and mineral, so MUIS lists it as halal. It is used mainly in chocolate as an alternative to lecithin."
     },
     {
       "E-Code": "E450",
@@ -2238,7 +2253,8 @@ const rawEcodeDatabase = [
       "origin": "Mineral",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["sodium phosphates (E339)", "potassium phosphates (E340)", "calcium phosphates (E341)"]
+      "alternatives": ["sodium phosphates (E339)", "potassium phosphates (E340)", "calcium phosphates (E341)"],
+      "halalNotes": "The phosphates grouped under E450 are made from phosphoric acid (from phosphate rock) neutralised with sodium or potassium \u2014 an entirely mineral process \u2014 so MUIS lists them as halal. They are common in processed meats, where the halal question is the meat itself, not the additive."
     },
     {
       "E-Code": "E460",
@@ -2351,7 +2367,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Mono- and diglycerides of fatty acids are the most widely used food emulsifiers. They are prepared from glycerol and fatty acids; the doubtful classification reflects that both starting materials can be derived from animal or vegetable sources.",
       "commonFoods": ["bread", "margarine", "ice cream", "peanut butter", "whipped toppings", "cake mixes"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["lecithin (E322)", "diacetyl tartaric esters (E472e)", "polysorbates (E433/E435)"]
+      "alternatives": ["lecithin (E322)", "diacetyl tartaric esters (E472e)", "polysorbates (E433/E435)"],
+      "halalNotes": "Mono- and diglycerides are made from glycerol and fatty acids that can come from either vegetable oils or animal fats, including pork fat. MUIS lists them as doubtful because the source is not stated by the E-number. Halal-certified products use plant-based fatty acids; look for a halal logo or 'vegetable origin' on the label."
     },
     {
       "E-Code": "E472",
@@ -2409,7 +2426,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["lecithin (E322)", "ammonium phosphatides (E442)", "polyglycerol esters (E475)"]
+      "alternatives": ["lecithin (E322)", "ammonium phosphatides (E442)", "polyglycerol esters (E475)"],
+      "halalNotes": "PGPR is made from castor-oil fatty acids (ricinoleic acid) reacted with polyglycerol. The castor oil is plant-based, but the glycerol used to make the polyglycerol can come from either vegetable oils or animal fats, and the E-number does not say which. That is why MUIS lists E476 as doubtful. It is used in most mass-market chocolate; halal-certified chocolate uses plant-derived glycerol."
     },
     {
       "E-Code": "E477",
@@ -2522,7 +2540,8 @@ const rawEcodeDatabase = [
       "origin": "Mineral",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["potassium carbonate (E501)", "ammonium bicarbonate (E503)", "calcium carbonate (E170)"]
+      "alternatives": ["potassium carbonate (E501)", "ammonium bicarbonate (E503)", "calcium carbonate (E170)"],
+      "halalNotes": "Sodium carbonates (including baking soda) are mineral salts made from brine and limestone by the Solvay process or from natural soda ash. No animal material is involved and MUIS lists them as halal."
     },
     {
       "E-Code": "E501",
@@ -2898,7 +2917,8 @@ const rawEcodeDatabase = [
       "origin": "Mineral",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["calcium silicate (E552)", "magnesium silicate (E553a)", "talc (E553b)"]
+      "alternatives": ["calcium silicate (E552)", "magnesium silicate (E553a)", "talc (E553b)"],
+      "halalNotes": "Silicon dioxide is a mineral (silica) used to stop powders from caking. It contains no animal material and MUIS lists it as halal."
     },
     {
       "E-Code": "E552",
@@ -3103,7 +3123,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["yeast extract", "natural umami sources (parmesan, mushrooms)", "disodium 5'-ribonucleotides (E635)"]
+      "alternatives": ["yeast extract", "natural umami sources (parmesan, mushrooms)", "disodium 5'-ribonucleotides (E635)"],
+      "halalNotes": "MUIS lists MSG as doubtful (mashbooh), not haram. Commercial MSG is made by fermenting plant sugars such as sugar cane, beet molasses or tapioca starch, and the glutamate itself contains no animal material. The doubt comes from the production process: the fermentation medium, nutrients and processing aids vary by manufacturer and can include animal-derived ingredients. MSG from the major producers is widely halal-certified, so the practical test is whether the finished product carries a recognised halal logo."
     },
     {
       "E-Code": "E622",
@@ -3116,7 +3137,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["MSG (E621)", "calcium glutamate (E623)", "yeast extract"]
+      "alternatives": ["MSG (E621)", "calcium glutamate (E623)", "yeast extract"],
+      "halalNotes": "E622 is the potassium salt of glutamic acid and is produced the same way as MSG (E621), by fermenting plant sugars. MUIS lists it as doubtful for the same reason: the E-number alone does not tell you what the manufacturer used in the fermentation medium and processing. It is mostly found in reduced-sodium products as an MSG substitute. Look for a halal certification logo on the finished product."
     },
     {
       "E-Code": "E623",
@@ -3140,7 +3162,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Disodium guanylate is a flavour enhancer derived from guanylic acid, a nucleotide naturally found in dried mushrooms, yeast extract and sardines. Commercial production uses either yeast or sardines/anchovies as starting material — supplier disclosure is essential for vegan/vegetarian labelling.",
       "commonFoods": ["instant noodles", "savoury snacks", "soup mixes", "stocks", "Asian seasoning blends"],
       "origin": "Microbial or Animal-derived",
-      "alternatives": ["disodium inosinate (E631)", "yeast extract", "MSG (E621)"]
+      "alternatives": ["disodium inosinate (E631)", "yeast extract", "MSG (E621)"],
+      "halalNotes": "Disodium guanylate can be produced by fermentation or extracted from yeast, but it has also been obtained from fish (sardines) and meat. Because the source cannot be determined from the E-number, MUIS lists it as doubtful. It is almost always used together with E631, or as the blend E635, so check those too. Halal-certified products use fermentation- or yeast-derived guanylate."
     },
     {
       "E-Code": "E631",
@@ -3151,7 +3174,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Disodium inosinate is a flavour enhancer derived from inosinic acid, a nucleotide commercially obtained from sardines, anchovies, meat extract or by bacterial fermentation. The animal-derived sources are why MUIS classifies it as doubtful.",
       "commonFoods": ["instant noodles", "savoury snacks", "soup mixes", "stocks", "savoury seasoning blends"],
       "origin": "Animal-derived or Microbial",
-      "alternatives": ["disodium guanylate (E627)", "yeast extract", "MSG (E621)"]
+      "alternatives": ["disodium guanylate (E627)", "yeast extract", "MSG (E621)"],
+      "halalNotes": "Disodium inosinate occurs naturally in meat and fish and was traditionally extracted from them; today most of it is made by fermentation. Because it may be animal-derived, and pork is a possible source, MUIS lists it as doubtful. Look for a halal logo, or a manufacturer statement that the inosinate is produced by fermentation or from vegetable sources."
     },
     {
       "E-Code": "E635",
@@ -3162,7 +3186,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Sodium 5'-ribonucleotide is a 50/50 mixture of disodium guanylate (E627) and disodium inosinate (E631), used as a flavour enhancer that synergises strongly with MSG. The doubtful classification reflects the potentially fish-derived origin of the inosinate component.",
       "commonFoods": ["instant noodles", "savoury snacks", "stocks and bouillons", "Asian seasoning blends"],
       "origin": "Animal-derived or Microbial",
-      "alternatives": ["MSG (E621)", "yeast extract", "disodium guanylate (E627)"]
+      "alternatives": ["MSG (E621)", "yeast extract", "disodium guanylate (E627)"],
+      "halalNotes": "E635 is a blend of disodium guanylate (E627) and disodium inosinate (E631), so it carries the same doubt as its two components: both can be made by fermentation, but both have also been sourced from fish or meat. MUIS lists it as doubtful. It is very common in instant noodles and savoury snacks; a halal logo on the product is the reliable check."
     },
     {
       "E-Code": "E636",
@@ -3240,7 +3265,8 @@ const rawEcodeDatabase = [
       "origin": "Animal-derived",
       "isVegan": false,
       "isVegetarian": false,
-      "alternatives": ["carnauba wax (E903)", "candelilla wax (E902)", "zein (corn protein)"]
+      "alternatives": ["carnauba wax (E903)", "candelilla wax (E902)", "zein (corn protein)"],
+      "halalNotes": "Shellac is a resin secreted by the lac insect and commercial shellac can contain traces of the insect itself. Scholars differ on insect-derived ingredients, and MUIS lists it as doubtful. It is used as a glaze on sweets, coated nuts, fruit and tablets."
     },
     {
       "E-Code": "E905",
@@ -3278,6 +3304,7 @@ const rawEcodeDatabase = [
       "commonFoods": ["bread and bread rolls", "pizza dough", "bagels", "tortillas", "flavour development"],
       "origin": "Animal-derived (predominantly) or Microbial",
       "alternatives": ["microbial L-cysteine (specified)", "ascorbic acid (E300)", "potassium bromate (E924)"],
+      "halalNotes": "L-cysteine has traditionally been made from human hair, hog bristles or poultry feathers, and can also be produced by fermentation. Because pork is a possible source, MUIS lists it as doubtful. Halal-certified L-cysteine is fermentation-derived or made from feathers of halal-slaughtered poultry. It is used as a dough conditioner in bread and in some flavourings.",
       "isVegan": false,
       "isVegetarian": false
     },
@@ -3749,6 +3776,7 @@ const ecodeDatabase: ECodeData[] = rawEcodeDatabase.map((item: Record<string, un
   isVegan: item["isVegan"] as boolean | undefined,
   isVegetarian: item["isVegetarian"] as boolean | undefined,
   alternatives: item["alternatives"] as string[] | undefined,
+  halalNotes: item["halalNotes"] as string | undefined,
 }));
 
 // Search function that filters the database based on multiple query strings

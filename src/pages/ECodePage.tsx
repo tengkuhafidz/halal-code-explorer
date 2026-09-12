@@ -1,82 +1,85 @@
-import { ArrowLeft, Share2 } from 'lucide-react';
-import React, { useEffect, useMemo, useState } from 'react';
+import { ArrowLeft, ChevronRight, Share2 } from 'lucide-react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import ECode, { ECodeData } from '../components/ECode';
-import ECodeSkeleton from '../components/ECodeSkeleton';
 import { AppLayout } from '../components/app/AppLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { WebLayout } from '../components/web/WebLayout';
 import { useAppContext } from '../hooks/use-app-context';
 import { ThemeProvider } from '../hooks/use-theme';
+import { getCategoryForCode } from '../lib/categories';
 import { shareContent } from '../lib/native';
-import { searchECodes } from '../services/eCodeService';
+import { getAllECodes } from '../services/eCodeService';
 import {
+  SITE_LAST_REVIEWED,
+  buildECodeHeading,
   buildECodeMeta,
   buildECodeTitle,
+  formatReviewedDate,
   generateBreadcrumbStructuredData,
-  generateProductStructuredData,
   getCommonName,
+  getHalalReason,
+  getLabelTips,
   hasTrackingParams,
 } from '../utils/seoHelpers';
+
+const SITE_ORIGIN = 'https://www.ecodehalalcheck.com';
+const MUIS_PDF =
+  'https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf';
+
+const codeNumber = (code: string): number => parseInt(code.replace(/[^0-9]/g, ''), 10);
+
+const normaliseCode = (raw: string | undefined): string => {
+  const upper = (raw || '').toUpperCase();
+  const digits = upper.startsWith('E') ? upper.slice(1) : upper;
+  return `E${digits.replace(/[A-Z]$/, (m) => m.toLowerCase())}`;
+};
 
 const ECodePage: React.FC = () => {
   const { code } = useParams<{ code: string }>();
   const location = useLocation();
   const { isInApp, isWeb } = useAppContext();
-  const [ecodeData, setEcodeData] = useState<ECodeData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [relatedECodes, setRelatedECodes] = useState<ECodeData[]>([]);
-  const canonicalUrl = useMemo(() => {
-    const baseUrl = 'https://www.ecodehalalcheck.com';
-    const cleanCode = code?.toUpperCase().replace('E', '');
-    return `${baseUrl}/ecode/${cleanCode}`;
+
+  // Data is embedded in the bundle, so resolve it synchronously: no loading
+  // state, and the page prerenders with its full content.
+  const ecodeData = useMemo<ECodeData | null>(() => {
+    const target = normaliseCode(code).toLowerCase();
+    return getAllECodes().find((item) => item.code.toLowerCase() === target) ?? null;
   }, [code]);
+
+  const canonicalUrl = useMemo(
+    () => `${SITE_ORIGIN}/ecode/${(ecodeData?.code ?? normaliseCode(code)).replace(/^E/, '')}`,
+    [ecodeData, code],
+  );
   const shouldNoIndex = hasTrackingParams(location.search);
 
-  const [currentUrl] = useState(() => window.location.href);
+  const category = useMemo(
+    () => (ecodeData ? getCategoryForCode(ecodeData.code) : undefined),
+    [ecodeData],
+  );
 
-  useEffect(() => {
-    const fetchECodeData = async () => {
-      setLoading(true);
-      try {
-        const searchCode = code?.toUpperCase().startsWith('E')
-          ? code.toUpperCase()
-          : `E${code?.toUpperCase()}`;
-
-        const results = await searchECodes(searchCode);
-
-        if (results.length > 0) {
-          setEcodeData(results[0]);
-
-          if (results[0].category) {
-            const relatedResults = await searchECodes(results[0].category);
-            setRelatedECodes(
-              relatedResults
-                .filter((item) => item.code !== results[0].code)
-                .slice(0, 3),
-            );
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching E-code data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (code) {
-      fetchECodeData();
-    }
-  }, [code]);
+  const relatedECodes = useMemo<ECodeData[]>(() => {
+    if (!ecodeData || !category) return [];
+    const num = codeNumber(ecodeData.code);
+    return getAllECodes()
+      .filter((item) => item.code !== ecodeData.code)
+      .filter((item) => {
+        const n = codeNumber(item.code);
+        return n >= category.rangeStart && n <= category.rangeEnd;
+      })
+      .sort((a, b) => Math.abs(codeNumber(a.code) - num) - Math.abs(codeNumber(b.code) - num))
+      .slice(0, 6)
+      .sort((a, b) => codeNumber(a.code) - codeNumber(b.code));
+  }, [ecodeData, category]);
 
   const handleShare = async () => {
     const result = await shareContent({
       title: `Is ${ecodeData?.code} (${ecodeData?.name}) Halal?`,
       text: `${ecodeData?.code} (${ecodeData?.name}) is ${ecodeData?.status} for Muslims. Check it out!`,
-      url: currentUrl,
+      url: canonicalUrl,
       dialogTitle: 'Share E-Code',
     });
     if (result === 'clipboard') {
@@ -84,20 +87,15 @@ const ECodePage: React.FC = () => {
     }
   };
 
-  const commonName = useMemo(
-    () => (ecodeData ? getCommonName(ecodeData) : ''),
-    [ecodeData],
-  );
-
-  const pageTitle = useMemo(() => {
-    if (!ecodeData) return 'E-Code Information | E-Code Halal Check';
-    return buildECodeTitle(ecodeData);
-  }, [ecodeData]);
-
-  const metaDescription = useMemo(() => {
-    if (!ecodeData) return 'Find the halal status of food additives and E-codes.';
-    return buildECodeMeta(ecodeData);
-  }, [ecodeData]);
+  const commonName = ecodeData ? getCommonName(ecodeData) : '';
+  const pageTitle = ecodeData ? buildECodeTitle(ecodeData) : 'E-Code Not Found | E-Code Halal Check';
+  const heading = ecodeData ? buildECodeHeading(ecodeData) : 'E-Code Not Found';
+  const metaDescription = ecodeData
+    ? buildECodeMeta(ecodeData)
+    : 'Find the halal status of food additives and E-codes.';
+  const statusLabel = ecodeData?.status === 'halal' ? 'halal' : 'doubtful';
+  const halalReason = ecodeData ? getHalalReason(ecodeData) : '';
+  const labelTips = ecodeData ? getLabelTips(ecodeData) : [];
 
   const faqAnswers = useMemo(() => {
     if (!ecodeData) return null;
@@ -115,10 +113,8 @@ const ECodePage: React.FC = () => {
       return (m ? m[0] : text).trim();
     };
 
-    const statusLabel = ecodeData.status === 'halal' ? 'halal' : 'doubtful';
-    const intro = `${ecodeData.code} (${ecodeData.name}) is ${statusLabel} for Muslims.`;
+    const intro = `${ecodeData.code} (${ecodeData.name}) is ${statusLabel} for Muslims according to the MUIS food additive listing.`;
     const detailedFirst = firstSentence(ecodeData.detailedDescription);
-
     const isHalal = detailedFirst
       ? `${intro} ${detailedFirst}`
       : `${intro}${ecodeData.description ? ` ${ecodeData.description}` : ''}`;
@@ -135,7 +131,7 @@ const ECodePage: React.FC = () => {
       : `${ecodeData.code} (${ecodeData.name}) may be found in various processed foods. Always read ingredient lists if you're concerned about specific additives.`;
 
     return { isHalal, whatIs, commonlyFound };
-  }, [ecodeData]);
+  }, [ecodeData, statusLabel]);
 
   const structuredData = useMemo(() => {
     if (!ecodeData || !faqAnswers) return [];
@@ -151,6 +147,11 @@ const ECodePage: React.FC = () => {
         },
         {
           '@type': 'Question',
+          name: `Why is ${ecodeData.code} ${statusLabel}?`,
+          acceptedAnswer: { '@type': 'Answer', text: halalReason },
+        },
+        {
+          '@type': 'Question',
           name: `What is ${ecodeData.code}?`,
           acceptedAnswer: { '@type': 'Answer', text: faqAnswers.whatIs },
         },
@@ -162,65 +163,25 @@ const ECodePage: React.FC = () => {
       ],
     };
 
-    const categoryLabel = ecodeData.category || ecodeData.source;
-    const breadcrumbItems: Array<{ name: string; url: string }> = [
-      { name: 'Home', url: 'https://www.ecodehalalcheck.com' },
-    ];
-    if (categoryLabel) {
-      breadcrumbItems.push({
-        name: categoryLabel,
-        url: `https://www.ecodehalalcheck.com/all-ecodes`,
-      });
+    const breadcrumbItems: Array<{ name: string; url: string }> = [{ name: 'Home', url: SITE_ORIGIN }];
+    if (category) {
+      breadcrumbItems.push({ name: category.title, url: `${SITE_ORIGIN}/category/${category.slug}` });
+    } else {
+      breadcrumbItems.push({ name: 'All E-Codes', url: `${SITE_ORIGIN}/all-ecodes` });
     }
-    breadcrumbItems.push({
-      name: `${ecodeData.code} ${ecodeData.name}`,
-      url: canonicalUrl,
-    });
-    const breadcrumbData = generateBreadcrumbStructuredData(breadcrumbItems);
+    breadcrumbItems.push({ name: `${ecodeData.code} ${commonName}`, url: canonicalUrl });
 
-    const productData = generateProductStructuredData({
-      code: ecodeData.code,
-      name: ecodeData.name,
-      description: ecodeData.description,
-      status: ecodeData.status as 'halal' | 'doubtful',
-      category: ecodeData.category,
-    });
-
-    return [faqData, breadcrumbData, productData];
-  }, [ecodeData, canonicalUrl, faqAnswers, commonName]);
-
-  const loadingContent = (
-    <div className="space-y-8 px-4 py-6">
-      <div className="lg:max-w-3xl mx-auto">
-        <ECodeSkeleton />
-      </div>
-      <div className="mt-8 lg:max-w-3xl mx-auto">
-        <div className="h-8 w-64 bg-secondary rounded mb-4 animate-pulse"></div>
-        <div className="grid gap-6">
-          {[1, 2, 3].map((i) => (
-            <Card key={i} className="animate-pulse">
-              <CardHeader>
-                <div className="h-6 w-48 bg-secondary rounded"></div>
-              </CardHeader>
-              <CardContent>
-                <div className="h-4 w-full bg-secondary rounded mb-2"></div>
-                <div className="h-4 w-3/4 bg-secondary rounded"></div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+    return [faqData, generateBreadcrumbStructuredData(breadcrumbItems)];
+  }, [ecodeData, canonicalUrl, faqAnswers, commonName, category, halalReason, statusLabel]);
 
   const notFoundContent = (
     <div className="text-center py-12 px-4">
-      <h2 className="text-2xl font-semibold mb-2">E-Code Not Found</h2>
+      <h1 className="text-2xl font-semibold mb-2">E-Code Not Found</h1>
       <p className="text-muted-foreground mb-6">
         We couldn't find information for the requested E-code.
       </p>
-      <Link to="/">
-        <Button>Return to Search</Button>
+      <Link to="/all-ecodes">
+        <Button>Browse all E-codes</Button>
       </Link>
     </div>
   );
@@ -228,30 +189,40 @@ const ECodePage: React.FC = () => {
   const detailContent = ecodeData && (
     <div className="space-y-8 px-4 py-6">
       {isWeb && (
-        <div className="flex items-center justify-between">
-          <Link to="/">
-            <Button variant="outline" size="sm" className="flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to search
-            </Button>
-          </Link>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleShare}
-            className="flex items-center gap-2"
-          >
-            <Share2 className="h-4 w-4" />
-            Share
-          </Button>
-        </div>
+        <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-1">
+            <li>
+              <Link to="/" className="hover:text-primary hover:underline">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-4 w-4" />
+            </li>
+            <li>
+              {category ? (
+                <Link to={`/category/${category.slug}`} className="hover:text-primary hover:underline">
+                  {category.title}
+                </Link>
+              ) : (
+                <Link to="/all-ecodes" className="hover:text-primary hover:underline">
+                  All E-Codes
+                </Link>
+              )}
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-4 w-4" />
+            </li>
+            <li aria-current="page" className="text-foreground font-medium">
+              {ecodeData.code}
+            </li>
+          </ol>
+        </nav>
       )}
 
       {isWeb && (
         <div className="text-center mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">
-            Is {ecodeData.code} ({commonName}) Halal?
-          </h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">{heading}</h1>
           <p
             className={`text-lg font-semibold ${
               ecodeData.status === 'halal'
@@ -260,8 +231,8 @@ const ECodePage: React.FC = () => {
             }`}
           >
             {ecodeData.status === 'halal'
-              ? `Yes — ${ecodeData.code} (${commonName}) is generally considered halal.`
-              : `${ecodeData.code} (${commonName}) has a doubtful status — its source can vary, so verify before consuming.`}
+              ? `Yes — ${ecodeData.code} (${commonName}) is listed as halal by MUIS.`
+              : `${ecodeData.code} (${commonName}) is listed as doubtful by MUIS — its source can vary, so verify before consuming.`}
           </p>
         </div>
       )}
@@ -272,10 +243,21 @@ const ECodePage: React.FC = () => {
 
       <div className="lg:max-w-3xl mx-auto">
         <div className="grid gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle as="h2">
+                Why is {ecodeData.code} {statusLabel}?
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">{halalReason}</p>
+            </CardContent>
+          </Card>
+
           {ecodeData.detailedDescription && (
             <Card>
               <CardHeader>
-                <CardTitle>About {ecodeData.name}</CardTitle>
+                <CardTitle as="h2">About {commonName}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{ecodeData.detailedDescription}</p>
@@ -286,7 +268,7 @@ const ECodePage: React.FC = () => {
           {ecodeData.commonFoods && ecodeData.commonFoods.length > 0 && (
             <Card>
               <CardHeader>
-                <CardTitle>Commonly Found In</CardTitle>
+                <CardTitle as="h2">Commonly Found In</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside text-muted-foreground space-y-1">
@@ -298,13 +280,18 @@ const ECodePage: React.FC = () => {
             </Card>
           )}
 
-          {(ecodeData.source || ecodeData.isVegan || ecodeData.isVegetarian) && (
+          {(ecodeData.origin || ecodeData.source || ecodeData.isVegan || ecodeData.isVegetarian) && (
             <Card>
               <CardHeader>
-                <CardTitle>Source & Origin</CardTitle>
+                <CardTitle as="h2">Source & Origin</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
+                  {ecodeData.origin && (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border text-sm font-medium">
+                      {ecodeData.origin}
+                    </span>
+                  )}
                   {ecodeData.source && (
                     <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border text-sm font-medium">
                       {ecodeData.source}
@@ -325,12 +312,25 @@ const ECodePage: React.FC = () => {
             </Card>
           )}
 
+          <Card>
+            <CardHeader>
+              <CardTitle as="h2">How to check on the label</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                {labelTips.map((tip, idx) => (
+                  <li key={idx}>{tip}</li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
           {(() => {
             const healthNotes = (ecodeData as { healthNotes?: string }).healthNotes;
             return healthNotes && healthNotes.trim() ? (
               <Card>
                 <CardHeader>
-                  <CardTitle>Health & Dietary Notes</CardTitle>
+                  <CardTitle as="h2">Health & Dietary Notes</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{healthNotes}</p>
@@ -342,7 +342,7 @@ const ECodePage: React.FC = () => {
           {ecodeData.alternatives && ecodeData.alternatives.length > 0 && (
             <Card>
               <CardHeader>
-                <CardTitle>Alternatives</CardTitle>
+                <CardTitle as="h2">Alternatives</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -355,7 +355,7 @@ const ECodePage: React.FC = () => {
                       return (
                         <React.Fragment key={idx}>
                           <Link
-                            to={`/ecode/${ecodeRef.replace('E', '')}`}
+                            to={`/ecode/${ecodeRef.replace('E', '').toLowerCase()}`}
                             className="text-primary hover:underline"
                           >
                             {alt}
@@ -380,11 +380,11 @@ const ECodePage: React.FC = () => {
 
       {isWeb && (
         <div className="lg:max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-4">Additional Information</h2>
+          <h2 className="text-2xl font-semibold mb-4">Frequently asked questions</h2>
           <div className="grid gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Is {ecodeData.code} halal?</CardTitle>
+                <CardTitle as="h3">Is {ecodeData.code} halal or haram?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{faqAnswers?.isHalal}</p>
@@ -392,7 +392,7 @@ const ECodePage: React.FC = () => {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>What is {ecodeData.code}?</CardTitle>
+                <CardTitle as="h3">What is {ecodeData.code}?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{faqAnswers?.whatIs}</p>
@@ -400,7 +400,7 @@ const ECodePage: React.FC = () => {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Where is {ecodeData.code} commonly found?</CardTitle>
+                <CardTitle as="h3">Where is {ecodeData.code} commonly found?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{faqAnswers?.commonlyFound}</p>
@@ -411,29 +411,74 @@ const ECodePage: React.FC = () => {
       )}
 
       {relatedECodes.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Related E-Codes</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="lg:max-w-3xl mx-auto">
+          <h2 className="text-2xl font-semibold mb-4">
+            Related {category ? category.title.toLowerCase() : 'E-codes'}
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {relatedECodes.map((eCode) => (
-              <Link to={`/ecode/${eCode.code.replace('E', '')}`} key={eCode.code}>
-                <ECode data={eCode} />
-              </Link>
+              <li key={eCode.code}>
+                <Link
+                  to={`/ecode/${eCode.code.replace('E', '')}`}
+                  className="flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3 hover:shadow-md transition-shadow"
+                >
+                  <span className="min-w-0">
+                    <span className="block font-semibold">{eCode.code}</span>
+                    <span className="block text-sm text-muted-foreground truncate">
+                      {getCommonName(eCode)}
+                    </span>
+                  </span>
+                  <span
+                    className={`shrink-0 text-xs font-medium px-2 py-1 rounded-full ${
+                      eCode.status === 'halal'
+                        ? 'bg-green-100 text-halalDark dark:bg-green-900 dark:text-green-100'
+                        : 'bg-yellow-100 text-mushboohDark dark:bg-yellow-900 dark:text-yellow-100'
+                    }`}
+                  >
+                    {eCode.status === 'halal' ? 'Halal' : 'Doubtful'}
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
+          {category && (
+            <p className="mt-4 text-sm">
+              <Link to={`/category/${category.slug}`} className="text-primary hover:underline">
+                See all {category.title.toLowerCase()} ({category.rangeLabel}) →
+              </Link>
+            </p>
+          )}
+        </div>
+      )}
+
+      {isWeb && (
+        <div className="flex items-center justify-between lg:max-w-3xl mx-auto">
+          <Link to="/">
+            <Button variant="outline" size="sm" className="flex items-center gap-2">
+              <ArrowLeft className="h-4 w-4" />
+              Back to search
+            </Button>
+          </Link>
+          <Button variant="ghost" size="sm" onClick={handleShare} className="flex items-center gap-2">
+            <Share2 className="h-4 w-4" />
+            Share
+          </Button>
         </div>
       )}
 
       {isWeb && (
         <div className="text-center text-sm text-muted-foreground my-4" id="data-source">
-          Data source:{' '}
+          Halal status source:{' '}
           <a
-            href="https://isomer-user-content.by.gov.sg/48/15766cc5-7b0d-4df0-938e-e61f1cb2b91e/FOOD%20ADDITIVE%20LISTING%205.pdf"
+            href={MUIS_PDF}
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-primary transition-colors"
           >
-            MUIS
+            MUIS Food Additive Listing
           </a>
+          {' · '}
+          <time dateTime={SITE_LAST_REVIEWED}>Last reviewed {formatReviewedDate()}</time>
         </div>
       )}
 
@@ -447,7 +492,7 @@ const ECodePage: React.FC = () => {
     </div>
   );
 
-  const content = loading ? loadingContent : ecodeData ? detailContent : notFoundContent;
+  const content = ecodeData ? detailContent : notFoundContent;
   const title = ecodeData?.code ?? 'E-Code';
 
   return (
@@ -455,21 +500,20 @@ const ECodePage: React.FC = () => {
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
-        {structuredData &&
-          structuredData.map((data, index) => (
-            <script key={index} type="application/ld+json">
-              {JSON.stringify(data)}
-            </script>
-          ))}
+        {ecodeData ? <link rel="canonical" href={canonicalUrl} /> : <meta name="robots" content="noindex" />}
+        {ecodeData && shouldNoIndex && <meta name="robots" content="noindex, follow" />}
+        {structuredData.map((data, index) => (
+          <script key={index} type="application/ld+json">
+            {JSON.stringify(data)}
+          </script>
+        ))}
       </Helmet>
 
       {isInApp ? (

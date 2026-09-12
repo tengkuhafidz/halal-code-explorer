@@ -76,29 +76,157 @@ export const getCommonName = (ecode: NamedECode): string => {
   return parts.slice(0, 2).join(' / ') || ecode.name;
 };
 
+/** Date the halal-status data and page copy were last reviewed (ISO). */
+export const SITE_LAST_REVIEWED = '2026-09-12';
+
+export const formatReviewedDate = (iso: string = SITE_LAST_REVIEWED): string =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
 /**
- * SEO title in the format searchers use: includes the common name and the
- * "Halal or Haram?" intent phrasing. Drops the brand suffix when it would push
- * the title well past Google's ~60–70 char display limit.
+ * People search short ingredient names by name ("is pectin halal") and
+ * obscure ones by E-number ("e476 halal"). Lead with whichever the searcher
+ * is likelier to type: the common name when it is short, else the E-number.
+ */
+const nameLeads = (ecode: NamedECode): boolean => getCommonName(ecode).length <= 28;
+
+const subject = (ecode: NamedECode): string => {
+  const name = getCommonName(ecode);
+  return nameLeads(ecode) ? `${name} (${ecode.code})` : `${ecode.code} (${name})`;
+};
+
+/**
+ * SEO title in the format searchers use, with the "Halal or Haram?" intent
+ * phrasing. Drops the brand suffix when it would push the title well past
+ * Google's ~60–70 char display limit.
  */
 export const buildECodeTitle = (ecode: NamedECode): string => {
-  const name = getCommonName(ecode);
-  const base = `Is ${ecode.code} (${name}) Halal or Haram?`;
+  const base = `Is ${subject(ecode)} Halal or Haram?`;
   const withBrand = `${base} | E-Code Halal Check`;
   return withBrand.length <= 70 ? withBrand : base;
 };
 
+/** On-page H1, matching the title's subject order. */
+export const buildECodeHeading = (ecode: NamedECode): string => `Is ${subject(ecode)} Halal?`;
+
+export interface ReasonedECode extends NamedECode {
+  halalNotes?: string;
+  commonFoods?: string[];
+}
+
+const ORIGIN_REASON: Record<string, { halal: string; doubtful: string }> = {
+  'plant-based': {
+    halal: 'It is derived from plant material and its normal production involves no animal-derived ingredients.',
+    doubtful:
+      'Although the base material is plant-derived, some production routes use animal-derived processing aids or carriers, and the E-number does not identify the producer.',
+  },
+  mineral: {
+    halal: 'It is a mineral (inorganic) substance and no animal material is involved in producing it.',
+    doubtful: 'Some grades are processed with aids or carriers of unspecified origin, and the E-number does not identify the producer.',
+  },
+  synthetic: {
+    halal: 'It is manufactured synthetically from non-animal raw materials.',
+    doubtful:
+      'Although it is made synthetically, some production routes use animal-derived processing aids or carriers, and the E-number does not identify the producer.',
+  },
+  microbial: {
+    halal: 'It is produced by fermentation and no animal material is involved in its normal production.',
+    doubtful:
+      'It is produced by fermentation, and the fermentation medium, nutrients and processing aids vary by manufacturer and can include animal-derived ingredients. The additive itself is not haram; its status depends on how the producer makes it.',
+  },
+  'animal-derived': {
+    halal: 'Its animal source is one that is permissible, so the additive is accepted as halal.',
+    doubtful:
+      'It can be obtained from animals, and the E-number does not say which animal or whether it was slaughtered according to Islamic law. It is halal only when it comes from a permissible source.',
+  },
+};
+
+const originKey = (origin?: string): string => {
+  const o = (origin || '').toLowerCase();
+  if (o.includes(' or ')) return 'mixed';
+  for (const key of Object.keys(ORIGIN_REASON)) if (o.includes(key)) return key;
+  return 'unknown';
+};
+
 /**
- * Meta description that states what the additive is (origin + functional class)
- * and teases the verdict to drive click-through, without asserting a ruling we
- * don't have data for.
+ * Plain-language explanation of why MUIS lists the additive as halal or
+ * doubtful. Uses the curated note when one exists, otherwise derives a
+ * careful generic explanation from the additive's origin.
  */
-export const buildECodeMeta = (ecode: NamedECode): string => {
+export const getHalalReason = (ecode: ReasonedECode): string => {
+  if (ecode.halalNotes?.trim()) return ecode.halalNotes.trim();
+  const status = ecode.status === 'halal' ? 'halal' : 'doubtful';
+  const key = originKey(ecode.origin);
+  const lead =
+    status === 'halal'
+      ? `MUIS lists ${ecode.code} (${getCommonName(ecode)}) as halal.`
+      : `MUIS lists ${ecode.code} (${getCommonName(ecode)}) as doubtful (mashbooh), which means the source cannot be confirmed from the E-number alone — not that it is haram.`;
+  let why: string;
+  if (key === 'mixed') {
+    why =
+      status === 'halal'
+        ? `It can be made from ${(ecode.origin || '').toLowerCase()} materials, none of which raise a halal concern in normal production.`
+        : `It can be made from ${(ecode.origin || '').toLowerCase()} materials, so the same E-number may be halal from one manufacturer and not from another.`;
+  } else if (key === 'unknown') {
+    why =
+      status === 'halal'
+        ? 'Its normal production does not involve animal-derived ingredients.'
+        : 'Some production routes may involve animal-derived ingredients or processing aids.';
+  } else {
+    why = ORIGIN_REASON[key][status];
+  }
+  const close =
+    status === 'halal'
+      ? 'The status applies to the additive itself; the finished product still needs its other ingredients checked.'
+      : 'The reliable check is a recognised halal certification logo on the finished product, or a manufacturer statement of the source.';
+  return `${lead} ${why} ${close}`;
+};
+
+/** Practical checks a shopper can do with the packaging in hand. */
+export const getLabelTips = (ecode: ReasonedECode): string[] => {
+  if (ecode.status === 'halal') {
+    return [
+      `${ecode.code} on its own is not a reason to avoid a product.`,
+      'The finished product still needs its other ingredients checked — look for a halal certification logo (MUIS, JAKIM, MUI, HMC or similar) when in doubt.',
+      'Halal status here follows the MUIS food additive listing; rulings can differ between certification bodies.',
+    ];
+  }
+  return [
+    'Look for a recognised halal certification logo (MUIS, JAKIM, MUI, HMC or similar) on the packaging — certified products have had the source of this additive verified.',
+    "Check whether the label states the origin, for example 'vegetable origin', 'plant-based' or 'soy'.",
+    'If there is no certification and the origin is not stated, contact the manufacturer or choose a product with a halal alternative.',
+  ];
+};
+
+/**
+ * Meta description: verdict first (what searchers want), then the one-line
+ * reason and where the additive is found. Kept under ~160 characters.
+ */
+export const buildECodeMeta = (ecode: ReasonedECode): string => {
   const name = getCommonName(ecode);
-  const origin = ecode.origin?.trim().toLowerCase();
+  const verdict =
+    ecode.status === 'halal'
+      ? `${ecode.code} (${name}) is halal according to MUIS.`
+      : `${ecode.code} (${name}) is listed as doubtful (mashbooh) by MUIS.`;
   const kind = (ecode.source || 'food additive').toLowerCase();
-  const descriptor = origin && !kind.includes(origin) ? `${origin} ${kind}` : kind;
-  return `${ecode.code} (${name}) is a ${descriptor} — find out if it's halal, haram, or doubtful, its source and the MUIS ruling, on E-Code Halal Check.`;
+  const origin = ecode.origin ? ` ${ecode.origin.toLowerCase()}` : '';
+  const article = /^[aeiou]/i.test((origin || kind).trim()) ? 'An' : 'A';
+  const tail =
+    ecode.status === 'halal' ? ' Source, uses and label tips.' : ' Why it is doubtful and what to check on the label.';
+  const foods = ecode.commonFoods ?? [];
+  // Prefer the fullest description that fits in ~160 chars; never cut mid-sentence.
+  for (let n = Math.min(3, foods.length); n >= 0; n -= 1) {
+    const where = n > 0 ? ` found in ${foods.slice(0, n).join(', ')}` : '';
+    const full = `${verdict} ${article}${origin} ${kind}${where}.${tail}`;
+    if (full.length <= 160) return full;
+    const short = `${verdict} ${article}${origin} ${kind}${where}.`;
+    if (short.length <= 160) return short;
+  }
+  return verdict.length <= 160 ? verdict : `${verdict.slice(0, 157).replace(/\s+\S*$/, '')}…`;
 };
 
 interface SEOProps {
@@ -281,43 +409,4 @@ export const generateBreadcrumbStructuredData = (items: Array<{name: string, url
     "name": item.name,
     "item": item.url
   }))
-});
-
-interface ECodeProductData {
-  code: string;
-  name: string;
-  description?: string;
-  status: 'halal' | 'doubtful';
-  category?: string;
-}
-
-export const generateProductStructuredData = (eCode: ECodeProductData) => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": `${eCode.code} - ${eCode.name}`,
-  "description": eCode.description || `${eCode.code} (${eCode.name}) is a food additive with ${eCode.status} status for Muslims.`,
-  "category": eCode.category || "Food Additive",
-  "brand": {
-    "@type": "Brand",
-    "name": "E-Code Halal Check"
-  },
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "E-Code",
-      "value": eCode.code
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Halal Status",
-      "value": eCode.status === 'halal' ? 'Halal' : 'Doubtful'
-    }
-  ],
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Information provided free of charge"
-  }
 });
