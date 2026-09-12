@@ -1,9 +1,27 @@
 
-import { Suspense, lazy } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-const CommunityAppsDialog = lazy(() =>
-  import('./CommunityAppsDialog').then((m) => ({ default: m.CommunityAppsDialog })),
-);
+type DialogComponent = typeof import('./CommunityAppsDialog')['CommunityAppsDialog'];
+
+/**
+ * Loads the Radix dialog (and its portal/focus/scroll-lock deps) only in the
+ * browser after mount. renderToString cannot emit a real suspense boundary,
+ * so this avoids React error #419 while keeping the chunk out of the main bundle.
+ */
+function LazyCommunityAppsDialog() {
+  const [Dialog, setDialog] = useState<DialogComponent | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    import('./CommunityAppsDialog').then((m) => {
+      if (!cancelled) setDialog(() => m.CommunityAppsDialog);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  if (!Dialog) return <span className="text-muted-foreground">More details</span>;
+  return <Dialog />;
+}
 
 const Footer = () => {
   const location = useLocation();
@@ -31,9 +49,7 @@ const Footer = () => {
               Built for the community by{' '}
               <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
               <span className="mx-2 text-muted-foreground/40" aria-hidden="true">|</span>
-              <Suspense fallback={<span className="text-muted-foreground">More details</span>}>
-                <CommunityAppsDialog />
-              </Suspense>
+              <LazyCommunityAppsDialog />
             </p>
           </div>
 
@@ -104,9 +120,7 @@ const Footer = () => {
             Built for the community by{' '}
             <a href="https://10kb.co" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: '#049164' }}>10kb.co</a>
             <span className="mx-2 text-muted-foreground/40" aria-hidden="true">|</span>
-            <Suspense fallback={<span className="text-muted-foreground">More details</span>}>
-                <CommunityAppsDialog />
-              </Suspense>
+            <LazyCommunityAppsDialog />
           </p>
         </div>
       </div>
