@@ -56,6 +56,11 @@
       "source": "/E:code(\\d{3,4}[a-z]?)-:rest*",
       "destination": "/ecode/:code",
       "permanent": true
+    },
+    {
+      "source": "/en/:path*",
+      "destination": "/:path*",
+      "permanent": true
     }
   ],
   "headers": [
