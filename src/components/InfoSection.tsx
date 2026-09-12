@@ -78,7 +78,7 @@ const InfoSection = () => {
         <div className="text-center mt-12">
           <Link
             to="/all-ecodes"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium transition-colors"
           >
             Browse all E-codes A–Z with their halal status
             <ArrowRight className="h-4 w-4" />

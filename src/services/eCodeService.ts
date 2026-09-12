@@ -13,7 +13,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["turmeric powder", "saffron", "annatto (E160b)"]
+      "alternatives": ["turmeric powder", "saffron", "annatto (E160b)"],
+      "halalNotes": "Curcumin is the yellow pigment of turmeric root, extracted with food-grade solvents that are removed afterwards. It is plant-based and MUIS lists it as halal. It colours mustard, curry powders, margarine and dairy desserts."
     },
     {
       "E-Code": "E101",
@@ -92,7 +93,8 @@ const rawEcodeDatabase = [
       "origin": "Animal-derived",
       "isVegan": false,
       "isVegetarian": false,
-      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "lycopene (E160d)"]
+      "alternatives": ["beet red (E162)", "anthocyanins (E163)", "lycopene (E160d)"],
+      "halalNotes": "Carmine (cochineal) is a red pigment extracted from the dried bodies of cochineal insects. MUIS lists E120 as halal in its food additive listing. Some other certification bodies and scholars take a stricter view of insect-derived colours, so if you follow a stricter opinion, look for products coloured with beetroot red (E162) or anthocyanins (E163) instead."
     },
     {
       "E-Code": "E122",
@@ -238,7 +240,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["chlorophyll (E140)", "spirulina extract", "spinach extract"]
+      "alternatives": ["chlorophyll (E140)", "spirulina extract", "spinach extract"],
+      "halalNotes": "Copper chlorophyllin is made from plant chlorophyll in which the magnesium is replaced by copper. The pigment is plant-based, but its extraction uses solvents and processing aids that vary by manufacturer and are not identified by the E-number, which is why MUIS lists it as doubtful. Halal-certified versions are common."
     },
     {
       "E-Code": "E142",
@@ -290,7 +293,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Carbon Black is an intense black colouring produced by carbonising plant material such as wood, peat or coconut shell, though historically also from animal bones (bone char). The halal concern centres on the source of the charred material.",
       "commonFoods": ["liquorice", "jams and jellies", "gourmet cheese rinds", "confectionery", "sauces"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["caramel (E150)", "iron oxides (E172)", "brilliant black (E151)"]
+      "alternatives": ["caramel (E150)", "iron oxides (E172)", "brilliant black (E151)"],
+      "halalNotes": "Vegetable carbon is a black pigment that can be made by charring plant material such as coconut shells or peat, but 'carbon black' has also been produced from animal bone charcoal. Because the E-number does not say which, MUIS lists it as doubtful. Look for 'vegetable carbon' on the label or a halal logo."
     },
     {
       "E-Code": "E154",
@@ -343,7 +347,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["turmeric / curcumin (E100)", "beta-carotene (E160a)", "paprika extract (E160c)"]
+      "alternatives": ["turmeric / curcumin (E100)", "beta-carotene (E160a)", "paprika extract (E160c)"],
+      "halalNotes": "Annatto is a yellow-orange pigment from the seed coat of the achiote tree, so the colour itself is plant-based. It is sold as oil-soluble (bixin) or water-soluble (norbixin) extracts made with oils, alkalis or solvents that vary by manufacturer, which is why MUIS lists E160b as doubtful. Halal-certified annatto is widely available."
     },
     {
       "E-Code": "E160c",
@@ -511,7 +516,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["beet red (E162)", "paprika extract (E160c)", "cochineal (E120)"]
+      "alternatives": ["beet red (E162)", "paprika extract (E160c)", "cochineal (E120)"],
+      "halalNotes": "Anthocyanins are the red-to-blue pigments of grape skins, red cabbage and berries. They are plant-based, but they are extracted with water or alcohol solvents (methanol or ethanol) that are later removed, and the process is not visible from the E-number, so MUIS lists them as doubtful. Look for a halal logo, or water-extracted anthocyanins."
     },
     {
       "E-Code": "E170",
@@ -535,7 +541,8 @@ const rawEcodeDatabase = [
       "origin": "Mineral",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["calcium carbonate (E170)", "rice starch", "cornstarch"]
+      "alternatives": ["calcium carbonate (E170)", "rice starch", "cornstarch"],
+      "halalNotes": "Titanium dioxide is a white mineral pigment refined from ilmenite ore. No animal material is involved and MUIS lists it as halal. Note that the EU withdrew it as a food additive in 2022 on safety grounds, while other regulators still permit it."
     },
     {
       "E-Code": "E172",
@@ -609,7 +616,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based or Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["potassium sorbate (E202)", "benzoic acid (E210)", "natural rosemary extract"]
+      "alternatives": ["potassium sorbate (E202)", "benzoic acid (E210)", "natural rosemary extract"],
+      "halalNotes": "Sorbic acid occurs naturally in rowan berries and is manufactured synthetically from ketene and crotonaldehyde. Neither route involves animal material, so MUIS lists it as halal. It preserves cheese, baked goods and dried fruit."
     },
     {
       "E-Code": "E201",
@@ -674,7 +682,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["potassium sorbate (E202)", "benzoic acid (E210)", "potassium benzoate (E212)"]
+      "alternatives": ["potassium sorbate (E202)", "benzoic acid (E210)", "potassium benzoate (E212)"],
+      "halalNotes": "Sodium benzoate is the sodium salt of benzoic acid, made synthetically from toluene-derived benzoic acid and sodium hydroxide. It contains no animal material and MUIS lists it as halal. It is one of the most common preservatives in soft drinks, sauces and pickles."
     },
     {
       "E-Code": "E212",
@@ -797,7 +806,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["potassium sorbate (E202)", "ascorbic acid (E300)", "sodium sulphite (E221)"]
+      "alternatives": ["potassium sorbate (E202)", "ascorbic acid (E300)", "sodium sulphite (E221)"],
+      "halalNotes": "Sulphur dioxide is made by burning sulphur; it is a purely mineral process and MUIS lists it as halal. It preserves dried fruit, fruit juices and processed potato products. It is also used in wine-making, but that is a question about the wine, not the additive."
     },
     {
       "E-Code": "E221",
@@ -1043,7 +1053,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["potassium nitrite (E249)", "sodium nitrate (E251)", "celery juice powder (natural source)"]
+      "alternatives": ["potassium nitrite (E249)", "sodium nitrate (E251)", "celery juice powder (natural source)"],
+      "halalNotes": "Sodium nitrite is manufactured chemically from sodium nitrate, with no animal material involved, so MUIS lists it as halal. It is used almost exclusively to cure meat (ham, bacon, sausages), so the halal question for those products is the meat itself, not the additive."
     },
     {
       "E-Code": "E251",
@@ -1080,7 +1091,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic or Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["lactic acid (E270)", "citric acid (E330)", "sodium acetate (E262)"]
+      "alternatives": ["lactic acid (E270)", "citric acid (E330)", "sodium acetate (E262)"],
+      "halalNotes": "Acetic acid is the acid in vinegar. Industrial acetic acid is synthesised from methanol, while vinegar is made by fermenting alcohol with bacteria. MUIS lists E260 as doubtful because the E-number does not show which route and which fermentation medium the producer used. Synthetic acetic acid and vinegar from a halal-certified source raise no concern."
     },
     {
       "E-Code": "E261",
@@ -1144,7 +1156,8 @@ const rawEcodeDatabase = [
       "commonFoods": ["yogurt", "sourdough bread", "cheese", "pickled vegetables", "beverages", "cured meats"],
       "origin": "Microbial",
       "isVegetarian": true,
-      "alternatives": ["citric acid (E330)", "acetic acid (E260)", "malic acid (E296)"]
+      "alternatives": ["citric acid (E330)", "acetic acid (E260)", "malic acid (E296)"],
+      "halalNotes": "Lactic acid is produced by fermenting sugars with lactic-acid bacteria. The acid itself contains no animal material, but the fermentation medium can include whey or other animal-derived nutrients and the E-number does not identify the producer, so MUIS lists it as doubtful. Lactic acid from the major manufacturers is commonly halal-certified."
     },
     {
       "E-Code": "E280",
@@ -1183,7 +1196,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["sodium propionate (E281)", "potassium propionate (E283)", "propionic acid (E280)"]
+      "alternatives": ["sodium propionate (E281)", "potassium propionate (E283)", "propionic acid (E280)"],
+      "halalNotes": "Calcium propionate is the calcium salt of propionic acid, which can be made synthetically from petrochemicals or by fermentation. MUIS lists it as doubtful because the production route and any fermentation medium are not stated by the E-number. It is used mainly in bread to stop mould."
     },
     {
       "E-Code": "E283",
@@ -1248,7 +1262,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial or Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["sodium ascorbate (E301)", "erythorbic acid (E317)", "tocopherols (E306)"]
+      "alternatives": ["sodium ascorbate (E301)", "erythorbic acid (E317)", "tocopherols (E306)"],
+      "halalNotes": "Ascorbic acid (vitamin C) is made from glucose by a mix of chemical steps and fermentation. The vitamin itself contains no animal material, but the fermentation medium and processing aids vary by manufacturer, so MUIS lists it as doubtful. Vitamin C from the major producers is widely halal-certified."
     },
     {
       "E-Code": "E301",
@@ -1311,7 +1326,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["synthetic alpha-tocopherol (E307)", "ascorbic acid (E300)", "rosemary extract"]
+      "alternatives": ["synthetic alpha-tocopherol (E307)", "ascorbic acid (E300)", "rosemary extract"],
+      "halalNotes": "Mixed tocopherols (natural vitamin E) are extracted from vegetable oils such as soybean, sunflower and rapeseed. They are plant-based and MUIS lists them as halal. In supplements, check the capsule shell separately, as it may be gelatine."
     },
     {
       "E-Code": "E307",
@@ -1478,7 +1494,8 @@ const rawEcodeDatabase = [
       "commonFoods": ["cured meats", "cheese", "bakery products", "salad dressings", "candies"],
       "origin": "Microbial",
       "isVegetarian": true,
-      "alternatives": ["potassium lactate (E326)", "calcium lactate (E327)", "sodium acetate (E262)"]
+      "alternatives": ["potassium lactate (E326)", "calcium lactate (E327)", "sodium acetate (E262)"],
+      "halalNotes": "Sodium lactate is the sodium salt of lactic acid (E270), which is made by fermentation. MUIS lists it as doubtful for the same reason as lactic acid: the fermentation medium can contain animal-derived nutrients and the E-number does not identify the producer. It is common in processed meats and cheese; a halal logo on the product is the reliable check."
     },
     {
       "E-Code": "E326",
@@ -1553,7 +1570,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["citric acid (E330)", "potassium citrates (E332)", "calcium citrates (E333)"]
+      "alternatives": ["citric acid (E330)", "potassium citrates (E332)", "calcium citrates (E333)"],
+      "halalNotes": "Sodium citrates are salts of citric acid (E330), which is made by fermenting sugar with a mould. The salt itself contains no animal material, but the fermentation medium and processing aids vary by producer, so MUIS lists it as doubtful, as it does for citric acid. Citrates from the major manufacturers are widely halal-certified."
     },
     {
       "E-Code": "E332",
@@ -1986,7 +2004,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["carrageenan (E407)", "alginic acid (E400)", "pectin (E440a)"]
+      "alternatives": ["carrageenan (E407)", "alginic acid (E400)", "pectin (E440a)"],
+      "halalNotes": "Agar is a gelling agent extracted from red seaweed with hot water. It is plant-based, involves no animal material, and MUIS lists it as halal. It is the traditional vegetarian substitute for gelatine in jellies and desserts."
     },
     {
       "E-Code": "E407",
@@ -2054,7 +2073,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["guar gum (E412)", "tragacanth (E413)", "modified starches"]
+      "alternatives": ["guar gum (E412)", "tragacanth (E413)", "modified starches"],
+      "halalNotes": "Gum arabic (acacia gum) is the dried sap of acacia trees, harvested mainly in Sudan and the Sahel. It is plant-based and MUIS lists it as halal. It is used in sweets, soft drinks and as a glaze on coated nuts."
     },
     {
       "E-Code": "E415",
@@ -2094,7 +2114,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["mannitol (E421)", "xylitol (E967)", "maltitol (E965)"]
+      "alternatives": ["mannitol (E421)", "xylitol (E967)", "maltitol (E965)"],
+      "halalNotes": "Sorbitol is made by hydrogenating glucose syrup. The sugar is plant-derived, but the enzymes used to make the glucose syrup and the catalysts and processing aids used afterwards vary by manufacturer and are not identified by the E-number, so MUIS lists it as doubtful. Sorbitol from the major producers is commonly halal-certified."
     },
     {
       "E-Code": "E421",
@@ -2118,7 +2139,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Glycerol (glycerine) is a polyol obtained as a by-product of soap-making and biodiesel production. It can be derived from animal fats, vegetable oils or petroleum, which is why MUIS classifies it as doubtful — supplier disclosure of source is essential.",
       "commonFoods": ["icings", "fillings", "low-fat baked goods", "humectant in confectionery", "liqueurs"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["sorbitol (E420)", "propylene glycol (E1520)", "vegetable glycerine (specified)"]
+      "alternatives": ["sorbitol (E420)", "propylene glycol (E1520)", "vegetable glycerine (specified)"],
+      "halalNotes": "Glycerol (glycerine) is a by-product of splitting fats and oils, so it can come from vegetable oils or from animal fats including pork. MUIS lists it as doubtful because the E-number does not state the source. Look for 'vegetable glycerine' on the label or a halal logo."
     },
     {
       "E-Code": "E430",
@@ -2279,7 +2301,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["methylcellulose (E461)", "carboxymethylcellulose (E466)", "modified starches"]
+      "alternatives": ["methylcellulose (E461)", "carboxymethylcellulose (E466)", "modified starches"],
+      "halalNotes": "Cellulose (microcrystalline or powdered) is purified plant fibre, usually from wood pulp. It is plant-based and MUIS lists it as halal. It adds bulk and texture to low-calorie foods and stops grated cheese from clumping."
     },
     {
       "E-Code": "E461",
@@ -2344,7 +2367,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["xanthan gum (E415)", "methylcellulose (E461)", "guar gum (E412)"]
+      "alternatives": ["xanthan gum (E415)", "methylcellulose (E461)", "guar gum (E412)"],
+      "halalNotes": "Sodium carboxymethylcellulose (CMC) is made by treating plant cellulose with chloroacetic acid. It is plant-based and MUIS lists it as halal. It thickens ice cream, sauces and gluten-free bakery products."
     },
     {
       "E-Code": "E469",
@@ -2392,7 +2416,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "E472 is a family of glycerol esters of various organic acids (acetic, lactic, citric, tartaric and others) used as emulsifiers and stabilisers. The doubtful classification stems from the potentially animal or vegetable origin of the underlying fats.",
       "commonFoods": ["bread and baked goods", "margarine", "ice cream", "non-dairy whipped toppings", "instant noodles"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["lecithin (E322)", "mono- and diglycerides (E471)", "polysorbates (E433/E435)"]
+      "alternatives": ["lecithin (E322)", "mono- and diglycerides (E471)", "polysorbates (E433/E435)"],
+      "halalNotes": "The E472 esters (a to f) are made from glycerol and fatty acids, both of which can come from vegetable oils or animal fats including pork. MUIS lists them as doubtful because the source is not stated by the E-number. Halal-certified bakery emulsifiers use plant-based fatty acids; look for a halal logo or 'vegetable origin'."
     },
     {
       "E-Code": "E473",
@@ -2403,7 +2428,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Sucrose esters of fatty acids are emulsifiers prepared from sucrose and fatty acids. The doubtful classification reflects the potentially animal or vegetable origin of the fatty acids used.",
       "commonFoods": ["bakery products", "non-dairy creamers", "frosted cereals", "Asian beverages", "ice cream"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["polysorbates (E433/E435)", "mono- and diglycerides (E471)", "lecithin (E322)"]
+      "alternatives": ["polysorbates (E433/E435)", "mono- and diglycerides (E471)", "lecithin (E322)"],
+      "halalNotes": "Sucrose esters are made by reacting sugar with fatty acids that can be of vegetable or animal origin. MUIS lists them as doubtful because the fatty-acid source is not stated by the E-number. Halal-certified versions use plant-based fatty acids."
     },
     {
       "E-Code": "E474",
@@ -2425,7 +2451,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Polyglycerol esters of fatty acids are emulsifiers prepared by esterifying polyglycerol with fatty acids. The doubtful classification reflects the potentially animal or vegetable origin of the fatty acids.",
       "commonFoods": ["whipped toppings", "cake mixes", "shortenings", "chewing gum", "low-fat margarine"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["polyglycerol polyricinoleate (E476)", "polysorbates (E433/E435)", "mono- and diglycerides (E471)"]
+      "alternatives": ["polyglycerol polyricinoleate (E476)", "polysorbates (E433/E435)", "mono- and diglycerides (E471)"],
+      "halalNotes": "Polyglycerol esters are made from polyglycerol and fatty acids, either of which can be vegetable- or animal-derived. MUIS lists them as doubtful because the source is not stated by the E-number. They are common in cakes, whipped toppings and margarine; look for a halal logo."
     },
     {
       "E-Code": "E476",
@@ -3034,7 +3061,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Stearic acid is a saturated fatty acid found in all animal fats and most vegetable oils. The MUIS doubtful classification reflects that commercial stearic acid can be derived from either animal or plant sources, and supplier disclosure is essential.",
       "commonFoods": ["margarine", "candies", "baked goods", "cosmetics", "pharmaceuticals (tablet binder)"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["palmitic acid", "oleic acid", "vegetable stearic acid (specified)"]
+      "alternatives": ["palmitic acid", "oleic acid", "vegetable stearic acid (specified)"],
+      "halalNotes": "Stearic acid is a fatty acid present in both animal fats (tallow, lard) and vegetable oils (palm, shea). Because the E-number does not say which source was used, MUIS lists it as doubtful. Plant-derived stearic acid is common; look for a halal logo or 'vegetable origin'."
     },
     {
       "E-Code": "E572",
@@ -3045,7 +3073,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Magnesium stearate is the magnesium salt of stearic acid, used as an anti-caking agent and tablet lubricant. The doubtful classification reflects stearic acid's potential animal or vegetable origin.",
       "commonFoods": ["powdered foods", "confectionery", "supplements (tablet excipient)", "baking powder"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["calcium stearate", "silicon dioxide (E551)", "calcium silicate (E552)"]
+      "alternatives": ["calcium stearate", "silicon dioxide (E551)", "calcium silicate (E552)"],
+      "halalNotes": "Magnesium stearate is the magnesium salt of stearic acid (E570), which can come from animal fats or vegetable oils. MUIS lists it as doubtful because the source is not stated by the E-number. It is used mainly in tablets, supplements and powdered foods; look for 'vegetable magnesium stearate' or a halal logo."
     },
     {
       "E-Code": "E575",
@@ -3058,7 +3087,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["citric acid (E330)", "lactic acid (E270)", "fumaric acid (E297)"]
+      "alternatives": ["citric acid (E330)", "lactic acid (E270)", "fumaric acid (E297)"],
+      "halalNotes": "Glucono delta-lactone is made by oxidising glucose, usually by fermentation with fungi or bacteria. MUIS lists it as doubtful because the fermentation medium and processing aids vary by manufacturer and are not identified by the E-number. It is used in tofu, cured meats and baking powders."
     },
     {
       "E-Code": "E576",
@@ -3123,7 +3153,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["natural sources (parmesan, tomatoes, mushrooms)", "yeast extract", "disodium guanylate (E627)"]
+      "alternatives": ["natural sources (parmesan, tomatoes, mushrooms)", "yeast extract", "disodium guanylate (E627)"],
+      "halalNotes": "Glutamic acid is the parent acid of MSG (E621) and is made the same way, by fermenting plant sugars with bacteria. MUIS lists it as doubtful because the fermentation medium and processing aids vary by manufacturer and are not identified by the E-number. A halal logo on the finished product is the reliable check."
     },
     {
       "E-Code": "E621",
@@ -3253,7 +3284,8 @@ const rawEcodeDatabase = [
       "origin": "Animal-derived",
       "isVegan": false,
       "isVegetarian": true,
-      "alternatives": ["carnauba wax (E903)", "candelilla wax (E902)", "rice bran wax"]
+      "alternatives": ["carnauba wax (E903)", "candelilla wax (E902)", "rice bran wax"],
+      "halalNotes": "Beeswax comes from honeycomb. Honey and beeswax themselves are permissible, but commercial beeswax glazes are often bleached and blended with other waxes or coatings, and processed with agents not identified by the E-number, which is why MUIS lists E901 as doubtful. It glazes sweets, coated nuts and fruit."
     },
     {
       "E-Code": "E903",
@@ -3266,7 +3298,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["candelilla wax (E902)", "beeswax (E901)", "rice bran wax"]
+      "alternatives": ["candelilla wax (E902)", "beeswax (E901)", "rice bran wax"],
+      "halalNotes": "Carnauba wax is harvested from the leaves of the Brazilian carnauba palm. It is plant-based and MUIS lists it as halal. It gives a glossy finish to sweets, chewing gum and coated fruit."
     },
     {
       "E-Code": "E904",
@@ -3438,7 +3471,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["acesulfame potassium (E950)", "sucralose (E955)", "stevia"]
+      "alternatives": ["acesulfame potassium (E950)", "sucralose (E955)", "stevia"],
+      "halalNotes": "Aspartame is made by joining two amino acids, phenylalanine and aspartic acid, which are produced by fermentation. The sweetener itself contains no animal material, but the fermentation medium and processing aids vary by manufacturer, so MUIS lists it as doubtful. Aspartame from the major producers is widely halal-certified."
     },
     {
       "E-Code": "E952",
@@ -3492,7 +3526,8 @@ const rawEcodeDatabase = [
       "origin": "Plant-based",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["sorbitol (E420)", "maltitol (E965)", "xylitol (E967)"]
+      "alternatives": ["sorbitol (E420)", "maltitol (E965)", "xylitol (E967)"],
+      "halalNotes": "Maltitol is made from starch that is broken down with enzymes and then hydrogenated. The starch is plant-based, but the enzymes used can be of microbial or animal origin and the E-number does not say which, so MUIS lists it as doubtful. Halal-certified maltitol uses microbial enzymes."
     },
     {
       "E-Code": "E967",
@@ -3753,7 +3788,8 @@ const rawEcodeDatabase = [
       "origin": "Microbial or Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["glycerol (E422)", "propylene glycol (E1520)", "water"]
+      "alternatives": ["glycerol (E422)", "propylene glycol (E1520)", "water"],
+      "halalNotes": "Ethanol is alcohol. As a food additive it is used in very small amounts as a carrier or solvent for flavourings and colours. Scholars differ on trace, non-intoxicating amounts of industrially produced ethanol, and MUIS lists E1510 as doubtful. If you avoid alcohol in any form, choose products without it or with a halal logo."
     },
     {
       "E-Code": "E1518",
@@ -3764,7 +3800,8 @@ const rawEcodeDatabase = [
       "detailedDescription": "Triacetin (glycerol triacetate) is the triester of glycerol and acetic acid, used as a humectant, plasticiser and flavour solvent. The MUIS doubtful classification reflects glycerol's potential animal or vegetable origin.",
       "commonFoods": ["chewing gum (humectant)", "flavour carrier in baked goods", "icing fillings", "pharmaceuticals"],
       "origin": "Plant-based or Animal-derived",
-      "alternatives": ["propylene glycol (E1520)", "glycerol (E422)", "triethyl citrate (E1505)"]
+      "alternatives": ["propylene glycol (E1520)", "glycerol (E422)", "triethyl citrate (E1505)"],
+      "halalNotes": "Triacetin is made by reacting glycerol with acetic acid. The glycerol can come from vegetable oils or animal fats, and the E-number does not say which, so MUIS lists it as doubtful. It is used as a solvent for flavourings and in chewing gum."
     },
     {
       "E-Code": "E1520",
@@ -3777,7 +3814,8 @@ const rawEcodeDatabase = [
       "origin": "Synthetic",
       "isVegan": true,
       "isVegetarian": true,
-      "alternatives": ["glycerol (E422)", "triacetin (E1518)", "sorbitol (E420)"]
+      "alternatives": ["glycerol (E422)", "triacetin (E1518)", "sorbitol (E420)"],
+      "halalNotes": "Propylene glycol is usually made from propylene, a petrochemical, but it can also be made from glycerol, which may be animal-derived. Because the route is not stated by the E-number, MUIS lists it as doubtful. It is used as a carrier for flavourings and colours and as a humectant."
     }
   ];
 

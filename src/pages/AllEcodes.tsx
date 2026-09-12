@@ -59,7 +59,7 @@ const AllEcodes: React.FC = () => {
         <div className="flex justify-start">
           <Button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
+            className="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white"
           >
             <Search className="h-4 w-4" />
             Search E-Codes
