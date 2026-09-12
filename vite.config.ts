@@ -26,15 +26,10 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (!id.includes('node_modules')) return undefined;
-          if (/node_modules\/(react|react-dom|react-router-dom|scheduler)\//.test(id)) return 'react-vendor';
-          if (id.includes('node_modules/@radix-ui/')) return 'ui-vendor';
-          if (id.includes('node_modules/react-helmet-async/')) return 'helmet';
-          if (id.includes('node_modules/lucide-react/')) return 'icons';
-          if (/node_modules\/(react-hook-form|@hookform)\//.test(id)) return 'forms';
-          return undefined;
-        },
+        // Rolldown (Vite 8) duplicated React into a separate chunk when a custom
+        // manualChunks function was used, which silently broke react-helmet-async
+        // in production (every page shipped the homepage <title>/canonical).
+        // Leave chunking to the bundler's defaults.
         assetFileNames: (assetInfo) => {
           const name = assetInfo.names?.[0] ?? (assetInfo as { name?: string }).name ?? '';
           if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico|webp)$/i.test(name)) {
